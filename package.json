@@ -1,4 +1,19 @@
 {
   "name": "rahin-project",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "dependencies": {
+    "axios": "^1.12.2",
+    "better-sqlite3": "^12.2.0",
+    "dayjs": "^1.11.18",
+    "dotenv": "^17.2.2",
+    "kavenegar": "^1.1.4",
+    "node-cron": "^4.2.1",
+    "openai": "^5.22.0",
+    "uuid": "^13.0.0",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.36.0",
+    "nodemon": "^3.1.10"
+  }
 }
