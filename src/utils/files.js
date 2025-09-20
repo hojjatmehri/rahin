@@ -1,0 +1,1 @@
+// readLinesSafe، readCodeSnippet

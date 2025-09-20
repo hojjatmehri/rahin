@@ -1,0 +1,1 @@
+// ensureMinimalSchema و PRAGMAها

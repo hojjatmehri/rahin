@@ -1,0 +1,1 @@
+// readCurrentSignature، readLastSignature، shouldProceed، saveSignature
