@@ -21,6 +21,7 @@ import { collectPDF } from "../collectors/pdfCollector.js";
 
 import { getDualInsights, ensurePersianJSON, postProcessTech } from "../ai/dualInsights.js";
 
+import { ensureAgencyNumbers } from "../db/agencyNumbers.js";
 
 import { buildManagementMessage, buildTechSummaryMessage, buildTechItemMessages } from "../message/messageBuilders.js";
 import { sanitizeForWhatsApp, chunkText } from "../message/sanitize.js";
@@ -116,6 +117,7 @@ function normalizeMobile(m) {
 // ================== زمان‌بندی ==================
 async function main() {
   await ensureMinimalSchema();
+  // await ensureAgencyNumbers(); 
   const ms = INTERVAL * 60 * 1000;
   console.log(`پایش دوره‌ای فعال شد: هر ${INTERVAL} دقیقه`);
   await runOnce(); // اجرای فوری

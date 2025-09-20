@@ -104,25 +104,58 @@ export async function upsertVisitorMobile(visitor_id, mobile, source = 'whatsapp
  * نیازمند جدول‌های: click_logs(visitor_id, target_url, click_type, clicked_at)
  */
 export async function enrichVisitorMobilesFromClicks() {
-  // بررسی وجود click_logs
   const tbl = await dbGet(`SELECT name FROM sqlite_master WHERE type='table' AND name='click_logs'`);
   if (!tbl) return 0;
 
   const rows = await dbAll(`
-    SELECT id, visitor_id, target_url, clicked_at
+    SELECT id, visitor_id, click_type, target_url, clicked_at
     FROM click_logs
-    WHERE click_type='whatsapp' AND target_url IS NOT NULL
+    WHERE target_url IS NOT NULL
   `);
 
   let inserted = 0;
   for (const r of rows || []) {
-    const mobile = extractMobileFromWhatsAppUrl(r.target_url);
-    if (!mobile || !r.visitor_id) continue;
-    await upsertVisitorMobile(r.visitor_id, mobile, 'whatsapp_click', 95);
+    // واتساپ را کاملاً رد کن (شماره شماست)
+    if (r.click_type === 'whatsapp') continue;
+
+    // اگر روزی لینک tel حاوی موبایل واقعی کاربر بود؛ اینجا استخراج و اعتبارسنجی کن
+    const mobile = extractMobileFromTelUrl(r.target_url);
+    if (!mobile) continue;
+
+    // اگر شماره در بلک‌لیست شماست، رد کن
+    if (isAgencyNumber(mobile)) continue;
+
+    if (!r.visitor_id) continue;
+
+    await upsertVisitorMobile(r.visitor_id, mobile, 'tel_click', 80);
     inserted++;
   }
   return inserted;
 }
+
+function extractMobileFromTelUrl(u = '') {
+  // مثال: tel:+98912..., tel:0912...
+  if (!u) return null;
+  let s = u.replace(/^tel:/i, '').replace(/[^\d+]/g, '');
+  s = s.replace(/^(\+98|0098)/, '98').replace(/^0/, '98');
+  // اعتبارسنجی موبایل ایران (98 + 10 رقم و پیش‌شماره‌های معتبر)
+  return isValidIranMobile(s) ? s : null;
+}
+
+function isValidIranMobile(msisdn = '') {
+  // 98 + (910..919 | 990..999 | 930..939 | 901..909 | 920..929 | 940..949 و ...)
+  return /^98(9\d{9})$/.test(msisdn);
+}
+
+const AGENCY_NUMBERS = new Set([
+  '989203136002', // واتساپ آژانس
+  // اگر شماره‌های دیگری دارید اضافه کنید
+]);
+
+function isAgencyNumber(msisdn) {
+  return AGENCY_NUMBERS.has(msisdn);
+}
+
 
 /* ---------------------------------------
    Optional: tiny self-test (run manually)
