@@ -6,7 +6,7 @@ import path from 'path';
 import { openai, waService } from '../config/Config.js';
 import env from '../config/env.js';
 import { get as dbGet, run as dbRun } from '../db/db.js';
-import { nowIso, todayYMD, t0, took } from '../utils/time.js';
+import { nowStamp, todayYMD, t0, took } from '../utils/time.js';
 import { readLinesSafe, readCodeSnippet } from '../utils/files.js';
 import { hashLine, normalizeMobile } from '../utils/normalizers.js';
 import { sanitizeForWhatsApp, chunkText } from '../message/sanitize.js';

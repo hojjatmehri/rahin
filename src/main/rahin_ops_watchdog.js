@@ -9,8 +9,8 @@
 
 import path from "path";
 import { CONFIG } from "../config/Config.js";
-import { nowIso, todayYMD } from "../utils/time.js";
-import { log } from "../logging/logger.js";
+import { nowStamp, todayYMD } from "../utils/time.js";
+import { info as log } from "../logging/logger.js";
 import { ensureMinimalSchema } from "../db/schemaGuard.js";
 import { shouldProceed, readCurrentSignature, readLastSignature, saveSignature } from "../guards/proceedGuard.js";
 
@@ -19,9 +19,8 @@ import { collectWhatsApp, whatsappClickInsightsShort } from "../collectors/whats
 import { collectInstagram } from "../collectors/instagramCollector.js";
 import { collectPDF } from "../collectors/pdfCollector.js";
 
-import { getDualInsights, ensurePersianJSON } from "../ai/dualInsights.js";
-import { injectMandatoryAutomationRule } from "../ai/dualInsights.js";
-import { dedupeTechAcrossSections, applyQualityFilters } from "../ai/dualInsights.js";
+import { getDualInsights, ensurePersianJSON, postProcessTech } from "../ai/dualInsights.js";
+
 
 import { buildManagementMessage, buildTechSummaryMessage, buildTechItemMessages } from "../message/messageBuilders.js";
 import { sanitizeForWhatsApp, chunkText } from "../message/sanitize.js";
@@ -43,7 +42,7 @@ async function runOnce() {
   const decision = shouldProceed(currSig, lastSig, 0.10);
 
   if (!decision.pass) {
-    log(`[${nowIso()}] skipped: no significant change`);
+    log(`[${nowStamp()}] skipped: no significant change`);
     return;
   }
 
@@ -62,9 +61,8 @@ async function runOnce() {
   try {
     const { data, latency, tokensIn, tokensOut } = await getDualInsights(input);
     let faData = await ensurePersianJSON(data);
-    faData.tech = injectMandatoryAutomationRule(faData.tech || {});
-    faData.tech = dedupeTechAcrossSections(faData.tech || {});
-    faData.tech = applyQualityFilters(faData.tech || {});
+    faData.tech = postProcessTech(faData.tech || {});
+
 
     // ذخیره تحلیل در DB
     await CONFIG.db.run(
@@ -72,7 +70,7 @@ async function runOnce() {
         (created_at, run_key, period_date, metrics_json, mgmt_json, tech_json, model, tokens_in, tokens_out, latency_ms, error)
       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL)`,
       [
-        nowIso(),
+        nowStamp(),
         runKey,
         input.period.date,
         JSON.stringify(input),
@@ -98,10 +96,10 @@ async function runOnce() {
     }
 
     await saveSignature(currSig);
-    log(`[${nowIso()}] ✓ run=${runKey} sent`);
+    log(`[${nowStamp()}] ✓ run=${runKey} sent`);
 
   } catch (e) {
-    log(`[${nowIso()}] run=${runKey} ERROR=${e.message}`);
+    log(`[${nowStamp()}] run=${runKey} ERROR=${e.message}`);
   }
 }
 

@@ -1,11 +1,6 @@
 -- 010_watchdog_core.sql
 -- جداول مخصوص واچ‌داگ + KPI + لاگ ارسال
 
-PRAGMA journal_mode = WAL;
-PRAGMA foreign_keys = ON;
-
-BEGIN;
-
 -- خروجی تحلیل دوگانه (مدیریتی/فنی)
 CREATE TABLE IF NOT EXISTS rahin_dual_insights (
   id           INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -72,3 +67,18 @@ CREATE TABLE IF NOT EXISTS rahin_sent_log (
   created_at TEXT DEFAULT (datetime('now')),
   UNIQUE(run_key, channel, to_number)
 );
+
+-- SEED اختیاری: baseline امروز اگر خالی است
+INSERT INTO rahin_kpi_snapshots (
+  created_at, day,
+  tx_today_cnt, tx_7d_cnt, tx_7d_sell_sum,
+  wa_today_cnt, wa_7d_cnt,
+  ig_today_cnt, ig_7d_cnt,
+  pdf_today_cnt, pdf_7d_cnt,
+  tx_last_ts, wa_last_ts, ig_last_ts, pdf_last_ts
+)
+SELECT
+  datetime('now','localtime'), date('now','localtime'),
+  0, 0, 0, 0, 0, 0, 0, 0, 0,
+  NULL, NULL, NULL, NULL
+WHERE NOT EXISTS (SELECT 1 FROM rahin_kpi_snapshots WHERE day = date('now','localtime'));
