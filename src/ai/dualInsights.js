@@ -15,6 +15,8 @@ import {
 const MODEL = env.RAHIN_MODEL || 'gpt-4o';
 const TEMPERATURE = 0.2;
 const MAX_TOKENS = 1600; // متناسب با اندازهٔ خروجی JSON هدف
+// اگر RAHIN_FORCE_FA=1 باشد، حتی اگر انگلیسی تشخیص داده نشود هم فارسی‌سازی اجرا می‌شود
+const FORCE_FA = String(env.RAHIN_FORCE_FA || '1') === '1';
 
 /* ---------------------------------------
    اسکیمای مورد انتظار (برای راهنمایی مدل)
@@ -216,7 +218,7 @@ function unmaskCodeSnippets(obj, stash) {
    — ایمن برای کدها
 --------------------------------------- */
 export async function ensurePersianJSON(jsonObj) {
-  if (!objectHasEnglish(jsonObj)) return jsonObj;
+  if (!FORCE_FA && !objectHasEnglish(jsonObj)) return jsonObj;
 
   const { clone, stash } = maskCodeSnippets(jsonObj);
 
