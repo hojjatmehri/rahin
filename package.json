@@ -12,6 +12,7 @@
     "google-auth-library": "^10.3.0",
     "google-spreadsheet": "^5.0.2",
     "kavenegar": "^1.1.4",
+    "moment-timezone": "^0.5.48",
     "node-cron": "^4.2.1",
     "openai": "^5.22.0",
     "sqlite3": "^5.1.7",
