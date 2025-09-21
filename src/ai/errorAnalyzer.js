@@ -29,13 +29,14 @@ function todayLogFile(ymd = todayYMD()) {
 
 function ymdOf(d) { return d.toISOString().slice(0, 10); }
 
-// [YYYY-MM-DD HH:mm:ss] [LEVEL] ...
+// انعطاف بیشتر در تشخیص تایم‌استمپ: [YYYY-MM-DD HH:mm:ss], [YYYY-MM-DDTHH:mm:ss.mmmZ], ...
 function parseFileTimestamp(line = '') {
-  const m = line.match(/^\[(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\]/);
+  const m = line.match(/^\[(\d{4}-\d{2}-\d{2})[ T](\d{2}:\d{2}:\d{2})(?:[.,](\d{1,3}))?(?:Z|([+\-]\d{2}:\d{2}))?\]/);
   if (!m) return null;
-  const t = m[1].replace(' ', 'T');
-  const ms = Date.parse(t);
-  return Number.isNaN(ms) ? null : new Date(ms);
+  const d = m[1], h = m[2], ms = m[3] || '000', tz = m[4] || '';
+  const iso = `${d}T${h}.${ms}${tz}`;
+  const t = Date.parse(iso);
+  return Number.isNaN(t) ? null : new Date(t);
 }
 
 export function scanRecentLogWindow(minutes = 70) {
@@ -79,59 +80,50 @@ export function splitErrorsWithContext(windowLines) {
  * - از stack=... در انتهای خط استفاده می‌کند اگر باشد
  * - در غیر اینصورت از قطعه‌های مانند file.js:123
  */
-// قبلی را حذف/کامنت کنید و این دو تابع را بگذارید:
+
+// الگوهای بدون نام‌گروه؛ پایدار در Node/Babel
+const RE_AT_LINE =
+  /\bat\s+(?:[^(]*\()?(?:file:\/\/\/)?([A-Za-z]:[\\\/][^:\s)]+|\/[^:\s)]+|\.\.?[\\\/][^:\s)]+)\.(js|mjs|cjs|ts|tsx|jsx):(\d+)(?::\d+)?\)?/;
+const RE_ANYWHERE =
+  /(?:file:\/\/\/)?([A-Za-z]:[\\\/][^:\s)]+|\/[^:\s)]+|\.\.?[\\\/][^:\s)]+)\.(js|mjs|cjs|ts|tsx|jsx):(\d+)/;
 
 function matchLocationInLine(line = '') {
   if (!line) return null;
 
-  // نمونه‌ها:
-  //  at C:\path\to\file.js:123:45
-  //  at /usr/src/app/file.ts:78:10
-  //  at file:///C:/proj/src/file.mjs:56:3
-  //  ... file.jsx:42
-  const re =
-    `/\bat\s+(?:[^(]*\()?(?:file:\/\/\/)?(?<full>(?:[A-Za-z]:[\\\/][^:\s)]+|\/[^:\s)]+|\.\.?[\\\/][^:\s)]+)\.(?<ext>js|mjs|cjs|ts|tsx|jsx)):(?<line>\d+)(?::\d+)?\)?/`
-    ;
-  const m1 = line.match(re);
-  if (m1?.groups?.full && m1?.groups?.line) {
-    return {
-      filePath: path.resolve(m1.groups.full + '.' + m1.groups.ext),
-      lineNo: Number(m1.groups.line),
-    };
+  // حالت رایج: "at ... file.ext:line:col"
+  const m1 = line.match(RE_AT_LINE);
+  if (m1) {
+    const base = `${m1[1]}.${m1[2]}`;
+    return { filePath: path.resolve(base), lineNo: Number(m1[3]) };
   }
 
-  // fallback عمومی‌تر (هر جای خط)
-  const re2 =
-    `/(file:\/\/\/)?(?<full>(?:[A-Za-z]:[\\\/][^:\s)]+|\/[^:\s)]+|\.\.?[\\\/][^:\s)]+)\.(?<ext>js|mjs|cjs|ts|tsx|jsx):(?<line>\d+)/`;
-  const m2 = line.match(re2);
-  if (m2?.groups?.full && m2?.groups?.line) {
-    return {
-      filePath: path.resolve(m2.groups.full + '.' + m2.groups.ext),
-      lineNo: Number(m2.groups.line),
-    };
+  // فول‌بک: هرجای خط
+  const m2 = line.match(RE_ANYWHERE);
+  if (m2) {
+    const base = `${m2[1]}.${m2[2]}`;
+    return { filePath: path.resolve(base), lineNo: Number(m2[3]) };
   }
 
   return null;
 }
 
 export function extractFromErrorLine(line = '', context = []) {
-  // 1) اگر stack=... در خط هست، اول از آن بخوان
+  // اگر stack=... در خط هست، اول از آن بخوان
   const stackPart = line.match(/stack=(.*)$/);
   const stackText = stackPart ? stackPart[1] : '';
 
   let loc = matchLocationInLine(stackText) || matchLocationInLine(line);
   if (loc) return loc;
 
-  // 2) از کانتکست (۲۰ خط قبل/۱۰ بعد) هم جست‌وجو کن
+  // از کانتکست (۲۰ خط قبل/۱۰ بعد) هم جست‌وجو کن
   for (const c of context || []) {
     loc = matchLocationInLine(c.line);
     if (loc) return loc;
   }
 
-  // 3) نشد → nullها
+  // نشد → nullها
   return { filePath: null, lineNo: null };
 }
-
 
 /**
  * استخراج ورودی‌های احتمالی از متن خط (context= {...} و args= ...)
@@ -180,7 +172,7 @@ export async function analyzeErrorWithAI(err, context, filePath, lineNo) {
 ${err.line}
 
 [فایل/لاین]
-${filePath || '-'}${lineNo ? ':' + lineNo : ''}
+${filePath || '-'}${Number.isFinite(lineNo) ? ':' + lineNo : ''}
 
 [ورودی‌های یافت‌شده]
 ${inputs.length ? JSON.stringify(inputs, null, 2) : 'یافت نشد'}
@@ -221,11 +213,12 @@ async function sendErrorSummaryWhatsApp({ toRaw, filePath, lineNo, ai, date }) {
   const to = normalizeMobile(toRaw) || toRaw; // اگر گروه باشد هم کار کند
 
   const msg =
-    `🔎 خطای اخیر ${(filePath ? path.basename(filePath) : 'نامشخص')}${lineNo ? ':' + lineNo : ''}\n` +
+    `خلاصه خطا ${(filePath ? path.basename(filePath) : 'نامشخص')}${Number.isFinite(lineNo) ? ':' + lineNo : ''}\n` +
     `— خلاصه: ${ai?.data?.short_summary || 'نامشخص'}\n` +
     (ai?.data?.root_cause ? `— ریشه: ${ai.data.root_cause}\n` : '') +
     (Array.isArray(ai?.data?.fix_steps) && ai.data.fix_steps.length
-      ? `— گام‌ها: ${ai.data.fix_steps.slice(0, 3).join(' • ')}` : '');
+      ? `— گام‌ها: ${ai.data.fix_steps.slice(0, 3).join(' • ')}`
+      : '');
 
   const parts = chunkText(sanitizeForWhatsApp(msg), 1200);
   for (const p of parts) {
@@ -287,7 +280,10 @@ export async function processRecentErrors(options = {}) {
 
     // 3-ب) مکان فایل/لاین
     const tExtract = t0();
-    const { filePath, lineNo } = extractFromErrorLine(err.line, context);
+    const loc = extractFromErrorLine(err.line, context);
+    const filePath = loc?.filePath || null;
+    const lineNo = Number.isFinite(loc?.lineNo) ? Number(loc.lineNo) : null;
+
     if (!filePath || !Number.isFinite(lineNo)) {
       logger.warn('مکان خطا نامشخص بود؛ از fallback استفاده شد', {
         stepId,
@@ -301,9 +297,10 @@ export async function processRecentErrors(options = {}) {
     logger.info('مکان خطا استخراج شد', {
       stepId,
       file: filePath || '-',
-      line: lineNo || '-',
+      line: Number.isFinite(lineNo) ? lineNo : '-',
       took: took(Date.now() - tExtract)
     });
+
     // 3-پ) تحلیل با AI
     const tAi = t0();
     let ai;
@@ -338,7 +335,12 @@ export async function processRecentErrors(options = {}) {
         ai?.tokensIn || 0,
         ai?.tokensOut || 0,
       ]);
-      logger.info('ذخیره rahin_error_insights انجام شد', { stepId, filePath: filePath || err.file || '-', lineNo: Number.isFinite(lineNo) ? lineNo : -1, took: took(Date.now() - tDb) });
+      logger.info('ذخیره rahin_error_insights انجام شد', {
+        stepId,
+        filePath: filePath || err.file || '-',
+        lineNo: Number.isFinite(lineNo) ? lineNo : -1,
+        took: took(Date.now() - tDb)
+      });
     } catch (e) {
       logger.error('خطا در ذخیره rahin_error_insights', { stepId, error: e?.message });
     }
