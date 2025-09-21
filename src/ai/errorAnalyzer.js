@@ -79,24 +79,59 @@ export function splitErrorsWithContext(windowLines) {
  * - از stack=... در انتهای خط استفاده می‌کند اگر باشد
  * - در غیر اینصورت از قطعه‌های مانند file.js:123
  */
-export function extractFromErrorLine(line = '') {
-  // stack=...
+// قبلی را حذف/کامنت کنید و این دو تابع را بگذارید:
+
+function matchLocationInLine(line = '') {
+  if (!line) return null;
+
+  // نمونه‌ها:
+  //  at C:\path\to\file.js:123:45
+  //  at /usr/src/app/file.ts:78:10
+  //  at file:///C:/proj/src/file.mjs:56:3
+  //  ... file.jsx:42
+  const re =
+    `/\bat\s+(?:[^(]*\()?(?:file:\/\/\/)?(?<full>(?:[A-Za-z]:[\\\/][^:\s)]+|\/[^:\s)]+|\.\.?[\\\/][^:\s)]+)\.(?<ext>js|mjs|cjs|ts|tsx|jsx)):(?<line>\d+)(?::\d+)?\)?/`
+    ;
+  const m1 = line.match(re);
+  if (m1?.groups?.full && m1?.groups?.line) {
+    return {
+      filePath: path.resolve(m1.groups.full + '.' + m1.groups.ext),
+      lineNo: Number(m1.groups.line),
+    };
+  }
+
+  // fallback عمومی‌تر (هر جای خط)
+  const re2 =
+    `/(file:\/\/\/)?(?<full>(?:[A-Za-z]:[\\\/][^:\s)]+|\/[^:\s)]+|\.\.?[\\\/][^:\s)]+)\.(?<ext>js|mjs|cjs|ts|tsx|jsx):(?<line>\d+)/`;
+  const m2 = line.match(re2);
+  if (m2?.groups?.full && m2?.groups?.line) {
+    return {
+      filePath: path.resolve(m2.groups.full + '.' + m2.groups.ext),
+      lineNo: Number(m2.groups.line),
+    };
+  }
+
+  return null;
+}
+
+export function extractFromErrorLine(line = '', context = []) {
+  // 1) اگر stack=... در خط هست، اول از آن بخوان
   const stackPart = line.match(/stack=(.*)$/);
   const stackText = stackPart ? stackPart[1] : '';
 
-  // الگو: at /path/file.js:123:45  یا at C:\path\file.js:123:45
-  const stackMatch = stackText.match(/\bat\s+(?:[^(]*\()?(.*?\.js):(\d+):\d+\)?/);
-  if (stackMatch) {
-    return { filePath: path.resolve(stackMatch[1]), lineNo: Number(stackMatch[2]) };
+  let loc = matchLocationInLine(stackText) || matchLocationInLine(line);
+  if (loc) return loc;
+
+  // 2) از کانتکست (۲۰ خط قبل/۱۰ بعد) هم جست‌وجو کن
+  for (const c of context || []) {
+    loc = matchLocationInLine(c.line);
+    if (loc) return loc;
   }
 
-  // fallback: هر کجای متن که ...file.js:123 دیده شود
-  const locMatch = line.match(/([A-Za-z]:[\\/][\w.\-\\/]+\.js|\.\.?[\\/][\w.\-\\/]+\.js|[\\/][\w.\-\\/]+\.js):(\d+)/);
-  if (locMatch) {
-    return { filePath: path.resolve(locMatch[1]), lineNo: Number(locMatch[2]) };
-  }
+  // 3) نشد → nullها
   return { filePath: null, lineNo: null };
 }
+
 
 /**
  * استخراج ورودی‌های احتمالی از متن خط (context= {...} و args= ...)
@@ -252,9 +287,23 @@ export async function processRecentErrors(options = {}) {
 
     // 3-ب) مکان فایل/لاین
     const tExtract = t0();
-    const { filePath, lineNo } = extractFromErrorLine(err.line);
-    logger.info('مکان خطا استخراج شد', { stepId, file: filePath || '-', line: lineNo || '-', took: took(Date.now() - tExtract) });
+    const { filePath, lineNo } = extractFromErrorLine(err.line, context);
+    if (!filePath || !Number.isFinite(lineNo)) {
+      logger.warn('مکان خطا نامشخص بود؛ از fallback استفاده شد', {
+        stepId,
+        extracted_file: filePath || null,
+        extracted_line: lineNo ?? null,
+        fallback_file: err.file || null,
+        sample: err.line?.slice(0, 200)
+      });
+    }
 
+    logger.info('مکان خطا استخراج شد', {
+      stepId,
+      file: filePath || '-',
+      line: lineNo || '-',
+      took: took(Date.now() - tExtract)
+    });
     // 3-پ) تحلیل با AI
     const tAi = t0();
     let ai;
@@ -275,15 +324,21 @@ export async function processRecentErrors(options = {}) {
         VALUES
           (datetime('now','localtime'), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
       `, [
-        err.file, err.ts.toISOString(), err.line,
-        filePath, lineNo || null,
-        ai?.data?.short_summary || '', ai?.data?.root_cause || '',
+        err.file,
+        err.ts.toISOString(),
+        err.line,
+        // Fallbackها: اگر پیدا نشد، حداقل چیزی ذخیره شود
+        filePath || err.file || '-',
+        Number.isFinite(lineNo) ? lineNo : -1,
+        ai?.data?.short_summary || '',
+        ai?.data?.root_cause || '',
         Array.isArray(ai?.data?.fix_steps) ? ai.data.fix_steps.join(' | ') : '',
         ai?.data?.code_patch || '',
         MODEL,
-        ai?.tokensIn || 0, ai?.tokensOut || 0,
+        ai?.tokensIn || 0,
+        ai?.tokensOut || 0,
       ]);
-      logger.info('ذخیره rahin_error_insights انجام شد', { stepId, took: took(Date.now() - tDb) });
+      logger.info('ذخیره rahin_error_insights انجام شد', { stepId, filePath: filePath || err.file || '-', lineNo: Number.isFinite(lineNo) ? lineNo : -1, took: took(Date.now() - tDb) });
     } catch (e) {
       logger.error('خطا در ذخیره rahin_error_insights', { stepId, error: e?.message });
     }
