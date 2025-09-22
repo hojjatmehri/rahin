@@ -11,12 +11,12 @@ import { pathToFileURL } from 'url';
 const LOG_NS = 'enrichVisitorFromClicks';
 const LOG_LEVELS = { error: 0, warn: 1, info: 2, debug: 3 };
 const ENV_LEVEL = process.env.ENRICH_LOG_LEVEL || 'info';
-const ENV_DEBUG = ['1','true','yes','on'].includes(String(process.env.ENRICH_DEBUG || '').toLowerCase());
+const ENV_DEBUG = ['1', 'true', 'yes', 'on'].includes(String(process.env.ENRICH_DEBUG || '').toLowerCase());
 let CURRENT_LEVEL = LOG_LEVELS[ENV_LEVEL] ?? LOG_LEVELS.info;
 
 function tzNow() { return moment().tz('Asia/Tehran').format('YYYY-MM-DD HH:mm:ss'); }
 function log(level, ...args) { if ((LOG_LEVELS[level] ?? 99) > CURRENT_LEVEL) return; console.log(`[${tzNow()}] [${LOG_NS}] [${level.toUpperCase()}]`, ...args); }
-const logger = { error: (...a)=>log('error',...a), warn:(...a)=>log('warn',...a), info:(...a)=>log('info',...a), debug:(...a)=>log('debug',...a) };
+const logger = { error: (...a) => log('error', ...a), warn: (...a) => log('warn', ...a), info: (...a) => log('info', ...a), debug: (...a) => log('debug', ...a) };
 
 logger.info('MODULE LOADED', {
   ENRICH_LOG_LEVEL: process.env.ENRICH_LOG_LEVEL || 'info',
@@ -48,16 +48,56 @@ export function normalizeMobile(m) {
   const digits = String(m || '').replace(/[^\d]/g, '');
   if (!digits) return null;
   if (digits.startsWith('98')) return digits;
-  if (digits.startsWith('0'))  return '98' + digits.slice(1);
-  if (digits.startsWith('9'))  return '98' + digits;
+  if (digits.startsWith('0')) return '98' + digits.slice(1);
+  if (digits.startsWith('9')) return '98' + digits;
   return digits;
 }
 function isValidIranMobile(msisdn = '') { return /^98(9\d{9})$/.test(msisdn); }
+function utcWindowFromTehran(timeStr, windowSec) {
+  // clicked_at شبیه 'YYYY-MM-DD HH:mm:ss' و محلی تهران است
+  const baseTeh = moment.tz(timeStr, 'Asia/Tehran');
+  if (!baseTeh.isValid()) return null;
 
+  const utcStart = baseTeh.clone().subtract(windowSec, 'seconds').tz('UTC');
+  const utcEnd   = baseTeh.clone().add(windowSec, 'seconds').tz('UTC');
+
+  // ttime از نوع ISO8601 با Z است، ما هم ISO با Z می‌دهیم
+  const toIsoZ = m => m.toISOString().replace(/\.\d{3}Z$/, 'Z');
+
+  return { utcStart: toIsoZ(utcStart), utcEnd: toIsoZ(utcEnd) };
+}
 function extractAnyIranMobileFromString(s = '') {
   const m = String(s).match(/(?:\+?98|0098|0)?9\d{9}/);
   return m ? normalizeMobile(m[0]) : null;
 }
+// جایگزین tehranRangeAround با این تابع
+function buildWindows(timeStr, windowSec) {
+  // timeStr معمولاً مثل 'YYYY-MM-DD HH:mm:ss' و «محلی تهران» است
+  // اگر Z یا آفست داشت، خود moment تشخیص می‌دهد
+  let base = moment.tz(timeStr, 'Asia/Tehran');
+  if (/[zZ]$/.test(String(timeStr)) || /[+-]\d{2}:\d{2}$/.test(String(timeStr))) {
+    base = moment(timeStr).tz('Asia/Tehran');
+  }
+  if (!base.isValid()) return null;
+
+  const localStart = base.clone().subtract(windowSec, 'seconds');
+  const localEnd = base.clone().add(windowSec, 'seconds');
+  const utcStart = localStart.clone().tz('UTC');
+  const utcEnd = localEnd.clone().tz('UTC');
+
+  return {
+    local: {
+      start: localStart.format('YYYY-MM-DD HH:mm:ss'),
+      end: localEnd.format('YYYY-MM-DD HH:mm:ss'),
+    },
+    utc: {
+      // چون فیلد ttime قالب ISO با Z دارد، بهتره به ISO-UTC بدهیم
+      start: utcStart.toISOString().replace(/\.\d{3}Z$/, 'Z'),
+      end: utcEnd.toISOString().replace(/\.\d{3}Z$/, 'Z'),
+    }
+  };
+}
+
 
 export function extractMobileFromWhatsAppUrl(u = '') {
   try {
@@ -157,7 +197,7 @@ function tehranRangeAround(timeStr, windowSec) {
   if (!base.isValid()) return null;
   return {
     start: base.clone().subtract(windowSec, 'seconds').format('YYYY-MM-DD HH:mm:ss'),
-    end:   base.clone().add(windowSec, 'seconds').format('YYYY-MM-DD HH:mm:ss'),
+    end: base.clone().add(windowSec, 'seconds').format('YYYY-MM-DD HH:mm:ss'),
   };
 }
 
@@ -173,7 +213,7 @@ export async function enrichFromWhatsappClicksAndInboxCorrelation({
   limit = 5000,
   dryRun = false
 } = {}) {
-  if (debug) CURRENT_LEVEL = LOG_LEVELS['debug'];
+  if (debug) CURRENT_LEVEL = LOG_LEVELS.debug;
   logger.info('==== WHATSAPP CORRELATION START ====', { windowSec, debug, dryRun });
 
   const metrics = {
@@ -185,6 +225,7 @@ export async function enrichFromWhatsappClicksAndInboxCorrelation({
     noInboxInWindow: 0,
     schemaErrors: 0,
     errors: 0,
+    utcMatches: 0
   };
 
   try {
@@ -203,7 +244,11 @@ export async function enrichFromWhatsappClicksAndInboxCorrelation({
       SELECT c.id, c.visitor_id, c.click_type, c.target_url, c.clicked_at
       FROM click_logs c
       WHERE c.target_url IS NOT NULL
-        AND (LOWER(c.click_type) LIKE '%whatsapp%' OR c.target_url LIKE '%wa.me%' OR c.target_url LIKE '%whatsapp.com%')
+        AND (
+          LOWER(c.click_type) LIKE '%whatsapp%'
+          OR c.target_url LIKE '%wa.me%'
+          OR c.target_url LIKE '%whatsapp.com%'
+        )
       ORDER BY c.clicked_at DESC
       LIMIT ?
     `, [limit]);
@@ -216,32 +261,38 @@ export async function enrichFromWhatsappClicksAndInboxCorrelation({
         if (!c.visitor_id) continue;
 
         const rawUrl = sanitizeUrl(String(c.target_url || ''));
-        const range = tehranRangeAround(String(c.clicked_at || ''), windowSec);
-        if (!range) {
+
+        // 1) بازهٔ UTC بر اساس clicked_at (تهران)
+        const win = utcWindowFromTehran(String(c.clicked_at || ''), windowSec);
+        if (!win) {
           logger.debug('click skipped: invalid clicked_at', { id: c.id, clicked_at: c.clicked_at });
           continue;
         }
 
-        // پیام‌های ورودی در بازهٔ زمانی (created_at محلی)
+        // 2) فقط بر اساس ttime (UTC) فیلتر کن
         const inboxRows = await dbAll(`
-          SELECT id, ffrom, tto, fromMe, created_at, ttime
+          SELECT id, ffrom, tto, fromMe, ttime
           FROM whatsapp_new_msg
           WHERE fromMe = 0
-            AND created_at BETWEEN ? AND ?
-        `, [range.start, range.end]);
+            AND ttime IS NOT NULL
+            AND ttime BETWEEN ? AND ?
+        `, [win.utcStart, win.utcEnd]);
 
         metrics.inboxChecked += inboxRows.length;
 
         if (!inboxRows.length) {
           metrics.noInboxInWindow++;
-          logger.debug('no inbox in window', { click_id: c.id, range });
+          logger.debug('no inbox in window', { click_id: c.id, utcRange: win });
           continue;
         }
 
+        let matchedAny = false;
+
+        // 3) پردازش نتایج
         for (const m of inboxRows) {
           const inboxId = m.id;
-          const msisdn = stripCUs(m.ffrom); // شماره کاربر
-          const toMsisdn = stripCUs(m.tto);  // باید شماره آژانس باشد
+          const msisdn = stripCUs(m.ffrom);   // شماره کاربر
+          const toMsisdn = stripCUs(m.tto);   // باید شماره آژانس باشد
 
           if (!isValidIranMobile(msisdn)) {
             logger.debug('inbox row: invalid ffrom', { inboxId, ffrom: m.ffrom });
@@ -251,41 +302,58 @@ export async function enrichFromWhatsappClicksAndInboxCorrelation({
             logger.debug('inbox row: ffrom is agency (skip)', { inboxId, msisdn });
             continue;
           }
-          // (اختیاری) اگر tto وجود دارد و آژانس نبود، می‌تونیم رد کنیم
+          // اگر tto موجود است و آژانس نیست، رد کن
           if (toMsisdn && !isAgencyNumber(toMsisdn)) {
             logger.debug('inbox row: tto is not agency (skip)', { inboxId, toMsisdn });
             continue;
           }
 
           // آیا قبلاً این جفت ذخیره شده؟
-          const already = await dbGet(`
-            SELECT 1 FROM whatsapp_click_inbox_matches WHERE click_id = ? AND inbox_id = ?
-          `, [c.id, inboxId]);
-
+          const already = await dbGet(
+            `SELECT 1 FROM whatsapp_click_inbox_matches WHERE click_id = ? AND inbox_id = ?`,
+            [c.id, inboxId]
+          );
           if (already) {
             metrics.alreadyMatched++;
             continue;
           }
 
+          // زمان محلی برای لاگ (از ttime محاسبه می‌کنیم)
+          const createdLocal = m.ttime
+            ? moment.utc(m.ttime).tz('Asia/Tehran').format('YYYY-MM-DD HH:mm:ss')
+            : null;
+
           logger.info('MATCHED', {
             click_id: c.id,
             visitor_id: c.visitor_id,
-            clicked_at: c.clicked_at,
+            clicked_at_tehran: c.clicked_at,
             inbox_id: inboxId,
-            inbox_created_at: m.created_at,
+            inbox_created_at_local: createdLocal,
+            inbox_created_at_utc: m.ttime,
             user_msisdn: msisdn,
             url: rawUrl,
+            matched_by: 'utc'
           });
 
           if (!dryRun) {
             await upsertVisitorMobile(c.visitor_id, msisdn, 'whatsapp_inbox_match', 99);
-            await dbRun(`INSERT OR IGNORE INTO whatsapp_click_inbox_matches (click_id, inbox_id) VALUES (?, ?)`, [c.id, inboxId]);
+            await dbRun(
+              `INSERT OR IGNORE INTO whatsapp_click_inbox_matches (click_id, inbox_id) VALUES (?, ?)`,
+              [c.id, inboxId]
+            );
             metrics.upserted++;
           }
 
+          metrics.utcMatches++;
           metrics.matchedPairs++;
-          // اگر لازم نیست چندتا پیام را برای یک کلیک بخوانیم، می‌توانیم break کنیم
+          matchedAny = true;
+
+          // اگر فقط اولین match به ازای هر کلیک کافی است، این را فعال کن:
           // break;
+        }
+
+        if (!matchedAny) {
+          logger.debug('no new pairs to insert (all already matched?)', { click_id: c.id, utcRange: win });
         }
       } catch (rowErr) {
         metrics.errors++;
@@ -295,13 +363,13 @@ export async function enrichFromWhatsappClicksAndInboxCorrelation({
 
     logger.info('==== WHATSAPP CORRELATION END ====', { metrics });
     return { ok: true, metrics };
-
   } catch (e) {
     metrics.errors++;
     logger.error('FATAL in whatsapp correlation', e?.message || e);
     return { ok: false, reason: 'fatal', metrics };
   }
 }
+
 
 /* ---------------------------------------
    Direct extractor (fallback): tel/wa links
@@ -351,11 +419,11 @@ export async function enrichVisitorMobilesFromClicks({ debug = ENV_DEBUG, dryRun
 
         const type = String(r.click_type || '').toLowerCase();
         const isWhatsAppType = type.includes('whatsapp') || /wa\.me|whatsapp\.com/i.test(url);
-        const isTelType      = type.includes('tel') || type.includes('call') || /^tel:/i.test(url);
+        const isTelType = type.includes('tel') || type.includes('call') || /^tel:/i.test(url);
 
-        if (isTelType)        metrics.telType++;
+        if (isTelType) metrics.telType++;
         else if (isWhatsAppType) metrics.whatsappType++;
-        else                  metrics.unknownType++;
+        else metrics.unknownType++;
 
         let mobile = null;
         if (isTelType) {
@@ -402,7 +470,7 @@ export async function enrichVisitorMobilesFromClicks({ debug = ENV_DEBUG, dryRun
    Auto-run logic (Windows-friendly)
 --------------------------------------- */
 const isDirect = !!(process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href);
-const truthy = v => ['1','true','yes','on'].includes(String(v || '').toLowerCase());
+const truthy = v => ['1', 'true', 'yes', 'on'].includes(String(v || '').toLowerCase());
 const shouldAutorun = isDirect || truthy(process.env.ENRICH_RUN_ON_STARTUP);
 
 if (shouldAutorun && !globalThis.__ENRICH_ALREADY_RAN__) {
