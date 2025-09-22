@@ -78,7 +78,7 @@ const env = {
 
   // کلیدها و سرویس‌ها (مطابق داده‌های شما)
   NOVINHUB_API_KEY: safe(() => asString(process.env.NOVINHUB_API_KEY, { name: 'NOVINHUB_API_KEY' })),
-  DIDAR_API_KEY: safe(() => asString(process.env.DIDAR_API_KEY, { name: 'DIDAR_API_KEY' })),
+  DIDAR_API_KEY: safe(() => asString(process.env.DIDAR_API_KEY, { name: 'gwjwiso8f78l0ohwqx4hm65ft2f9j4zv' })),
   KAVENEGAR_API_KEY: safe(() => asString(process.env.KAVENEGAR_API_KEY, { name: 'KAVENEGAR_API_KEY' })),
   ULTRAMSG_INSTANCE_ID: safe(() => asString(process.env.ULTRAMSG_INSTANCE_ID, { name: 'ULTRAMSG_INSTANCE_ID', required: true })),
   ULTRAMSG_TOKEN: safe(() => asString(process.env.ULTRAMSG_TOKEN, { name: 'ULTRAMSG_TOKEN', required: true })),
