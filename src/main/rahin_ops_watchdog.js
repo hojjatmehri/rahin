@@ -22,7 +22,7 @@ import { collectPDF } from "../collectors/pdfCollector.js";
 
 import { getDualInsights, ensurePersianJSON, postProcessTech } from "../ai/dualInsights.js";
 import { buildManagementMessage, buildTechSummaryMessage } from "../message/messageBuilders.js";
-import { sanitizeForWhatsApp, chunkText } from "../message/sanitize.js";
+import { sanitizeForWhatsApp, chunkText, forcePersianText } from "../message/sanitize.js";
 import { processRecentErrors } from "../ai/errorAnalyzer.js";
 import { enrichVisitorMobilesFromClicks } from "../clicks/enrichVisitorFromClicks.js";
 
@@ -154,8 +154,13 @@ async function runOnce() {
 
     // واتساپ: ارسال گزارش
     const to = normalizeMobile(DEST_MOBILE_RAW);
-    const mgmtMsg = buildManagementMessage(runKey, input.period.date, faData.management);
-    const techSummary = buildTechSummaryMessage(runKey, input.period.date, faData.tech);
+    // const mgmtMsg = buildManagementMessage(runKey, input.period.date, faData.management);
+    // const techSummary = buildTechSummaryMessage(runKey, input.period.date, faData.tech);
+    let mgmtMsg = buildManagementMessage(runKey, input.period.date, faData.management);
+    let techSummary = buildTechSummaryMessage(runKey, input.period.date, faData.tech);
+
+    mgmtMsg = await forcePersianText(mgmtMsg);
+    techSummary = await forcePersianText(techSummary);
 
     for (const msg of [mgmtMsg, techSummary]) {
       for (const part of chunkText(sanitizeForWhatsApp(msg), 1200)) {

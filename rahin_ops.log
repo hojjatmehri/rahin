@@ -623,3 +623,10 @@
 [2025-09-24 13:08:40] [INFO] خواندن لاگ‌ها {"found":50,"took":"7ms"}
 [2025-09-24 13:08:40] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"1ms"}
 [2025-09-24 13:08:40] [INFO] پایان اسکن خطاها {"traceId":"scan-1758706720809","scanned":50,"bundles":0,"handled":0,"sent":0,"total":"41ms"}
+[2025-09-24 13:09:38] [INFO] [2025-09-24 13:09:38] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-09-24 13:09:38] [INFO] [2025-09-24 13:09:38] ✓ run=2025-09-24:1758706720900 sent
+[2025-09-24 13:17:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758707235406","minutes":70}
+[2025-09-24 13:17:15] [INFO] خواندن لاگ‌ها {"found":109,"took":"8ms"}
+[2025-09-24 13:17:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-24 13:17:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758707235406","scanned":109,"bundles":0,"handled":0,"sent":0,"total":"32ms"}
+[2025-09-24 13:17:15] [INFO] [2025-09-24 13:17:15] skipped: no significant change

@@ -1,5 +1,35 @@
 // src/message/sanitize.js
 // ابزارهای پاکسازی و تقسیم متن برای واتساپ
+import { openai } from '../config/Config.js';
+
+export function looksPersian(s = '') {
+  return /[\u0600-\u06FF]/.test(String(s));
+}
+
+/** اگر متن فارسی نیست، ترجمهٔ سریع به فارسی انجام می‌دهد (در صورت خطا، متن اصلی را برمی‌گرداند) */
+export async function forcePersianText(text) {
+  const s = String(text ?? '').trim();
+  if (!s) return s;
+  if (looksPersian(s)) return s;
+
+  try {
+    const resp = await openai.chat.completions.create({
+      model: process.env.RAHIN_MODEL || 'gpt-4o-mini',
+      temperature: 0,
+      max_tokens: 800,
+      messages: [
+        { role: 'system', content: 'فقط ترجمهٔ دقیق و روان فارسی برگردان. هیچ توضیح اضافه ننویس.' },
+        { role: 'user', content: s }
+      ]
+    });
+    const out = resp?.choices?.[0]?.message?.content?.trim();
+    return out || s;
+  } catch (e) {
+    console.warn('[forcePersianText] translate failed:', e?.message || e);
+    return s;
+  }
+}
+
 
 /**
  * پاکسازی متن برای ارسال در واتساپ
@@ -50,5 +80,5 @@ export function sanitizeForWhatsApp(msg) {
     return chunks;
   }
   
-  export default { sanitizeForWhatsApp, chunkText };
+  export default { sanitizeForWhatsApp, chunkText , forcePersianText };
   
