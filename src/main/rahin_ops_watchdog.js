@@ -1,4 +1,5 @@
 // src/main/rahin_ops_watchdog.js
+
 /**
  * Rahin Ops Watchdog
  * - اجرای زمان‌بندی
@@ -20,18 +21,86 @@ import { collectInstagram } from "../collectors/instagramCollector.js";
 import { collectPDF } from "../collectors/pdfCollector.js";
 
 import { getDualInsights, ensurePersianJSON, postProcessTech } from "../ai/dualInsights.js";
-
-import { ensureAgencyNumbers } from "../db/agencyNumbers.js";
-
-import { buildManagementMessage, buildTechSummaryMessage, buildTechItemMessages } from "../message/messageBuilders.js";
+import { buildManagementMessage, buildTechSummaryMessage } from "../message/messageBuilders.js";
 import { sanitizeForWhatsApp, chunkText } from "../message/sanitize.js";
 import { processRecentErrors } from "../ai/errorAnalyzer.js";
 import { enrichVisitorMobilesFromClicks } from "../clicks/enrichVisitorFromClicks.js";
 
 // ================== تنظیمات ==================
-const INTERVAL = Math.max(5, Number(process.env.RAHIN_INTERVAL_MIN || 60)); // دقیقه
 const MODEL = process.env.RAHIN_MODEL || "gpt-4o";
 const DEST_MOBILE_RAW = process.env.WHATSAPP_DEST_MOBILE || "09134052885";
+
+// ================== زمان‌بندی ۶ ساعته هم‌تراز با تهران ==================
+const TEH_TZ = "Asia/Tehran";
+
+/** محاسبهٔ آفست میلی‌ثانیهٔ «تهران» نسبت به UTC با Intl */
+function tzOffsetMillis(tz = TEH_TZ) {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: tz,
+    timeZoneName: "shortOffset",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).formatToParts(new Date());
+  const tzn = parts.find((p) => p.type === "timeZoneName")?.value || "GMT+0";
+  const m = tzn.match(/GMT([+-])(\d{1,2})(?::(\d{2}))?/i);
+  if (!m) return 0;
+  const sign = m[1] === "-" ? -1 : 1;
+  const hh = parseInt(m[2] || "0", 10);
+  const mm = parseInt(m[3] || "0", 10);
+  return sign * ((hh * 60 + mm) * 60 * 1000);
+}
+
+/** فاصلهٔ زمانی تا مرز بعدی ۶ ساعته (۰۰، ۰۶، ۱۲، ۱۸ به وقت تهران) */
+function msUntilNext6hBoundary(tz = TEH_TZ) {
+  const now = Date.now();
+  const off = tzOffsetMillis(tz);
+  const tzNow = new Date(now + off); // اکنونِ تهران
+
+  const Y = tzNow.getUTCFullYear();
+  const M = tzNow.getUTCMonth();
+  const D = tzNow.getUTCDate();
+  const h = tzNow.getUTCHours();
+
+  // ساعت فعلی «تهران» را به بلاک ۶ساعته بعدی گرد می‌کنیم
+  const blockStarts = [0, 6, 12, 18];
+  let nextHour = blockStarts.find((H) => H > h) ?? 0;
+  let targetUtcMs = Date.UTC(Y, M, D, nextHour, 0, 0) - off;
+
+  // اگر از ۱۸ گذشته‌ایم و nextHour صفر شد، فردای تهران ساعت ۰۰
+  if (nextHour === 0 && h >= 18) {
+    targetUtcMs = Date.UTC(Y, M, D + 1, 0, 0, 0) - off;
+  }
+
+  return Math.max(1000, targetUtcMs - now);
+}
+
+/** زمان‌بند: اجرای تابع در مرزهای ۶ ساعتهٔ تهران، با اجرای خودکار پس از هر بار اتمام */
+function scheduleEvery6h(runFn) {
+  const planNext = () => {
+    const delay = msUntilNext6hBoundary(TEH_TZ);
+    console.log(`⏰ اجرای بعدی تا ${Math.round(delay / 60000)} دقیقه دیگر (مرز ۶ساعتهٔ تهران).`);
+    setTimeout(async () => {
+      try {
+        await runFn();
+      } catch (e) {
+        console.error("Scheduled run error:", e?.message || e);
+      } finally {
+        planNext(); // باززمان‌بندی برای مرز بعدی
+      }
+    }, delay);
+  };
+  planNext();
+}
+
+// ==== helpers ====
+function normalizeMobile(m) {
+  const digits = String(m || "").replace(/[^\d]/g, "");
+  if (!digits) return null;
+  if (digits.startsWith("98")) return digits;
+  if (digits.startsWith("0")) return "98" + digits.slice(1);
+  if (digits.startsWith("9")) return "98" + digits;
+  return digits;
+}
 
 // ================== اجرای یک نوبت ==================
 async function runOnce() {
@@ -64,7 +133,6 @@ async function runOnce() {
     let faData = await ensurePersianJSON(data);
     faData.tech = postProcessTech(faData.tech || {});
 
-
     // ذخیره تحلیل در DB
     await CONFIG.db.run(
       `INSERT INTO rahin_dual_insights
@@ -96,36 +164,40 @@ async function runOnce() {
       }
     }
 
+    // ===== اجرای درونی سناریوهای visitor بعد از ارسال گزارش =====
+    try {
+      const mod = await import("../scenarios/visitorScenarios.js"); // مسیر را در صورت نیاز تغییر بده
+      if (typeof mod.runAllVisitorScenarios === "function") {
+        log(`[${nowStamp()}] شروع اجرای سناریوهای visitor...`);
+        await mod.runAllVisitorScenarios();
+        log(`[${nowStamp()}] سناریوهای visitor با موفقیت اجرا شد.`);
+      } else {
+        log(`[${nowStamp()}] ماژول سناریو پیدا شد ولی تابع runAllVisitorScenarios وجود ندارد.`);
+      }
+    } catch (e) {
+      log(`[${nowStamp()}] اجرای سناریوهای visitor ناموفق بود: ${e?.message || e}`);
+    }
+
     await saveSignature(currSig);
     log(`[${nowStamp()}] ✓ run=${runKey} sent`);
-
   } catch (e) {
     log(`[${nowStamp()}] run=${runKey} ERROR=${e.message}`);
   }
 }
 
-// ==== helpers ====
-function normalizeMobile(m) {
-  const digits = String(m || "").replace(/[^\d]/g, "");
-  if (!digits) return null;
-  if (digits.startsWith("98")) return digits;
-  if (digits.startsWith("0")) return "98" + digits.slice(1);
-  if (digits.startsWith("9")) return "98" + digits;
-  return digits;
-}
-
-// ================== زمان‌بندی ==================
+// ================== main: اجرای فوری + زمان‌بندی ۶ ساعته ==================
 async function main() {
   await ensureMinimalSchema();
-  // await ensureAgencyNumbers(); 
-  const ms = INTERVAL * 60 * 1000;
-  console.log(`پایش دوره‌ای فعال شد: هر ${INTERVAL} دقیقه`);
-  await runOnce(); // اجرای فوری
-  setInterval(runOnce, ms); // اجراهای بعدی
+  console.log("Rahin Ops Watchdog شروع شد…");
+  console.log("Log:", path.resolve(process.env.RAHIN_LOG_FILE || "./rahin_ops.log"));
+
+  // اجرای فوری (یک‌بار)
+  await runOnce();
+
+  // سپس اجرای هر ۶ ساعت بر اساس Asia/Tehran
+  scheduleEvery6h(runOnce);
 }
 
-console.log("Rahin Ops Watchdog شروع شد…");
-console.log("Log:", path.resolve(process.env.RAHIN_LOG_FILE || "./rahin_ops.log"));
 main().catch((err) => {
   console.error("Startup error:", err);
   process.exit(1);

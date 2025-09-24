@@ -309,3 +309,317 @@
 [2025-09-22 16:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
 [2025-09-22 16:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758545835248","scanned":70,"bundles":0,"handled":0,"sent":0,"total":"36ms"}
 [2025-09-22 16:28:37] [INFO] [2025-09-22 16:28:37] ✓ run=2025-09-22:1758545835366 sent
+[2025-09-22 17:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758549435247","minutes":70}
+[2025-09-22 17:27:15] [INFO] خواندن لاگ‌ها {"found":36,"took":"10ms"}
+[2025-09-22 17:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-22 17:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758549435247","scanned":36,"bundles":0,"handled":0,"sent":0,"total":"15ms"}
+[2025-09-22 17:27:15] [INFO] [2025-09-22 17:27:15] skipped: no significant change
+[2025-09-22 18:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758553035247","minutes":70}
+[2025-09-22 18:27:15] [INFO] خواندن لاگ‌ها {"found":11,"took":"12ms"}
+[2025-09-22 18:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-22 18:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758553035247","scanned":11,"bundles":0,"handled":0,"sent":0,"total":"20ms"}
+[2025-09-22 18:27:15] [INFO] [2025-09-22 18:27:15] skipped: no significant change
+[2025-09-22 19:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758556635250","minutes":70}
+[2025-09-22 19:27:15] [INFO] خواندن لاگ‌ها {"found":6,"took":"14ms"}
+[2025-09-22 19:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-22 19:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758556635250","scanned":6,"bundles":0,"handled":0,"sent":0,"total":"24ms"}
+[2025-09-22 19:27:15] [INFO] [2025-09-22 19:27:15] skipped: no significant change
+[2025-09-22 20:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758560235249","minutes":70}
+[2025-09-22 20:27:15] [INFO] خواندن لاگ‌ها {"found":19,"took":"13ms"}
+[2025-09-22 20:27:15] [INFO] باندل‌سازی خطاها {"bundles":1,"took":"1ms"}
+[2025-09-22 20:27:15] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1758560235249#1","errorId":"ce8787c8"}
+[2025-09-22 20:27:15] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1758560235249#1","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-22.log","sample":"[2025-09-22 20:27:08] [ERROR] ❌ Error connecting to OpenAI (generateChatResponseChangeText): 400 Unknown parameter: 'signal'. | chatResponder.js:236 | args=❌ Error connecting to OpenAI (generateChatRe"}
+[2025-09-22 20:27:15] [INFO] مکان خطا استخراج شد {"stepId":"scan-1758560235249#1","file":"-","line":"-","took":"4ms"}
+[2025-09-22 20:27:18] [INFO] AI تحلیل شد {"stepId":"scan-1758560235249#1","tokens_in":1833,"tokens_out":118,"took":"3646ms"}
+[2025-09-22 20:27:18] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1758560235249#1","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-22.log","lineNo":-1,"took":"5ms"}
+[2025-09-22 20:27:18] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1758560235249#1","took":"3668ms"}
+[2025-09-22 20:27:18] [INFO] پایان اسکن خطاها {"traceId":"scan-1758560235249","scanned":19,"bundles":1,"handled":1,"sent":0,"total":"3690ms"}
+[2025-09-22 20:27:18] [INFO] [2025-09-22 20:27:18] skipped: no significant change
+[2025-09-22 21:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758563835250","minutes":70}
+[2025-09-22 21:27:15] [INFO] خواندن لاگ‌ها {"found":27,"took":"9ms"}
+[2025-09-22 21:27:15] [INFO] باندل‌سازی خطاها {"bundles":2,"took":"0ms"}
+[2025-09-22 21:27:15] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1758563835250#2","errorId":"cf259018"}
+[2025-09-22 21:27:15] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1758563835250#2","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-22.log","sample":"[2025-09-22 20:27:15] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {\"stepId\":\"scan-1758560235249#1\",\"extracted_file\":null,\"extracted_line\":null,\"fallback_file\":\"C:\\\\Users\\\\Administrator\\\\Desktop"}
+[2025-09-22 21:27:15] [INFO] مکان خطا استخراج شد {"stepId":"scan-1758563835250#2","file":"-","line":"-","took":"2ms"}
+[2025-09-22 21:27:23] [INFO] AI تحلیل شد {"stepId":"scan-1758563835250#2","tokens_in":2410,"tokens_out":136,"took":"8515ms"}
+[2025-09-22 21:27:23] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1758563835250#2","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-22.log","lineNo":-1,"took":"1ms"}
+[2025-09-22 21:27:23] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1758563835250#2","took":"8528ms"}
+[2025-09-22 21:27:23] [INFO] پایان اسکن خطاها {"traceId":"scan-1758563835250","scanned":27,"bundles":2,"handled":1,"sent":0,"total":"8547ms"}
+[2025-09-22 21:27:23] [INFO] [2025-09-22 21:27:23] skipped: no significant change
+[2025-09-22 22:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758567435251","minutes":70}
+[2025-09-22 22:27:15] [INFO] خواندن لاگ‌ها {"found":48,"took":"7ms"}
+[2025-09-22 22:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-22 22:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758567435251","scanned":48,"bundles":0,"handled":0,"sent":0,"total":"10ms"}
+[2025-09-22 22:28:32] [INFO] [2025-09-22 22:28:32] ✓ run=2025-09-22:1758567435324 sent
+[2025-09-22 23:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758571035252","minutes":70}
+[2025-09-22 23:27:15] [INFO] خواندن لاگ‌ها {"found":91,"took":"9ms"}
+[2025-09-22 23:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-22 23:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758571035252","scanned":91,"bundles":0,"handled":0,"sent":0,"total":"13ms"}
+[2025-09-22 23:28:27] [INFO] [2025-09-22 23:28:27] ✓ run=2025-09-22:1758571035288 sent
+[2025-09-23 00:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758574635251","minutes":70}
+[2025-09-23 00:27:15] [INFO] خواندن لاگ‌ها {"found":5,"took":"18ms"}
+[2025-09-23 00:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-23 00:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758574635251","scanned":5,"bundles":0,"handled":0,"sent":0,"total":"29ms"}
+[2025-09-23 00:28:13] [INFO] [2025-09-23 00:28:13] ✓ run=2025-09-23:1758574635328 sent
+[2025-09-23 01:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758578235251","minutes":70}
+[2025-09-23 01:27:15] [INFO] خواندن لاگ‌ها {"found":0,"took":"18ms"}
+[2025-09-23 01:27:15] [INFO] هیچ خطی در بازه یافت نشد. پایان. {"traceId":"scan-1758578235251"}
+[2025-09-23 01:27:15] [INFO] [2025-09-23 01:27:15] skipped: no significant change
+[2025-09-23 02:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758581835252","minutes":70}
+[2025-09-23 02:27:15] [INFO] خواندن لاگ‌ها {"found":0,"took":"18ms"}
+[2025-09-23 02:27:15] [INFO] هیچ خطی در بازه یافت نشد. پایان. {"traceId":"scan-1758581835252"}
+[2025-09-23 02:27:15] [INFO] [2025-09-23 02:27:15] skipped: no significant change
+[2025-09-23 03:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758585435253","minutes":70}
+[2025-09-23 03:27:15] [INFO] خواندن لاگ‌ها {"found":0,"took":"17ms"}
+[2025-09-23 03:27:15] [INFO] هیچ خطی در بازه یافت نشد. پایان. {"traceId":"scan-1758585435253"}
+[2025-09-23 03:27:15] [INFO] [2025-09-23 03:27:15] skipped: no significant change
+[2025-09-23 04:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758589035252","minutes":70}
+[2025-09-23 04:27:15] [INFO] خواندن لاگ‌ها {"found":5,"took":"8ms"}
+[2025-09-23 04:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-23 04:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758589035252","scanned":5,"bundles":0,"handled":0,"sent":0,"total":"16ms"}
+[2025-09-23 04:27:15] [INFO] [2025-09-23 04:27:15] skipped: no significant change
+[2025-09-23 05:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758592635253","minutes":70}
+[2025-09-23 05:27:15] [INFO] خواندن لاگ‌ها {"found":6,"took":"12ms"}
+[2025-09-23 05:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-23 05:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758592635253","scanned":6,"bundles":0,"handled":0,"sent":0,"total":"31ms"}
+[2025-09-23 05:27:15] [INFO] [2025-09-23 05:27:15] skipped: no significant change
+[2025-09-23 06:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758596235256","minutes":70}
+[2025-09-23 06:27:15] [INFO] خواندن لاگ‌ها {"found":6,"took":"7ms"}
+[2025-09-23 06:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-23 06:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758596235256","scanned":6,"bundles":0,"handled":0,"sent":0,"total":"22ms"}
+[2025-09-23 06:27:15] [INFO] [2025-09-23 06:27:15] skipped: no significant change
+[2025-09-23 07:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758599835257","minutes":70}
+[2025-09-23 07:27:15] [INFO] خواندن لاگ‌ها {"found":6,"took":"5ms"}
+[2025-09-23 07:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-23 07:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758599835257","scanned":6,"bundles":0,"handled":0,"sent":0,"total":"10ms"}
+[2025-09-23 07:27:15] [INFO] [2025-09-23 07:27:15] skipped: no significant change
+[2025-09-23 08:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758603435257","minutes":70}
+[2025-09-23 08:27:15] [INFO] خواندن لاگ‌ها {"found":6,"took":"10ms"}
+[2025-09-23 08:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-23 08:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758603435257","scanned":6,"bundles":0,"handled":0,"sent":0,"total":"17ms"}
+[2025-09-23 08:27:15] [INFO] [2025-09-23 08:27:15] skipped: no significant change
+[2025-09-23 09:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758607035259","minutes":70}
+[2025-09-23 09:27:15] [INFO] خواندن لاگ‌ها {"found":22,"took":"5ms"}
+[2025-09-23 09:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-23 09:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758607035259","scanned":22,"bundles":0,"handled":0,"sent":0,"total":"16ms"}
+[2025-09-23 09:28:20] [INFO] [2025-09-23 09:28:20] ✓ run=2025-09-23:1758607035310 sent
+[2025-09-23 10:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758610635259","minutes":70}
+[2025-09-23 10:27:15] [INFO] خواندن لاگ‌ها {"found":134,"took":"23ms"}
+[2025-09-23 10:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-23 10:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758610635259","scanned":134,"bundles":0,"handled":0,"sent":0,"total":"34ms"}
+[2025-09-23 10:28:32] [INFO] [2025-09-23 10:28:32] ✓ run=2025-09-23:1758610635346 sent
+[2025-09-23 11:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758614235261","minutes":70}
+[2025-09-23 11:27:15] [INFO] خواندن لاگ‌ها {"found":62,"took":"7ms"}
+[2025-09-23 11:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-23 11:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758614235261","scanned":62,"bundles":0,"handled":0,"sent":0,"total":"11ms"}
+[2025-09-23 11:27:15] [INFO] [2025-09-23 11:27:15] skipped: no significant change
+[2025-09-23 12:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758617835261","minutes":70}
+[2025-09-23 12:27:15] [INFO] خواندن لاگ‌ها {"found":217,"took":"15ms"}
+[2025-09-23 12:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-23 12:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758617835261","scanned":217,"bundles":0,"handled":0,"sent":0,"total":"23ms"}
+[2025-09-23 12:28:09] [INFO] [2025-09-23 12:28:09] ✓ run=2025-09-23:1758617835362 sent
+[2025-09-23 13:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758621435256","minutes":70}
+[2025-09-23 13:27:15] [INFO] خواندن لاگ‌ها {"found":130,"took":"10ms"}
+[2025-09-23 13:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-23 13:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758621435256","scanned":130,"bundles":0,"handled":0,"sent":0,"total":"14ms"}
+[2025-09-23 13:28:18] [INFO] [2025-09-23 13:28:18] ✓ run=2025-09-23:1758621435352 sent
+[2025-09-23 14:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758625035261","minutes":70}
+[2025-09-23 14:27:15] [INFO] خواندن لاگ‌ها {"found":42,"took":"8ms"}
+[2025-09-23 14:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-23 14:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758625035261","scanned":42,"bundles":0,"handled":0,"sent":0,"total":"13ms"}
+[2025-09-23 14:27:15] [INFO] [2025-09-23 14:27:15] skipped: no significant change
+[2025-09-23 15:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758628635261","minutes":70}
+[2025-09-23 15:27:15] [INFO] خواندن لاگ‌ها {"found":26,"took":"7ms"}
+[2025-09-23 15:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-23 15:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758628635261","scanned":26,"bundles":0,"handled":0,"sent":0,"total":"12ms"}
+[2025-09-23 15:27:15] [INFO] [2025-09-23 15:27:15] skipped: no significant change
+[2025-09-23 16:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758632235261","minutes":70}
+[2025-09-23 16:27:15] [INFO] خواندن لاگ‌ها {"found":31,"took":"6ms"}
+[2025-09-23 16:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-23 16:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758632235261","scanned":31,"bundles":0,"handled":0,"sent":0,"total":"11ms"}
+[2025-09-23 16:27:15] [INFO] [2025-09-23 16:27:15] skipped: no significant change
+[2025-09-23 17:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758635835279","minutes":70}
+[2025-09-23 17:27:15] [INFO] خواندن لاگ‌ها {"found":61,"took":"10ms"}
+[2025-09-23 17:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-23 17:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758635835279","scanned":61,"bundles":0,"handled":0,"sent":0,"total":"21ms"}
+[2025-09-23 17:28:14] [INFO] [2025-09-23 17:28:14] ✓ run=2025-09-23:1758635835381 sent
+[2025-09-23 18:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758639435273","minutes":70}
+[2025-09-23 18:27:15] [INFO] خواندن لاگ‌ها {"found":111,"took":"19ms"}
+[2025-09-23 18:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-23 18:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758639435273","scanned":111,"bundles":0,"handled":0,"sent":0,"total":"30ms"}
+[2025-09-23 18:28:39] [INFO] [2025-09-23 18:28:39] ✓ run=2025-09-23:1758639435460 sent
+[2025-09-23 19:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758643035275","minutes":70}
+[2025-09-23 19:27:15] [INFO] خواندن لاگ‌ها {"found":75,"took":"9ms"}
+[2025-09-23 19:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-23 19:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758643035275","scanned":75,"bundles":0,"handled":0,"sent":0,"total":"14ms"}
+[2025-09-23 19:28:16] [INFO] [2025-09-23 19:28:16] ✓ run=2025-09-23:1758643035313 sent
+[2025-09-23 20:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758646635274","minutes":70}
+[2025-09-23 20:27:15] [INFO] خواندن لاگ‌ها {"found":77,"took":"13ms"}
+[2025-09-23 20:27:15] [INFO] باندل‌سازی خطاها {"bundles":1,"took":"0ms"}
+[2025-09-23 20:27:15] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1758646635274#1","errorId":"40f5e753"}
+[2025-09-23 20:27:15] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1758646635274#1","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-23.log","sample":"[2025-09-23 20:02:42] [ERROR] ❌ Error in replyComment: Request failed with status code 404 | novinhub.js:384 | args=❌ Error in replyComment: Request failed with status code 404"}
+[2025-09-23 20:27:15] [INFO] مکان خطا استخراج شد {"stepId":"scan-1758646635274#1","file":"-","line":"-","took":"4ms"}
+[2025-09-23 20:27:23] [INFO] AI تحلیل شد {"stepId":"scan-1758646635274#1","tokens_in":3142,"tokens_out":148,"took":"8297ms"}
+[2025-09-23 20:27:23] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1758646635274#1","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-23.log","lineNo":-1,"took":"5ms"}
+[2025-09-23 20:27:23] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1758646635274#1","took":"8322ms"}
+[2025-09-23 20:27:23] [INFO] پایان اسکن خطاها {"traceId":"scan-1758646635274","scanned":77,"bundles":1,"handled":1,"sent":0,"total":"8345ms"}
+[2025-09-23 20:27:23] [INFO] [2025-09-23 20:27:23] skipped: no significant change
+[2025-09-23 21:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758650235282","minutes":70}
+[2025-09-23 21:27:15] [INFO] خواندن لاگ‌ها {"found":17,"took":"44ms"}
+[2025-09-23 21:27:15] [INFO] باندل‌سازی خطاها {"bundles":1,"took":"0ms"}
+[2025-09-23 21:27:15] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1758650235282#1","errorId":"9fccc82d"}
+[2025-09-23 21:27:15] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1758650235282#1","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-23.log","sample":"[2025-09-23 20:27:15] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {\"stepId\":\"scan-1758646635274#1\",\"extracted_file\":null,\"extracted_line\":null,\"fallback_file\":\"C:\\\\Users\\\\Administrator\\\\Desktop"}
+[2025-09-23 21:27:15] [INFO] مکان خطا استخراج شد {"stepId":"scan-1758650235282#1","file":"-","line":"-","took":"2ms"}
+[2025-09-23 21:27:18] [INFO] AI تحلیل شد {"stepId":"scan-1758650235282#1","tokens_in":1068,"tokens_out":122,"took":"2940ms"}
+[2025-09-23 21:27:18] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1758650235282#1","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-23.log","lineNo":-1,"took":"2ms"}
+[2025-09-23 21:27:18] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1758650235282#1","took":"2969ms"}
+[2025-09-23 21:27:18] [INFO] پایان اسکن خطاها {"traceId":"scan-1758650235282","scanned":17,"bundles":1,"handled":1,"sent":0,"total":"3032ms"}
+[2025-09-23 21:27:18] [INFO] [2025-09-23 21:27:18] skipped: no significant change
+[2025-09-23 22:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758653835283","minutes":70}
+[2025-09-23 22:27:15] [INFO] خواندن لاگ‌ها {"found":127,"took":"6ms"}
+[2025-09-23 22:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-23 22:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758653835283","scanned":127,"bundles":0,"handled":0,"sent":0,"total":"9ms"}
+[2025-09-23 22:28:07] [INFO] [2025-09-23 22:28:07] ✓ run=2025-09-23:1758653835325 sent
+[2025-09-23 23:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758657435281","minutes":70}
+[2025-09-23 23:27:15] [INFO] خواندن لاگ‌ها {"found":11,"took":"14ms"}
+[2025-09-23 23:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-23 23:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758657435281","scanned":11,"bundles":0,"handled":0,"sent":0,"total":"21ms"}
+[2025-09-23 23:27:15] [INFO] [2025-09-23 23:27:15] skipped: no significant change
+[2025-09-24 00:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758661035286","minutes":70}
+[2025-09-24 00:27:15] [INFO] خواندن لاگ‌ها {"found":141,"took":"22ms"}
+[2025-09-24 00:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-24 00:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758661035286","scanned":141,"bundles":0,"handled":0,"sent":0,"total":"39ms"}
+[2025-09-24 00:27:52] [INFO] [2025-09-24 00:27:52] ✓ run=2025-09-24:1758661035390 sent
+[2025-09-24 01:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758664635286","minutes":70}
+[2025-09-24 01:27:15] [INFO] خواندن لاگ‌ها {"found":0,"took":"11ms"}
+[2025-09-24 01:27:15] [INFO] هیچ خطی در بازه یافت نشد. پایان. {"traceId":"scan-1758664635286"}
+[2025-09-24 01:27:15] [INFO] [2025-09-24 01:27:15] skipped: no significant change
+[2025-09-24 02:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758668235303","minutes":70}
+[2025-09-24 02:27:15] [INFO] خواندن لاگ‌ها {"found":0,"took":"21ms"}
+[2025-09-24 02:27:15] [INFO] هیچ خطی در بازه یافت نشد. پایان. {"traceId":"scan-1758668235303"}
+[2025-09-24 02:27:15] [INFO] [2025-09-24 02:27:15] skipped: no significant change
+[2025-09-24 03:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758671835301","minutes":70}
+[2025-09-24 03:27:15] [INFO] خواندن لاگ‌ها {"found":0,"took":"10ms"}
+[2025-09-24 03:27:15] [INFO] هیچ خطی در بازه یافت نشد. پایان. {"traceId":"scan-1758671835301"}
+[2025-09-24 03:27:15] [INFO] [2025-09-24 03:27:15] skipped: no significant change
+[2025-09-24 04:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758675435310","minutes":70}
+[2025-09-24 04:27:15] [INFO] خواندن لاگ‌ها {"found":5,"took":"5ms"}
+[2025-09-24 04:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-24 04:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758675435310","scanned":5,"bundles":0,"handled":0,"sent":0,"total":"10ms"}
+[2025-09-24 04:27:15] [INFO] [2025-09-24 04:27:15] skipped: no significant change
+[2025-09-24 05:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758679035303","minutes":70}
+[2025-09-24 05:27:15] [INFO] خواندن لاگ‌ها {"found":6,"took":"8ms"}
+[2025-09-24 05:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-24 05:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758679035303","scanned":6,"bundles":0,"handled":0,"sent":0,"total":"16ms"}
+[2025-09-24 05:27:15] [INFO] [2025-09-24 05:27:15] skipped: no significant change
+[2025-09-24 06:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758682635304","minutes":70}
+[2025-09-24 06:27:15] [INFO] خواندن لاگ‌ها {"found":6,"took":"9ms"}
+[2025-09-24 06:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-24 06:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758682635304","scanned":6,"bundles":0,"handled":0,"sent":0,"total":"17ms"}
+[2025-09-24 06:27:15] [INFO] [2025-09-24 06:27:15] skipped: no significant change
+[2025-09-24 07:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758686235305","minutes":70}
+[2025-09-24 07:27:15] [INFO] خواندن لاگ‌ها {"found":6,"took":"8ms"}
+[2025-09-24 07:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-24 07:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758686235305","scanned":6,"bundles":0,"handled":0,"sent":0,"total":"16ms"}
+[2025-09-24 07:27:15] [INFO] [2025-09-24 07:27:15] skipped: no significant change
+[2025-09-24 08:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758689835305","minutes":70}
+[2025-09-24 08:27:15] [INFO] خواندن لاگ‌ها {"found":22,"took":"4ms"}
+[2025-09-24 08:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-24 08:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758689835305","scanned":22,"bundles":0,"handled":0,"sent":0,"total":"10ms"}
+[2025-09-24 08:27:59] [INFO] [2025-09-24 08:27:59] ✓ run=2025-09-24:1758689835382 sent
+[2025-09-24 09:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758693435305","minutes":70}
+[2025-09-24 09:27:15] [INFO] خواندن لاگ‌ها {"found":115,"took":"5ms"}
+[2025-09-24 09:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-24 09:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758693435305","scanned":115,"bundles":0,"handled":0,"sent":0,"total":"10ms"}
+[2025-09-24 09:28:17] [INFO] [2025-09-24 09:28:17] ✓ run=2025-09-24:1758693435373 sent
+[2025-09-24 10:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758697035302","minutes":70}
+[2025-09-24 10:27:15] [INFO] خواندن لاگ‌ها {"found":27,"took":"8ms"}
+[2025-09-24 10:27:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-24 10:27:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758697035302","scanned":27,"bundles":0,"handled":0,"sent":0,"total":"14ms"}
+[2025-09-24 10:27:15] [INFO] [2025-09-24 10:27:15] skipped: no significant change
+[2025-09-24 11:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758700635305","minutes":70}
+[2025-09-24 11:27:15] [INFO] خواندن لاگ‌ها {"found":77,"took":"8ms"}
+[2025-09-24 11:27:15] [INFO] باندل‌سازی خطاها {"bundles":6,"took":"1ms"}
+[2025-09-24 11:27:15] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1758700635305#1","errorId":"391e9094"}
+[2025-09-24 11:27:15] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1758700635305#1","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-24.log","sample":"[2025-09-24 10:38:36] [ERROR] {"}
+[2025-09-24 11:27:15] [INFO] مکان خطا استخراج شد {"stepId":"scan-1758700635305#1","file":"-","line":"-","took":"4ms"}
+[2025-09-24 11:27:23] [INFO] AI تحلیل شد {"stepId":"scan-1758700635305#1","tokens_in":1159,"tokens_out":231,"took":"8141ms"}
+[2025-09-24 11:27:23] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1758700635305#1","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-24.log","lineNo":-1,"took":"5ms"}
+[2025-09-24 11:27:23] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1758700635305#1","took":"8161ms"}
+[2025-09-24 11:27:23] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1758700635305#2","errorId":"2a614d1e"}
+[2025-09-24 11:27:23] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1758700635305#2","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-24.log","sample":"[2025-09-24 10:38:36] [ERROR] UnhandledRejection {"}
+[2025-09-24 11:27:23] [INFO] مکان خطا استخراج شد {"stepId":"scan-1758700635305#2","file":"-","line":"-","took":"2ms"}
+[2025-09-24 11:27:28] [INFO] AI تحلیل شد {"stepId":"scan-1758700635305#2","tokens_in":1145,"tokens_out":139,"took":"4925ms"}
+[2025-09-24 11:27:28] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1758700635305#2","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-24.log","lineNo":-1,"took":"2ms"}
+[2025-09-24 11:27:28] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1758700635305#2","took":"4938ms"}
+[2025-09-24 11:27:28] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1758700635305#3","errorId":"7a65818f"}
+[2025-09-24 11:27:28] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1758700635305#3","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-24.log","sample":"[2025-09-24 10:40:49] [ERROR] {"}
+[2025-09-24 11:27:28] [INFO] مکان خطا استخراج شد {"stepId":"scan-1758700635305#3","file":"-","line":"-","took":"3ms"}
+[2025-09-24 11:27:31] [INFO] AI تحلیل شد {"stepId":"scan-1758700635305#3","tokens_in":1077,"tokens_out":148,"took":"2970ms"}
+[2025-09-24 11:27:31] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1758700635305#3","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-24.log","lineNo":-1,"took":"2ms"}
+[2025-09-24 11:27:31] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1758700635305#3","took":"2984ms"}
+[2025-09-24 11:27:31] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1758700635305#4","errorId":"0e48c58c"}
+[2025-09-24 11:27:31] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1758700635305#4","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-24.log","sample":"[2025-09-24 10:40:49] [ERROR] UnhandledRejection {"}
+[2025-09-24 11:27:31] [INFO] مکان خطا استخراج شد {"stepId":"scan-1758700635305#4","file":"-","line":"-","took":"2ms"}
+[2025-09-24 11:27:34] [INFO] AI تحلیل شد {"stepId":"scan-1758700635305#4","tokens_in":1079,"tokens_out":166,"took":"3171ms"}
+[2025-09-24 11:27:34] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1758700635305#4","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-24.log","lineNo":-1,"took":"3ms"}
+[2025-09-24 11:27:34] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1758700635305#4","took":"3187ms"}
+[2025-09-24 11:27:34] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1758700635305#5","errorId":"55eb97ed"}
+[2025-09-24 11:27:34] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1758700635305#5","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-24.log","sample":"[2025-09-24 10:45:09] [ERROR] {"}
+[2025-09-24 11:27:34] [INFO] مکان خطا استخراج شد {"stepId":"scan-1758700635305#5","file":"-","line":"-","took":"3ms"}
+[2025-09-24 11:27:40] [INFO] AI تحلیل شد {"stepId":"scan-1758700635305#5","tokens_in":1075,"tokens_out":181,"took":"5542ms"}
+[2025-09-24 11:27:40] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1758700635305#5","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-24.log","lineNo":-1,"took":"1ms"}
+[2025-09-24 11:27:40] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1758700635305#5","took":"5560ms"}
+[2025-09-24 11:27:40] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1758700635305#6","errorId":"fa442124"}
+[2025-09-24 11:27:40] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1758700635305#6","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-24.log","sample":"[2025-09-24 10:45:09] [ERROR] UnhandledRejection {"}
+[2025-09-24 11:27:40] [INFO] مکان خطا استخراج شد {"stepId":"scan-1758700635305#6","file":"-","line":"-","took":"2ms"}
+[2025-09-24 11:27:44] [INFO] AI تحلیل شد {"stepId":"scan-1758700635305#6","tokens_in":1095,"tokens_out":190,"took":"4467ms"}
+[2025-09-24 11:27:44] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1758700635305#6","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-24.log","lineNo":-1,"took":"2ms"}
+[2025-09-24 11:27:44] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1758700635305#6","took":"4478ms"}
+[2025-09-24 11:27:44] [INFO] پایان اسکن خطاها {"traceId":"scan-1758700635305","scanned":77,"bundles":6,"handled":6,"sent":0,"total":"29335ms"}
+[2025-09-24 11:27:44] [INFO] [2025-09-24 11:27:44] skipped: no significant change
+[2025-09-24 12:27:15] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758704235307","minutes":70}
+[2025-09-24 12:27:15] [INFO] خواندن لاگ‌ها {"found":45,"took":"15ms"}
+[2025-09-24 12:27:15] [INFO] باندل‌سازی خطاها {"bundles":6,"took":"0ms"}
+[2025-09-24 12:27:15] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1758704235307#1","errorId":"59998e20"}
+[2025-09-24 12:27:15] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1758704235307#1","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-24.log","sample":"[2025-09-24 11:27:15] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {\"stepId\":\"scan-1758700635305#1\",\"extracted_file\":null,\"extracted_line\":null,\"fallback_file\":\"C:\\\\Users\\\\Administrator\\\\Desktop"}
+[2025-09-24 12:27:15] [INFO] مکان خطا استخراج شد {"stepId":"scan-1758704235307#1","file":"-","line":"-","took":"3ms"}
+[2025-09-24 12:27:17] [INFO] AI تحلیل شد {"stepId":"scan-1758704235307#1","tokens_in":1135,"tokens_out":129,"took":"2481ms"}
+[2025-09-24 12:27:17] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1758704235307#1","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-24.log","lineNo":-1,"took":"2ms"}
+[2025-09-24 12:27:17] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1758704235307#1","took":"2506ms"}
+[2025-09-24 12:27:17] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1758704235307#2","errorId":"362e137c"}
+[2025-09-24 12:27:17] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1758704235307#2","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-24.log","sample":"[2025-09-24 11:27:23] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {\"stepId\":\"scan-1758700635305#2\",\"extracted_file\":null,\"extracted_line\":null,\"fallback_file\":\"C:\\\\Users\\\\Administrator\\\\Desktop"}
+[2025-09-24 12:27:17] [INFO] مکان خطا استخراج شد {"stepId":"scan-1758704235307#2","file":"-","line":"-","took":"2ms"}
+[2025-09-24 12:27:21] [INFO] AI تحلیل شد {"stepId":"scan-1758704235307#2","tokens_in":1519,"tokens_out":140,"took":"3668ms"}
+[2025-09-24 12:27:21] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1758704235307#2","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-24.log","lineNo":-1,"took":"2ms"}
+[2025-09-24 12:27:21] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1758704235307#2","took":"3681ms"}
+[2025-09-24 12:27:21] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1758704235307#3","errorId":"4933ed16"}
+[2025-09-24 12:27:21] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1758704235307#3","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-24.log","sample":"[2025-09-24 11:27:28] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {\"stepId\":\"scan-1758700635305#3\",\"extracted_file\":null,\"extracted_line\":null,\"fallback_file\":\"C:\\\\Users\\\\Administrator\\\\Desktop"}
+[2025-09-24 12:27:21] [INFO] مکان خطا استخراج شد {"stepId":"scan-1758704235307#3","file":"-","line":"-","took":"2ms"}
+[2025-09-24 12:27:25] [INFO] AI تحلیل شد {"stepId":"scan-1758704235307#3","tokens_in":1900,"tokens_out":134,"took":"4207ms"}
+[2025-09-24 12:27:25] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1758704235307#3","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-24.log","lineNo":-1,"took":"2ms"}
+[2025-09-24 12:27:25] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1758704235307#3","took":"4221ms"}
+[2025-09-24 12:27:25] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1758704235307#4","errorId":"168460b2"}
+[2025-09-24 12:27:25] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1758704235307#4","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-24.log","sample":"[2025-09-24 11:27:31] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {\"stepId\":\"scan-1758700635305#4\",\"extracted_file\":null,\"extracted_line\":null,\"fallback_file\":\"C:\\\\Users\\\\Administrator\\\\Desktop"}
+[2025-09-24 12:27:25] [INFO] مکان خطا استخراج شد {"stepId":"scan-1758704235307#4","file":"-","line":"-","took":"2ms"}
+[2025-09-24 12:27:32] [INFO] AI تحلیل شد {"stepId":"scan-1758704235307#4","tokens_in":2210,"tokens_out":142,"took":"6477ms"}
+[2025-09-24 12:27:32] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1758704235307#4","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-24.log","lineNo":-1,"took":"3ms"}
+[2025-09-24 12:27:32] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1758704235307#4","took":"6494ms"}
+[2025-09-24 12:27:32] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1758704235307#5","errorId":"0b868b03"}
+[2025-09-24 12:27:32] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1758704235307#5","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-24.log","sample":"[2025-09-24 11:27:34] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {\"stepId\":\"scan-1758700635305#5\",\"extracted_file\":null,\"extracted_line\":null,\"fallback_file\":\"C:\\\\Users\\\\Administrator\\\\Desktop"}
+[2025-09-24 12:27:32] [INFO] مکان خطا استخراج شد {"stepId":"scan-1758704235307#5","file":"-","line":"-","took":"3ms"}
+[2025-09-24 12:27:39] [INFO] AI تحلیل شد {"stepId":"scan-1758704235307#5","tokens_in":2217,"tokens_out":160,"took":"7558ms"}
+[2025-09-24 12:27:39] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1758704235307#5","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-24.log","lineNo":-1,"took":"2ms"}
+[2025-09-24 12:27:39] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1758704235307#5","took":"7578ms"}
+[2025-09-24 12:27:39] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1758704235307#6","errorId":"68ded59b"}
+[2025-09-24 12:27:39] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1758704235307#6","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-24.log","sample":"[2025-09-24 11:27:40] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {\"stepId\":\"scan-1758700635305#6\",\"extracted_file\":null,\"extracted_line\":null,\"fallback_file\":\"C:\\\\Users\\\\Administrator\\\\Desktop"}
+[2025-09-24 12:27:39] [INFO] مکان خطا استخراج شد {"stepId":"scan-1758704235307#6","file":"-","line":"-","took":"2ms"}
+[2025-09-24 12:27:44] [INFO] AI تحلیل شد {"stepId":"scan-1758704235307#6","tokens_in":2065,"tokens_out":171,"took":"4540ms"}
+[2025-09-24 12:27:44] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1758704235307#6","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-24.log","lineNo":-1,"took":"0ms"}
+[2025-09-24 12:27:44] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1758704235307#6","took":"4551ms"}
+[2025-09-24 12:27:44] [INFO] پایان اسکن خطاها {"traceId":"scan-1758704235307","scanned":45,"bundles":6,"handled":6,"sent":0,"total":"29072ms"}
+[2025-09-24 12:27:44] [INFO] [2025-09-24 12:27:44] skipped: no significant change
+[2025-09-24 13:08:40] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758706720809","minutes":70}
+[2025-09-24 13:08:40] [INFO] خواندن لاگ‌ها {"found":50,"took":"7ms"}
+[2025-09-24 13:08:40] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"1ms"}
+[2025-09-24 13:08:40] [INFO] پایان اسکن خطاها {"traceId":"scan-1758706720809","scanned":50,"bundles":0,"handled":0,"sent":0,"total":"41ms"}

@@ -27,10 +27,10 @@ console.log('🔌 WA service wired:', !!globalThis.waService);
 // ====== ENV ======
 const MAIN_DB = process.env.MAIN_DB_PATH || "C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\db_atigh.sqlite";
 const ARCH_DB = process.env.ARCHIVE_DB_PATH || "C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\db_archive.sqlite";
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY ;
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const WHATSAPP_OPERATOR = normalizeMsisdn(process.env.WHATSAPP_OPERATOR || "09134052885");
 const TZ = "Asia/Tehran";
-const CONCURRENCY = Number(process.env.SCENARIO_CONCURRENCY || 3);
+const CONCURRENCY = 4;// Number(process.env.SCENARIO_CONCURRENCY || 3);
 const DRY_RUN = process.env.DRY_RUN === "1";
 
 console.log("▶️ build_and_send_all_visitor_scenarios: boot", {
@@ -197,25 +197,27 @@ function humanizeRange(startISO, endISO) {
   if (secs < 60) return `${secs} ثانیه`;
   return `${Math.round(secs / 60)} دقیقه`;
 }
+export function classifyCRMState(contactExists, deals = []) {
+  // 1) کانتکت نیست ⇒ no_crm
+  if (!contactExists) return { guardKey: 'no_crm', reason: 'no_contact' };
 
-function formatDuration(from, to) {
-  const aIso = toIsoSmart(from);
-  const bIso = toIsoSmart(to);
-  if (!aIso || !bIso) return null;
-  const a = moment(aIso), b = moment(bIso);
-  const sec = Math.max(0, b.diff(a, 'seconds'));
-  if (sec < 60) return `${sec} ثانیه`;
-  const min = Math.round(sec / 60);
-  return `${min} دقیقه`;
+  // 2) کانتکت هست ولی هیچ Deal ندارد ⇒ no_crm
+  if (!deals || deals.length === 0) {
+    return { guardKey: 'no_crm', reason: 'no_deal' };
+  }
+
+  // 3) اگر حتی یکی از Dealها باز باشد ⇒ free
+  const hasActive = deals.some(d => {
+    const st = String(d?.Status || '').trim();
+    return !['Lost', 'Won'].includes(st) && !d?.IsDeleted;
+  });
+  if (hasActive) return { guardKey: 'free', reason: 'active_deal' };
+
+  // 4) در غیر این صورت فقط دیل بسته دارد ⇒ lost
+  return { guardKey: 'lost', reason: 'only_closed_deals' };
 }
 
-function human09(msisdn98 = '') {
-  return String(msisdn98).replace(/^98/, '0');
-}
 
-function enforceMax(text = '', max = 1800) {
-  return text.length <= max ? text : (text.slice(0, max - 1) + '…');
-}
 
 
 // ===== غنی‌سازی از دیدار با فانکشن‌های موجود =====
@@ -235,7 +237,8 @@ export async function enrichFromDidarByMobile(mobile) {
   }
 
   if (!didar_contact_id) {
-    return {
+        const crm_state = classifyCRMState(false, []);
+        return {
       didar_contact_id: null,
       contact_name: null,
       deals_json: "[]",
@@ -243,7 +246,9 @@ export async function enrichFromDidarByMobile(mobile) {
       next_followup_at: null,
       last_note: null,
       latest_stage: null,
-      latest_status: null
+      latest_status: null,
+     crm_state,
+      guardKey: crm_state.guardKey,
     };
   }
 
@@ -288,7 +293,8 @@ export async function enrichFromDidarByMobile(mobile) {
     };
   });
 
-
+// طبقه‌بندی وضعیت CRM (کانتکت هست، لیست دیل‌های بازخوانی شده داریم)
+  const crm_state = classifyCRMState(true, details);
   const latest = pickLast(deals_slim); // جدیدترین
 
   return {
@@ -300,6 +306,8 @@ export async function enrichFromDidarByMobile(mobile) {
     last_note: latest?.last_note || null,
     latest_stage: latest?.stage || null,
     latest_status: latest?.status || null,
+    crm_state,
+    guardKey: crm_state.guardKey,
   };
 }
 
@@ -334,7 +342,7 @@ export function composeScenario({ profile, didar, engagedPages }) {
       ? didar.deals_slim
       : safeParseJson(didar.deals_json, []);
     const d0 = ds[0] || {};
-    
+
     const statusFa = faDealStatus(d0.status);
     if (statusFa) lines.push(`وضعیت:   ${statusFa}`);
     if (d0.destination) lines.push(`مقصد:   ${d0.destination}`);
@@ -418,6 +426,20 @@ function chunkText(s, max = 3500) {
   return out;
 }
 
+
+// ====== Send-guard helpers ======
+function normStatus(s) {
+  const t = String(s || '').trim().toLowerCase();
+  if (t.includes('lost') || t.includes('ناموفق') || t.includes('لغو')) return 'lost';
+  if (t.includes('won') || t.includes('موفق')) return 'won';
+  if (t.includes('pending') || t.includes('درجریان') || t.includes('در جریان') || t.includes('open')) return 'pending';
+  return null;
+}
+
+
+
+
+
 // ====== DB bootstrap ======
 console.time("⏱ DB init");
 const db = new Database(MAIN_DB);
@@ -436,33 +458,59 @@ console.timeEnd("⏱ DB init");
 
 // ====== Schema (output table) ======
 console.log("🛠 Ensuring output table person_unified_profile exists…");
+
 db.exec(`
-CREATE TABLE IF NOT EXISTS person_unified_profile (
-  mobile TEXT PRIMARY KEY,
-  last_visitor_id TEXT,
-  contact_name TEXT,
-  didar_contact_id TEXT,
-  instagram_id TEXT,
-  first_seen TEXT,
-  last_seen TEXT,
-  sessions INTEGER,
-  pages_viewed INTEGER,
-  total_dwell_sec INTEGER,
-  whatsapp_inbound_count INTEGER,
-  last_whatsapp_text TEXT,
-  last_whatsapp_at TEXT,
-  pdf_sent_count INTEGER,
-  last_pdf_title TEXT,
-  last_pdf_at TEXT,
-  deals_json TEXT,
-  sample_pages_json TEXT,
-  scenario_text TEXT,
-  scenario_model TEXT,
-  scenario_sent_at TEXT,
-  updated_at TEXT DEFAULT (datetime('now'))
-);
+  CREATE TABLE IF NOT EXISTS person_unified_profile (
+    mobile TEXT PRIMARY KEY,
+    last_visitor_id TEXT,
+    contact_name TEXT,
+    didar_contact_id TEXT,
+    instagram_id TEXT,
+    first_seen TEXT,
+    last_seen TEXT,
+    sessions INTEGER,
+    pages_viewed INTEGER,
+    total_dwell_sec INTEGER,
+    whatsapp_inbound_count INTEGER,
+    last_whatsapp_text TEXT,
+    last_whatsapp_at TEXT,
+    pdf_sent_count INTEGER,
+    last_pdf_title TEXT,
+    last_pdf_at TEXT,
+    deals_json TEXT,
+    sample_pages_json TEXT,
+    scenario_text TEXT,
+    scenario_model TEXT,
+    scenario_sent_at TEXT,
+    updated_at TEXT DEFAULT (datetime('now'))
+  );
+  `);
+
+// ——— بعد از CREATE TABLE person_unified_profile ... ———
+db.exec(`
+  CREATE TABLE IF NOT EXISTS scenario_send_guard (
+    mobile        TEXT NOT NULL,
+    status        TEXT NOT NULL,     -- 'won' | 'lost' | 'no_crm'
+    first_sent_at TEXT DEFAULT (datetime('now','+03:30')),
+    last_sent_at  TEXT DEFAULT (datetime('now','+03:30')),
+    send_count    INTEGER DEFAULT 1,
+    PRIMARY KEY (mobile, status)
+  );
+  CREATE INDEX IF NOT EXISTS idx_ssg_status ON scenario_send_guard(status);
 `);
-console.log("✅ Output table ready.");
+console.log("🛡️ Guard table ready.");
+
+const guardCheckStmt = db.prepare(`
+  SELECT 1 FROM scenario_send_guard WHERE mobile = ? AND status = ?
+`);
+const guardUpsertStmt = db.prepare(`
+  INSERT INTO scenario_send_guard (mobile, status)
+  VALUES (?, ?)
+  ON CONFLICT(mobile, status) DO UPDATE SET
+    last_sent_at = datetime('now','+03:30'),
+    send_count   = scenario_send_guard.send_count + 1
+`);
+
 
 const upsertStmt = db.prepare(`
 INSERT INTO person_unified_profile (
@@ -527,6 +575,60 @@ function latestWeeklyTable() {
   }
   return row.name;
 }
+// ——— Helpers: robust, null-safe ———
+function extractMsisdnFromJid(jid = '') {
+  // نمونه‌ها: "989144097260@c.us" یا "false_989144097260@c.us_3A0366..."
+  // اولین عدد متوالی قبل از "@c.us" را می‌گیرد
+  const s = String(jid || '');
+  const m = s.match(/(\d{9,15})@c\.us/i);
+  return m ? m[1] : null;
+}
+
+function normalizeMobile(mobile = '', ffrom = '', tto = '') {
+  // 1) اگر mobile موجود بود، تمیز و نرمال کن
+  let m = String(mobile || '').replace(/[^\d]/g, '');
+  if (!m) {
+    // 2) از ffrom یا tto استخراج کن
+    m = extractMsisdnFromJid(ffrom) || extractMsisdnFromJid(tto) || '';
+  }
+  if (!m) return null;
+
+  // 3) نرمال به فرمت 98xxxxxxxxxx
+  if (m.startsWith('0098')) m = m.slice(2);
+  if (m.startsWith('0')) m = '98' + m.slice(1);
+  else if (!m.startsWith('98')) {
+    // اگر 10 رقمی و با 9 شروع شد، ایران فرض کن
+    if (m.length === 10 && m.startsWith('9')) m = '98' + m;
+    // در غیر اینصورت همانی که هست (برای کشورهای دیگر)
+  }
+
+  // حداقل ولیدیشن
+  if (!/^\d{10,15}$/.test(m)) return null;
+  return m;
+}
+
+// ——— بک‌فیل موبایل‌ها در whatsapp_new_msg ———
+function fixMobilesInWhatsapp() {
+  console.log('🔧 Normalizing whatsapp_new_msg.mobile ...');
+
+  const rows = db.prepare(`
+    SELECT msg_id, mobile, ffrom, tto
+    FROM whatsapp_new_msg
+  `).all();
+  const update = db.prepare(`UPDATE whatsapp_new_msg SET mobile = ? WHERE msg_id = ?`);
+
+  let updated = 0, skipped = 0;
+  for (const r of rows) {
+    const norm = normalizeMobile(r.mobile, r.ffrom, r.tto);
+    if (!norm) { skipped++; continue; }
+    if (norm !== r.mobile) {
+      update.run(norm, r.msg_id);
+      updated++;
+    }
+  }
+  console.log(`✅ Mobile normalization done: updated=${updated}, skipped=${skipped}, total=${rows.length}`);
+}
+
 
 // ====== collect maps (whatsapp, pdf, instagram) keyed by mobile ======
 function collectWhatsappInbound() {
@@ -742,19 +844,6 @@ function aggregateJourneyForVisitor(weeklyTbl, visitorId) {
   };
 }
 
-// ====== Didar enrichment ======
-function didarPhoneVariants(m98) {
-  const d = String(m98 || '').replace(/[^\d]/g, '');
-  const nine = d.replace(/^98/, '');
-  // ترتیب مهم است؛ از دقیق به مبهم
-  return Array.from(new Set([
-    '0' + nine,        // 0913...
-    '+98' + nine,      // +98913...
-    d,                 // 98913...
-    '+' + d,           // +98913...
-    nine               // 913...
-  ]));
-}
 
 // —— enrichFromDidar: موبایل → کانتکت → لیست دیل‌ها → اسلیم
 export async function enrichFromDidar(mobile) {
@@ -776,6 +865,7 @@ export async function enrichFromDidar(mobile) {
   }
 
   if (!contactId) {
+    const crm_state = classifyCRMState(false, []);
     return {
       didar_contact_id: null,
       contact_name: null,
@@ -783,6 +873,8 @@ export async function enrichFromDidar(mobile) {
       last_note: null,
       next_followup_at: null,
       destination: null,
+      crm_state,
+      guardKey: crm_state.guardKey,
     };
   }
 
@@ -805,6 +897,14 @@ export async function enrichFromDidar(mobile) {
 
   // مقادیر خلاصه از جدیدترین دیل
   const latest = deals_slim[0] || {};
+
+  
+  // طبقه‌بندی وضعیت CRM:
+  // توجه: برای تصمیم «no_crm وقتی دیلی نیست» کافی‌ست همین rawDeals را بررسی کنیم.
+  // اگر Status داخل rawDeals وجود داشت از همان استفاده می‌شود؛ نبود هم مهم نیست،
+  // چون صرفِ خالی بودن آرایه باعث no_crm می‌شود.
+  const crm_state = classifyCRMState(true, rawDeals);
+
   return {
     didar_contact_id: contactId || null,
     contact_name,
@@ -813,6 +913,8 @@ export async function enrichFromDidar(mobile) {
     destination: latest.destination || null,
     next_followup_at: latest.next_followup_at ? fmtTeh(latest.next_followup_at) : null,
     last_note,
+    crm_state,
+    guardKey: crm_state.guardKey,
   };
 
 }
@@ -821,46 +923,13 @@ export async function enrichFromDidar(mobile) {
 // ====== OpenAI scenario ======
 const openai = OPENAI_API_KEY ? new OpenAI({ apiKey: OPENAI_API_KEY }) : null;
 
-async function buildScenario(profile) {
-  const minutes = Math.round((profile.total_dwell_sec || 0) / 60);
-  const instr = `
-شما دستیار فروش آژانس هستید. برای این لید یک سناریوی کاربردی (<= 2200 کاراکتر) بنویس:
-- معرفی کوتاه لید (نام اگر هست) + موبایل
-- مسیر حضور در سایت (۸-۱۲ صفحه‌ی آخر با زمان مطالعه)
-- علایق احتمالی
-- تعاملات: واتساپ، کاتالوگ‌ها
-- CRM دیدار: ContactId/Name و خلاصه معاملات (مرحله/مبلغ)
-- اقدام بعدی پیشنهادی
-فارسی، مودب، بدون ایموجی.
 
-داده‌ها:
-${JSON.stringify({
-    ...profile,
-    total_dwell_min: minutes,
-    sample_pages: (profile.sample_pages || []).slice(0, 12),
-    deals: (profile.deals || []).slice(0, 5)
-  }, null, 2)}
-  `.trim();
-
-  if (!openai) return buildFallbackScenario(profile);
-
-  console.time(`⏱ OpenAI scenario ${profile.mobile}`);
-  const resp = await openai.responses.create({
-    model: 'gpt-5',
-    input: [
-      { role: 'user', content: instr }
-    ],
-    max_output_tokens: 800
-  });
-  const out = (extractOpenAIText(resp) || '').trim();
-  console.timeEnd(`⏱ OpenAI scenario ${profile.mobile}`);
-  return out || buildFallbackScenario(profile);
-}
 
 
 // ====== MAIN ======
 export async function runAllVisitorScenarios() {
   console.log("🚀 Starting full pipeline…");
+  fixMobilesInWhatsapp();
   const weekly = latestWeeklyTable();
   console.log(`🧭 Weekly table selected: arch.${weekly}`);
 
@@ -906,6 +975,7 @@ export async function runAllVisitorScenarios() {
 
     try {
       console.log(`\n— — — — —\n🧩 Process visitor: visitor_id=${row.visitor_id} mobile=${mobile}`);
+
       // journey aggregation for THIS visitor_id
       const j = aggregateJourneyForVisitor(weekly, row.visitor_id);
       console.log("📊 Journey summary:", {
@@ -930,13 +1000,13 @@ export async function runAllVisitorScenarios() {
         instagram_id
       });
 
-      // Didar
+      // ——— DIDAR ———
       const didar = await enrichFromDidarByMobile(mobile);
 
       // پروفایل سبک برای سناریو
       const profile = {
         mobile,
-        contact_name: didar.contact_name || null,
+        contact_name: didar?.contact_name || null,
         first_seen: j.first_seen,
         last_seen: j.last_seen,
         sessions: j.sessions,
@@ -947,20 +1017,50 @@ export async function runAllVisitorScenarios() {
       // صفحات درگیر (بدون UTM و فقط صفحاتی که dwell>=5s)
       const engagedPages = compactPages(j.sample_pages || [], 8);
 
-      // سناریو
+      // آرایه‌ی دیل‌ها را ایمن استخراج کن
+      const dealsArr = Array.isArray(didar?.deals_slim)
+        ? didar.deals_slim
+        : safeParseJson(didar?.deals_json, []);
+
+      // *** محاسبه‌ی guardKey مطابق منطق جدید ***
+      const hasDidar = !!didar?.didar_contact_id;
+      const hasDeals = dealsArr.length > 0;
+      const hasActive = dealsArr.some(d => {
+        const st = String(d?.status || '').trim();
+        return st && !['Lost', 'Won'].includes(st);
+      });
+
+      // آخرین وضعیت برای موارد بدون اکتیو
+      const latestRawStatus = didar?.latest_status || dealsArr?.[0]?.status || null;
+      const latestStatus = normStatus(latestRawStatus); // 'lost' | 'won' | 'pending' | null
+
+      let guardKey = null;
+      if (!hasDidar) {
+        guardKey = 'no_crm';
+      } else if (!hasDeals) {                 // ←← کانتکت هست ولی دیل ندارد
+        guardKey = 'no_crm';
+      } else if (!hasActive) {
+        // همه دیل‌ها بسته‌اند → guard بر اساس آخرین وضعیت
+        if (latestStatus === 'lost' || latestStatus === 'won') {
+          guardKey = latestStatus;
+        } else {
+          // اگر به هر دلیل نرمالایز نشد، به عنوان بسته در نظر بگیر
+          guardKey = 'lost';
+        }
+      }
+      // اگر hasActive=true ⇒ guardKey=null یعنی حالت «free» و محدودیتی برای ارسال نداریم
+
+      // سناریوی متنی
       const scenario_text = composeScenario({
         profile,
         didar: {
-          didar_contact_id: didar.didar_contact_id,
-          deals_slim: Array.isArray(didar.deals_slim)
-            ? didar.deals_slim
-            : safeParseJson(didar.deals_json, []),
-
-          next_followup_at: didar.next_followup_at,
-          last_note: didar.last_note,
-          destination: didar.destination,
-          latest_stage: didar.latest_stage,
-          latest_status: didar.latest_status,
+          didar_contact_id: didar?.didar_contact_id || null,
+          deals_slim: dealsArr,
+          next_followup_at: didar?.next_followup_at || null,
+          last_note: didar?.last_note || null,
+          destination: didar?.destination || null,
+          latest_stage: didar?.latest_stage || null,
+          latest_status: didar?.latest_status || null,
         },
         engagedPages
       });
@@ -968,13 +1068,12 @@ export async function runAllVisitorScenarios() {
       const scenario_model = "deterministic-v1";
       const scenario_sent_at = nowTeh();
 
-
       // Store (UPSERT) — scenario MUST be stored even in DRY_RUN
       const record = {
         mobile,
         last_visitor_id: row.visitor_id,
-        contact_name: didar.contact_name,
-        didar_contact_id: didar.didar_contact_id,
+        contact_name: didar?.contact_name || null,
+        didar_contact_id: didar?.didar_contact_id || null,
         instagram_id,
         first_seen: j.first_seen,
         last_seen: j.last_seen,
@@ -987,12 +1086,22 @@ export async function runAllVisitorScenarios() {
         pdf_sent_count: p.count,
         last_pdf_title: p.last_title,
         last_pdf_at: p.last_at,
-        deals_json: didar.deals_json,
+        deals_json: didar?.deals_json || JSON.stringify(dealsArr || []),
         sample_pages_json: JSON.stringify(j.sample_pages || []),
         scenario_text,
         scenario_model,
         scenario_sent_at
       };
+
+      // قفل ارسال بر اساس guardKey
+      let allowSend = true;
+      if (guardKey) {
+        const already = guardCheckStmt.get(mobile, guardKey);
+        if (already) {
+          allowSend = false;
+          console.log(`⏭️ Skip send for ${mobile}: guardKey=${guardKey} (already sent once).`);
+        }
+      }
 
       try {
         upsertStmt.run(record);
@@ -1002,20 +1111,30 @@ export async function runAllVisitorScenarios() {
         console.error(`❌ Failed to UPSERT scenario for ${mobile}:`, e?.message || e);
       }
 
-      // Send to operator in WhatsApp (skip only if DRY_RUN)
-
-      const msg = scenario_text;
-
-      if (!DRY_RUN) {
-        await sendWhatsAppText(WHATSAPP_OPERATOR, msg);
-        console.log(`📨 Sent to operator ${WHATSAPP_OPERATOR} for mobile ${mobile}`);
-        sentOk++;
+      // ارسال به اپراتور واتساپ
+      if (!allowSend) {
+        sentSkip++;
+      } else if (!DRY_RUN) {
+        try {
+          await sendWhatsAppText(WHATSAPP_OPERATOR, scenario_text);
+          console.log(`📨 Sent to operator ${WHATSAPP_OPERATOR} for ${mobile} (guardKey=${guardKey || 'free'})`);
+          if (guardKey) {
+            try { guardUpsertStmt.run(mobile, guardKey); }
+            catch (e) { console.warn('⚠️ guard upsert failed:', e?.message || e); }
+          }
+          sentOk++;
+        } catch (e) {
+          errors++;
+          console.error(`❌ WhatsApp send failed for ${mobile}:`, e?.message || e);
+        }
       } else {
-        console.log(`[DRY_RUN] Would send to operator ${WHATSAPP_OPERATOR} for ${mobile}`);
+        console.log(`[DRY_RUN] Would send to operator ${WHATSAPP_OPERATOR} for ${mobile} (guardKey=${guardKey || 'free'})`);
         sentSkip++;
       }
 
+      // *** شمارنده‌ی پردازش ***
       processed++;
+
     } catch (e) {
       errors++;
       console.error(`❌ Pipeline error for ${mobile}:`, e?.message || e);
@@ -1033,6 +1152,7 @@ export async function runAllVisitorScenarios() {
     errors
   });
 }
+
 
 // Robust direct-run detection for ESM
 if (typeof process !== "undefined" && process.argv?.[1]) {
