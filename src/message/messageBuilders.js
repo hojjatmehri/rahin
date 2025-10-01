@@ -16,7 +16,7 @@ function cap(s, n = 4) {
    */
   export function buildManagementMessage(runKey, date, management = {}) {
     const l = [];
-    l.push(`گزارش مدیریتی راهین – ${date}`);
+    l.push(`گزارش مدیریتی راهنگار – ${date}`);
   
     if (management?.analysis) {
       l.push('');
@@ -49,7 +49,7 @@ function cap(s, n = 4) {
    */
   export function buildTechSummaryMessage(runKey, date, tech = {}) {
     const l = [];
-    l.push(`گزارش فنی راهین – ${date}`);
+    l.push(`گزارش فنی راهنگار – ${date}`);
   
     if (tech?.overview) {
       l.push('');

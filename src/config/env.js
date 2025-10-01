@@ -66,7 +66,7 @@ const env = {
   OPENAI_API_KEY: safe(() => asString(process.env.OPENAI_API_KEY, { name: 'OPENAI_API_KEY', required: true })),
   RAHIN_MODEL: safe(() => asString(process.env.RAHIN_MODEL, { name: 'RAHIN_MODEL', def: 'gpt-4o' })),
 
-  // زمان‌بندی و لاگ راهین
+  // زمان‌بندی و لاگ راهنگار
   RAHIN_INTERVAL_MIN: safe(() => asInt(process.env.RAHIN_INTERVAL_MIN, { name: 'RAHIN_INTERVAL_MIN', def: 60, min: 5 })),
   RAHIN_LOG_FILE: safe(() => asString(process.env.RAHIN_LOG_FILE, { name: 'RAHIN_LOG_FILE', def: './rahin_ops.log' })),
   RAHIN_LOGS_DIR: safe(() => asString(process.env.RAHIN_LOGS_DIR, { name: 'RAHIN_LOGS_DIR', def: './logs' })),

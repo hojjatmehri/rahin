@@ -630,3 +630,629 @@
 [2025-09-24 13:17:15] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
 [2025-09-24 13:17:15] [INFO] پایان اسکن خطاها {"traceId":"scan-1758707235406","scanned":109,"bundles":0,"handled":0,"sent":0,"total":"32ms"}
 [2025-09-24 13:17:15] [INFO] [2025-09-24 13:17:15] skipped: no significant change
+[2025-09-24 15:55:02] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758716702448","minutes":70}
+[2025-09-24 15:55:02] [INFO] خواندن لاگ‌ها {"found":58,"took":"11ms"}
+[2025-09-24 15:55:02] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-24 15:55:02] [INFO] پایان اسکن خطاها {"traceId":"scan-1758716702448","scanned":58,"bundles":0,"handled":0,"sent":0,"total":"46ms"}
+[2025-09-24 15:56:16] [INFO] [2025-09-24 15:56:16] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-09-24 15:56:16] [INFO] [2025-09-24 15:56:16] ✓ run=2025-09-24:1758716702566 sent
+[2025-09-24 18:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758724200006","minutes":70}
+[2025-09-24 18:00:00] [INFO] خواندن لاگ‌ها {"found":41,"took":"15ms"}
+[2025-09-24 18:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-24 18:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1758724200006","scanned":41,"bundles":0,"handled":0,"sent":0,"total":"23ms"}
+[2025-09-24 18:00:00] [INFO] [2025-09-24 18:00:00] skipped: no significant change
+[2025-09-24 21:06:04] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758735364155","minutes":70}
+[2025-09-24 21:06:04] [INFO] خواندن لاگ‌ها {"found":14,"took":"22ms"}
+[2025-09-24 21:06:04] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-24 21:06:04] [INFO] پایان اسکن خطاها {"traceId":"scan-1758735364155","scanned":14,"bundles":0,"handled":0,"sent":0,"total":"73ms"}
+[2025-09-24 21:07:29] [INFO] [2025-09-24 21:07:29] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-09-24 21:07:29] [INFO] [2025-09-24 21:07:29] ✓ run=2025-09-24:1758735364298 sent
+[2025-09-25 00:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758745800005","minutes":70}
+[2025-09-25 00:00:00] [INFO] خواندن لاگ‌ها {"found":17,"took":"19ms"}
+[2025-09-25 00:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-25 00:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1758745800005","scanned":17,"bundles":0,"handled":0,"sent":0,"total":"31ms"}
+[2025-09-25 00:01:06] [INFO] [2025-09-25 00:01:06] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-09-25 00:01:06] [INFO] [2025-09-25 00:01:06] ✓ run=2025-09-25:1758745800091 sent
+[2025-09-25 06:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758767400003","minutes":70}
+[2025-09-25 06:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"19ms"}
+[2025-09-25 06:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-25 06:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1758767400003","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"29ms"}
+[2025-09-25 06:01:19] [INFO] [2025-09-25 06:01:19] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-09-25 06:01:19] [INFO] [2025-09-25 06:01:19] ✓ run=2025-09-25:1758767400073 sent
+[2025-09-25 12:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758789000002","minutes":70}
+[2025-09-25 12:00:00] [INFO] خواندن لاگ‌ها {"found":20,"took":"13ms"}
+[2025-09-25 12:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-25 12:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1758789000002","scanned":20,"bundles":0,"handled":0,"sent":0,"total":"24ms"}
+[2025-09-25 12:01:16] [INFO] [2025-09-25 12:01:16] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-09-25 12:01:16] [INFO] [2025-09-25 12:01:16] ✓ run=2025-09-25:1758789000102 sent
+[2025-09-25 18:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758810600003","minutes":70}
+[2025-09-25 18:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"19ms"}
+[2025-09-25 18:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"1ms"}
+[2025-09-25 18:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1758810600003","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"30ms"}
+[2025-09-25 18:01:19] [INFO] [2025-09-25 18:01:19] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-09-25 18:01:19] [INFO] [2025-09-25 18:01:19] ✓ run=2025-09-25:1758810600165 sent
+[2025-09-25 23:59:59] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758832199999","minutes":70}
+[2025-09-26 00:00:00] [INFO] خواندن لاگ‌ها {"found":0,"took":"13ms"}
+[2025-09-26 00:00:00] [INFO] هیچ خطی در بازه یافت نشد. پایان. {"traceId":"scan-1758832199999"}
+[2025-09-26 00:00:58] [INFO] [2025-09-26 00:00:58] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-09-26 00:00:58] [INFO] [2025-09-26 00:00:58] ✓ run=2025-09-26:1758832200066 sent
+[2025-09-26 06:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758853800002","minutes":70}
+[2025-09-26 06:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"2ms"}
+[2025-09-26 06:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-26 06:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1758853800002","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"9ms"}
+[2025-09-26 06:00:34] [INFO] [2025-09-26 06:00:34] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-09-26 06:00:34] [INFO] [2025-09-26 06:00:34] ✓ run=2025-09-26:1758853800114 sent
+[2025-09-26 12:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758875400000","minutes":70}
+[2025-09-26 12:00:00] [INFO] خواندن لاگ‌ها {"found":3,"took":"4ms"}
+[2025-09-26 12:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-26 12:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1758875400000","scanned":3,"bundles":0,"handled":0,"sent":0,"total":"17ms"}
+[2025-09-26 12:01:11] [INFO] [2025-09-26 12:01:11] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-09-26 12:01:11] [INFO] [2025-09-26 12:01:11] ✓ run=2025-09-26:1758875400153 sent
+[2025-09-26 18:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758897000003","minutes":70}
+[2025-09-26 18:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"5ms"}
+[2025-09-26 18:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"1ms"}
+[2025-09-26 18:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1758897000003","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"13ms"}
+[2025-09-26 18:00:00] [INFO] [2025-09-26 18:00:00] skipped: no significant change
+[2025-09-27 00:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758918600003","minutes":70}
+[2025-09-27 00:00:00] [INFO] خواندن لاگ‌ها {"found":0,"took":"2ms"}
+[2025-09-27 00:00:00] [INFO] هیچ خطی در بازه یافت نشد. پایان. {"traceId":"scan-1758918600003"}
+[2025-09-27 00:01:10] [INFO] [2025-09-27 00:01:10] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-09-27 00:01:10] [INFO] [2025-09-27 00:01:10] ✓ run=2025-09-27:1758918600033 sent
+[2025-09-27 06:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758940200000","minutes":70}
+[2025-09-27 06:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"1ms"}
+[2025-09-27 06:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-27 06:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1758940200000","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"17ms"}
+[2025-09-27 06:00:35] [INFO] [2025-09-27 06:00:35] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-09-27 06:00:35] [INFO] [2025-09-27 06:00:35] ✓ run=2025-09-27:1758940200112 sent
+[2025-09-27 12:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758961800003","minutes":70}
+[2025-09-27 12:00:00] [INFO] خواندن لاگ‌ها {"found":12,"took":"1ms"}
+[2025-09-27 12:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-27 12:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1758961800003","scanned":12,"bundles":0,"handled":0,"sent":0,"total":"9ms"}
+[2025-09-27 12:01:41] [INFO] [2025-09-27 12:01:41] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-09-27 12:01:41] [INFO] [2025-09-27 12:01:41] ✓ run=2025-09-27:1758961800044 sent
+[2025-09-27 18:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1758983400002","minutes":70}
+[2025-09-27 18:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"2ms"}
+[2025-09-27 18:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-27 18:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1758983400002","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"12ms"}
+[2025-09-27 18:01:04] [INFO] [2025-09-27 18:01:04] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-09-27 18:01:04] [INFO] [2025-09-27 18:01:04] ✓ run=2025-09-27:1758983400055 sent
+[2025-09-28 00:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759005000000","minutes":70}
+[2025-09-28 00:00:00] [INFO] خواندن لاگ‌ها {"found":0,"took":"2ms"}
+[2025-09-28 00:00:00] [INFO] هیچ خطی در بازه یافت نشد. پایان. {"traceId":"scan-1759005000000"}
+[2025-09-28 00:00:33] [INFO] [2025-09-28 00:00:33] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-09-28 00:00:33] [INFO] [2025-09-28 00:00:33] ✓ run=2025-09-28:1759005000053 sent
+[2025-09-28 06:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759026600003","minutes":70}
+[2025-09-28 06:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"1ms"}
+[2025-09-28 06:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-28 06:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1759026600003","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"9ms"}
+[2025-09-28 06:00:26] [INFO] [2025-09-28 06:00:26] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-09-28 06:00:26] [INFO] [2025-09-28 06:00:26] ✓ run=2025-09-28:1759026600056 sent
+[2025-09-28 11:19:30] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759045770062","minutes":70}
+[2025-09-28 11:19:30] [INFO] خواندن لاگ‌ها {"found":26,"took":"2ms"}
+[2025-09-28 11:19:30] [INFO] باندل‌سازی خطاها {"bundles":1,"took":"0ms"}
+[2025-09-28 11:19:30] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759045770062#1","errorId":"c6e9b191"}
+[2025-09-28 11:19:30] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759045770062#1","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 11:10:21] [ERROR] UncaughtException {"}
+[2025-09-28 11:19:30] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759045770062#1","file":"-","line":"-","took":"3ms"}
+[2025-09-28 11:19:33] [INFO] AI تحلیل شد {"stepId":"scan-1759045770062#1","tokens_in":887,"tokens_out":121,"took":"3869ms"}
+[2025-09-28 11:19:33] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759045770062#1","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"2ms"}
+[2025-09-28 11:19:33] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759045770062#1","took":"3882ms"}
+[2025-09-28 11:19:33] [INFO] پایان اسکن خطاها {"traceId":"scan-1759045770062","scanned":26,"bundles":1,"handled":1,"sent":0,"total":"3913ms"}
+[2025-09-28 11:20:19] [INFO] [2025-09-28 11:20:19] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-09-28 11:20:19] [INFO] [2025-09-28 11:20:19] ✓ run=2025-09-28:1759045774009 sent
+[2025-09-28 12:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759048200003","minutes":70}
+[2025-09-28 12:00:00] [INFO] خواندن لاگ‌ها {"found":27,"took":"2ms"}
+[2025-09-28 12:00:00] [INFO] باندل‌سازی خطاها {"bundles":2,"took":"0ms"}
+[2025-09-28 12:00:00] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759048200003#2","errorId":"de45fef4"}
+[2025-09-28 12:00:00] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759048200003#2","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 11:19:30] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {\"stepId\":\"scan-1759045770062#1\",\"extracted_file\":null,\"extracted_line\":null,\"fallback_file\":\"C:\\\\Users\\\\Administrator\\\\Desktop"}
+[2025-09-28 12:00:00] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759048200003#2","file":"-","line":"-","took":"4ms"}
+[2025-09-28 12:00:03] [INFO] AI تحلیل شد {"stepId":"scan-1759048200003#2","tokens_in":1443,"tokens_out":163,"took":"3039ms"}
+[2025-09-28 12:00:03] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759048200003#2","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"1ms"}
+[2025-09-28 12:00:03] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759048200003#2","took":"3054ms"}
+[2025-09-28 12:00:03] [INFO] پایان اسکن خطاها {"traceId":"scan-1759048200003","scanned":27,"bundles":2,"handled":1,"sent":0,"total":"3071ms"}
+[2025-09-28 12:00:03] [INFO] [2025-09-28 12:00:03] skipped: no significant change
+[2025-09-28 15:48:56] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759061936406","minutes":70}
+[2025-09-28 15:48:56] [INFO] خواندن لاگ‌ها {"found":252,"took":"3ms"}
+[2025-09-28 15:48:56] [INFO] باندل‌سازی خطاها {"bundles":33,"took":"1ms"}
+[2025-09-28 15:48:56] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759061936406#1","errorId":"f099f1b2"}
+[2025-09-28 15:48:56] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759061936406#1","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:47:59] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 15:48:56] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759061936406#1","file":"-","line":"-","took":"3ms"}
+[2025-09-28 15:49:00] [INFO] AI تحلیل شد {"stepId":"scan-1759061936406#1","tokens_in":1281,"tokens_out":169,"took":"3586ms"}
+[2025-09-28 15:49:00] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759061936406#1","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"5ms"}
+[2025-09-28 15:49:00] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759061936406#1","took":"3598ms"}
+[2025-09-28 15:49:00] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759061936406#2","errorId":"217ee1d6"}
+[2025-09-28 15:49:00] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759061936406#2","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:01] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 15:49:00] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759061936406#2","file":"-","line":"-","took":"3ms"}
+[2025-09-28 15:49:03] [INFO] AI تحلیل شد {"stepId":"scan-1759061936406#2","tokens_in":1299,"tokens_out":214,"took":"3225ms"}
+[2025-09-28 15:49:03] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759061936406#2","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"1ms"}
+[2025-09-28 15:49:03] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759061936406#2","took":"3233ms"}
+[2025-09-28 15:49:03] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759061936406#3","errorId":"0d2d2332"}
+[2025-09-28 15:49:03] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759061936406#3","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:02] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 15:49:03] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759061936406#3","file":"-","line":"-","took":"2ms"}
+[2025-09-28 15:49:06] [INFO] AI تحلیل شد {"stepId":"scan-1759061936406#3","tokens_in":1307,"tokens_out":157,"took":"3054ms"}
+[2025-09-28 15:49:06] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759061936406#3","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"2ms"}
+[2025-09-28 15:49:06] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759061936406#3","took":"3067ms"}
+[2025-09-28 15:49:06] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759061936406#4","errorId":"80690559"}
+[2025-09-28 15:49:06] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759061936406#4","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:04] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 15:49:06] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759061936406#4","file":"-","line":"-","took":"2ms"}
+[2025-09-28 15:49:09] [INFO] AI تحلیل شد {"stepId":"scan-1759061936406#4","tokens_in":1311,"tokens_out":168,"took":"2711ms"}
+[2025-09-28 15:49:09] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759061936406#4","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"4ms"}
+[2025-09-28 15:49:09] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759061936406#4","took":"2727ms"}
+[2025-09-28 15:49:09] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759061936406#5","errorId":"4291052c"}
+[2025-09-28 15:49:09] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759061936406#5","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:06] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 15:49:09] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759061936406#5","file":"-","line":"-","took":"3ms"}
+[2025-09-28 15:49:12] [INFO] AI تحلیل شد {"stepId":"scan-1759061936406#5","tokens_in":1311,"tokens_out":195,"took":"3040ms"}
+[2025-09-28 15:49:12] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759061936406#5","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"2ms"}
+[2025-09-28 15:49:12] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759061936406#5","took":"3055ms"}
+[2025-09-28 15:49:12] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759061936406#6","errorId":"7bbad9ca"}
+[2025-09-28 15:49:12] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759061936406#6","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:08] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 15:49:12] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759061936406#6","file":"-","line":"-","took":"3ms"}
+[2025-09-28 15:49:15] [INFO] AI تحلیل شد {"stepId":"scan-1759061936406#6","tokens_in":1311,"tokens_out":234,"took":"3492ms"}
+[2025-09-28 15:49:15] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759061936406#6","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"1ms"}
+[2025-09-28 15:49:15] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759061936406#6","took":"3503ms"}
+[2025-09-28 15:49:15] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759061936406#7","errorId":"3bdd2e0a"}
+[2025-09-28 15:49:15] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759061936406#7","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:09] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 15:49:15] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759061936406#7","file":"-","line":"-","took":"1ms"}
+[2025-09-28 15:49:19] [INFO] AI تحلیل شد {"stepId":"scan-1759061936406#7","tokens_in":1311,"tokens_out":238,"took":"4258ms"}
+[2025-09-28 15:49:19] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759061936406#7","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"5ms"}
+[2025-09-28 15:49:19] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759061936406#7","took":"4272ms"}
+[2025-09-28 15:49:19] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759061936406#8","errorId":"339498fe"}
+[2025-09-28 15:49:19] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759061936406#8","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:11] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 15:49:19] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759061936406#8","file":"-","line":"-","took":"4ms"}
+[2025-09-28 15:49:23] [INFO] AI تحلیل شد {"stepId":"scan-1759061936406#8","tokens_in":1311,"tokens_out":183,"took":"3119ms"}
+[2025-09-28 15:49:23] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759061936406#8","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"2ms"}
+[2025-09-28 15:49:23] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759061936406#8","took":"3135ms"}
+[2025-09-28 15:49:23] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759061936406#9","errorId":"52f62022"}
+[2025-09-28 15:49:23] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759061936406#9","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:13] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 15:49:23] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759061936406#9","file":"-","line":"-","took":"2ms"}
+[2025-09-28 15:49:26] [INFO] AI تحلیل شد {"stepId":"scan-1759061936406#9","tokens_in":1311,"tokens_out":183,"took":"3066ms"}
+[2025-09-28 15:49:26] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759061936406#9","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"23ms"}
+[2025-09-28 15:49:26] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759061936406#9","took":"3105ms"}
+[2025-09-28 15:49:26] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759061936406#10","errorId":"2c23d4b2"}
+[2025-09-28 15:49:26] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759061936406#10","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:15] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 15:49:26] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759061936406#10","file":"-","line":"-","took":"2ms"}
+[2025-09-28 15:49:28] [INFO] AI تحلیل شد {"stepId":"scan-1759061936406#10","tokens_in":1311,"tokens_out":147,"took":"2394ms"}
+[2025-09-28 15:49:28] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759061936406#10","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"3ms"}
+[2025-09-28 15:49:28] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759061936406#10","took":"2409ms"}
+[2025-09-28 15:49:28] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759061936406#11","errorId":"2a478081"}
+[2025-09-28 15:49:28] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759061936406#11","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:17] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 15:49:28] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759061936406#11","file":"-","line":"-","took":"4ms"}
+[2025-09-28 15:49:32] [INFO] AI تحلیل شد {"stepId":"scan-1759061936406#11","tokens_in":1311,"tokens_out":201,"took":"3894ms"}
+[2025-09-28 15:49:32] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759061936406#11","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"2ms"}
+[2025-09-28 15:49:32] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759061936406#11","took":"3912ms"}
+[2025-09-28 15:49:32] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759061936406#12","errorId":"1683c503"}
+[2025-09-28 15:49:32] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759061936406#12","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:18] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 15:49:32] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759061936406#12","file":"-","line":"-","took":"3ms"}
+[2025-09-28 15:49:36] [INFO] AI تحلیل شد {"stepId":"scan-1759061936406#12","tokens_in":1311,"tokens_out":133,"took":"4262ms"}
+[2025-09-28 15:49:36] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759061936406#12","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"2ms"}
+[2025-09-28 15:49:36] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759061936406#12","took":"4279ms"}
+[2025-09-28 15:49:36] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759061936406#13","errorId":"6530fe77"}
+[2025-09-28 15:49:36] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759061936406#13","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:20] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 15:49:36] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759061936406#13","file":"-","line":"-","took":"1ms"}
+[2025-09-28 15:49:38] [INFO] AI تحلیل شد {"stepId":"scan-1759061936406#13","tokens_in":1311,"tokens_out":176,"took":"2090ms"}
+[2025-09-28 15:49:38] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759061936406#13","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"2ms"}
+[2025-09-28 15:49:38] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759061936406#13","took":"2103ms"}
+[2025-09-28 15:49:38] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759061936406#14","errorId":"338696a5"}
+[2025-09-28 15:49:38] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759061936406#14","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:22] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 15:49:38] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759061936406#14","file":"-","line":"-","took":"4ms"}
+[2025-09-28 15:49:41] [INFO] AI تحلیل شد {"stepId":"scan-1759061936406#14","tokens_in":1311,"tokens_out":147,"took":"2885ms"}
+[2025-09-28 15:49:41] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759061936406#14","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"1ms"}
+[2025-09-28 15:49:41] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759061936406#14","took":"2904ms"}
+[2025-09-28 15:49:41] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759061936406#15","errorId":"30da8f5b"}
+[2025-09-28 15:49:41] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759061936406#15","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:23] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 15:49:41] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759061936406#15","file":"-","line":"-","took":"2ms"}
+[2025-09-28 15:49:45] [INFO] AI تحلیل شد {"stepId":"scan-1759061936406#15","tokens_in":1311,"tokens_out":218,"took":"3809ms"}
+[2025-09-28 15:49:45] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759061936406#15","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"1ms"}
+[2025-09-28 15:49:45] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759061936406#15","took":"3819ms"}
+[2025-09-28 15:49:45] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759061936406#16","errorId":"2fc9ab70"}
+[2025-09-28 15:49:45] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759061936406#16","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:25] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 15:49:45] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759061936406#16","file":"-","line":"-","took":"1ms"}
+[2025-09-28 15:49:48] [INFO] AI تحلیل شد {"stepId":"scan-1759061936406#16","tokens_in":1311,"tokens_out":173,"took":"2571ms"}
+[2025-09-28 15:49:48] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759061936406#16","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"2ms"}
+[2025-09-28 15:49:48] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759061936406#16","took":"2579ms"}
+[2025-09-28 15:49:48] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759061936406#17","errorId":"f2339871"}
+[2025-09-28 15:49:48] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759061936406#17","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:27] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 15:49:48] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759061936406#17","file":"-","line":"-","took":"1ms"}
+[2025-09-28 15:49:51] [INFO] AI تحلیل شد {"stepId":"scan-1759061936406#17","tokens_in":1311,"tokens_out":217,"took":"3085ms"}
+[2025-09-28 15:49:51] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759061936406#17","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"2ms"}
+[2025-09-28 15:49:51] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759061936406#17","took":"3094ms"}
+[2025-09-28 15:49:51] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759061936406#18","errorId":"416bcfcb"}
+[2025-09-28 15:49:51] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759061936406#18","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:29] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 15:49:51] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759061936406#18","file":"-","line":"-","took":"2ms"}
+[2025-09-28 15:49:54] [INFO] AI تحلیل شد {"stepId":"scan-1759061936406#18","tokens_in":1311,"tokens_out":234,"took":"2904ms"}
+[2025-09-28 15:49:54] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759061936406#18","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"1ms"}
+[2025-09-28 15:49:54] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759061936406#18","took":"2916ms"}
+[2025-09-28 15:49:54] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759061936406#19","errorId":"bb995f04"}
+[2025-09-28 15:49:54] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759061936406#19","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:30] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 15:49:54] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759061936406#19","file":"-","line":"-","took":"3ms"}
+[2025-09-28 15:49:55] [INFO] AI تحلیل شد {"stepId":"scan-1759061936406#19","tokens_in":1311,"tokens_out":135,"took":"1531ms"}
+[2025-09-28 15:49:55] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759061936406#19","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"0ms"}
+[2025-09-28 15:49:55] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759061936406#19","took":"1547ms"}
+[2025-09-28 15:49:55] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759061936406#20","errorId":"e03cf833"}
+[2025-09-28 15:49:55] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759061936406#20","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:32] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 15:49:55] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759061936406#20","file":"-","line":"-","took":"3ms"}
+[2025-09-28 15:49:58] [INFO] AI تحلیل شد {"stepId":"scan-1759061936406#20","tokens_in":1311,"tokens_out":244,"took":"3211ms"}
+[2025-09-28 15:49:58] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759061936406#20","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"2ms"}
+[2025-09-28 15:49:58] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759061936406#20","took":"3228ms"}
+[2025-09-28 15:49:58] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759061936406#21","errorId":"4ac85ba3"}
+[2025-09-28 15:49:58] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759061936406#21","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:34] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 15:49:58] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759061936406#21","file":"-","line":"-","took":"2ms"}
+[2025-09-28 15:50:02] [INFO] AI تحلیل شد {"stepId":"scan-1759061936406#21","tokens_in":1311,"tokens_out":185,"took":"3425ms"}
+[2025-09-28 15:50:02] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759061936406#21","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"3ms"}
+[2025-09-28 15:50:02] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759061936406#21","took":"3441ms"}
+[2025-09-28 15:50:02] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759061936406#22","errorId":"9c56d623"}
+[2025-09-28 15:50:02] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759061936406#22","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:36] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 15:50:02] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759061936406#22","file":"-","line":"-","took":"2ms"}
+[2025-09-28 15:50:05] [INFO] AI تحلیل شد {"stepId":"scan-1759061936406#22","tokens_in":1311,"tokens_out":221,"took":"2876ms"}
+[2025-09-28 15:50:05] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759061936406#22","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"2ms"}
+[2025-09-28 15:50:05] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759061936406#22","took":"2889ms"}
+[2025-09-28 15:50:05] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759061936406#23","errorId":"5c11f286"}
+[2025-09-28 15:50:05] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759061936406#23","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:37] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 15:50:05] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759061936406#23","file":"-","line":"-","took":"3ms"}
+[2025-09-28 15:50:07] [INFO] AI تحلیل شد {"stepId":"scan-1759061936406#23","tokens_in":1311,"tokens_out":161,"took":"2113ms"}
+[2025-09-28 15:50:07] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759061936406#23","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"2ms"}
+[2025-09-28 15:50:07] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759061936406#23","took":"2126ms"}
+[2025-09-28 15:50:07] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759061936406#24","errorId":"15cc8f9e"}
+[2025-09-28 15:50:07] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759061936406#24","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:39] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 15:50:07] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759061936406#24","file":"-","line":"-","took":"3ms"}
+[2025-09-28 15:50:10] [INFO] AI تحلیل شد {"stepId":"scan-1759061936406#24","tokens_in":1311,"tokens_out":199,"took":"2875ms"}
+[2025-09-28 15:50:10] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759061936406#24","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"1ms"}
+[2025-09-28 15:50:10] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759061936406#24","took":"2889ms"}
+[2025-09-28 15:50:10] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759061936406#25","errorId":"92df9a96"}
+[2025-09-28 15:50:10] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759061936406#25","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:41] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 15:50:10] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759061936406#25","file":"-","line":"-","took":"2ms"}
+[2025-09-28 16:06:23] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759062983617","minutes":70}
+[2025-09-28 16:06:23] [INFO] خواندن لاگ‌ها {"found":577,"took":"9ms"}
+[2025-09-28 16:06:23] [INFO] باندل‌سازی خطاها {"bundles":82,"took":"0ms"}
+[2025-09-28 16:06:23] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759062983617#26","errorId":"886390bf"}
+[2025-09-28 16:06:23] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759062983617#26","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:43] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 16:06:23] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759062983617#26","file":"-","line":"-","took":"3ms"}
+[2025-09-28 16:06:26] [INFO] AI تحلیل شد {"stepId":"scan-1759062983617#26","tokens_in":1311,"tokens_out":188,"took":"2666ms"}
+[2025-09-28 16:06:26] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759062983617#26","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"2ms"}
+[2025-09-28 16:06:26] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759062983617#26","took":"2680ms"}
+[2025-09-28 16:06:26] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759062983617#27","errorId":"dec07b8b"}
+[2025-09-28 16:06:26] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759062983617#27","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:44] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 16:06:26] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759062983617#27","file":"-","line":"-","took":"2ms"}
+[2025-09-28 16:06:28] [INFO] AI تحلیل شد {"stepId":"scan-1759062983617#27","tokens_in":1311,"tokens_out":156,"took":"2248ms"}
+[2025-09-28 16:06:28] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759062983617#27","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"1ms"}
+[2025-09-28 16:06:28] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759062983617#27","took":"2260ms"}
+[2025-09-28 16:06:28] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759062983617#28","errorId":"90702dc2"}
+[2025-09-28 16:06:28] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759062983617#28","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:46] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 16:06:28] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759062983617#28","file":"-","line":"-","took":"3ms"}
+[2025-09-28 16:06:31] [INFO] AI تحلیل شد {"stepId":"scan-1759062983617#28","tokens_in":1311,"tokens_out":177,"took":"2401ms"}
+[2025-09-28 16:06:31] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759062983617#28","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"2ms"}
+[2025-09-28 16:06:31] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759062983617#28","took":"2417ms"}
+[2025-09-28 16:06:31] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759062983617#29","errorId":"3e17c3e4"}
+[2025-09-28 16:06:31] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759062983617#29","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:48] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 16:06:31] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759062983617#29","file":"-","line":"-","took":"2ms"}
+[2025-09-28 16:06:33] [INFO] AI تحلیل شد {"stepId":"scan-1759062983617#29","tokens_in":1311,"tokens_out":166,"took":"2674ms"}
+[2025-09-28 16:06:33] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759062983617#29","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"2ms"}
+[2025-09-28 16:06:33] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759062983617#29","took":"2688ms"}
+[2025-09-28 16:06:33] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759062983617#30","errorId":"de922a05"}
+[2025-09-28 16:06:33] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759062983617#30","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:50] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 16:06:33] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759062983617#30","file":"-","line":"-","took":"3ms"}
+[2025-09-28 16:06:37] [INFO] AI تحلیل شد {"stepId":"scan-1759062983617#30","tokens_in":1311,"tokens_out":216,"took":"3350ms"}
+[2025-09-28 16:06:37] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759062983617#30","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"1ms"}
+[2025-09-28 16:06:37] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759062983617#30","took":"3361ms"}
+[2025-09-28 16:06:37] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759062983617#31","errorId":"132fd2fd"}
+[2025-09-28 16:06:37] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759062983617#31","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:51] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 16:06:37] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759062983617#31","file":"-","line":"-","took":"1ms"}
+[2025-09-28 16:06:39] [INFO] AI تحلیل شد {"stepId":"scan-1759062983617#31","tokens_in":1311,"tokens_out":169,"took":"2662ms"}
+[2025-09-28 16:06:39] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759062983617#31","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"1ms"}
+[2025-09-28 16:06:39] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759062983617#31","took":"2671ms"}
+[2025-09-28 16:06:39] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759062983617#32","errorId":"b107b4d9"}
+[2025-09-28 16:06:39] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759062983617#32","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:53] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 16:06:39] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759062983617#32","file":"-","line":"-","took":"1ms"}
+[2025-09-28 16:06:41] [INFO] AI تحلیل شد {"stepId":"scan-1759062983617#32","tokens_in":1298,"tokens_out":173,"took":"2049ms"}
+[2025-09-28 16:06:41] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759062983617#32","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"2ms"}
+[2025-09-28 16:06:41] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759062983617#32","took":"2058ms"}
+[2025-09-28 16:06:41] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759062983617#33","errorId":"c65b2a7d"}
+[2025-09-28 16:06:41] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759062983617#33","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:55] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 16:06:41] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759062983617#33","file":"-","line":"-","took":"2ms"}
+[2025-09-28 16:06:43] [INFO] AI تحلیل شد {"stepId":"scan-1759062983617#33","tokens_in":1431,"tokens_out":176,"took":"2000ms"}
+[2025-09-28 16:06:43] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759062983617#33","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"3ms"}
+[2025-09-28 16:06:43] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759062983617#33","took":"2014ms"}
+[2025-09-28 16:06:43] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759062983617#34","errorId":"430e0d99"}
+[2025-09-28 16:06:43] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759062983617#34","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:56] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {\"stepId\":\"scan-1759061936406#1\",\"extracted_file\":null,\"extracted_line\":null,\"fallback_file\":\"C:\\\\Users\\\\Administrator\\\\Desktop"}
+[2025-09-28 16:06:43] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759062983617#34","file":"-","line":"-","took":"1ms"}
+[2025-09-28 16:06:46] [INFO] AI تحلیل شد {"stepId":"scan-1759062983617#34","tokens_in":1537,"tokens_out":142,"took":"2233ms"}
+[2025-09-28 16:06:46] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759062983617#34","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"2ms"}
+[2025-09-28 16:06:46] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759062983617#34","took":"2248ms"}
+[2025-09-28 16:06:46] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759062983617#35","errorId":"e812a299"}
+[2025-09-28 16:06:46] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759062983617#35","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:57] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 16:06:46] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759062983617#35","file":"-","line":"-","took":"2ms"}
+[2025-09-28 16:06:49] [INFO] AI تحلیل شد {"stepId":"scan-1759062983617#35","tokens_in":1498,"tokens_out":193,"took":"3667ms"}
+[2025-09-28 16:06:49] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759062983617#35","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"1ms"}
+[2025-09-28 16:06:49] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759062983617#35","took":"3680ms"}
+[2025-09-28 16:06:49] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759062983617#36","errorId":"cef8f0e6"}
+[2025-09-28 16:06:49] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759062983617#36","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:48:58] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 16:06:49] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759062983617#36","file":"-","line":"-","took":"2ms"}
+[2025-09-28 16:06:53] [INFO] AI تحلیل شد {"stepId":"scan-1759062983617#36","tokens_in":1638,"tokens_out":215,"took":"3270ms"}
+[2025-09-28 16:06:53] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759062983617#36","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"2ms"}
+[2025-09-28 16:06:53] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759062983617#36","took":"3289ms"}
+[2025-09-28 16:06:53] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759062983617#37","errorId":"74aa06d2"}
+[2025-09-28 16:06:53] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759062983617#37","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:49:00] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {\"stepId\":\"scan-1759061936406#2\",\"extracted_file\":null,\"extracted_line\":null,\"fallback_file\":\"C:\\\\Users\\\\Administrator\\\\Desktop"}
+[2025-09-28 16:06:53] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759062983617#37","file":"-","line":"-","took":"1ms"}
+[2025-09-28 16:06:55] [INFO] AI تحلیل شد {"stepId":"scan-1759062983617#37","tokens_in":1719,"tokens_out":154,"took":"2164ms"}
+[2025-09-28 16:06:55] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759062983617#37","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"1ms"}
+[2025-09-28 16:06:55] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759062983617#37","took":"2183ms"}
+[2025-09-28 16:06:55] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759062983617#38","errorId":"0530e9b0"}
+[2025-09-28 16:06:55] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759062983617#38","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:49:00] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 16:06:55] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759062983617#38","file":"-","line":"-","took":"3ms"}
+[2025-09-28 16:06:57] [INFO] AI تحلیل شد {"stepId":"scan-1759062983617#38","tokens_in":1565,"tokens_out":134,"took":"1987ms"}
+[2025-09-28 16:06:57] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759062983617#38","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"2ms"}
+[2025-09-28 16:06:57] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759062983617#38","took":"2005ms"}
+[2025-09-28 16:06:57] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759062983617#39","errorId":"0d1169cf"}
+[2025-09-28 16:06:57] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759062983617#39","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:49:02] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 16:06:57] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759062983617#39","file":"-","line":"-","took":"2ms"}
+[2025-09-28 16:07:00] [INFO] AI تحلیل شد {"stepId":"scan-1759062983617#39","tokens_in":1706,"tokens_out":146,"took":"2926ms"}
+[2025-09-28 16:07:00] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759062983617#39","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"1ms"}
+[2025-09-28 16:07:00] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759062983617#39","took":"2934ms"}
+[2025-09-28 16:07:00] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759062983617#40","errorId":"f1461c87"}
+[2025-09-28 16:07:00] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759062983617#40","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:49:03] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {\"stepId\":\"scan-1759061936406#3\",\"extracted_file\":null,\"extracted_line\":null,\"fallback_file\":\"C:\\\\Users\\\\Administrator\\\\Desktop"}
+[2025-09-28 16:07:00] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759062983617#40","file":"-","line":"-","took":"1ms"}
+[2025-09-28 16:07:03] [INFO] AI تحلیل شد {"stepId":"scan-1759062983617#40","tokens_in":1720,"tokens_out":144,"took":"3031ms"}
+[2025-09-28 16:07:03] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759062983617#40","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"1ms"}
+[2025-09-28 16:07:03] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759062983617#40","took":"3042ms"}
+[2025-09-28 16:07:03] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759062983617#41","errorId":"1bcccc89"}
+[2025-09-28 16:07:03] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759062983617#41","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:49:04] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 16:07:03] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759062983617#41","file":"-","line":"-","took":"3ms"}
+[2025-09-28 16:07:05] [INFO] AI تحلیل شد {"stepId":"scan-1759062983617#41","tokens_in":1566,"tokens_out":135,"took":"2160ms"}
+[2025-09-28 16:07:05] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759062983617#41","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"2ms"}
+[2025-09-28 16:07:05] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759062983617#41","took":"2178ms"}
+[2025-09-28 16:07:05] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759062983617#42","errorId":"08e7a1d0"}
+[2025-09-28 16:07:05] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759062983617#42","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:49:05] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 16:07:05] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759062983617#42","file":"-","line":"-","took":"3ms"}
+[2025-09-28 16:07:08] [INFO] AI تحلیل شد {"stepId":"scan-1759062983617#42","tokens_in":1704,"tokens_out":199,"took":"3037ms"}
+[2025-09-28 16:07:08] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759062983617#42","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"2ms"}
+[2025-09-28 16:07:08] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759062983617#42","took":"3054ms"}
+[2025-09-28 16:07:08] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759062983617#43","errorId":"1f5f8a91"}
+[2025-09-28 16:07:08] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759062983617#43","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:49:06] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {\"stepId\":\"scan-1759061936406#4\",\"extracted_file\":null,\"extracted_line\":null,\"fallback_file\":\"C:\\\\Users\\\\Administrator\\\\Desktop"}
+[2025-09-28 16:07:08] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759062983617#43","file":"-","line":"-","took":"3ms"}
+[2025-09-28 16:07:10] [INFO] AI تحلیل شد {"stepId":"scan-1759062983617#43","tokens_in":1764,"tokens_out":181,"took":"1866ms"}
+[2025-09-28 16:07:10] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759062983617#43","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"1ms"}
+[2025-09-28 16:07:10] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759062983617#43","took":"1881ms"}
+[2025-09-28 16:07:10] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759062983617#44","errorId":"86a98f50"}
+[2025-09-28 16:07:10] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759062983617#44","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:49:07] [ERROR] ❌ Error processing webhook whatsapp: event is not defined | index.js:782 | args=❌ Error processing webhook whatsapp: event is not defined"}
+[2025-09-28 16:07:10] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759062983617#44","file":"-","line":"-","took":"2ms"}
+[2025-09-28 16:07:12] [INFO] AI تحلیل شد {"stepId":"scan-1759062983617#44","tokens_in":1702,"tokens_out":160,"took":"2271ms"}
+[2025-09-28 16:07:12] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759062983617#44","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","lineNo":-1,"took":"1ms"}
+[2025-09-28 16:07:12] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759062983617#44","took":"2285ms"}
+[2025-09-28 16:07:12] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759062983617#45","errorId":"340bac48"}
+[2025-09-28 16:07:12] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {"stepId":"scan-1759062983617#45","extracted_file":null,"extracted_line":null,"fallback_file":"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\logs\\2025-09-28.log","sample":"[2025-09-28 15:49:09] [WARN] مکان خطا نامشخص بود؛ از fallback استفاده شد {\"stepId\":\"scan-1759061936406#5\",\"extracted_file\":null,\"extracted_line\":null,\"fallback_file\":\"C:\\\\Users\\\\Administrator\\\\Desktop"}
+[2025-09-28 16:07:12] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759062983617#45","file":"-","line":"-","took":"2ms"}
+[2025-09-28 16:19:23] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759063763191","minutes":70}
+[2025-09-28 16:19:23] [INFO] خواندن لاگ‌ها {"found":271,"took":"6ms"}
+[2025-09-28 16:19:23] [INFO] باندل‌سازی خطاها {"bundles":40,"took":"0ms"}
+[2025-09-28 16:19:23] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759063763191#6","errorId":"0b850375"}
+[2025-09-28 16:19:23] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759063763191#6","file":"C:\\Users\\Administrator\\Desktop\\Projects\\rahin\\index.js","line":782,"took":"1ms"}
+[2025-09-28 16:19:27] [INFO] AI تحلیل شد {"stepId":"scan-1759063763191#6","tokens_in":2396,"tokens_out":160,"took":"3790ms"}
+[2025-09-28 16:19:27] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759063763191#6","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\rahin\\index.js","lineNo":782,"took":"6ms"}
+[2025-09-28 16:19:27] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759063763191#6","took":"3808ms"}
+[2025-09-28 16:19:27] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759063763191#7","errorId":"3f684fc0"}
+[2025-09-28 16:19:27] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759063763191#7","file":"C:\\Users\\Administrator\\Desktop\\Projects\\rahin\\index.js","line":782,"took":"0ms"}
+[2025-09-28 16:19:29] [INFO] AI تحلیل شد {"stepId":"scan-1759063763191#7","tokens_in":2393,"tokens_out":143,"took":"2816ms"}
+[2025-09-28 16:19:29] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759063763191#7","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\rahin\\index.js","lineNo":782,"took":"2ms"}
+[2025-09-28 16:19:29] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759063763191#7","took":"2831ms"}
+[2025-09-28 16:19:29] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759063763191#8","errorId":"0d312671"}
+[2025-09-28 16:19:29] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759063763191#8","file":"C:\\Users\\Administrator\\Desktop\\Projects\\rahin\\index.js","line":782,"took":"0ms"}
+[2025-09-28 16:19:33] [INFO] AI تحلیل شد {"stepId":"scan-1759063763191#8","tokens_in":2394,"tokens_out":160,"took":"3299ms"}
+[2025-09-28 16:19:33] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759063763191#8","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\rahin\\index.js","lineNo":782,"took":"2ms"}
+[2025-09-28 16:19:33] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759063763191#8","took":"3312ms"}
+[2025-09-28 16:19:33] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759063763191#9","errorId":"428d324e"}
+[2025-09-28 16:19:33] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759063763191#9","file":"C:\\Users\\Administrator\\Desktop\\Projects\\rahin\\index.js","line":782,"took":"0ms"}
+[2025-09-28 16:19:37] [INFO] AI تحلیل شد {"stepId":"scan-1759063763191#9","tokens_in":2397,"tokens_out":166,"took":"3852ms"}
+[2025-09-28 16:19:37] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759063763191#9","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\rahin\\index.js","lineNo":782,"took":"2ms"}
+[2025-09-28 16:19:37] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759063763191#9","took":"3866ms"}
+[2025-09-28 16:19:37] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759063763191#10","errorId":"b83f9bc2"}
+[2025-09-28 16:19:37] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759063763191#10","file":"C:\\Users\\Administrator\\Desktop\\Projects\\rahin\\index.js","line":782,"took":"0ms"}
+[2025-09-28 16:19:40] [INFO] AI تحلیل شد {"stepId":"scan-1759063763191#10","tokens_in":2396,"tokens_out":135,"took":"3309ms"}
+[2025-09-28 16:19:40] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759063763191#10","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\rahin\\index.js","lineNo":782,"took":"1ms"}
+[2025-09-28 16:19:40] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759063763191#10","took":"3319ms"}
+[2025-09-28 16:19:40] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759063763191#11","errorId":"91e855aa"}
+[2025-09-28 16:19:40] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759063763191#11","file":"C:\\Users\\Administrator\\Desktop\\Projects\\rahin\\index.js","line":782,"took":"0ms"}
+[2025-09-28 16:19:43] [INFO] AI تحلیل شد {"stepId":"scan-1759063763191#11","tokens_in":2394,"tokens_out":133,"took":"3067ms"}
+[2025-09-28 16:19:43] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759063763191#11","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\rahin\\index.js","lineNo":782,"took":"3ms"}
+[2025-09-28 16:19:43] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759063763191#11","took":"3075ms"}
+[2025-09-28 16:19:43] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759063763191#12","errorId":"f6ba8be7"}
+[2025-09-28 16:19:43] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759063763191#12","file":"C:\\Users\\Administrator\\Desktop\\Projects\\rahin\\index.js","line":782,"took":"0ms"}
+[2025-09-28 16:19:47] [INFO] AI تحلیل شد {"stepId":"scan-1759063763191#12","tokens_in":2395,"tokens_out":140,"took":"4084ms"}
+[2025-09-28 16:19:47] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759063763191#12","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\rahin\\index.js","lineNo":782,"took":"1ms"}
+[2025-09-28 16:19:47] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759063763191#12","took":"4093ms"}
+[2025-09-28 16:19:47] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759063763191#13","errorId":"c20effd8"}
+[2025-09-28 16:19:47] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759063763191#13","file":"C:\\Users\\Administrator\\Desktop\\Projects\\rahin\\index.js","line":782,"took":"0ms"}
+[2025-09-28 16:19:50] [INFO] AI تحلیل شد {"stepId":"scan-1759063763191#13","tokens_in":2395,"tokens_out":132,"took":"2607ms"}
+[2025-09-28 16:19:50] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759063763191#13","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\rahin\\index.js","lineNo":782,"took":"1ms"}
+[2025-09-28 16:19:50] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759063763191#13","took":"2616ms"}
+[2025-09-28 16:19:50] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759063763191#14","errorId":"c48d9a22"}
+[2025-09-28 16:19:50] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759063763191#14","file":"C:\\Users\\Administrator\\Desktop\\Projects\\rahin\\index.js","line":782,"took":"0ms"}
+[2025-09-28 16:19:53] [INFO] AI تحلیل شد {"stepId":"scan-1759063763191#14","tokens_in":2394,"tokens_out":165,"took":"3554ms"}
+[2025-09-28 16:19:53] [INFO] ذخیره rahin_error_insights انجام شد {"stepId":"scan-1759063763191#14","filePath":"C:\\Users\\Administrator\\Desktop\\Projects\\rahin\\index.js","lineNo":782,"took":"2ms"}
+[2025-09-28 16:19:53] [INFO] پردازش خطا پایان یافت {"stepId":"scan-1759063763191#14","took":"3566ms"}
+[2025-09-28 16:19:53] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759063763191#15","errorId":"3c058e09"}
+[2025-09-28 16:19:53] [INFO] مکان خطا استخراج شد {"stepId":"scan-1759063763191#15","file":"C:\\Users\\Administrator\\Desktop\\Projects\\rahin\\index.js","line":782,"took":"0ms"}
+[2025-09-28 16:24:32] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759064072161","minutes":70}
+[2025-09-28 16:24:32] [INFO] خواندن لاگ‌ها {"found":321,"took":"5ms"}
+[2025-09-28 16:24:32] [INFO] باندل‌سازی خطاها {"bundles":40,"took":"0ms"}
+[2025-09-28 16:24:32] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759064072952","minutes":70}
+[2025-09-28 16:24:32] [INFO] خواندن لاگ‌ها {"found":324,"took":"5ms"}
+[2025-09-28 16:24:32] [INFO] باندل‌سازی خطاها {"bundles":40,"took":"0ms"}
+[2025-09-28 16:24:33] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759064073818","minutes":70}
+[2025-09-28 16:24:33] [INFO] خواندن لاگ‌ها {"found":327,"took":"4ms"}
+[2025-09-28 16:24:33] [INFO] باندل‌سازی خطاها {"bundles":40,"took":"1ms"}
+[2025-09-28 16:24:34] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759064074770","minutes":70}
+[2025-09-28 16:24:34] [INFO] خواندن لاگ‌ها {"found":330,"took":"5ms"}
+[2025-09-28 16:24:34] [INFO] باندل‌سازی خطاها {"bundles":40,"took":"0ms"}
+[2025-09-28 16:24:35] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759064075631","minutes":70}
+[2025-09-28 16:24:35] [INFO] خواندن لاگ‌ها {"found":333,"took":"5ms"}
+[2025-09-28 16:24:35] [INFO] باندل‌سازی خطاها {"bundles":40,"took":"0ms"}
+[2025-09-28 16:24:36] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759064076431","minutes":70}
+[2025-09-28 16:24:36] [INFO] خواندن لاگ‌ها {"found":336,"took":"6ms"}
+[2025-09-28 16:24:36] [INFO] باندل‌سازی خطاها {"bundles":40,"took":"0ms"}
+[2025-09-28 16:24:37] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759064077176","minutes":70}
+[2025-09-28 16:24:37] [INFO] خواندن لاگ‌ها {"found":339,"took":"4ms"}
+[2025-09-28 16:24:37] [INFO] باندل‌سازی خطاها {"bundles":40,"took":"0ms"}
+[2025-09-28 16:24:38] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759064078017","minutes":70}
+[2025-09-28 16:24:38] [INFO] خواندن لاگ‌ها {"found":342,"took":"6ms"}
+[2025-09-28 16:24:38] [INFO] باندل‌سازی خطاها {"bundles":40,"took":"0ms"}
+[2025-09-28 16:24:38] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759064078755","minutes":70}
+[2025-09-28 16:24:38] [INFO] خواندن لاگ‌ها {"found":345,"took":"6ms"}
+[2025-09-28 16:24:38] [INFO] باندل‌سازی خطاها {"bundles":40,"took":"0ms"}
+[2025-09-28 16:24:39] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759064079515","minutes":70}
+[2025-09-28 16:24:39] [INFO] خواندن لاگ‌ها {"found":348,"took":"7ms"}
+[2025-09-28 16:24:39] [INFO] باندل‌سازی خطاها {"bundles":40,"took":"1ms"}
+[2025-09-28 16:29:35] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759064375645","minutes":70}
+[2025-09-28 16:29:35] [INFO] خواندن لاگ‌ها {"found":351,"took":"8ms"}
+[2025-09-28 16:29:35] [INFO] باندل‌سازی خطاها {"bundles":40,"took":"1ms"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#1","errorId":"52bdd6f0"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#2","errorId":"29802220"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#3","errorId":"b1b3595a"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#4","errorId":"e5df1f25"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#5","errorId":"b1cf26e5"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#6","errorId":"625d265f"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#6"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#7","errorId":"cf98fae8"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#7"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#8","errorId":"69b60a43"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#8"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#9","errorId":"499da5e0"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#9"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#10","errorId":"5793005c"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#10"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#11","errorId":"3cd6e592"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#11"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#12","errorId":"e419792d"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#12"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#13","errorId":"3a02bcae"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#13"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#14","errorId":"cd73d887"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#14"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#15","errorId":"d6a71b0a"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#15"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#16","errorId":"dedb303a"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#16"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#17","errorId":"e0c9a3fb"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#17"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#18","errorId":"8dbc6f94"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#18"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#19","errorId":"8d30c0e7"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#19"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#20","errorId":"07f6d257"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#20"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#21","errorId":"235e5e5b"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#21"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#22","errorId":"e3368f97"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#22"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#23","errorId":"36e5293e"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#23"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#24","errorId":"b836776c"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#24"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#25","errorId":"acd65931"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#25"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#26","errorId":"314df29f"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#26"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#27","errorId":"e3ed6ec9"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#27"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#28","errorId":"d0a1968a"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#28"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#29","errorId":"f70859d6"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#29"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#30","errorId":"6939be5b"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#30"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#31","errorId":"10c73519"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#31"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#32","errorId":"4215d17a"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#32"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#33","errorId":"8bddcd73"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#33"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#34","errorId":"7ed50c47"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#34"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#35","errorId":"5a86418c"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#35"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#36","errorId":"ade227a5"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#36"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#37","errorId":"0241f9ff"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#37"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#38","errorId":"2b9a630c"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#38"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#39","errorId":"f40b158f"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#39"}
+[2025-09-28 16:29:35] [INFO] ثبت ضدتکرار خطا {"stepId":"scan-1759064375645#40","errorId":"c1f4f021"}
+[2025-09-28 16:29:35] [INFO] سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند {"stepId":"scan-1759064375645#40"}
+[2025-09-28 16:29:35] [INFO] پایان اسکن خطاها {"traceId":"scan-1759064375645","scanned":351,"bundles":40,"handled":0,"sent":0,"total":"238ms"}
+[2025-09-28 16:29:35] [INFO] [2025-09-28 16:29:35] skipped: no significant change
+[2025-09-28 18:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759069800006","minutes":70}
+[2025-09-28 18:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"9ms"}
+[2025-09-28 18:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-28 18:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1759069800006","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"19ms"}
+[2025-09-28 18:00:00] [INFO] [2025-09-28 18:00:00] skipped: no significant change
+[2025-09-29 00:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759091400002","minutes":70}
+[2025-09-29 00:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"8ms"}
+[2025-09-29 00:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-29 00:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1759091400002","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"18ms"}
+[2025-09-29 00:00:33] [INFO] [2025-09-29 00:00:33] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-09-29 00:00:33] [INFO] [2025-09-29 00:00:33] ✓ run=2025-09-29:1759091400053 sent
+[2025-09-29 06:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759113000003","minutes":70}
+[2025-09-29 06:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"12ms"}
+[2025-09-29 06:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-29 06:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1759113000003","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"23ms"}
+[2025-09-29 06:00:38] [INFO] [2025-09-29 06:00:38] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-09-29 06:00:38] [INFO] [2025-09-29 06:00:38] ✓ run=2025-09-29:1759113000081 sent
+[2025-09-29 12:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759134600001","minutes":70}
+[2025-09-29 12:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"11ms"}
+[2025-09-29 12:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-29 12:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1759134600001","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"18ms"}
+[2025-09-29 12:02:14] [INFO] [2025-09-29 12:02:14] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-09-29 12:02:14] [INFO] [2025-09-29 12:02:14] ✓ run=2025-09-29:1759134600089 sent
+[2025-09-29 18:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759156200002","minutes":70}
+[2025-09-29 18:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"8ms"}
+[2025-09-29 18:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-29 18:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1759156200002","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"13ms"}
+[2025-09-29 18:01:19] [INFO] [2025-09-29 18:01:19] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-09-29 18:01:19] [INFO] [2025-09-29 18:01:19] ✓ run=2025-09-29:1759156200097 sent
+[2025-09-30 00:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759177800001","minutes":70}
+[2025-09-30 00:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"14ms"}
+[2025-09-30 00:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-30 00:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1759177800001","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"26ms"}
+[2025-09-30 00:01:28] [INFO] [2025-09-30 00:01:28] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-09-30 00:01:28] [INFO] [2025-09-30 00:01:28] ✓ run=2025-09-30:1759177800089 sent
+[2025-09-30 06:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759199400001","minutes":70}
+[2025-09-30 06:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"9ms"}
+[2025-09-30 06:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-30 06:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1759199400001","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"20ms"}
+[2025-09-30 06:01:38] [INFO] [2025-09-30 06:01:38] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-09-30 06:01:38] [INFO] [2025-09-30 06:01:38] ✓ run=2025-09-30:1759199400062 sent
+[2025-09-30 12:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759221000001","minutes":70}
+[2025-09-30 12:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"18ms"}
+[2025-09-30 12:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-30 12:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1759221000001","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"37ms"}
+[2025-09-30 12:01:17] [INFO] [2025-09-30 12:01:17] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-09-30 12:01:17] [INFO] [2025-09-30 12:01:17] ✓ run=2025-09-30:1759221000087 sent
+[2025-09-30 18:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759242600001","minutes":70}
+[2025-09-30 18:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"15ms"}
+[2025-09-30 18:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-09-30 18:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1759242600001","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"25ms"}
+[2025-09-30 18:01:32] [INFO] [2025-09-30 18:01:32] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-09-30 18:01:32] [INFO] [2025-09-30 18:01:32] ✓ run=2025-09-30:1759242600074 sent
+[2025-09-30 23:59:59] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759264199998","minutes":70}
+[2025-10-01 00:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"19ms"}
+[2025-10-01 00:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-01 00:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1759264199998","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"31ms"}
+[2025-10-01 00:01:11] [INFO] [2025-10-01 00:01:11] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-01 00:01:11] [INFO] [2025-10-01 00:01:11] ✓ run=2025-10-01:1759264200082 sent
+[2025-10-01 06:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759285800009","minutes":70}
+[2025-10-01 06:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"9ms"}
+[2025-10-01 06:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-01 06:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1759285800009","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"18ms"}
+[2025-10-01 06:00:47] [INFO] [2025-10-01 06:00:47] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-01 06:00:47] [INFO] [2025-10-01 06:00:47] ✓ run=2025-10-01:1759285800143 sent
+[2025-10-01 12:12:16] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759308136896","minutes":70}
+[2025-10-01 12:12:16] [INFO] خواندن لاگ‌ها {"found":1,"took":"11ms"}
+[2025-10-01 12:12:16] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-01 12:12:16] [INFO] پایان اسکن خطاها {"traceId":"scan-1759308136896","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"46ms"}
+[2025-10-01 12:13:07] [INFO] [2025-10-01 12:13:07] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-01 12:13:07] [INFO] [2025-10-01 12:13:07] ✓ run=2025-10-01:1759308136987 sent
+[2025-10-01 12:24:30] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1759308870452","minutes":70}
+[2025-10-01 12:24:30] [INFO] خواندن لاگ‌ها {"found":7,"took":"6ms"}
+[2025-10-01 12:24:30] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-01 12:24:30] [INFO] پایان اسکن خطاها {"traceId":"scan-1759308870452","scanned":7,"bundles":0,"handled":0,"sent":0,"total":"33ms"}
+[2025-10-01 12:24:30] [INFO] [2025-10-01 12:24:30] skipped: no significant change

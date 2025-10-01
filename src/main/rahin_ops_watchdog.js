@@ -30,10 +30,16 @@ import { enrichVisitorMobilesFromClicks } from "../clicks/enrichVisitorFromClick
 const MODEL = process.env.RAHIN_MODEL || "gpt-4o";
 const DEST_MOBILE_RAW = process.env.WHATSAPP_DEST_MOBILE || "09134052885";
 
-// ================== زمان‌بندی ۶ ساعته هم‌تراز با تهران ==================
+// ================== زمان‌بندی دقیق در تهران (05:00, 11:00, 17:00, 23:50) ==================
 const TEH_TZ = "Asia/Tehran";
+// فرمت: [hour, minute]
+const CUSTOM_ANCHORS = [
+  [5, 0],
+  [11, 0],
+  [17, 0],
+  [23, 50], // 23:50
+];
 
-/** محاسبهٔ آفست میلی‌ثانیهٔ «تهران» نسبت به UTC با Intl */
 function tzOffsetMillis(tz = TEH_TZ) {
   const parts = new Intl.DateTimeFormat("en-US", {
     timeZone: tz,
@@ -50,42 +56,57 @@ function tzOffsetMillis(tz = TEH_TZ) {
   return sign * ((hh * 60 + mm) * 60 * 1000);
 }
 
-/** فاصلهٔ زمانی تا مرز بعدی ۶ ساعته (۰۰، ۰۶، ۱۲، ۱۸ به وقت تهران) */
-function msUntilNext6hBoundary(tz = TEH_TZ) {
-  const now = Date.now();
+function msUntilNextAnchor(tz = TEH_TZ, anchors = CUSTOM_ANCHORS) {
+  const nowUtc = Date.now();
   const off = tzOffsetMillis(tz);
-  const tzNow = new Date(now + off); // اکنونِ تهران
+  const tzNow = new Date(nowUtc + off);
 
   const Y = tzNow.getUTCFullYear();
   const M = tzNow.getUTCMonth();
   const D = tzNow.getUTCDate();
   const h = tzNow.getUTCHours();
+  const m = tzNow.getUTCMinutes();
+  const s = tzNow.getUTCSeconds(); // ← اضافه شد
 
-  // ساعت فعلی «تهران» را به بلاک ۶ساعته بعدی گرد می‌کنیم
-  const blockStarts = [0, 6, 12, 18];
-  let nextHour = blockStarts.find((H) => H > h) ?? 0;
-  let targetUtcMs = Date.UTC(Y, M, D, nextHour, 0, 0) - off;
-
-  // اگر از ۱۸ گذشته‌ایم و nextHour صفر شد، فردای تهران ساعت ۰۰
-  if (nextHour === 0 && h >= 18) {
-    targetUtcMs = Date.UTC(Y, M, D + 1, 0, 0, 0) - off;
+  // اگر دقیقاً روی یکی از مرزها هستیم، اجرای فوری
+  if (anchors.some(([H, Mm]) => H === h && Mm === m) && s < 3) {
+    return 1000; // ۱ ثانیه بعد اجرا شود
   }
 
-  return Math.max(1000, targetUtcMs - now);
+  // بررسی مرز بعدی
+  let next = anchors.find(([H, Mm]) => (h < H) || (h === H && m < Mm));
+  let targetY = Y, targetM = M, targetD = D;
+  if (!next) {
+    next = anchors[0];
+    const nextTzMidnightUtcMs = Date.UTC(Y, M, D + 1, 0, 0, 0) - off;
+    const nextTzDate = new Date(nextTzMidnightUtcMs + off);
+    targetY = nextTzDate.getUTCFullYear();
+    targetM = nextTzDate.getUTCMonth();
+    targetD = nextTzDate.getUTCDate();
+  }
+
+  const [targetH, targetMins] = next;
+  const targetUtcMs = Date.UTC(targetY, targetM, targetD, targetH, targetMins, 0) - off;
+  return Math.max(1000, targetUtcMs - nowUtc);
 }
 
-/** زمان‌بند: اجرای تابع در مرزهای ۶ ساعتهٔ تهران، با اجرای خودکار پس از هر بار اتمام */
-function scheduleEvery6h(runFn) {
+
+function scheduleAtAnchors(runFn, tz = TEH_TZ, anchors = CUSTOM_ANCHORS) {
   const planNext = () => {
-    const delay = msUntilNext6hBoundary(TEH_TZ);
-    console.log(`⏰ اجرای بعدی تا ${Math.round(delay / 60000)} دقیقه دیگر (مرز ۶ساعتهٔ تهران).`);
+    const delay = msUntilNextAnchor(tz, anchors);
+    const nextUtc = Date.now() + delay;
+    const nextTz = new Date(nextUtc + tzOffsetMillis(tz));
+    const hh = String(nextTz.getUTCHours()).padStart(2, "0");
+    const mm = String(nextTz.getUTCMinutes()).padStart(2, "0");
+    console.log(`⏰ اجرای بعدی در تهران: ${nextTz.toLocaleDateString("fa-IR")} ${hh}:${mm}`);
+
     setTimeout(async () => {
       try {
         await runFn();
       } catch (e) {
         console.error("Scheduled run error:", e?.message || e);
       } finally {
-        planNext(); // باززمان‌بندی برای مرز بعدی
+        planNext();
       }
     }, delay);
   };
@@ -190,7 +211,7 @@ async function runOnce() {
   }
 }
 
-// ================== main: اجرای فوری + زمان‌بندی ۶ ساعته ==================
+// ================== main: اجرای فوری + زمان‌بندی 05/11/17/23 ==================
 async function main() {
   await ensureMinimalSchema();
   console.log("Rahin Ops Watchdog شروع شد…");
@@ -199,11 +220,13 @@ async function main() {
   // اجرای فوری (یک‌بار)
   await runOnce();
 
-  // سپس اجرای هر ۶ ساعت بر اساس Asia/Tehran
-  scheduleEvery6h(runOnce);
+  // سپس اجرای دقیق در 05، 11، 17، 23 (به وقت تهران)
+  scheduleAtAnchors(runOnce, TEH_TZ, CUSTOM_ANCHORS);
 }
 
 main().catch((err) => {
   console.error("Startup error:", err);
   process.exit(1);
 });
+
+

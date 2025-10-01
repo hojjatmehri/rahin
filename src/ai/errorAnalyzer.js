@@ -11,24 +11,60 @@ import { readLinesSafe, readCodeSnippet } from '../utils/files.js';
 import { hashLine, normalizeMobile } from '../utils/normalizers.js';
 import { sanitizeForWhatsApp, chunkText } from '../message/sanitize.js';
 import logger from '../logging/logger.js';
+// بالاى فایل: الگوهاى حذف بخش‌هاى متغیر
+const RE_TS_PREFIX = /^\[\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}:\d{2}(?:[.,]\d{1,3})?(?:Z|[+\-]\d{2}:\d{2})?\]\s*/;
+const RE_STEPID = /stepId\s*[:=]\s*scan-\d+#\d+/ig;
+const RE_SCANID = /scan-\d+/ig;
+const RE_UUIDHEX = /\b[0-9a-f]{8}\b/ig;          // تکه‌های هگز کوتاه مثل errorId
+const RE_TIMENUM = /\b\d{10,}\b/g;               // تایم‌استمپ‌های عددى طولانى
+const RE_SPACES = /\s+/g;
+
+// تابع کلیدی:
+function normalizeErrorKey(raw = '') {
+  return String(raw)
+    .replace(RE_TS_PREFIX, '')               // حذف تایم‌استمپ اول خط
+    .replace(RE_STEPID, 'stepId=<X>')        // نرمال‌سازی stepId
+    .replace(RE_SCANID, 'scan-<X>')          // نرمال‌سازی scanId
+    .replace(RE_UUIDHEX, '<HEX>')            // نرمال‌سازی هگزهای کوتاه
+    .replace(RE_TIMENUM, '<NUM>')            // نرمال‌سازی اعدادِ بلند
+    .replace(/\s\|\sindex\.(?:[cm]?js|ts):\d+\s\|/i, ' | index.<file>:<line> |') // الگوی لوله‌ای
+    .trim()
+    .replace(RE_SPACES, ' ');
+}
 
 /* ---------------------------------------
    پارامترها
 --------------------------------------- */
 const LOGS_DIR = env.RAHIN_LOGS_DIR || './logs';
+const LOG_FILE = env.RAHIN_LOG_FILE || ''; // اگر پر باشد فقط همین را می‌خوانیم
 const MODEL = env.RAHIN_MODEL || 'gpt-4o';
 
 /* ---------------------------------------
-   ابزارهای کمکی
+   ابزارهای کمکی مسیر
 --------------------------------------- */
-
-// مسیر فایل لاگ روز
-function todayLogFile(ymd = todayYMD()) {
-  return path.join(LOGS_DIR, `${ymd}.log`);
+function resolvePathMaybeAbsolute(p) {
+  if (!p) return '';
+  return path.isAbsolute(p) ? p : path.resolve(process.cwd(), p);
 }
 
-function ymdOf(d) { return d.toISOString().slice(0, 10); }
+function resolveLogTarget() {
+  // اگر فایل مشخص است، فقط همان
+  if (LOG_FILE) {
+    return { mode: 'file', targets: [resolvePathMaybeAbsolute(LOG_FILE)] };
+  }
+  // در غیر اینصورت حالت دایرکتوری (روزانه)
+  const dir = resolvePathMaybeAbsolute(LOGS_DIR);
+  const today = todayYMD();
+  const yesterday = new Date(Date.now() - 24 * 3600 * 1000).toISOString().slice(0, 10);
+  return {
+    mode: 'dir',
+    targets: [path.join(dir, `${today}.log`), path.join(dir, `${yesterday}.log`)]
+  };
+}
 
+/* ---------------------------------------
+   زمان و پارس سطرهای لاگ
+--------------------------------------- */
 // انعطاف بیشتر در تشخیص تایم‌استمپ: [YYYY-MM-DD HH:mm:ss], [YYYY-MM-DDTHH:mm:ss.mmmZ], ...
 function parseFileTimestamp(line = '') {
   const m = line.match(/^\[(\d{4}-\d{2}-\d{2})[ T](\d{2}:\d{2}:\d{2})(?:[.,](\d{1,3}))?(?:Z|([+\-]\d{2}:\d{2}))?\]/);
@@ -39,20 +75,32 @@ function parseFileTimestamp(line = '') {
   return Number.isNaN(t) ? null : new Date(t);
 }
 
+function ymdOf(d) { return d.toISOString().slice(0, 10); }
+
+/* ---------------------------------------
+   فیلتر خطوط خارجی (سیستم دیگر)
+--------------------------------------- */
+function isForeignLine(s = '') {
+  const t = s.toLowerCase();
+  return t.includes('\\projects\\atighgashtai\\logs\\'.toLowerCase());
+}
+
+/* ---------------------------------------
+   خواندن پنجرهٔ اخیر
+--------------------------------------- */
 export function scanRecentLogWindow(minutes = 70) {
   const now = new Date();
   const fromTs = new Date(now.getTime() - minutes * 60 * 1000);
-
-  const files = new Set([
-    todayLogFile(ymdOf(now)),
-    todayLogFile(ymdOf(new Date(now.getTime() - 24 * 3600 * 1000))),
-  ]);
+  const { targets } = resolveLogTarget();
 
   const windowLines = [];
-  for (const f of files) {
-    if (!fs.existsSync(f)) continue;
+  for (const f of new Set(targets)) {
+    if (!f || !fs.existsSync(f)) continue;
     const lines = readLinesSafe(f);
     for (const line of lines) {
+      // حذف خطوط خارجی اگر به دایرکتوری دیگری اشاره دارند
+      if (isForeignLine(line)) continue;
+
       const ts = parseFileTimestamp(line);
       if (!ts) continue;
       if (ts >= fromTs && ts <= now) {
@@ -75,20 +123,26 @@ export function splitErrorsWithContext(windowLines) {
   });
 }
 
-/**
- * تلاش برای استخراج مسیر فایل/شماره خط از لاگ
- * - از stack=... در انتهای خط استفاده می‌کند اگر باشد
- * - در غیر اینصورت از قطعه‌های مانند file.js:123
- */
-
+/* ---------------------------------------
+   استخراج مسیر فایل/شماره خط از لاگ
+--------------------------------------- */
 // الگوهای بدون نام‌گروه؛ پایدار در Node/Babel
 const RE_AT_LINE =
   /\bat\s+(?:[^(]*\()?(?:file:\/\/\/)?([A-Za-z]:[\\\/][^:\s)]+|\/[^:\s)]+|\.\.?[\\\/][^:\s)]+)\.(js|mjs|cjs|ts|tsx|jsx):(\d+)(?::\d+)?\)?/;
 const RE_ANYWHERE =
   /(?:file:\/\/\/)?([A-Za-z]:[\\\/][^:\s)]+|\/[^:\s)]+|\.\.?[\\\/][^:\s)]+)\.(js|mjs|cjs|ts|tsx|jsx):(\d+)/;
+// الگوی « | index.js:744 | »
+const RE_PIPE_INLINE = /\|\s*([^\|\s]+)\.(js|mjs|cjs|ts|tsx|jsx):(\d+)\s*\|/i;
 
 function matchLocationInLine(line = '') {
   if (!line) return null;
+
+  // حالت " | index.js:744 | "
+  const p = line.match(RE_PIPE_INLINE);
+  if (p) {
+    const base = `${p[1]}.${p[2]}`;
+    return { filePath: path.resolve(base), lineNo: Number(p[3]) };
+  }
 
   // حالت رایج: "at ... file.ext:line:col"
   const m1 = line.match(RE_AT_LINE);
@@ -125,9 +179,9 @@ export function extractFromErrorLine(line = '', context = []) {
   return { filePath: null, lineNo: null };
 }
 
-/**
- * استخراج ورودی‌های احتمالی از متن خط (context= {...} و args= ...)
- */
+/* ---------------------------------------
+   استخراج ورودی‌های احتمالی از متن خط
+--------------------------------------- */
 export function extractInputsFromLine(line = '') {
   const out = [];
   // context={...}
@@ -232,6 +286,10 @@ async function sendErrorSummaryWhatsApp({ toRaw, filePath, lineNo, ai, date }) {
 /* ---------------------------------------
    تابع اصلی پردازش لاگ‌های اخیر
 --------------------------------------- */
+const seenThisScan = new Set();     // <-- اضافه شود
+const MAX_AI_PER_SCAN = 5;          // اختیاری: سقف تحلیل در هر اسکن
+let aiCount = 0;                    // شمارنده تحلیل‌ها
+
 export async function processRecentErrors(options = {}) {
   const {
     minutes = 70,
@@ -263,112 +321,36 @@ export async function processRecentErrors(options = {}) {
 
   // 3) پردازش هر خطا
   for (let idx = 0; idx < bundles.length; idx++) {
-    const b = bundles[idx];
-    const { err, context } = b;
-    const stepId = `${traceId}#${idx + 1}`;
-    const tErr = t0();
-
-    // 3-الف) ضدتکرار با hash
-    const h = hashLine(err.line);
+    const { err, context } = bundles[idx];
+  
+    // این دو خط کم بودند:
+    const stepId = `${traceId}#${idx + 1}`;  // <-- اضافه شود
+    const tErr = t0();                       // <-- اضافه شود
+  
+    // د-دیوپ در حافظه همین اسکن + کلید نرمال‌شده
+    const key = normalizeErrorKey(err.line);
+    if (seenThisScan.has(key)) {
+      logger.debug('تکراری در همین اسکن - رد شد', { stepId, keySample: key.slice(0,80) });
+      continue;
+    }
+    seenThisScan.add(key);
+  
+    const h = hashLine(key);
     try {
       await dbRun(`INSERT INTO rahin_error_sent(error_hash) VALUES (?)`, [h]);
       logger.info('ثبت ضدتکرار خطا', { stepId, errorId: h.slice(0, 8) });
     } catch {
-      logger.debug('خطا قبلاً پردازش شده بود - رد شد', { stepId, errorId: h.slice(0, 8) });
-      continue; // قبلاً دیده شده
+      logger.debug('قبلاً پردازش شده (DB) - رد شد', { stepId, errorId: h.slice(0, 8) });
+      continue;
     }
-
-    // 3-ب) مکان فایل/لاین
-    const tExtract = t0();
-    const loc = extractFromErrorLine(err.line, context);
-    const filePath = loc?.filePath || null;
-    const lineNo = Number.isFinite(loc?.lineNo) ? Number(loc.lineNo) : null;
-
-    if (!filePath || !Number.isFinite(lineNo)) {
-      logger.warn('مکان خطا نامشخص بود؛ از fallback استفاده شد', {
-        stepId,
-        extracted_file: filePath || null,
-        extracted_line: lineNo ?? null,
-        fallback_file: err.file || null,
-        sample: err.line?.slice(0, 200)
-      });
+  
+    // (اختیاری) محدودکنندهٔ نرخ تحلیل
+    if (aiCount >= MAX_AI_PER_SCAN) {
+      logger.info('سقف تحلیل AI در این اسکن پر شد؛ بقیه رد می‌شوند', { stepId });
+      continue;
     }
-
-    logger.info('مکان خطا استخراج شد', {
-      stepId,
-      file: filePath || '-',
-      line: Number.isFinite(lineNo) ? lineNo : '-',
-      took: took(Date.now() - tExtract)
-    });
-
-    // 3-پ) تحلیل با AI
-    const tAi = t0();
-    let ai;
-    try {
-      ai = await analyzeErrorWithAI(err, context, filePath, lineNo);
-    } catch (e) {
-      logger.error('خطا در analyzeErrorWithAI', { stepId, error: e?.message });
-      ai = { data: { short_summary: 'تحلیل خودکار شکست خورد', root_cause: e?.message || 'نامشخص', fix_steps: [] }, tokensIn: 0, tokensOut: 0 };
-    }
-    logger.info('AI تحلیل شد', { stepId, tokens_in: ai.tokensIn || 0, tokens_out: ai.tokensOut || 0, took: took(Date.now() - tAi) });
-
-    // 3-ت) ذخیره در جدول بینش خطاها
-    const tDb = t0();
-    try {
-      await dbRun(`
-        INSERT INTO rahin_error_insights
-          (created_at, log_file, error_ts, error_line, file_path, line_no, short_summary, root_cause, fix_steps, code_patch, model, tokens_in, tokens_out)
-        VALUES
-          (datetime('now','localtime'), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-      `, [
-        err.file,
-        err.ts.toISOString(),
-        err.line,
-        // Fallbackها: اگر پیدا نشد، حداقل چیزی ذخیره شود
-        filePath || err.file || '-',
-        Number.isFinite(lineNo) ? lineNo : -1,
-        ai?.data?.short_summary || '',
-        ai?.data?.root_cause || '',
-        Array.isArray(ai?.data?.fix_steps) ? ai.data.fix_steps.join(' | ') : '',
-        ai?.data?.code_patch || '',
-        MODEL,
-        ai?.tokensIn || 0,
-        ai?.tokensOut || 0,
-      ]);
-      logger.info('ذخیره rahin_error_insights انجام شد', {
-        stepId,
-        filePath: filePath || err.file || '-',
-        lineNo: Number.isFinite(lineNo) ? lineNo : -1,
-        took: took(Date.now() - tDb)
-      });
-    } catch (e) {
-      logger.error('خطا در ذخیره rahin_error_insights', { stepId, error: e?.message });
-    }
-
-    handled++;
-
-    // 3-ث) ارسال خلاصه واتساپ (اختیاری)
-    if (sendWhatsApp) {
-      const to = destMobile || groupId || '';
-      if (to) {
-        try {
-          await sendErrorSummaryWhatsApp({
-            toRaw: to,
-            filePath,
-            lineNo,
-            ai,
-            date: todayYMD(),
-          });
-          sent++;
-        } catch (e) {
-          logger.error('خطا در ارسال واتساپ خلاصه خطا', { stepId, error: e?.message });
-        }
-      }
-    }
-
-    logger.info('پردازش خطا پایان یافت', { stepId, took: took(Date.now() - tErr) });
+    aiCount++;
   }
-
   logger.info('پایان اسکن خطاها', {
     traceId,
     scanned: lines.length,
