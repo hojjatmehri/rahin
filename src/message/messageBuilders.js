@@ -7,6 +7,8 @@ function cap(s, n = 4) {
     return String(s).trim().split('\n').filter(Boolean).slice(0, n).join('\n');
   }
   
+  import { forcePersianText } from "./sanitize.js";
+
   /**
    * پیام مدیریتی (خلاصهٔ تحلیل + ۳ ایده)
    * @param {string} runKey

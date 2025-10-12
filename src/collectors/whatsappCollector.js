@@ -103,8 +103,12 @@ export async function whatsappClickInsightsShort() {
   const waClicks  = await dbGet(`SELECT COUNT(*) AS c FROM click_logs WHERE click_type='whatsapp'`);
   const rate = Number(waClicks?.c || 0) / Math.max(1, Number(allClicks?.c || 0));
 
-  out.top_sources   = (topSources || []).map(r => ({ source: r.src,  cnt: Number(r.cnt || 0) }));
-  out.top_pages     = (topPages   || []).map(r => ({ page:   r.page_url, cnt: Number(r.cnt || 0) }));
+  out.top_sources = (Array.isArray(topSources) ? topSources : [])
+     .filter(r => r && (r.src ?? '(na)') !== null)
+     .map(r => ({ source: r.src ?? '(na)', cnt: Number(r.cnt || 0) }));
+   out.top_pages = (Array.isArray(topPages) ? topPages : [])
+     .filter(r => r && r.page_url != null)
+     .map(r => ({ page: String(r.page_url || '(na)'), cnt: Number(r.cnt || 0) }));
   out.wa_click_rate = Number((rate * 100).toFixed(1));
 
   return out;

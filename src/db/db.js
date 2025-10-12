@@ -6,6 +6,7 @@ import path from 'path';
 import fs from 'fs/promises';
 import env from '../config/env.js';
 
+let _overrideDb = null;       // اگر ست شود، یعنی better-sqlite3 فعال است
 sqlite3.verbose();
 
 /* ----------------------- مسیر DB ----------------------- */
@@ -21,9 +22,14 @@ function resolveDbPath() {
   return abs;
 }
 
+export function useBetterSqlite3(dbInstance) {
+  // اگر null بدهی، برمی‌گردیم به sqlite3 قدیمی
+  _overrideDb = dbInstance || null;
+}
+
 export const DB_PATH = resolveDbPath();
 
-/* ----------------------- اتصال ----------------------- */
+/* ----------------------- اتصال (sqlite3 قدیمی) ----------------------- */
 const mode = sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE;
 const rawDb = new sqlite3.Database(DB_PATH, mode, (err) => {
   if (err) {
@@ -43,7 +49,18 @@ rawDb.serialize();
 export const db = rawDb;
 
 /* ----------------------- Promise wrappers ----------------------- */
+// اگر _overrideDb ست شده باشد، از better-sqlite3 استفاده می‌کنیم؛ در غیر این صورت از rawDb (sqlite3)
+
 export function run(sql, params = []) {
+  if (_overrideDb) {
+    return new Promise((resolve, reject) => {
+      try {
+        const stmt = _overrideDb.prepare(sql);
+        const info = stmt.run(...params);
+        resolve({ lastID: info.lastInsertRowid, changes: info.changes });
+      } catch (e) { reject(e); }
+    });
+  }
   return new Promise((resolve, reject) => {
     rawDb.run(sql, params, function (err) {
       if (err) return reject(err);
@@ -53,6 +70,15 @@ export function run(sql, params = []) {
 }
 
 export function get(sql, params = []) {
+  if (_overrideDb) {
+    return new Promise((resolve, reject) => {
+      try {
+        const stmt = _overrideDb.prepare(sql);
+        const row = stmt.get(...params);
+        resolve(row);
+      } catch (e) { reject(e); }
+    });
+  }
   return new Promise((resolve, reject) => {
     rawDb.get(sql, params, (err, row) => {
       if (err) return reject(err);
@@ -62,6 +88,15 @@ export function get(sql, params = []) {
 }
 
 export function all(sql, params = []) {
+  if (_overrideDb) {
+    return new Promise((resolve, reject) => {
+      try {
+        const stmt = _overrideDb.prepare(sql);
+        const rows = stmt.all(...params);
+        resolve(rows);
+      } catch (e) { reject(e); }
+    });
+  }
   return new Promise((resolve, reject) => {
     rawDb.all(sql, params, (err, rows) => {
       if (err) return reject(err);
@@ -71,6 +106,11 @@ export function all(sql, params = []) {
 }
 
 export function exec(sql) {
+  if (_overrideDb) {
+    return new Promise((resolve, reject) => {
+      try { _overrideDb.exec(sql); resolve(); } catch (e) { reject(e); }
+    });
+  }
   return new Promise((resolve, reject) => {
     rawDb.exec(sql, (err) => {
       if (err) return reject(err);
@@ -80,6 +120,19 @@ export function exec(sql) {
 }
 
 export function each(sql, params = [], onRow) {
+  if (_overrideDb) {
+    return new Promise((resolve, reject) => {
+      try {
+        const stmt = _overrideDb.prepare(sql);
+        let count = 0;
+        for (const row of stmt.iterate(...params)) {
+          try { onRow?.(row); } catch { /* ignore consumer error */ }
+          count++;
+        }
+        resolve(count);
+      } catch (e) { reject(e); }
+    });
+  }
   return new Promise((resolve, reject) => {
     try {
       rawDb.each(
@@ -99,6 +152,11 @@ export function each(sql, params = [], onRow) {
 }
 
 export function close() {
+  if (_overrideDb) {
+    return new Promise((resolve, reject) => {
+      try { _overrideDb.close(); resolve(); } catch (e) { reject(e); }
+    });
+  }
   return new Promise((resolve, reject) => {
     rawDb.close((err) => {
       if (err) return reject(err);
@@ -109,6 +167,7 @@ export function close() {
 
 /* ----------------------- تراکنش ----------------------- */
 export async function withTransaction(fn) {
+  // روش سازگار با هر دو درایور
   await run('BEGIN TRANSACTION;');
   try {
     const res = await fn();
