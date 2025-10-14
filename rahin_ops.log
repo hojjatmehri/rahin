@@ -1407,3 +1407,57 @@
 [2025-10-12 05:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760232600001","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"16ms"}
 [2025-10-12 05:00:27] [INFO] [2025-10-12 05:00:27] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
 [2025-10-12 05:00:27] [INFO] [2025-10-12 05:00:27] ✓ run=2025-10-12:1760232600057 sent
+[2025-10-12 11:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760254200003","minutes":70}
+[2025-10-12 11:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"10ms"}
+[2025-10-12 11:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-12 11:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760254200003","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"19ms"}
+[2025-10-12 11:00:29] [INFO] [2025-10-12 11:00:29] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-12 11:00:29] [INFO] [2025-10-12 11:00:29] ✓ run=2025-10-12:1760254200065 sent
+[2025-10-12 17:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760275800002","minutes":70}
+[2025-10-12 17:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"6ms"}
+[2025-10-12 17:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-12 17:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760275800002","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"12ms"}
+[2025-10-12 17:00:37] [INFO] [2025-10-12 17:00:37] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-12 17:00:37] [INFO] [2025-10-12 17:00:37] ✓ run=2025-10-12:1760275800052 sent
+[2025-10-12 23:50:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760300400003","minutes":70}
+[2025-10-12 23:50:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"9ms"}
+[2025-10-12 23:50:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-12 23:50:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760300400003","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"18ms"}
+[2025-10-12 23:50:28] [INFO] [2025-10-12 23:50:28] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-12 23:50:28] [INFO] [2025-10-12 23:50:28] ✓ run=2025-10-12:1760300400093 sent
+[2025-10-13 05:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760319000000","minutes":70}
+[2025-10-13 05:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"13ms"}
+[2025-10-13 05:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"1ms"}
+[2025-10-13 05:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760319000000","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"23ms"}
+[2025-10-13 05:00:31] [INFO] [2025-10-13 05:00:31] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-13 05:00:31] [INFO] [2025-10-13 05:00:31] ✓ run=2025-10-13:1760319000087 sent
+[2025-10-13 11:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760340600003","minutes":70}
+[2025-10-13 11:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"7ms"}
+[2025-10-13 11:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-13 11:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760340600003","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"15ms"}
+[2025-10-13 11:00:33] [INFO] [2025-10-13 11:00:33] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-13 11:00:33] [INFO] [2025-10-13 11:00:33] ✓ run=2025-10-13:1760340600061 sent
+[2025-10-13 17:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760362200000","minutes":70}
+[2025-10-13 17:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"7ms"}
+[2025-10-13 17:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-13 17:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760362200000","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"15ms"}
+[2025-10-13 17:01:11] [INFO] [2025-10-13 17:01:11] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-13 17:01:11] [INFO] [2025-10-13 17:01:11] ✓ run=2025-10-13:1760362200057 sent
+[2025-10-13 23:50:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760386800003","minutes":70}
+[2025-10-13 23:50:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"7ms"}
+[2025-10-13 23:50:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-13 23:50:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760386800003","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"14ms"}
+[2025-10-13 23:51:27] [INFO] [2025-10-13 23:51:27] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-13 23:51:27] [INFO] [2025-10-13 23:51:27] ✓ run=2025-10-13:1760386800064 sent
+[2025-10-14 05:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760405400001","minutes":70}
+[2025-10-14 05:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"15ms"}
+[2025-10-14 05:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-14 05:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760405400001","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"25ms"}
+[2025-10-14 05:00:59] [INFO] [2025-10-14 05:00:59] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-14 05:00:59] [INFO] [2025-10-14 05:00:59] ✓ run=2025-10-14:1760405400112 sent
+[2025-10-14 11:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760427000004","minutes":70}
+[2025-10-14 11:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"9ms"}
+[2025-10-14 11:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-14 11:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760427000004","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"18ms"}
+[2025-10-14 11:00:49] [INFO] [2025-10-14 11:00:49] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-14 11:00:49] [INFO] [2025-10-14 11:00:49] ✓ run=2025-10-14:1760427000070 sent

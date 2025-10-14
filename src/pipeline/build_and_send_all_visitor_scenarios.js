@@ -363,6 +363,49 @@ export function composeScenario({ profile, didar, engagedPages }) {
 
 
 // ====== Helpers ======
+function uaDeviceType(ua=""){
+  const s = String(ua).toLowerCase();
+  if (!s) return null;
+  if (s.includes("tablet") || s.includes("ipad")) return "tablet";
+  if (s.includes("mobi")) return "mobile";
+  if (s.includes("bot") || s.includes("crawl") || s.includes("spider")) return "bot";
+  return "desktop";
+}
+function uaBrowser(ua=""){
+  const s = String(ua).toLowerCase();
+  if (!s) return null;
+  if (s.includes("edg/") || s.includes("edge")) return "edge";
+  if (s.includes("chrome") && !s.includes("chromium") && !s.includes("edg/")) return "chrome";
+  if (s.includes("safari") && !s.includes("chrome")) return "safari";
+  if (s.includes("firefox")) return "firefox";
+  if (s.includes("opr/") || s.includes("opera")) return "opera";
+  if (s.includes("chromium")) return "chromium";
+  return null;
+}
+function uaOS(ua=""){
+  const s = String(ua).toLowerCase();
+  if (!s) return null;
+  if (s.includes("windows nt 10")) return "Windows 10/11";
+  if (s.includes("windows nt")) return "Windows";
+  if (s.includes("android")) return "Android";
+  if (s.includes("iphone") || s.includes("ipad") || s.includes("ios")) return "iOS";
+  if (s.includes("mac os x") || s.includes("macintosh")) return "macOS";
+  if (s.includes("linux")) return "Linux";
+  return null;
+}
+function pickMode(values=[]) {
+  const map = new Map();
+  for (const v of values) {
+    const t = (v===undefined || v===null) ? null : String(v).trim();
+    if (!t) continue;
+    map.set(t, (map.get(t)||0)+1);
+  }
+  let best=null, cnt=0;
+  for (const [k,c] of map) if (c>cnt) {best=k; cnt=c;}
+  return best || null;
+}
+
+
 function normalizeMsisdn(raw = "") {
   let s = String(raw).replace(/[^\d]/g, "");
   if (!s) return "";
@@ -485,6 +528,28 @@ db.exec(`
     updated_at TEXT DEFAULT (datetime('now'))
   );
   `);
+// ——— ensure new columns exist ———
+(function ensureProfileExtraCols(){
+  const cols = pragmaTableInfo("main.person_unified_profile").map(c => c.name);
+  const needed = [
+    ["device_type","TEXT"],
+    ["browser","TEXT"],
+    ["os","TEXT"],
+    ["country","TEXT"],
+    ["region","TEXT"],
+    ["city","TEXT"]
+  ];
+  for (const [name, type] of needed) {
+    if (!cols.includes(name)) {
+      try {
+        db.exec(`ALTER TABLE person_unified_profile ADD COLUMN ${name} ${type};`);
+        console.log(`➕ Added column person_unified_profile.${name}`);
+      } catch (e) {
+        console.warn(`⚠️ add column ${name} failed (maybe exists):`, e?.message || e);
+      }
+    }
+  }
+})();
 
 // ——— بعد از CREATE TABLE person_unified_profile ... ———
 db.exec(`
@@ -518,13 +583,17 @@ INSERT INTO person_unified_profile (
   first_seen, last_seen, sessions, pages_viewed, total_dwell_sec,
   whatsapp_inbound_count, last_whatsapp_text, last_whatsapp_at,
   pdf_sent_count, last_pdf_title, last_pdf_at,
-  deals_json, sample_pages_json, scenario_text, scenario_model, scenario_sent_at, updated_at
+  deals_json, sample_pages_json, scenario_text, scenario_model, scenario_sent_at,
+  device_type, browser, os, country, region, city,
+  updated_at
 ) VALUES (
   @mobile, @last_visitor_id, @contact_name, @didar_contact_id, @instagram_id,
   @first_seen, @last_seen, @sessions, @pages_viewed, @total_dwell_sec,
   @whatsapp_inbound_count, @last_whatsapp_text, @last_whatsapp_at,
   @pdf_sent_count, @last_pdf_title, @last_pdf_at,
-  @deals_json, @sample_pages_json, @scenario_text, @scenario_model, @scenario_sent_at, datetime('now')
+  @deals_json, @sample_pages_json, @scenario_text, @scenario_model, @scenario_sent_at,
+  @device_type, @browser, @os, @country, @region, @city,
+  datetime('now')
 )
 ON CONFLICT(mobile) DO UPDATE SET
   last_visitor_id = COALESCE(excluded.last_visitor_id, person_unified_profile.last_visitor_id),
@@ -547,7 +616,16 @@ ON CONFLICT(mobile) DO UPDATE SET
   scenario_text = COALESCE(excluded.scenario_text, person_unified_profile.scenario_text),
   scenario_model = COALESCE(excluded.scenario_model, person_unified_profile.scenario_model),
   scenario_sent_at = COALESCE(excluded.scenario_sent_at, person_unified_profile.scenario_sent_at),
+
+  device_type = COALESCE(excluded.device_type, person_unified_profile.device_type),
+  browser = COALESCE(excluded.browser, person_unified_profile.browser),
+  os = COALESCE(excluded.os, person_unified_profile.os),
+  country = COALESCE(excluded.country, person_unified_profile.country),
+  region = COALESCE(excluded.region, person_unified_profile.region),
+  city = COALESCE(excluded.city, person_unified_profile.city),
+
   updated_at = datetime('now');
+
 `);
 console.log("🧷 UPSERT statement prepared.");
 
@@ -795,11 +873,28 @@ function aggregateJourneyForVisitor(weeklyTbl, visitorId) {
   const colDwell = pick(cols, ["dwell_sec", "duration_sec", "duration", "stay_seconds", "engagement_time_sec"], null);
   const colSession = pick(cols, ["session_id", "visit_id", "session"], null);
 
+  // candidates for device/UA/geo
+  const colUA = pick(cols, ["user_agent","ua","useragent"], null);
+  const colDevice = pick(cols, ["device_type","device","deviceCategory"], null);
+  const colBrowser = pick(cols, ["browser","ua_browser"], null);
+  const colOS = pick(cols, ["os","os_name","ua_os"], null);
+
+  const colCountry = pick(cols, ["country","geo_country","country_name","country_code"], null);
+  const colRegion  = pick(cols, ["region","state","subdivision","geo_region"], null);
+  const colCity    = pick(cols, ["city","geo_city","locality"], null);
+
   const selectFields =
     `j.${colTime} AS ts` +
     (colUrl ? `, j.${colUrl} AS url` : ``) +
     (colDwell ? `, COALESCE(j.${colDwell},0) AS dwell` : `, 0 AS dwell`) +
-    (colSession ? `, j.${colSession} AS session_id` : `, NULL AS session_id`);
+    (colSession ? `, j.${colSession} AS session_id` : `, NULL AS session_id`) +
+    (colUA ? `, j.${colUA} AS ua` : `, NULL AS ua`) +
+    (colDevice ? `, j.${colDevice} AS device_type` : `, NULL AS device_type`) +
+    (colBrowser ? `, j.${colBrowser} AS browser` : `, NULL AS browser`) +
+    (colOS ? `, j.${colOS} AS os` : `, NULL AS os`) +
+    (colCountry ? `, j.${colCountry} AS country` : `, NULL AS country`) +
+    (colRegion ? `, j.${colRegion} AS region` : `, NULL AS region`) +
+    (colCity ? `, j.${colCity} AS city` : `, NULL AS city`);
 
   const rows = db.prepare(`
     SELECT ${selectFields}
@@ -811,13 +906,20 @@ function aggregateJourneyForVisitor(weeklyTbl, visitorId) {
     return {
       first_seen: null, last_seen: null,
       pages_viewed: 0, total_dwell_sec: 0,
-      sessions: 0, sample_pages: []
+      sessions: 0, sample_pages: [],
+      device_type: null, browser: null, os: null,
+      country: null, region: null, city: null
     };
   }
 
   let first_seen = null, last_seen = null, total = 0;
   const sessions = new Set();
   const sample_pages = [];
+
+  // buckets for mode
+  const deviceList = [], browserList = [], osList = [];
+  const countryList = [], regionList = [], cityList = [];
+  const uaList = [];
 
   for (const r of rows) {
     const tsTeh = toTehDateTime(r.ts);
@@ -831,18 +933,44 @@ function aggregateJourneyForVisitor(weeklyTbl, visitorId) {
       sample_pages.push({ ts: tsTeh || r.ts, url: stripUrl(String(r.url)), dwell_sec: Number(r.dwell || 0) });
     }
 
+    if (r.device_type) deviceList.push(r.device_type);
+    if (r.browser) browserList.push(r.browser);
+    if (r.os) osList.push(r.os);
+    if (r.country) countryList.push(r.country);
+    if (r.region) regionList.push(r.region);
+    if (r.city) cityList.push(r.city);
+    if (r.ua) uaList.push(r.ua);
   }
 
+  // derive from UA if missing
+  let device_mode = pickMode(deviceList);
+  let browser_mode = pickMode(browserList);
+  let os_mode = pickMode(osList);
 
+  if (!device_mode || !browser_mode || !os_mode) {
+    const ua = pickMode(uaList);
+    if (ua) {
+      if (!device_mode) device_mode = uaDeviceType(ua);
+      if (!browser_mode) browser_mode = uaBrowser(ua);
+      if (!os_mode) os_mode = uaOS(ua);
+    }
+  }
 
   return {
     first_seen, last_seen,
     pages_viewed: rows.length,
     total_dwell_sec: total,
     sessions: sessions.size,
-    sample_pages
+    sample_pages,
+    device_type: device_mode || null,
+    browser: browser_mode || null,
+    os: os_mode || null,
+    country: pickMode(countryList) || null,
+    region: pickMode(regionList) || null,
+    city: pickMode(cityList) || null
   };
 }
+
 
 
 // —— enrichFromDidar: موبایل → کانتکت → لیست دیل‌ها → اسلیم
@@ -1067,7 +1195,11 @@ export async function runAllVisitorScenarios() {
 
       const scenario_model = "deterministic-v1";
       const scenario_sent_at = nowTeh();
-
+      console.log("🌐 Device/Geo:", {
+        device_type: j.device_type, browser: j.browser, os: j.os,
+        country: j.country, region: j.region, city: j.city
+      });
+      
       // Store (UPSERT) — scenario MUST be stored even in DRY_RUN
       const record = {
         mobile,
@@ -1090,8 +1222,17 @@ export async function runAllVisitorScenarios() {
         sample_pages_json: JSON.stringify(j.sample_pages || []),
         scenario_text,
         scenario_model,
-        scenario_sent_at
+        scenario_sent_at,
+      
+        // NEW:
+        device_type: j.device_type || null,
+        browser: j.browser || null,
+        os: j.os || null,
+        country: j.country || null,
+        region: j.region || null,
+        city: j.city || null,
       };
+      
 
       // قفل ارسال بر اساس guardKey
       let allowSend = true;
