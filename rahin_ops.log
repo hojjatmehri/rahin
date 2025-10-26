@@ -1461,3 +1461,537 @@
 [2025-10-14 11:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760427000004","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"18ms"}
 [2025-10-14 11:00:49] [INFO] [2025-10-14 11:00:49] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
 [2025-10-14 11:00:49] [INFO] [2025-10-14 11:00:49] ✓ run=2025-10-14:1760427000070 sent
+[2025-10-14 17:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760448600001","minutes":70}
+[2025-10-14 17:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"8ms"}
+[2025-10-14 17:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-14 17:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760448600001","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"16ms"}
+[2025-10-14 17:00:29] [INFO] [2025-10-14 17:00:29] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-14 17:00:29] [INFO] [2025-10-14 17:00:29] ✓ run=2025-10-14:1760448600059 sent
+[2025-10-14 23:50:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760473200000","minutes":70}
+[2025-10-14 23:50:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"14ms"}
+[2025-10-14 23:50:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-14 23:50:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760473200000","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"22ms"}
+[2025-10-14 23:50:27] [INFO] [2025-10-14 23:50:27] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-14 23:50:27] [INFO] [2025-10-14 23:50:27] ✓ run=2025-10-14:1760473200082 sent
+[2025-10-15 05:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760491800002","minutes":70}
+[2025-10-15 05:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"9ms"}
+[2025-10-15 05:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-15 05:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760491800002","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"15ms"}
+[2025-10-15 05:00:47] [INFO] [2025-10-15 05:00:47] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-15 05:00:47] [INFO] [2025-10-15 05:00:47] ✓ run=2025-10-15:1760491800057 sent
+[2025-10-15 11:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760513400002","minutes":70}
+[2025-10-15 11:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"6ms"}
+[2025-10-15 11:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-15 11:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760513400002","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"13ms"}
+[2025-10-15 11:00:24] [INFO] [2025-10-15 11:00:24] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-15 11:00:24] [INFO] [2025-10-15 11:00:24] ✓ run=2025-10-15:1760513400060 sent
+[2025-10-15 17:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760535000001","minutes":70}
+[2025-10-15 17:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"8ms"}
+[2025-10-15 17:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-15 17:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760535000001","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"15ms"}
+[2025-10-15 17:01:01] [INFO] [2025-10-15 17:01:01] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-15 17:01:01] [INFO] [2025-10-15 17:01:01] ✓ run=2025-10-15:1760535000062 sent
+[2025-10-15 23:50:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760559600001","minutes":70}
+[2025-10-15 23:50:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"9ms"}
+[2025-10-15 23:50:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-15 23:50:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760559600001","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"15ms"}
+[2025-10-15 23:50:00] [INFO] [2025-10-15 23:50:00] skipped: no significant change
+[2025-10-15 23:50:01] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760559601056","minutes":70}
+[2025-10-15 23:50:01] [INFO] خواندن لاگ‌ها {"found":6,"took":"5ms"}
+[2025-10-15 23:50:01] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-15 23:50:01] [INFO] پایان اسکن خطاها {"traceId":"scan-1760559601056","scanned":6,"bundles":0,"handled":0,"sent":0,"total":"9ms"}
+[2025-10-15 23:50:01] [INFO] [2025-10-15 23:50:01] skipped: no significant change
+[2025-10-15 23:50:02] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760559602108","minutes":70}
+[2025-10-15 23:50:02] [INFO] خواندن لاگ‌ها {"found":11,"took":"13ms"}
+[2025-10-15 23:50:02] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-15 23:50:02] [INFO] پایان اسکن خطاها {"traceId":"scan-1760559602108","scanned":11,"bundles":0,"handled":0,"sent":0,"total":"35ms"}
+[2025-10-15 23:50:02] [INFO] [2025-10-15 23:50:02] skipped: no significant change
+[2025-10-15 23:50:03] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760559603166","minutes":70}
+[2025-10-15 23:50:03] [INFO] خواندن لاگ‌ها {"found":16,"took":"5ms"}
+[2025-10-15 23:50:03] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-15 23:50:03] [INFO] پایان اسکن خطاها {"traceId":"scan-1760559603166","scanned":16,"bundles":0,"handled":0,"sent":0,"total":"8ms"}
+[2025-10-15 23:50:03] [INFO] [2025-10-15 23:50:03] skipped: no significant change
+[2025-10-16 05:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760578200001","minutes":70}
+[2025-10-16 05:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"8ms"}
+[2025-10-16 05:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-16 05:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760578200001","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"15ms"}
+[2025-10-16 05:00:35] [INFO] [2025-10-16 05:00:35] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-16 05:00:35] [INFO] [2025-10-16 05:00:35] ✓ run=2025-10-16:1760578200067 sent
+[2025-10-16 11:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760599800001","minutes":70}
+[2025-10-16 11:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"8ms"}
+[2025-10-16 11:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-16 11:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760599800001","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"14ms"}
+[2025-10-16 11:00:29] [INFO] [2025-10-16 11:00:29] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-16 11:00:29] [INFO] [2025-10-16 11:00:29] ✓ run=2025-10-16:1760599800056 sent
+[2025-10-16 17:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760621400000","minutes":70}
+[2025-10-16 17:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"13ms"}
+[2025-10-16 17:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-16 17:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760621400000","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"21ms"}
+[2025-10-16 17:00:41] [INFO] [2025-10-16 17:00:41] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-16 17:00:41] [INFO] [2025-10-16 17:00:41] ✓ run=2025-10-16:1760621400064 sent
+[2025-10-16 23:50:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760646000004","minutes":70}
+[2025-10-16 23:50:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"14ms"}
+[2025-10-16 23:50:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-16 23:50:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760646000004","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"24ms"}
+[2025-10-16 23:50:00] [INFO] [2025-10-16 23:50:00] skipped: no significant change
+[2025-10-16 23:50:01] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760646001073","minutes":70}
+[2025-10-16 23:50:01] [INFO] خواندن لاگ‌ها {"found":6,"took":"5ms"}
+[2025-10-16 23:50:01] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-16 23:50:01] [INFO] پایان اسکن خطاها {"traceId":"scan-1760646001073","scanned":6,"bundles":0,"handled":0,"sent":0,"total":"10ms"}
+[2025-10-16 23:50:01] [INFO] [2025-10-16 23:50:01] skipped: no significant change
+[2025-10-16 23:50:02] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760646002103","minutes":70}
+[2025-10-16 23:50:02] [INFO] خواندن لاگ‌ها {"found":11,"took":"7ms"}
+[2025-10-16 23:50:02] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-16 23:50:02] [INFO] پایان اسکن خطاها {"traceId":"scan-1760646002103","scanned":11,"bundles":0,"handled":0,"sent":0,"total":"15ms"}
+[2025-10-16 23:50:02] [INFO] [2025-10-16 23:50:02] skipped: no significant change
+[2025-10-16 23:50:03] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760646003145","minutes":70}
+[2025-10-16 23:50:03] [INFO] خواندن لاگ‌ها {"found":16,"took":"6ms"}
+[2025-10-16 23:50:03] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-16 23:50:03] [INFO] پایان اسکن خطاها {"traceId":"scan-1760646003145","scanned":16,"bundles":0,"handled":0,"sent":0,"total":"11ms"}
+[2025-10-16 23:50:03] [INFO] [2025-10-16 23:50:03] skipped: no significant change
+[2025-10-17 04:59:59] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760664599999","minutes":70}
+[2025-10-17 05:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"9ms"}
+[2025-10-17 05:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-17 05:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760664599999","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"17ms"}
+[2025-10-17 05:00:39] [INFO] [2025-10-17 05:00:39] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-17 05:00:39] [INFO] [2025-10-17 05:00:39] ✓ run=2025-10-17:1760664600069 sent
+[2025-10-17 11:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760686200001","minutes":70}
+[2025-10-17 11:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"10ms"}
+[2025-10-17 11:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-17 11:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760686200001","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"18ms"}
+[2025-10-17 11:01:23] [INFO] [2025-10-17 11:01:23] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-17 11:01:23] [INFO] [2025-10-17 11:01:23] ✓ run=2025-10-17:1760686200059 sent
+[2025-10-17 17:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760707800001","minutes":70}
+[2025-10-17 17:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"8ms"}
+[2025-10-17 17:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-17 17:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760707800001","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"14ms"}
+[2025-10-17 17:00:46] [INFO] [2025-10-17 17:00:46] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-17 17:00:46] [INFO] [2025-10-17 17:00:46] ✓ run=2025-10-17:1760707800055 sent
+[2025-10-17 23:50:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760732400001","minutes":70}
+[2025-10-17 23:50:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"9ms"}
+[2025-10-17 23:50:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-17 23:50:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760732400001","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"17ms"}
+[2025-10-17 23:50:48] [INFO] [2025-10-17 23:50:48] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-17 23:50:48] [INFO] [2025-10-17 23:50:48] ✓ run=2025-10-17:1760732400085 sent
+[2025-10-18 05:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760751000001","minutes":70}
+[2025-10-18 05:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"6ms"}
+[2025-10-18 05:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-18 05:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760751000001","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"12ms"}
+[2025-10-18 05:00:45] [INFO] [2025-10-18 05:00:45] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-18 05:00:45] [INFO] [2025-10-18 05:00:45] ✓ run=2025-10-18:1760751000055 sent
+[2025-10-18 11:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760772600004","minutes":70}
+[2025-10-18 11:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"9ms"}
+[2025-10-18 11:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-18 11:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760772600004","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"14ms"}
+[2025-10-18 11:00:32] [INFO] [2025-10-18 11:00:32] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-18 11:00:32] [INFO] [2025-10-18 11:00:32] ✓ run=2025-10-18:1760772600054 sent
+[2025-10-18 17:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760794200002","minutes":70}
+[2025-10-18 17:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"6ms"}
+[2025-10-18 17:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-18 17:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760794200002","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"13ms"}
+[2025-10-18 17:00:47] [INFO] [2025-10-18 17:00:47] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-18 17:00:47] [INFO] [2025-10-18 17:00:47] ✓ run=2025-10-18:1760794200054 sent
+[2025-10-18 23:50:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760818800002","minutes":70}
+[2025-10-18 23:50:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"15ms"}
+[2025-10-18 23:50:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-18 23:50:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760818800002","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"23ms"}
+[2025-10-18 23:50:37] [INFO] [2025-10-18 23:50:37] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-18 23:50:37] [INFO] [2025-10-18 23:50:37] ✓ run=2025-10-18:1760818800110 sent
+[2025-10-19 05:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760837400002","minutes":70}
+[2025-10-19 05:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"8ms"}
+[2025-10-19 05:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-19 05:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760837400002","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"18ms"}
+[2025-10-19 05:00:26] [INFO] [2025-10-19 05:00:26] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-19 05:00:26] [INFO] [2025-10-19 05:00:26] ✓ run=2025-10-19:1760837400072 sent
+[2025-10-19 11:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760859000001","minutes":70}
+[2025-10-19 11:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"8ms"}
+[2025-10-19 11:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-19 11:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760859000001","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"14ms"}
+[2025-10-19 11:00:31] [INFO] [2025-10-19 11:00:31] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-19 11:00:31] [INFO] [2025-10-19 11:00:31] ✓ run=2025-10-19:1760859000055 sent
+[2025-10-19 16:59:59] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760880599999","minutes":70}
+[2025-10-19 17:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"5ms"}
+[2025-10-19 17:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-19 17:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760880599999","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"13ms"}
+[2025-10-19 17:00:39] [INFO] [2025-10-19 17:00:39] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-19 17:00:39] [INFO] [2025-10-19 17:00:39] ✓ run=2025-10-19:1760880600055 sent
+[2025-10-19 23:50:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760905200002","minutes":70}
+[2025-10-19 23:50:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"8ms"}
+[2025-10-19 23:50:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-19 23:50:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760905200002","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"15ms"}
+[2025-10-19 23:50:26] [INFO] [2025-10-19 23:50:26] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-19 23:50:26] [INFO] [2025-10-19 23:50:26] ✓ run=2025-10-19:1760905200071 sent
+[2025-10-20 05:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760923800000","minutes":70}
+[2025-10-20 05:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"9ms"}
+[2025-10-20 05:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-20 05:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760923800000","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"15ms"}
+[2025-10-20 05:00:42] [INFO] [2025-10-20 05:00:42] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-20 05:00:42] [INFO] [2025-10-20 05:00:42] ✓ run=2025-10-20:1760923800058 sent
+[2025-10-20 11:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760945400001","minutes":70}
+[2025-10-20 11:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"10ms"}
+[2025-10-20 11:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-20 11:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760945400001","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"16ms"}
+[2025-10-20 11:00:36] [INFO] [2025-10-20 11:00:36] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-20 11:00:36] [INFO] [2025-10-20 11:00:36] ✓ run=2025-10-20:1760945400060 sent
+[2025-10-20 17:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760967000001","minutes":70}
+[2025-10-20 17:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"9ms"}
+[2025-10-20 17:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-20 17:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760967000001","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"14ms"}
+[2025-10-20 17:00:34] [INFO] [2025-10-20 17:00:34] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-20 17:00:34] [INFO] [2025-10-20 17:00:34] ✓ run=2025-10-20:1760967000058 sent
+[2025-10-20 23:50:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1760991600004","minutes":70}
+[2025-10-20 23:50:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"8ms"}
+[2025-10-20 23:50:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-20 23:50:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1760991600004","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"14ms"}
+[2025-10-20 23:50:33] [INFO] [2025-10-20 23:50:33] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-20 23:50:33] [INFO] [2025-10-20 23:50:33] ✓ run=2025-10-20:1760991600074 sent
+[2025-10-21 05:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761010200000","minutes":70}
+[2025-10-21 05:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"7ms"}
+[2025-10-21 05:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-21 05:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1761010200000","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"16ms"}
+[2025-10-21 05:00:54] [INFO] [2025-10-21 05:00:54] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-21 05:00:54] [INFO] [2025-10-21 05:00:54] ✓ run=2025-10-21:1761010200070 sent
+[2025-10-21 11:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761031800003","minutes":70}
+[2025-10-21 11:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"6ms"}
+[2025-10-21 11:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-21 11:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1761031800003","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"12ms"}
+[2025-10-21 11:00:43] [INFO] [2025-10-21 11:00:43] اجرای سناریوهای visitor ناموفق بود: Cannot find module 'C:\Users\Administrator\Desktop\Projects\rahin\src\scenarios\visitorScenarios.js' imported from C:\Users\Administrator\Desktop\Projects\rahin\src\main\rahin_ops_watchdog.js
+[2025-10-21 11:00:43] [INFO] [2025-10-21 11:00:43] ✓ run=2025-10-21:1761031800052 sent
+[2025-10-21 14:00:28] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761042628309","minutes":70}
+[2025-10-21 14:00:28] [INFO] خواندن لاگ‌ها {"found":1,"took":"7ms"}
+[2025-10-21 14:00:28] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"1ms"}
+[2025-10-21 14:00:28] [INFO] پایان اسکن خطاها {"traceId":"scan-1761042628309","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"38ms"}
+[2025-10-21 14:01:22] [INFO] [2025-10-21 14:01:22] ✓ per-channel analyses sent.
+[2025-10-21 14:01:22] [INFO] [2025-10-21 14:01:22] run=2025-10-21:1761042628428 ERROR=The database connection is not open
+[2025-10-21 14:02:39] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761042759249","minutes":70}
+[2025-10-21 14:02:39] [INFO] خواندن لاگ‌ها {"found":7,"took":"8ms"}
+[2025-10-21 14:02:39] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-21 14:02:39] [INFO] پایان اسکن خطاها {"traceId":"scan-1761042759249","scanned":7,"bundles":0,"handled":0,"sent":0,"total":"36ms"}
+[2025-10-21 14:03:23] [INFO] [2025-10-21 14:03:23] ✓ per-channel analyses sent.
+[2025-10-21 14:03:23] [INFO] [2025-10-21 14:03:23] run=2025-10-21:1761042759402 ERROR=The database connection is not open
+[2025-10-21 17:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761053400003","minutes":70}
+[2025-10-21 17:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"8ms"}
+[2025-10-21 17:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-21 17:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1761053400003","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"15ms"}
+[2025-10-21 17:00:01] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761053401024","minutes":70}
+[2025-10-21 17:00:01] [INFO] خواندن لاگ‌ها {"found":5,"took":"11ms"}
+[2025-10-21 17:00:01] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-21 17:00:01] [INFO] پایان اسکن خطاها {"traceId":"scan-1761053401024","scanned":5,"bundles":0,"handled":0,"sent":0,"total":"16ms"}
+[2025-10-21 17:00:02] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761053402044","minutes":70}
+[2025-10-21 17:00:02] [INFO] خواندن لاگ‌ها {"found":9,"took":"9ms"}
+[2025-10-21 17:00:02] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-21 17:00:02] [INFO] پایان اسکن خطاها {"traceId":"scan-1761053402044","scanned":9,"bundles":0,"handled":0,"sent":0,"total":"14ms"}
+[2025-10-21 17:00:03] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761053403063","minutes":70}
+[2025-10-21 17:00:03] [INFO] خواندن لاگ‌ها {"found":13,"took":"9ms"}
+[2025-10-21 17:00:03] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-21 17:00:03] [INFO] پایان اسکن خطاها {"traceId":"scan-1761053403063","scanned":13,"bundles":0,"handled":0,"sent":0,"total":"15ms"}
+[2025-10-21 23:50:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761078000005","minutes":70}
+[2025-10-21 23:50:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"9ms"}
+[2025-10-21 23:50:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"1ms"}
+[2025-10-21 23:50:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1761078000005","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"15ms"}
+[2025-10-21 23:50:01] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761078001023","minutes":70}
+[2025-10-21 23:50:01] [INFO] خواندن لاگ‌ها {"found":5,"took":"6ms"}
+[2025-10-21 23:50:01] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-21 23:50:01] [INFO] پایان اسکن خطاها {"traceId":"scan-1761078001023","scanned":5,"bundles":0,"handled":0,"sent":0,"total":"12ms"}
+[2025-10-21 23:50:02] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761078002039","minutes":70}
+[2025-10-21 23:50:02] [INFO] خواندن لاگ‌ها {"found":9,"took":"5ms"}
+[2025-10-21 23:50:02] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-21 23:50:02] [INFO] پایان اسکن خطاها {"traceId":"scan-1761078002039","scanned":9,"bundles":0,"handled":0,"sent":0,"total":"10ms"}
+[2025-10-21 23:50:03] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761078003053","minutes":70}
+[2025-10-21 23:50:03] [INFO] خواندن لاگ‌ها {"found":13,"took":"8ms"}
+[2025-10-21 23:50:03] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-21 23:50:03] [INFO] پایان اسکن خطاها {"traceId":"scan-1761078003053","scanned":13,"bundles":0,"handled":0,"sent":0,"total":"16ms"}
+[2025-10-22 05:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761096600003","minutes":70}
+[2025-10-22 05:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"12ms"}
+[2025-10-22 05:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-22 05:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1761096600003","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"18ms"}
+[2025-10-22 05:00:01] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761096601025","minutes":70}
+[2025-10-22 05:00:01] [INFO] خواندن لاگ‌ها {"found":5,"took":"7ms"}
+[2025-10-22 05:00:01] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-22 05:00:01] [INFO] پایان اسکن خطاها {"traceId":"scan-1761096601025","scanned":5,"bundles":0,"handled":0,"sent":0,"total":"13ms"}
+[2025-10-22 05:00:02] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761096602042","minutes":70}
+[2025-10-22 05:00:02] [INFO] خواندن لاگ‌ها {"found":9,"took":"5ms"}
+[2025-10-22 05:00:02] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-22 05:00:02] [INFO] پایان اسکن خطاها {"traceId":"scan-1761096602042","scanned":9,"bundles":0,"handled":0,"sent":0,"total":"10ms"}
+[2025-10-22 05:00:03] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761096603056","minutes":70}
+[2025-10-22 05:00:03] [INFO] خواندن لاگ‌ها {"found":13,"took":"5ms"}
+[2025-10-22 05:00:03] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-22 05:00:03] [INFO] پایان اسکن خطاها {"traceId":"scan-1761096603056","scanned":13,"bundles":0,"handled":0,"sent":0,"total":"9ms"}
+[2025-10-22 11:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761118200002","minutes":70}
+[2025-10-22 11:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"13ms"}
+[2025-10-22 11:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-22 11:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1761118200002","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"22ms"}
+[2025-10-22 11:00:01] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761118201031","minutes":70}
+[2025-10-22 11:00:01] [INFO] خواندن لاگ‌ها {"found":5,"took":"7ms"}
+[2025-10-22 11:00:01] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-22 11:00:01] [INFO] پایان اسکن خطاها {"traceId":"scan-1761118201031","scanned":5,"bundles":0,"handled":0,"sent":0,"total":"12ms"}
+[2025-10-22 11:00:02] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761118202046","minutes":70}
+[2025-10-22 11:00:02] [INFO] خواندن لاگ‌ها {"found":9,"took":"9ms"}
+[2025-10-22 11:00:02] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-22 11:00:02] [INFO] پایان اسکن خطاها {"traceId":"scan-1761118202046","scanned":9,"bundles":0,"handled":0,"sent":0,"total":"15ms"}
+[2025-10-22 11:00:03] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761118203066","minutes":70}
+[2025-10-22 11:00:03] [INFO] خواندن لاگ‌ها {"found":13,"took":"8ms"}
+[2025-10-22 11:00:03] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-22 11:00:03] [INFO] پایان اسکن خطاها {"traceId":"scan-1761118203066","scanned":13,"bundles":0,"handled":0,"sent":0,"total":"13ms"}
+[2025-10-22 17:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761139800001","minutes":70}
+[2025-10-22 17:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"6ms"}
+[2025-10-22 17:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-22 17:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1761139800001","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"11ms"}
+[2025-10-22 17:00:01] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761139801015","minutes":70}
+[2025-10-22 17:00:01] [INFO] خواندن لاگ‌ها {"found":5,"took":"7ms"}
+[2025-10-22 17:00:01] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-22 17:00:01] [INFO] پایان اسکن خطاها {"traceId":"scan-1761139801015","scanned":5,"bundles":0,"handled":0,"sent":0,"total":"13ms"}
+[2025-10-22 17:00:02] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761139802031","minutes":70}
+[2025-10-22 17:00:02] [INFO] خواندن لاگ‌ها {"found":9,"took":"6ms"}
+[2025-10-22 17:00:02] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-22 17:00:02] [INFO] پایان اسکن خطاها {"traceId":"scan-1761139802031","scanned":9,"bundles":0,"handled":0,"sent":0,"total":"10ms"}
+[2025-10-22 17:00:03] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761139803044","minutes":70}
+[2025-10-22 17:00:03] [INFO] خواندن لاگ‌ها {"found":13,"took":"7ms"}
+[2025-10-22 17:00:03] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-22 17:00:03] [INFO] پایان اسکن خطاها {"traceId":"scan-1761139803044","scanned":13,"bundles":0,"handled":0,"sent":0,"total":"13ms"}
+[2025-10-22 23:50:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761164400002","minutes":70}
+[2025-10-22 23:50:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"10ms"}
+[2025-10-22 23:50:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-22 23:50:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1761164400002","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"19ms"}
+[2025-10-22 23:50:01] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761164401024","minutes":70}
+[2025-10-22 23:50:01] [INFO] خواندن لاگ‌ها {"found":5,"took":"7ms"}
+[2025-10-22 23:50:01] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-22 23:50:01] [INFO] پایان اسکن خطاها {"traceId":"scan-1761164401024","scanned":5,"bundles":0,"handled":0,"sent":0,"total":"13ms"}
+[2025-10-22 23:50:02] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761164402040","minutes":70}
+[2025-10-22 23:50:02] [INFO] خواندن لاگ‌ها {"found":9,"took":"6ms"}
+[2025-10-22 23:50:02] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-22 23:50:02] [INFO] پایان اسکن خطاها {"traceId":"scan-1761164402040","scanned":9,"bundles":0,"handled":0,"sent":0,"total":"10ms"}
+[2025-10-22 23:50:03] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761164403053","minutes":70}
+[2025-10-22 23:50:03] [INFO] خواندن لاگ‌ها {"found":13,"took":"5ms"}
+[2025-10-22 23:50:03] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-22 23:50:03] [INFO] پایان اسکن خطاها {"traceId":"scan-1761164403053","scanned":13,"bundles":0,"handled":0,"sent":0,"total":"9ms"}
+[2025-10-23 05:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761183000001","minutes":70}
+[2025-10-23 05:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"11ms"}
+[2025-10-23 05:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-23 05:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1761183000001","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"20ms"}
+[2025-10-23 05:00:01] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761183001028","minutes":70}
+[2025-10-23 05:00:01] [INFO] خواندن لاگ‌ها {"found":5,"took":"6ms"}
+[2025-10-23 05:00:01] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-23 05:00:01] [INFO] پایان اسکن خطاها {"traceId":"scan-1761183001028","scanned":5,"bundles":0,"handled":0,"sent":0,"total":"11ms"}
+[2025-10-23 05:00:02] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761183002044","minutes":70}
+[2025-10-23 05:00:02] [INFO] خواندن لاگ‌ها {"found":9,"took":"6ms"}
+[2025-10-23 05:00:02] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-23 05:00:02] [INFO] پایان اسکن خطاها {"traceId":"scan-1761183002044","scanned":9,"bundles":0,"handled":0,"sent":0,"total":"10ms"}
+[2025-10-23 05:00:03] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761183003057","minutes":70}
+[2025-10-23 05:00:03] [INFO] خواندن لاگ‌ها {"found":13,"took":"8ms"}
+[2025-10-23 05:00:03] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-23 05:00:03] [INFO] پایان اسکن خطاها {"traceId":"scan-1761183003057","scanned":13,"bundles":0,"handled":0,"sent":0,"total":"13ms"}
+[2025-10-23 11:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761204600000","minutes":70}
+[2025-10-23 11:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"8ms"}
+[2025-10-23 11:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-23 11:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1761204600000","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"14ms"}
+[2025-10-23 11:00:01] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761204601019","minutes":70}
+[2025-10-23 11:00:01] [INFO] خواندن لاگ‌ها {"found":5,"took":"9ms"}
+[2025-10-23 11:00:01] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-23 11:00:01] [INFO] پایان اسکن خطاها {"traceId":"scan-1761204601019","scanned":5,"bundles":0,"handled":0,"sent":0,"total":"16ms"}
+[2025-10-23 11:00:02] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761204602040","minutes":70}
+[2025-10-23 11:00:02] [INFO] خواندن لاگ‌ها {"found":9,"took":"8ms"}
+[2025-10-23 11:00:02] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-23 11:00:02] [INFO] پایان اسکن خطاها {"traceId":"scan-1761204602040","scanned":9,"bundles":0,"handled":0,"sent":0,"total":"13ms"}
+[2025-10-23 11:00:03] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761204603057","minutes":70}
+[2025-10-23 11:00:03] [INFO] خواندن لاگ‌ها {"found":13,"took":"5ms"}
+[2025-10-23 11:00:03] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-23 11:00:03] [INFO] پایان اسکن خطاها {"traceId":"scan-1761204603057","scanned":13,"bundles":0,"handled":0,"sent":0,"total":"11ms"}
+[2025-10-23 17:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761226200001","minutes":70}
+[2025-10-23 17:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"12ms"}
+[2025-10-23 17:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-23 17:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1761226200001","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"22ms"}
+[2025-10-23 17:00:01] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761226201027","minutes":70}
+[2025-10-23 17:00:01] [INFO] خواندن لاگ‌ها {"found":5,"took":"8ms"}
+[2025-10-23 17:00:01] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-23 17:00:01] [INFO] پایان اسکن خطاها {"traceId":"scan-1761226201027","scanned":5,"bundles":0,"handled":0,"sent":0,"total":"12ms"}
+[2025-10-23 17:00:02] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761226202043","minutes":70}
+[2025-10-23 17:00:02] [INFO] خواندن لاگ‌ها {"found":9,"took":"8ms"}
+[2025-10-23 17:00:02] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-23 17:00:02] [INFO] پایان اسکن خطاها {"traceId":"scan-1761226202043","scanned":9,"bundles":0,"handled":0,"sent":0,"total":"13ms"}
+[2025-10-23 17:00:03] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761226203060","minutes":70}
+[2025-10-23 17:00:03] [INFO] خواندن لاگ‌ها {"found":13,"took":"6ms"}
+[2025-10-23 17:00:03] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-23 17:00:03] [INFO] پایان اسکن خطاها {"traceId":"scan-1761226203060","scanned":13,"bundles":0,"handled":0,"sent":0,"total":"10ms"}
+[2025-10-23 23:50:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761250800001","minutes":70}
+[2025-10-23 23:50:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"8ms"}
+[2025-10-23 23:50:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-23 23:50:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1761250800001","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"16ms"}
+[2025-10-23 23:50:01] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761250801023","minutes":70}
+[2025-10-23 23:50:01] [INFO] خواندن لاگ‌ها {"found":5,"took":"9ms"}
+[2025-10-23 23:50:01] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-23 23:50:01] [INFO] پایان اسکن خطاها {"traceId":"scan-1761250801023","scanned":5,"bundles":0,"handled":0,"sent":0,"total":"15ms"}
+[2025-10-23 23:50:02] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761250802042","minutes":70}
+[2025-10-23 23:50:02] [INFO] خواندن لاگ‌ها {"found":9,"took":"7ms"}
+[2025-10-23 23:50:02] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-23 23:50:02] [INFO] پایان اسکن خطاها {"traceId":"scan-1761250802042","scanned":9,"bundles":0,"handled":0,"sent":0,"total":"12ms"}
+[2025-10-23 23:50:03] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761250803058","minutes":70}
+[2025-10-23 23:50:03] [INFO] خواندن لاگ‌ها {"found":13,"took":"5ms"}
+[2025-10-23 23:50:03] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-23 23:50:03] [INFO] پایان اسکن خطاها {"traceId":"scan-1761250803058","scanned":13,"bundles":0,"handled":0,"sent":0,"total":"9ms"}
+[2025-10-24 05:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761269400001","minutes":70}
+[2025-10-24 05:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"14ms"}
+[2025-10-24 05:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-24 05:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1761269400001","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"24ms"}
+[2025-10-24 05:00:01] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761269401032","minutes":70}
+[2025-10-24 05:00:01] [INFO] خواندن لاگ‌ها {"found":5,"took":"7ms"}
+[2025-10-24 05:00:01] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-24 05:00:01] [INFO] پایان اسکن خطاها {"traceId":"scan-1761269401032","scanned":5,"bundles":0,"handled":0,"sent":0,"total":"14ms"}
+[2025-10-24 05:00:02] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761269402051","minutes":70}
+[2025-10-24 05:00:02] [INFO] خواندن لاگ‌ها {"found":9,"took":"8ms"}
+[2025-10-24 05:00:02] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-24 05:00:02] [INFO] پایان اسکن خطاها {"traceId":"scan-1761269402051","scanned":9,"bundles":0,"handled":0,"sent":0,"total":"13ms"}
+[2025-10-24 05:00:03] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761269403066","minutes":70}
+[2025-10-24 05:00:03] [INFO] خواندن لاگ‌ها {"found":13,"took":"6ms"}
+[2025-10-24 05:00:03] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-24 05:00:03] [INFO] پایان اسکن خطاها {"traceId":"scan-1761269403066","scanned":13,"bundles":0,"handled":0,"sent":0,"total":"10ms"}
+[2025-10-24 11:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761291000002","minutes":70}
+[2025-10-24 11:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"9ms"}
+[2025-10-24 11:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-24 11:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1761291000002","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"16ms"}
+[2025-10-24 11:00:01] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761291001023","minutes":70}
+[2025-10-24 11:00:01] [INFO] خواندن لاگ‌ها {"found":5,"took":"9ms"}
+[2025-10-24 11:00:01] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-24 11:00:01] [INFO] پایان اسکن خطاها {"traceId":"scan-1761291001023","scanned":5,"bundles":0,"handled":0,"sent":0,"total":"14ms"}
+[2025-10-24 11:00:02] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761291002043","minutes":70}
+[2025-10-24 11:00:02] [INFO] خواندن لاگ‌ها {"found":9,"took":"6ms"}
+[2025-10-24 11:00:02] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-24 11:00:02] [INFO] پایان اسکن خطاها {"traceId":"scan-1761291002043","scanned":9,"bundles":0,"handled":0,"sent":0,"total":"9ms"}
+[2025-10-24 11:00:03] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761291003055","minutes":70}
+[2025-10-24 11:00:03] [INFO] خواندن لاگ‌ها {"found":13,"took":"9ms"}
+[2025-10-24 11:00:03] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-24 11:00:03] [INFO] پایان اسکن خطاها {"traceId":"scan-1761291003055","scanned":13,"bundles":0,"handled":0,"sent":0,"total":"16ms"}
+[2025-10-24 17:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761312600004","minutes":70}
+[2025-10-24 17:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"11ms"}
+[2025-10-24 17:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-24 17:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1761312600004","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"18ms"}
+[2025-10-24 17:00:01] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761312601026","minutes":70}
+[2025-10-24 17:00:01] [INFO] خواندن لاگ‌ها {"found":5,"took":"7ms"}
+[2025-10-24 17:00:01] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-24 17:00:01] [INFO] پایان اسکن خطاها {"traceId":"scan-1761312601026","scanned":5,"bundles":0,"handled":0,"sent":0,"total":"11ms"}
+[2025-10-24 17:00:02] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761312602042","minutes":70}
+[2025-10-24 17:00:02] [INFO] خواندن لاگ‌ها {"found":9,"took":"9ms"}
+[2025-10-24 17:00:02] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-24 17:00:02] [INFO] پایان اسکن خطاها {"traceId":"scan-1761312602042","scanned":9,"bundles":0,"handled":0,"sent":0,"total":"17ms"}
+[2025-10-24 17:00:03] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761312603063","minutes":70}
+[2025-10-24 17:00:03] [INFO] خواندن لاگ‌ها {"found":13,"took":"8ms"}
+[2025-10-24 17:00:03] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-24 17:00:03] [INFO] پایان اسکن خطاها {"traceId":"scan-1761312603063","scanned":13,"bundles":0,"handled":0,"sent":0,"total":"13ms"}
+[2025-10-24 23:50:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761337200001","minutes":70}
+[2025-10-24 23:50:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"11ms"}
+[2025-10-24 23:50:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-24 23:50:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1761337200001","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"18ms"}
+[2025-10-24 23:50:01] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761337201024","minutes":70}
+[2025-10-24 23:50:01] [INFO] خواندن لاگ‌ها {"found":5,"took":"7ms"}
+[2025-10-24 23:50:01] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-24 23:50:01] [INFO] پایان اسکن خطاها {"traceId":"scan-1761337201024","scanned":5,"bundles":0,"handled":0,"sent":0,"total":"12ms"}
+[2025-10-24 23:50:02] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761337202038","minutes":70}
+[2025-10-24 23:50:02] [INFO] خواندن لاگ‌ها {"found":9,"took":"6ms"}
+[2025-10-24 23:50:02] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-24 23:50:02] [INFO] پایان اسکن خطاها {"traceId":"scan-1761337202038","scanned":9,"bundles":0,"handled":0,"sent":0,"total":"10ms"}
+[2025-10-24 23:50:03] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761337203052","minutes":70}
+[2025-10-24 23:50:03] [INFO] خواندن لاگ‌ها {"found":13,"took":"9ms"}
+[2025-10-24 23:50:03] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-24 23:50:03] [INFO] پایان اسکن خطاها {"traceId":"scan-1761337203052","scanned":13,"bundles":0,"handled":0,"sent":0,"total":"16ms"}
+[2025-10-25 05:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761355800002","minutes":70}
+[2025-10-25 05:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"12ms"}
+[2025-10-25 05:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-25 05:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1761355800002","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"20ms"}
+[2025-10-25 05:00:01] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761355801028","minutes":70}
+[2025-10-25 05:00:01] [INFO] خواندن لاگ‌ها {"found":5,"took":"8ms"}
+[2025-10-25 05:00:01] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-25 05:00:01] [INFO] پایان اسکن خطاها {"traceId":"scan-1761355801028","scanned":5,"bundles":0,"handled":0,"sent":0,"total":"12ms"}
+[2025-10-25 05:00:02] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761355802045","minutes":70}
+[2025-10-25 05:00:02] [INFO] خواندن لاگ‌ها {"found":9,"took":"6ms"}
+[2025-10-25 05:00:02] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-25 05:00:02] [INFO] پایان اسکن خطاها {"traceId":"scan-1761355802045","scanned":9,"bundles":0,"handled":0,"sent":0,"total":"12ms"}
+[2025-10-25 05:00:03] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761355803059","minutes":70}
+[2025-10-25 05:00:03] [INFO] خواندن لاگ‌ها {"found":13,"took":"7ms"}
+[2025-10-25 05:00:03] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-25 05:00:03] [INFO] پایان اسکن خطاها {"traceId":"scan-1761355803059","scanned":13,"bundles":0,"handled":0,"sent":0,"total":"11ms"}
+[2025-10-25 11:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761377400004","minutes":70}
+[2025-10-25 11:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"10ms"}
+[2025-10-25 11:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-25 11:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1761377400004","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"15ms"}
+[2025-10-25 11:00:01] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761377401023","minutes":70}
+[2025-10-25 11:00:01] [INFO] خواندن لاگ‌ها {"found":5,"took":"8ms"}
+[2025-10-25 11:00:01] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-25 11:00:01] [INFO] پایان اسکن خطاها {"traceId":"scan-1761377401023","scanned":5,"bundles":0,"handled":0,"sent":0,"total":"12ms"}
+[2025-10-25 11:00:02] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761377402039","minutes":70}
+[2025-10-25 11:00:02] [INFO] خواندن لاگ‌ها {"found":9,"took":"10ms"}
+[2025-10-25 11:00:02] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-25 11:00:02] [INFO] پایان اسکن خطاها {"traceId":"scan-1761377402039","scanned":9,"bundles":0,"handled":0,"sent":0,"total":"16ms"}
+[2025-10-25 11:00:03] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761377403059","minutes":70}
+[2025-10-25 11:00:03] [INFO] خواندن لاگ‌ها {"found":13,"took":"8ms"}
+[2025-10-25 11:00:03] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-25 11:00:03] [INFO] پایان اسکن خطاها {"traceId":"scan-1761377403059","scanned":13,"bundles":0,"handled":0,"sent":0,"total":"14ms"}
+[2025-10-25 16:59:59] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761398999999","minutes":70}
+[2025-10-25 17:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"10ms"}
+[2025-10-25 17:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-25 17:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1761398999999","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"16ms"}
+[2025-10-25 17:00:01] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761399001017","minutes":70}
+[2025-10-25 17:00:01] [INFO] خواندن لاگ‌ها {"found":5,"took":"10ms"}
+[2025-10-25 17:00:01] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-25 17:00:01] [INFO] پایان اسکن خطاها {"traceId":"scan-1761399001017","scanned":5,"bundles":0,"handled":0,"sent":0,"total":"16ms"}
+[2025-10-25 17:00:02] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761399002038","minutes":70}
+[2025-10-25 17:00:02] [INFO] خواندن لاگ‌ها {"found":9,"took":"8ms"}
+[2025-10-25 17:00:02] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-25 17:00:02] [INFO] پایان اسکن خطاها {"traceId":"scan-1761399002038","scanned":9,"bundles":0,"handled":0,"sent":0,"total":"13ms"}
+[2025-10-25 17:00:03] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761399003055","minutes":70}
+[2025-10-25 17:00:03] [INFO] خواندن لاگ‌ها {"found":13,"took":"9ms"}
+[2025-10-25 17:00:03] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-25 17:00:03] [INFO] پایان اسکن خطاها {"traceId":"scan-1761399003055","scanned":13,"bundles":0,"handled":0,"sent":0,"total":"14ms"}
+[2025-10-25 23:50:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761423600000","minutes":70}
+[2025-10-25 23:50:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"9ms"}
+[2025-10-25 23:50:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-25 23:50:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1761423600000","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"14ms"}
+[2025-10-25 23:50:01] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761423601017","minutes":70}
+[2025-10-25 23:50:01] [INFO] خواندن لاگ‌ها {"found":5,"took":"7ms"}
+[2025-10-25 23:50:01] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-25 23:50:01] [INFO] پایان اسکن خطاها {"traceId":"scan-1761423601017","scanned":5,"bundles":0,"handled":0,"sent":0,"total":"12ms"}
+[2025-10-25 23:50:02] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761423602034","minutes":70}
+[2025-10-25 23:50:02] [INFO] خواندن لاگ‌ها {"found":9,"took":"6ms"}
+[2025-10-25 23:50:02] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-25 23:50:02] [INFO] پایان اسکن خطاها {"traceId":"scan-1761423602034","scanned":9,"bundles":0,"handled":0,"sent":0,"total":"12ms"}
+[2025-10-25 23:50:03] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761423603050","minutes":70}
+[2025-10-25 23:50:03] [INFO] خواندن لاگ‌ها {"found":13,"took":"7ms"}
+[2025-10-25 23:50:03] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-25 23:50:03] [INFO] پایان اسکن خطاها {"traceId":"scan-1761423603050","scanned":13,"bundles":0,"handled":0,"sent":0,"total":"12ms"}
+[2025-10-26 05:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761442200005","minutes":70}
+[2025-10-26 05:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"8ms"}
+[2025-10-26 05:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-26 05:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1761442200005","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"18ms"}
+[2025-10-26 05:00:01] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761442201025","minutes":70}
+[2025-10-26 05:00:01] [INFO] خواندن لاگ‌ها {"found":5,"took":"8ms"}
+[2025-10-26 05:00:01] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-26 05:00:01] [INFO] پایان اسکن خطاها {"traceId":"scan-1761442201025","scanned":5,"bundles":0,"handled":0,"sent":0,"total":"13ms"}
+[2025-10-26 05:00:02] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761442202042","minutes":70}
+[2025-10-26 05:00:02] [INFO] خواندن لاگ‌ها {"found":9,"took":"9ms"}
+[2025-10-26 05:00:02] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-26 05:00:02] [INFO] پایان اسکن خطاها {"traceId":"scan-1761442202042","scanned":9,"bundles":0,"handled":0,"sent":0,"total":"14ms"}
+[2025-10-26 05:00:03] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761442203061","minutes":70}
+[2025-10-26 05:00:03] [INFO] خواندن لاگ‌ها {"found":13,"took":"9ms"}
+[2025-10-26 05:00:03] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-26 05:00:03] [INFO] پایان اسکن خطاها {"traceId":"scan-1761442203061","scanned":13,"bundles":0,"handled":0,"sent":0,"total":"15ms"}
+[2025-10-26 11:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761463800001","minutes":70}
+[2025-10-26 11:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"11ms"}
+[2025-10-26 11:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-26 11:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1761463800001","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"16ms"}
+[2025-10-26 11:00:01] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761463801021","minutes":70}
+[2025-10-26 11:00:01] [INFO] خواندن لاگ‌ها {"found":5,"took":"9ms"}
+[2025-10-26 11:00:01] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-26 11:00:01] [INFO] پایان اسکن خطاها {"traceId":"scan-1761463801021","scanned":5,"bundles":0,"handled":0,"sent":0,"total":"16ms"}
+[2025-10-26 11:00:02] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761463802041","minutes":70}
+[2025-10-26 11:00:02] [INFO] خواندن لاگ‌ها {"found":9,"took":"7ms"}
+[2025-10-26 11:00:02] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-26 11:00:02] [INFO] پایان اسکن خطاها {"traceId":"scan-1761463802041","scanned":9,"bundles":0,"handled":0,"sent":0,"total":"12ms"}
+[2025-10-26 11:00:03] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761463803057","minutes":70}
+[2025-10-26 11:00:03] [INFO] خواندن لاگ‌ها {"found":13,"took":"8ms"}
+[2025-10-26 11:00:03] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-26 11:00:03] [INFO] پایان اسکن خطاها {"traceId":"scan-1761463803057","scanned":13,"bundles":0,"handled":0,"sent":0,"total":"13ms"}
+[2025-10-26 12:33:34] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761469414977","minutes":70}
+[2025-10-26 12:33:35] [INFO] خواندن لاگ‌ها {"found":1,"took":"9ms"}
+[2025-10-26 12:33:35] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-26 12:33:35] [INFO] پایان اسکن خطاها {"traceId":"scan-1761469414977","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"35ms"}
+[2025-10-26 12:34:27] [INFO] [2025-10-26 12:34:27] ✓ per-channel analyses sent.
+[2025-10-26 12:34:27] [INFO] [2025-10-26 12:34:27] run=2025-10-26:1761469415117 ERROR=The database connection is not open

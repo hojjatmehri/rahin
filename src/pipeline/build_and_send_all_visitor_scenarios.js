@@ -1294,29 +1294,62 @@ export async function runAllVisitorScenarios() {
   });
 }
 
+// ========================================================
+// Self Scheduler (runs every day 08:00 Asia/Tehran)
+// ========================================================
+import cron from "node-cron";
 
-// Robust direct-run detection for ESM
-if (typeof process !== "undefined" && process.argv?.[1]) {
+function logNow(msg) {
+  const now = moment().tz("Asia/Tehran").format("YYYY-MM-DD HH:mm:ss");
+  console.log(`[Scheduler ${now}] ${msg}`);
+}
+
+// تابع اجراگر امن
+async function runDaily() {
   try {
-    const isDirect = (() => {
-      const thisPath = new URL(import.meta.url).pathname.replace(/\\/g, "/");
-      const argvPath = process.argv[1].replace(/\\/g, "/");
-      return thisPath.endsWith(argvPath);
-    })();
-    if (isDirect) {
-      runAllVisitorScenarios().catch(err => {
-        console.error("FATAL:", err?.response?.data || err?.message || err);
-        process.exit(1);
-      });
-    }
-  } catch {
-    // CommonJS fallback (if bundled differently)
-    // eslint-disable-next-line no-undef
-    if (typeof require !== "undefined" && require?.main === module) {
-      runAllVisitorScenarios().catch(err => {
-        console.error("FATAL:", err?.response?.data || err?.message || err);
-        process.exit(1);
-      });
-    }
+    logNow("🚀 Triggering build_and_send_all_visitor_scenarios() ...");
+    await runAllVisitorScenarios();
+    logNow("✅ Finished daily visitor scenarios run.");
+  } catch (err) {
+    logNow(`❌ Error: ${err?.message || err}`);
   }
 }
+
+// اجرای اولیه در صورت FORCE_RUN
+if (process.env.FORCE_RUN === "1") {
+  runDaily();
+}
+
+// تنظیم کران: هر روز ساعت ۸ صبح به وقت تهران
+cron.schedule("0 8 * * *", runDaily, {
+  timezone: "Asia/Tehran"
+});
+
+logNow("🕗 Daily cron scheduled for 08:00 Asia/Tehran.");
+
+
+// Robust direct-run detection for ESM
+// if (typeof process !== "undefined" && process.argv?.[1]) {
+//   try {
+//     const isDirect = (() => {
+//       const thisPath = new URL(import.meta.url).pathname.replace(/\\/g, "/");
+//       const argvPath = process.argv[1].replace(/\\/g, "/");
+//       return thisPath.endsWith(argvPath);
+//     })();
+//     if (isDirect) {
+//       runAllVisitorScenarios().catch(err => {
+//         console.error("FATAL:", err?.response?.data || err?.message || err);
+//         process.exit(1);
+//       });
+//     }
+//   } catch {
+//     // CommonJS fallback (if bundled differently)
+//     // eslint-disable-next-line no-undef
+//     if (typeof require !== "undefined" && require?.main === module) {
+//       runAllVisitorScenarios().catch(err => {
+//         console.error("FATAL:", err?.response?.data || err?.message || err);
+//         process.exit(1);
+//       });
+//     }
+//   }
+// }

@@ -38,8 +38,8 @@ function normalizeIranMobile(m) {
   const digits = String(m).replace(/[^\d]/g, '');
   if (!digits) return undefined;
   if (digits.startsWith('98')) return digits;
-  if (digits.startsWith('0'))  return '98' + digits.slice(1);
-  if (digits.startsWith('9'))  return '98' + digits;
+  if (digits.startsWith('0')) return '98' + digits.slice(1);
+  if (digits.startsWith('9')) return '98' + digits;
   return digits;
 }
 
@@ -99,17 +99,35 @@ const env = {
   }),
 
   // Google Sheets
-  GOOGLE_SHEET_ID: safe(() => asString(process.env.GOOGLE_SHEET_ID, { name: 'GOOGLE_SHEET_ID', required: true })),
-  GOOGLE_SHEET_AUTH_EMAIL: safe(() => asString(process.env.GOOGLE_SHEET_AUTH_EMAIL, { name: 'GOOGLE_SHEET_AUTH_EMAIL', required: true })),
+  // Google Sheets (اختیاری - فقط اگر REQUIRE_GOOGLE_SHEET=1)
+  GOOGLE_SHEET_ID: safe(() => {
+    const required = process.env.REQUIRE_GOOGLE_SHEET === '1';
+    return asString(process.env.GOOGLE_SHEET_ID, {
+      name: 'GOOGLE_SHEET_ID',
+      required,
+    });
+  }),
+  GOOGLE_SHEET_AUTH_EMAIL: safe(() => {
+    const required = process.env.REQUIRE_GOOGLE_SHEET === '1';
+    return asString(process.env.GOOGLE_SHEET_AUTH_EMAIL, {
+      name: 'GOOGLE_SHEET_AUTH_EMAIL',
+      required,
+    });
+  }),
   GOOGLE_SHEET_AUTH_KEY: safe(() => {
-    const k = asString(process.env.GOOGLE_SHEET_AUTH_KEY, { name: 'GOOGLE_SHEET_AUTH_KEY', required: true });
+    const required = process.env.REQUIRE_GOOGLE_SHEET === '1';
+    const k = asString(process.env.GOOGLE_SHEET_AUTH_KEY, {
+      name: 'GOOGLE_SHEET_AUTH_KEY',
+      required,
+    });
     return normalizeGServiceKey(k);
   }),
+
 };
 
 if (errors.length) {
   const msg = `خطای پیکربندی ENV:\n- ${errors.join('\n- ')}\n` +
-              `لطفاً فایل .env را کامل کنید.`;
+    `لطفاً فایل .env را کامل کنید.`;
   throw new Error(msg);
 }
 
