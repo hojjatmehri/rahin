@@ -1,5 +1,9 @@
-// src/collectors/financeCollector.js
-// جمع‌آوری داده‌های مالی (امروز، پرداخت‌ها، بدهی مشتری، فعالیت ۷روز، سرویس‌های برتر، روش‌های پرداخت)
+// ========================================================
+// File: src/collectors/financeCollector.js
+// Author: Hojjat Mehri
+// Role: جمع‌آوری داده‌های مالی از جدول transactions
+// (امروز، پرداخت‌ها، بدهی مشتری، فعالیت ۷روز، سرویس‌های برتر، روش‌های پرداخت)
+// ========================================================
 
 import { get as dbGet, all as dbAll } from '../db/db.js';
 // اگر این دو فایل را داری فعال بمانند؛ اگر نه فعلاً کامنت کن تا بدون enrich هم کار کند.
@@ -33,7 +37,7 @@ export async function collectFinance() {
         COUNT(*)                  AS orders_today,
         AVG(sellAmount)           AS avg_order_value
       FROM transactions
-      WHERE date(regDate)=date('now','localtime')
+      WHERE date(regDateGregorian)=date('now','localtime') AND isCanceled=0
     `);
     out.sales = {
       total_sales_today: Number(s?.total_sell_today || 0),
@@ -50,12 +54,12 @@ export async function collectFinance() {
     out._note_fin1 = e.message;
   }
 
-  // پرداخت‌های امروز
+  // پرداخت‌های امروز (با فیلتر LIKE برای تاریخ شمسی/میلادی)
   try {
     const p = await dbGet(`
       SELECT
-        IFNULL(SUM(CASE WHEN date(payDate1)=date('now','localtime') THEN paidAmount1 ELSE 0 END),0) +
-        IFNULL(SUM(CASE WHEN date(payDate2)=date('now','localtime') THEN paidAmount2 ELSE 0 END),0) AS paid_today
+        IFNULL(SUM(CASE WHEN payDate1 LIKE (strftime('%Y-%m-%d','now','localtime') || '%') THEN paidAmount1 ELSE 0 END),0) +
+        IFNULL(SUM(CASE WHEN payDate2 LIKE (strftime('%Y-%m-%d','now','localtime') || '%') THEN paidAmount2 ELSE 0 END),0) AS paid_today
       FROM transactions
       WHERE (payDate1 IS NOT NULL AND payDate1<>'') OR (payDate2 IS NOT NULL AND payDate2<>'')
     `);
@@ -69,7 +73,7 @@ export async function collectFinance() {
     const d = await dbGet(`
       SELECT IFNULL(SUM(customerDebt),0) AS customer_debt_today
       FROM transactions
-      WHERE date(regDate)=date('now','localtime')
+      WHERE date(regDateGregorian)=date('now','localtime')
     `);
     out.finance.customer_debt_today = Number(d?.customer_debt_today || 0);
   } catch (e) {
@@ -80,7 +84,8 @@ export async function collectFinance() {
   try {
     const a = await dbGet(`
       SELECT CASE WHEN EXISTS(
-        SELECT 1 FROM transactions WHERE datetime(regDate) >= datetime('now','-7 days','localtime')
+        SELECT 1 FROM transactions
+        WHERE datetime(regDateGregorian) >= datetime('now','-7 days','localtime')
       ) THEN 'ACTIVE_7D' ELSE 'STALE' END AS fin_7d
     `);
     out.finance.fin_activity_7d = a?.fin_7d || 'STALE';
@@ -93,7 +98,7 @@ export async function collectFinance() {
     const rows = await dbAll(`
       SELECT serviceTitle, COUNT(*) AS cnt, SUM(sellAmount) AS sum_sell
       FROM transactions
-      WHERE date(regDate)=date('now','localtime')
+      WHERE date(regDateGregorian)=date('now','localtime')
       GROUP BY serviceTitle
       ORDER BY sum_sell DESC
       LIMIT 10
@@ -130,7 +135,7 @@ export async function collectFinance() {
     out._note_fin5 = e.message;
   }
 
-  // توزیع روش‌های پرداخت امروز
+  // توزیع روش‌های پرداخت امروز (با تطبیق LIKE برای تاریخ)
   try {
     const dist = await dbAll(`
       SELECT payType AS method, COUNT(*) AS cnt FROM (
@@ -138,7 +143,8 @@ export async function collectFinance() {
         UNION ALL
         SELECT payType2 AS payType, payDate2 AS payDate FROM transactions
       )
-      WHERE payType IS NOT NULL AND payType<>'' AND date(payDate)=date('now','localtime')
+      WHERE payType IS NOT NULL AND payType<>'' 
+        AND payDate LIKE (strftime('%Y-%m-%d','now','localtime') || '%')
       GROUP BY payType
       ORDER BY cnt DESC
     `);

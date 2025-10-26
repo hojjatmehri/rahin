@@ -290,8 +290,10 @@ async function runOnce() {
                 name === "Instagram" ? "📷 «اینستاگرام»" :
                   "🖱️ «کلیک‌ها»"
           );
-          let body = perChannel[name] || "فعلاً داده‌ای برای این کانال گزارش نشده.";
+          let body = perChannel[name] ?? "فعلاً در دسترس نیست.";
           body = await forcePersianText(body);
+          body = body.replace(/\n?فعلاً در دسترس نیست\.?\s*فعلاً در دسترس نیست\.?/g, "فعلاً در دسترس نیست");
+
           const msg = `${header}\n${body}`;
 
           for (const part of chunkText(sanitizeForWhatsApp(msg), 1200)) {
