@@ -271,7 +271,7 @@ async function sendErrorSummaryWhatsApp({ toRaw, filePath, lineNo, ai, date }) {
     `— خلاصه: ${ai?.data?.short_summary || 'نامشخص'}\n` +
     (ai?.data?.root_cause ? `— ریشه: ${ai.data.root_cause}\n` : '') +
     (Array.isArray(ai?.data?.fix_steps) && ai.data.fix_steps.length
-      ? `— گام‌ها: ${ai.data.fix_steps.slice(0, 3).join(' • ')}`
+      ? `— گام‌ها: ${ai.data.fix_steps.slice(0, 3).join(' ')}`
       : '');
 
   const parts = chunkText(sanitizeForWhatsApp(msg), 1200);

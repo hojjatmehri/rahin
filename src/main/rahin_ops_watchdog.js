@@ -237,15 +237,20 @@ async function runOnce() {
       const channelsPayload = {
         Finance: {
           today: {
-            orders: finance?.sales?.orders_today ?? 0,
-            revenue: finance?.sales?.total_sales_today ?? 0,
-            profit: finance?.sales?.profit_today ?? 0,
-            avg_order: finance?.sales?.avg_order_value ?? 0,
+            total_sales_today: finance?.sales?.total_sales_today ?? 0,
+            total_buy_today: finance?.sales?.total_buy_today ?? 0,
+            profit_today: finance?.sales?.profit_today ?? 0,
+            orders_today: finance?.sales?.orders_today ?? 0,
+            avg_order_value: finance?.sales?.avg_order_value ?? 0,
             income_rate_pct: finance?.sales?.income_rate_pct ?? 0,
+            paid_today: finance?.finance?.paid_today ?? 0,
+            customer_debt_today: finance?.finance?.customer_debt_today ?? 0,
           },
           k7d: {
-            activity: finance?.finance?.fin_activity_7d || null,
-          },
+            fin_activity_7d: finance?.finance?.fin_activity_7d ?? null,
+            top_services: finance?.top_services ?? [],
+            payment_methods_today: finance?.payment_methods_today ?? [],
+          }
           // mtd / cmp اگر بعداً اضافه شد، اینجا هم بگذار
         },
         WhatsApp: {
@@ -293,6 +298,11 @@ async function runOnce() {
           let body = perChannel[name] ?? "فعلاً در دسترس نیست.";
           body = await forcePersianText(body);
           body = body.replace(/\n?فعلاً در دسترس نیست\.?\s*فعلاً در دسترس نیست\.?/g, "فعلاً در دسترس نیست");
+// قالب‌بندی برای خوانایی: هر جمله در خط جدا
+body = body
+  .replace(/([.!؟])\s+/g, "$1\n")     // بعد از هر نقطه یا علامت سؤال، خط جدید
+  .replace(/\n{3,}/g, "\n\n")          // حداکثر دو خط خالی پشت سر هم
+  .trim();
 
           const msg = `${header}\n${body}`;
 

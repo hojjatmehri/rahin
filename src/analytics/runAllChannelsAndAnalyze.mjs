@@ -106,33 +106,33 @@ function buildCollectorsText({ wa, wai, pdf, ig, fin }) {
 
   if (wa) {
     lines.push(`- واتساپ:
-  • امروز: پیام‌های ورودی ${fmtNumFa(wa.inbound_today)} | مخاطبان یکتا ${fmtNumFa(wa.unique_contacts_today)}
-  • ۷ روز اخیر: ورودی ${fmtNumFa(wa.inbound_7d)} | بازدیدکنندگان مپ‌شده ${fmtNumFa(wa.mapped_visitors_7d)}`);
+  امروز: پیام‌های ورودی ${fmtNumFa(wa.inbound_today)} | مخاطبان یکتا ${fmtNumFa(wa.unique_contacts_today)}
+  ۷ روز اخیر: ورودی ${fmtNumFa(wa.inbound_7d)} | بازدیدکنندگان مپ‌شده ${fmtNumFa(wa.mapped_visitors_7d)}`);
   }
 
   if (wai) {
     const srcs = (wai.top_sources || []).map(s => `${s.source}: ${fmtNumFa(s.cnt)}`).join(' ، ');
     const pages = (wai.top_pages || []).map(p => `${p.page}: ${fmtNumFa(p.cnt)}`).join(' ، ');
     lines.push(`- بینش کلیک واتساپ:
-  • نرخ کلیک واتساپ: ${fmtNumFa(wai.wa_click_rate)}٪
-  • برترین سورس‌ها: ${srcs || '—'}
-  • برترین صفحات: ${pages || '—'}`);
+  نرخ کلیک واتساپ: ${fmtNumFa(wai.wa_click_rate)}٪
+  برترین سورس‌ها: ${srcs || '—'}
+  برترین صفحات: ${pages || '—'}`);
   }
 
   if (pdf) {
     const today = (pdf.today_by_status || []).map(s => `${s.status}: ${fmtNumFa(s.cnt)}`).join(' ، ');
     const s7 = (pdf.last_7d_by_status || []).map(s => `${s.status}: ${fmtNumFa(s.cnt)}`).join(' ، ');
     lines.push(`- PDF:
-  • توزیع وضعیت‌ها امروز: ${today || '—'}
-  • توزیع وضعیت‌ها ۷روز: ${s7 || '—'}`);
+  توزیع وضعیت‌ها امروز: ${today || '—'}
+  توزیع وضعیت‌ها ۷روز: ${s7 || '—'}`);
   }
 
   if (ig) {
     const byTypeStr = (ig.by_type || []).map(r => `${r.event_type}: ${fmtNumFa(r.cnt)}`).join(' ، ');
     lines.push(`- اینستاگرام:
-  • رویدادهای امروز: ${fmtNumFa(ig.dev_events_today)}
-  • ۷ روز اخیر: ${fmtNumFa(ig.dev_events_7d)}
-  • امروز به تفکیک نوع: ${byTypeStr || '—'}`);
+  رویدادهای امروز: ${fmtNumFa(ig.dev_events_today)}
+  ۷ روز اخیر: ${fmtNumFa(ig.dev_events_7d)}
+  امروز به تفکیک نوع: ${byTypeStr || '—'}`);
   }
 
   if (fin) {
@@ -140,11 +140,11 @@ function buildCollectorsText({ wa, wai, pdf, ig, fin }) {
     const pay = fin.payment_methods_today || [];
     const payStr = pay.map(p => `${p.method}: ${fmtNumFa(p.cnt)}`).join(' ، ');
     lines.push(`- مالی:
-  • فروش امروز: مبلغ فروش ${fmtNumFa(s.total_sales_today)} | سود ${fmtNumFa(s.profit_today)} | تعداد سفارش ${fmtNumFa(s.orders_today)} | میانگین سبد ${fmtNumFa(s.avg_order_value)} | نرخ سود ${fmtPctFa(s.income_rate_pct)}
-  • پرداخت امروز: ${fmtNumFa(fin.finance?.paid_today || 0)}
-  • بدهی مشتری امروز: ${fmtNumFa(fin.finance?.customer_debt_today || 0)}
-  • وضعیت ۷روز: ${fin.finance?.fin_activity_7d || '—'}
-  • روش‌های پرداخت امروز: ${payStr || '—'}`);
+  فروش امروز: مبلغ فروش ${fmtNumFa(s.total_sales_today)} | سود ${fmtNumFa(s.profit_today)} | تعداد سفارش ${fmtNumFa(s.orders_today)} | میانگین سبد ${fmtNumFa(s.avg_order_value)} | نرخ سود ${fmtPctFa(s.income_rate_pct)}
+  پرداخت امروز: ${fmtNumFa(fin.finance?.paid_today || 0)}
+  بدهی مشتری امروز: ${fmtNumFa(fin.finance?.customer_debt_today || 0)}
+  وضعیت ۷روز: ${fin.finance?.fin_activity_7d || '—'}
+  روش‌های پرداخت امروز: ${payStr || '—'}`);
   }
 
   return lines.join('\n');

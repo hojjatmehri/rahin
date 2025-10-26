@@ -1,0 +1,49 @@
+{
+  "ISTANBUL": {
+    "code": "ISTANBUL",
+    "keywords": [
+      "استانبول",
+      "istanbul"
+    ],
+    "support": 0
+  },
+  "ANTALYA": {
+    "code": "ANTALYA",
+    "keywords": [
+      "آنتالیا",
+      "antalya"
+    ],
+    "support": 0
+  },
+  "DUBAI": {
+    "code": "DUBAI",
+    "keywords": [
+      "دبی",
+      "dubai",
+      "لحظه"
+    ],
+    "support": 5
+  },
+  "THAILAND": {
+    "code": "THAILAND",
+    "keywords": [
+      "تایلند",
+      "thailand",
+      "پوکت",
+      "phuket",
+      "پاتایا",
+      "pattaya"
+    ],
+    "support": 0
+  },
+  "ARMENIA": {
+    "code": "ARMENIA",
+    "keywords": [
+      "ایروان",
+      "armenia",
+      "yerevan",
+      "ارمنستان"
+    ],
+    "support": 0
+  }
+}
