@@ -1,3 +1,4 @@
+import '../../logger.js';
 // src/ai/dualInsights.js
 // تولید «تحلیل دوگانه» (مدیریتی + فنی) از داده‌های جمع‌آوری‌شده
 
@@ -463,3 +464,4 @@ export default {
   runDualInsightsPipeline,
   buildDiagnosticsFromInput,
 };
+

@@ -1,3 +1,4 @@
+import '../../logger.js';
 // src/utils/normalizers.js
 // نرمال‌سازی متن/داده و پس‌پردازش خروجی‌های فنی AI
 
@@ -160,3 +161,4 @@ enqueueCampaign({
 export function hashLine(s) {
   return crypto.createHash('sha256').update(String(s)).digest('hex');
 }
+

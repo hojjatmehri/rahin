@@ -1,3 +1,4 @@
+import '../logger.js';
 import Database from "better-sqlite3";
 
 const db = new Database("./db_atigh.sqlite");
@@ -15,3 +16,4 @@ try {
 } catch (err) {
   console.error("❌ خطا در اجرای ALTER TABLE:", err.message);
 }
+

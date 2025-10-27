@@ -1,3 +1,4 @@
+import '../../logger.js';
 // src/analytics/runJourneyPeriods.js
 import Database from "better-sqlite3";
 import moment from "moment-timezone";
@@ -79,3 +80,4 @@ export async function runJourneyPeriods() {
     if (!CONFIG.db.raw) db.close();
   }
 }
+

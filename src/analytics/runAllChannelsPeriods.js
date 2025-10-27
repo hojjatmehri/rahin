@@ -1,3 +1,4 @@
+import '../../logger.js';
 // src/analytics/runAllChannelsPeriods.js
 import moment from "moment-timezone";
 import { CONFIG } from "../config/Config.js";
@@ -429,3 +430,4 @@ export async function runAllChannelsPeriods(db) {
 }
 
 export default { runAllChannelsPeriods };
+

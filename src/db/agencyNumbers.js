@@ -1,3 +1,4 @@
+import '../../logger.js';
 import { CONFIG } from "../config/Config.js";
 
 export async function ensureAgencyNumbers() {
@@ -48,3 +49,4 @@ export async function ensureAgencyNumbers() {
     END;
   `);
 }
+

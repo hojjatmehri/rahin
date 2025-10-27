@@ -1,3 +1,4 @@
+import '../../logger.js';
 import fs from "fs";
 import path from "path";
 import Database from "better-sqlite3";
@@ -48,3 +49,4 @@ for (const file of migrationFiles) {
 
 console.log("🎉 All migrations applied successfully!");
 db.close();
+

@@ -1,3 +1,4 @@
+import '../../logger.js';
 // src/collectors/instagramCollector.js
 // گردآوری آمار اینستاگرام از سه جدول: comment, reply, atigh_instagram_new
 // - ستون زمان به‌صورت هوشمند از بین چند کاندیدا انتخاب می‌شود.
@@ -149,3 +150,4 @@ export async function collectInstagram() {
     errors // برای دیباگ؛ اگر خالی بود یعنی مشکلی نبوده یا هندل شده
   };
 }
+

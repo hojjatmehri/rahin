@@ -1,3 +1,4 @@
+import '../../logger.js';
 // src/db/schemaGuard.js
 // ایجاد/بررسی حداقل اسکیما و ایندکس‌ها + اعمال PRAGMAهای ضروری
 
@@ -200,3 +201,4 @@ export async function ensureMinimalSchema({ runSqlMigrations = true } = {}) {
     await runMigrations(); // مسیر پیش‌فرض: ./src/db/migrations
   }
 }
+

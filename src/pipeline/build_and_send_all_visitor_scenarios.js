@@ -1,3 +1,4 @@
+import '../../logger.js';
 /**
  * Build + store + send scenarios for ALL rows in visitor_contacts
  * - Reads latest weekly table journey_events_w... from ARCHIVE_DB_PATH
@@ -1353,3 +1354,4 @@ logNow("🕗 Daily cron scheduled for 08:00 Asia/Tehran.");
 //     }
 //   }
 // }
+

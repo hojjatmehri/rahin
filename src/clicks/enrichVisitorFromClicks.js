@@ -1,3 +1,4 @@
+import '../../logger.js';
 // src/clicks/enrichVisitorFromClicks.js
 // استخراج موبایل از کلیک‌ها + همبست‌سازی واتساپ با اینباکس (±۲ دقیقه) و ذخیره در visitor_contacts
 
@@ -499,3 +500,4 @@ if (shouldAutorun && !globalThis.__ENRICH_ALREADY_RAN__) {
 } else {
   logger.info('NO AUTORUN', { isDirect, ENRICH_RUN_ON_STARTUP: process.env.ENRICH_RUN_ON_STARTUP || '' });
 }
+

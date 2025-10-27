@@ -1,3 +1,4 @@
+import '../../logger.js';
 // src/logging/logger.js
 // لاگ با زمان تهران + نوشتن در فایل مرکزی و فایل روزانه
 
@@ -104,3 +105,4 @@ export function getLevel() {
 }
 
 export default { debug, info, warn, error, withLogContext, setLevel, getLevel };
+

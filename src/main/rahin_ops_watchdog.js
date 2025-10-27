@@ -1,3 +1,4 @@
+// import '../../logger.js';
 /**
  * Rahin Ops Watchdog
  * - اجرای زمان‌بندی
@@ -299,10 +300,12 @@ async function runOnce() {
           body = await forcePersianText(body);
           body = body.replace(/\n?فعلاً در دسترس نیست\.?\s*فعلاً در دسترس نیست\.?/g, "فعلاً در دسترس نیست");
 // قالب‌بندی برای خوانایی: هر جمله در خط جدا
+// قالب‌بندی برای خوانایی: هر جمله یا بخش توضیحی در خط جدا
 body = body
-  .replace(/([.!؟])\s+/g, "$1\n")     // بعد از هر نقطه یا علامت سؤال، خط جدید
-  .replace(/\n{3,}/g, "\n\n")          // حداکثر دو خط خالی پشت سر هم
+  .replace(/([.:!؟])\s+/g, "$1\n")     // بعد از نقطه، دو نقطه، علامت سؤال و تعجب خط جدید بگذار
+  .replace(/\n{3,}/g, "\n\n")          // حداکثر دو خط خالی متوالی
   .trim();
+
 
           const msg = `${header}\n${body}`;
 
@@ -367,3 +370,4 @@ main().catch((err) => {
   console.error("Startup error:", err);
   process.exit(1);
 });
+

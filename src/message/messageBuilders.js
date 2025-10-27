@@ -1,3 +1,4 @@
+import '../../logger.js';
 // src/message/messageBuilders.js
 // ساخت پیام‌های کوتاه و خوانا برای ارسال در واتساپ (فارسی)
 

@@ -1,3 +1,4 @@
+import '../../logger.js';
 // src/analytics/journeyAnalytics.js
 import moment from "moment-timezone";
 import env from "../config/env.js";
@@ -123,3 +124,4 @@ export default {
   listWeeklyTablesCovering,
   aggregateJourney,
 };
+

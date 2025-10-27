@@ -1,3 +1,4 @@
+import '../../logger.js';
 // src/config/Config.js
 // پیکربندی مرکزی پروژه: env + کلاینت‌ها + db
 
@@ -50,3 +51,4 @@ export const CONFIG = {
 };
 
 export default CONFIG;
+

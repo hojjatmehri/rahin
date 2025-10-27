@@ -1,3 +1,4 @@
+import '../../logger.js';
 // src/utils/jalali.js
 import moment from "moment-timezone";
 import jalaali from "jalaali-js";
@@ -52,3 +53,4 @@ export function prevMonthToNowISO() {
   const endPrevEqNow = moment.tz({ year: gNowEq.gy, month: gNowEq.gm - 1, day: gNowEq.gd, hour: now.hour(), minute: now.minute(), second: now.second() }, TZ).toISOString();
   return { startPrev, endPrevEqNow };
 }
+

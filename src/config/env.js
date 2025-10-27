@@ -1,3 +1,4 @@
+import '../../logger.js';
 // src/config/env.js
 // بارگذاری و اعتبارسنجی متغیرهای محیطی بر اساس نیاز Rahin Ops + سرویس‌ها
 
@@ -166,3 +167,4 @@ export const {
   GOOGLE_SHEET_AUTH_EMAIL,
   GOOGLE_SHEET_AUTH_KEY,
 } = env;
+

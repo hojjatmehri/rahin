@@ -1,3 +1,4 @@
+import '../../logger.js';
 // src/ai/errorAnalyzer.js
 // اسکن لاگ‌های اخیر، تحلیل خطا با OpenAI، ثبت در DB، و ارسال خلاصه (اختیاری)
 
@@ -374,3 +375,4 @@ export default {
   extractInputsFromLine,
   analyzeErrorWithAI,
 };
+

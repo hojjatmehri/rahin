@@ -1,3 +1,4 @@
+import '../../logger.js';
 // src/destination/destinationModel.js
 // بازسازی و نگه‌داری دیتای مقصدها بر اساس تراکنش‌ها + کش فایل
 
@@ -212,3 +213,4 @@ export function upsertDestination(code, keywords = [], support = 0) {
   saveCache(dict);
   return dict[code];
 }
+

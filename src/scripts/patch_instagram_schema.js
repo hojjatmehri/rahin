@@ -1,3 +1,4 @@
+import '../../logger.js';
 // src/scripts/patch_instagram_schema.js
 import { all, exec, close } from '../db/db.js';
 
@@ -24,3 +25,4 @@ async function ensureColumn(table, col, def = 'TEXT') {
     try { await close(); } catch {}
   }
 })();
+

@@ -1,3 +1,4 @@
+import '../../logger.js';
 // src/guards/proceedGuard.js
 // گارد تصمیم برای ادامه‌ی اجرای تحلیل بر اساس تغییرات KPIها
 
@@ -222,3 +223,4 @@ export async function saveSignature(sig) {
 
 // در صورت نیاز اگر بخواهی بیرون هم استفاده کنی
 export { tableExists, newer, relDiff };
+

@@ -1,3 +1,4 @@
+import '../../logger.js';
 // ========================================================
 // File: src/analytics/perChannelAnalyze.js
 // Author: Hojjat Mehri
@@ -124,3 +125,4 @@ ${weekLine} ${suggestions}
 }
 
 export default { analyzePerChannel };
+

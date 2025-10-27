@@ -1,3 +1,4 @@
+import '../../logger.js';
 // src/utils/time.js
 // همهٔ زمان‌ها به وقت تهران
 
@@ -70,3 +71,4 @@ export function sqlSince7d(tz = APP_TZ) {
   const p = parts(since, tz);
   return `${p.year}-${p.month}-${p.day} ${p.hour}:${p.minute}:${p.second}`;
 }
+

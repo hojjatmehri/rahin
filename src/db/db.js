@@ -1,3 +1,4 @@
+import '../../logger.js';
 // src/db/db.js
 // لایهٔ ساده و امن برای کار با sqlite3 (Promise-based helpers)
 
@@ -226,3 +227,4 @@ export async function runSqlFile(filePath) {
 ensurePragmas().catch(err => {
   console.warn('[db] warn: ensurePragmas failed', err?.message || err);
 });
+

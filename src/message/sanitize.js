@@ -1,3 +1,4 @@
+import '../../logger.js';
 // src/message/sanitize.js
 // ابزارهای پاکسازی و تقسیم متن برای واتساپ
 import { openai } from '../config/Config.js';

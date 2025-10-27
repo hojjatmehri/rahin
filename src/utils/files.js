@@ -1,3 +1,4 @@
+import '../../logger.js';
 // src/utils/files.js
 // ابزارهای فایل: خواندن امن خطوط و استخراج اسنیپت کد اطراف یک شماره خط
 
@@ -38,3 +39,4 @@ export function readCodeSnippet(filePath, lineNo, pad = 12) {
   // پیش‌فرض: ۸۰ خط اول
   return lines.slice(0, 80).join('\n');
 }
+

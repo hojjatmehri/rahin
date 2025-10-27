@@ -1,3 +1,4 @@
+import '../../logger.js';
 // src/collectors/pdfCollector.js
 // آمار ارسال PDF: وضعیت‌ها امروز/۷روز و مخاطبان برتر امروز
 
@@ -69,3 +70,4 @@ export async function collectPDF() {
 
   return out;
 }
+
