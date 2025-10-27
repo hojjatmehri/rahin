@@ -8,6 +8,11 @@ import '../../logger.js';
  * - Sends scenario to WhatsApp operator: waService.sendMessage(to, part)  (supports CONFIG.waService too)
  */
 
+// === Cross-Silencer integration (linked to AtighgashtAI) ===
+import { shouldSilence } from "../collectors_atigh/crossSilencer.js";
+
+
+
 import Database from "better-sqlite3";
 import moment from "moment-timezone";
 import OpenAI from "openai";
@@ -1058,6 +1063,7 @@ const openai = OPENAI_API_KEY ? new OpenAI({ apiKey: OPENAI_API_KEY }) : null;
 // ====== MAIN ======
 export async function runAllVisitorScenarios() {
   console.log("🚀 Starting full pipeline…");
+  
   fixMobilesInWhatsapp();
   const weekly = latestWeeklyTable();
   console.log(`🧭 Weekly table selected: arch.${weekly}`);
@@ -1234,16 +1240,33 @@ export async function runAllVisitorScenarios() {
         city: j.city || null,
       };
       
+// ===== Cross-Silencer Filter =====
+let silence = null;
+try {
+  silence = await shouldSilence(mobile);
+  if (silence?.active) {
+    console.log(`🤫 [CrossSilencer] ${mobile} muted until ${silence.until} (${silence.reason || 'no reason'})`);
+  } else {
+    console.log(`✅ [CrossSilencer] ${mobile} not muted, safe to send.`);
+  }
+} catch (e) {
+  console.warn(`⚠️ [CrossSilencer] failed for ${mobile}:`, e?.message || e);
+}
 
       // قفل ارسال بر اساس guardKey
       let allowSend = true;
-      if (guardKey) {
+
+      if (silence?.active) {
+        allowSend = false;
+        console.log(`🛑 [Silence] Skip send for ${mobile}, active until ${silence.until}`);
+      } else if (guardKey) {
         const already = guardCheckStmt.get(mobile, guardKey);
         if (already) {
           allowSend = false;
-          console.log(`⏭️ Skip send for ${mobile}: guardKey=${guardKey} (already sent once).`);
+          console.log(`⏭️ [Guard] Skip send for ${mobile}: guardKey=${guardKey} (already sent once).`);
         }
       }
+      
 
       try {
         upsertStmt.run(record);
@@ -1258,6 +1281,12 @@ export async function runAllVisitorScenarios() {
         sentSkip++;
       } else if (!DRY_RUN) {
         try {
+          if (silence?.active) {
+            console.log(`🛑 [Silence] Skipped WhatsApp send for ${mobile}, still under silence window.`);
+            sentSkip++;
+            return;
+          }
+          
           await sendWhatsAppText(WHATSAPP_OPERATOR, scenario_text);
           console.log(`📨 Sent to operator ${WHATSAPP_OPERATOR} for ${mobile} (guardKey=${guardKey || 'free'})`);
           if (guardKey) {
