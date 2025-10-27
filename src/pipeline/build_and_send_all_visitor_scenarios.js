@@ -8,6 +8,15 @@ import '../../logger.js';
  * - Sends scenario to WhatsApp operator: waService.sendMessage(to, part)  (supports CONFIG.waService too)
  */
 
+// --- Force-load .env from AtighgashtAI project (absolute path) ---
+import dotenv from 'dotenv';
+import path from 'path';
+dotenv.config({
+  path: path.resolve('C:/Users/Administrator/Desktop/Projects/AtighgashtAI/.env')
+});
+console.log('[VisitorScenario] Loaded .env from AtighgashtAI');
+
+
 // === Cross-Silencer integration (linked to AtighgashtAI) ===
 import { shouldSilence } from "../collectors_atigh/crossSilencer.js";
 

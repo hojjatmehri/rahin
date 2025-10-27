@@ -2140,3 +2140,31 @@
 [2025-10-27 15:08:41] [INFO] پایان اسکن خطاها {"traceId":"scan-1761565121827","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"39ms"}
 [2025-10-27 15:09:36] [INFO] [2025-10-27 15:09:36] ✓ per-channel analyses sent.
 [2025-10-27 15:09:36] [INFO] [2025-10-27 15:09:36] run=2025-10-27:1761565121950 ERROR=The database connection is not open
+[2025-10-27 17:00:00] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761571800006","minutes":70}
+[2025-10-27 17:00:00] [INFO] خواندن لاگ‌ها {"found":1,"took":"10ms"}
+[2025-10-27 17:00:00] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-27 17:00:00] [INFO] پایان اسکن خطاها {"traceId":"scan-1761571800006","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"18ms"}
+[2025-10-27 17:00:01] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761571801034","minutes":70}
+[2025-10-27 17:00:01] [INFO] خواندن لاگ‌ها {"found":5,"took":"11ms"}
+[2025-10-27 17:00:01] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-27 17:00:01] [INFO] پایان اسکن خطاها {"traceId":"scan-1761571801034","scanned":5,"bundles":0,"handled":0,"sent":0,"total":"17ms"}
+[2025-10-27 17:00:02] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761571802056","minutes":70}
+[2025-10-27 17:00:02] [INFO] خواندن لاگ‌ها {"found":9,"took":"10ms"}
+[2025-10-27 17:00:02] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-27 17:00:02] [INFO] پایان اسکن خطاها {"traceId":"scan-1761571802056","scanned":9,"bundles":0,"handled":0,"sent":0,"total":"18ms"}
+[2025-10-27 17:00:03] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761571803086","minutes":70}
+[2025-10-27 17:00:03] [INFO] خواندن لاگ‌ها {"found":13,"took":"7ms"}
+[2025-10-27 17:00:03] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-27 17:00:03] [INFO] پایان اسکن خطاها {"traceId":"scan-1761571803086","scanned":13,"bundles":0,"handled":0,"sent":0,"total":"12ms"}
+[2025-10-27 17:57:34] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761575254385","minutes":70}
+[2025-10-27 17:57:34] [INFO] خواندن لاگ‌ها {"found":17,"took":"10ms"}
+[2025-10-27 17:57:34] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-27 17:57:34] [INFO] پایان اسکن خطاها {"traceId":"scan-1761575254385","scanned":17,"bundles":0,"handled":0,"sent":0,"total":"39ms"}
+[2025-10-27 17:58:39] [INFO] [2025-10-27 17:58:39] ✓ per-channel analyses sent.
+[2025-10-27 17:58:39] [INFO] [2025-10-27 17:58:39] run=2025-10-27:1761575254538 ERROR=The database connection is not open
+[2025-10-27 18:16:52] [INFO] شروع اسکن لاگ‌های اخیر {"traceId":"scan-1761576412823","minutes":70}
+[2025-10-27 18:16:52] [INFO] خواندن لاگ‌ها {"found":7,"took":"8ms"}
+[2025-10-27 18:16:52] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
+[2025-10-27 18:16:52] [INFO] پایان اسکن خطاها {"traceId":"scan-1761576412823","scanned":7,"bundles":0,"handled":0,"sent":0,"total":"40ms"}
+[2025-10-27 18:17:58] [INFO] [2025-10-27 18:17:58] ✓ per-channel analyses sent.
+[2025-10-27 18:17:58] [INFO] [2025-10-27 18:17:58] run=2025-10-27:1761576412992 ERROR=The database connection is not open
