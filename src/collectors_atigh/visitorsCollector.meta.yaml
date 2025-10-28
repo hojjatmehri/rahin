@@ -1,0 +1,69 @@
+version: '1.0'
+id: src/collectors/visitorsCollector
+path: src/collectors/visitorsCollector.js
+purpose: جمع‌آوری و پردازش اطلاعات بازدیدکنندگان به منظور بهبود تجربه کاربری و تحلیل رفتار آن‌ها
+stability: draft
+imports:
+  - ../../logger.js
+  - ./wordpress_visitors.js
+exports: []
+env_vars: []
+db:
+  reads: []
+  writes: []
+io:
+  http_calls: []
+  queues: []
+  filesystem: []
+  db_reads: []
+  db_writes: []
+side_effects: []
+classes: []
+functions:
+  - name: parseArg
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: flag
+          type: any
+        - name: arg
+          type: any
+      returns:
+        type: any
+    behavior: تحلیل و پردازش آرگومان‌ها بر اساس پرچم مشخص شده
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: main
+    async: true
+    kind: function
+    signature:
+      params: []
+      returns:
+        type: any
+    behavior: اجرای اصلی جمع‌آوری داده‌ها و مدیریت فرآیندهای ناهمزمان
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+relations:
+  uses: []
+  used_by: []
+invariants: []
+tests:
+  unit: []
+  integration: []
+  contract: []
+last_verified: '2025-10-27'
+tags: []
+generated_at: '2025-10-27T09:30:18.785Z'

@@ -13,7 +13,7 @@ function ensureArchiveAttached(db) {
   if (hasArch) return;
 
   // مسیر از ENV یا پیش‌فرض شما
-  const archPath = (env.ARCHIVE_DB_PATH || "C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\db_archive.sqlite")
+  const archPath = (env.ARCHIVE_DB_PATH || "E:\\Projects\\AtighgashtAI\\db_archive.sqlite")
     .replace(/'/g, "''");
   db.exec(`ATTACH DATABASE '${archPath}' AS arch;`);
 }

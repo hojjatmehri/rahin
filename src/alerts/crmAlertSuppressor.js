@@ -8,7 +8,7 @@ import sqlite3 from 'sqlite3';
 import { open } from 'sqlite';
 import moment from 'moment-timezone';
 
-const DB_PATH = 'C:/Users/Administrator/Desktop/Projects/AtighgashtAI/db_atigh.sqlite';
+const DB_PATH = 'E:/Projects/AtighgashtAI/db_atigh.sqlite';
 const TZ = 'Asia/Tehran';
 
 // سکوت متقاطع (اگر در این مدت فعالیتی بوده، هشدار نسازد)

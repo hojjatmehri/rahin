@@ -1,0 +1,369 @@
+version: '1.0'
+id: src/collectors/transactionsCollector
+path: src/collectors/transactionsCollector.js
+purpose: جمع‌آوری و پردازش تراکنش‌ها به‌صورت بهینه و قابل‌اعتماد
+stability: draft
+imports:
+  - ../../logger.js
+  - better-sqlite3
+  - fs
+  - path
+exports:
+  - runTransactionsCollector
+  - summarizeTransactionsForDate
+env_vars: []
+db:
+  reads: []
+  writes: []
+io:
+  http_calls: []
+  queues: []
+  filesystem: []
+  db_reads: []
+  db_writes: []
+side_effects: []
+classes: []
+functions:
+  - name: log
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: arg
+          type: any
+      returns:
+        type: any
+    behavior: ثبت اطلاعات برای عیب‌یابی و نظارت
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: warn
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: arg
+          type: any
+      returns:
+        type: any
+    behavior: هشدار در مورد وضعیت‌های غیرعادی
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: errl
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: arg
+          type: any
+      returns:
+        type: any
+    behavior: مدیریت خطاها و ثبت آن‌ها
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: toTehranDate
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: d
+          type: any
+      returns:
+        type: any
+    behavior: تبدیل تاریخ به فرمت تهران بدون عوارض جانبی
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: ymdTehran
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: d
+          type: any
+      returns:
+        type: any
+    behavior: تبدیل تاریخ به فرمت سال-ماه-روز تهران
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: startOfDayTehran
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: d
+          type: any
+      returns:
+        type: any
+    behavior: محاسبه شروع روز در زمان تهران
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: endOfDayTehran
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: d
+          type: any
+      returns:
+        type: any
+    behavior: محاسبه پایان روز در زمان تهران
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: safeNumber
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: x
+          type: any
+      returns:
+        type: any
+    behavior: تبدیل ورودی به عدد ایمن
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: openDB
+    async: false
+    kind: function
+    signature:
+      params: []
+      returns:
+        type: any
+    behavior: باز کردن اتصال به پایگاه داده
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: tableInfo
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: db
+          type: any
+        - name: name
+          type: any
+      returns:
+        type: any
+    behavior: دریافت اطلاعات جدول از پایگاه داده
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: hasTable
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: db
+          type: any
+        - name: name
+          type: any
+      returns:
+        type: any
+    behavior: بررسی وجود جدول در پایگاه داده و بازگرداندن boolean
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: hasColumn
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: db
+          type: any
+        - name: table
+          type: any
+        - name: col
+          type: any
+      returns:
+        type: any
+    behavior: بررسی وجود ستون در جدول و بازگرداندن boolean
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: ensureDailySummaryColumns
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: db
+          type: any
+      returns:
+        type: any
+    behavior: اطمینان از وجود ستون‌های خلاصه روزانه در پایگاه داده
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: discoverColumns
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: db
+          type: any
+      returns:
+        type: any
+    behavior: کشف ستون‌های موجود در جدول پایگاه داده
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: pick
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: cands
+          type: any
+      returns:
+        type: any
+    behavior: انتخاب یک گزینه از میان گزینه‌های موجود
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: summarizeTransactionsForDate
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: targetDateStr
+          type: any
+      returns:
+        type: any
+    behavior: خلاصه‌سازی تراکنش‌ها برای تاریخ مشخص
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: zeroWrite
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: db
+          type: any
+        - name: dateStr
+          type: any
+      returns:
+        type: any
+    behavior: نوشتن مقدار صفر در پایگاه داده برای تاریخ مشخص
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: runTransactionsCollector
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dateStr
+          type: any
+      returns:
+        type: any
+    behavior: اجرای جمع‌آوری تراکنش‌ها برای تاریخ مشخص
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+relations:
+  uses: []
+  used_by: []
+invariants: []
+tests:
+  unit: []
+  integration: []
+  contract: []
+last_verified: '2025-10-27'
+tags: []
+generated_at: '2025-10-27T09:30:18.785Z'

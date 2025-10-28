@@ -1,0 +1,269 @@
+version: '1.0'
+id: src/collectors/wordpress_visitors
+path: src/collectors/wordpress_visitors.js
+purpose: جمع‌آوری و تحلیل داده‌های بازدیدکنندگان وب‌سایت وردپرس به منظور بهبود تجربه کاربری و افزایش تعاملات.
+stability: draft
+imports:
+  - ../../logger.js
+  - better-sqlite3
+exports:
+  - collectVisitorsDailySmart
+  - countUniqueVisitorsSmart
+  - ensureSummaryTableAndColumn
+  - todayTehranStr
+  - upsertDailyVisitors
+  - yesterdayTehranStr
+env_vars: []
+db:
+  reads: []
+  writes: []
+io:
+  http_calls: []
+  queues: []
+  filesystem: []
+  db_reads: []
+  db_writes: []
+side_effects: []
+classes: []
+functions:
+  - name: logd
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: arg
+          type: any
+      returns:
+        type: any
+    behavior: ثبت اطلاعات برای دیباگ و تحلیل عملکرد.
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: todayTehranStr
+    async: false
+    kind: function
+    signature:
+      params: []
+      returns:
+        type: any
+    behavior: تبدیل/نرمال‌سازی رشته/داده بدون عوارض جانبی به فرمت تاریخ امروز در تهران.
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: yesterdayTehranStr
+    async: false
+    kind: function
+    signature:
+      params: []
+      returns:
+        type: any
+    behavior: تبدیل/نرمال‌سازی رشته/داده بدون عوارض جانبی به فرمت تاریخ دیروز در تهران.
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: tableExists
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: db
+          type: any
+        - name: name
+          type: any
+      returns:
+        type: any
+    behavior: بررسی وجود جدول در پایگاه داده.
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: getColumns
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: db
+          type: any
+        - name: table
+          type: any
+      returns:
+        type: any
+    behavior: بازیابی داده از منبع (DB/سرویس خارجی) و بازگرداندن ستون‌های جدول.
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: detectColumns
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: columns
+          type: any
+      returns:
+        type: any
+    behavior: تحلیل/تشخیص ویژگی از متن و بازگرداندن نتیجهٔ بدون عوارض جانبی.
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: findFirstExistingTable
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: db
+          type: any
+      returns:
+        type: any
+    behavior: یافتن اولین جدول موجود در پایگاه داده.
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: countUniqueInSingleDB
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: db
+          type: any
+        - name: dateStr
+          type: any
+      returns:
+        type: any
+    behavior: شمارش تعداد بازدیدکنندگان منحصر به فرد در یک پایگاه داده خاص.
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: countUniqueVisitorsSmart
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dateStr
+          type: any
+        - name: arg
+          type: any
+        - name: arg2
+          type: any
+      returns:
+        type: any
+    behavior: شمارش هوشمند تعداد بازدیدکنندگان منحصر به فرد بر اساس تاریخ و پارامترهای ورودی.
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: ensureSummaryTableAndColumn
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dbMain
+          type: any
+      returns:
+        type: any
+    behavior: اطمینان از وجود جدول و ستون‌های خلاصه در پایگاه داده.
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: upsertDailyVisitors
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dbMain
+          type: any
+        - name: dateStr
+          type: any
+        - name: total
+          type: any
+      returns:
+        type: any
+    behavior: به‌روزرسانی یا درج تعداد بازدیدکنندگان روزانه در پایگاه داده.
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: collectVisitorsDailySmart
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dateStr
+          type: any
+        - name: arg
+          type: any
+        - name: arg2
+          type: any
+      returns:
+        type: any
+    behavior: جمع‌آوری هوشمند داده‌های بازدیدکنندگان روزانه بر اساس تاریخ و پارامترهای ورودی.
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+relations:
+  uses: []
+  used_by: []
+invariants: []
+tests:
+  unit: []
+  integration: []
+  contract: []
+last_verified: '2025-10-27'
+tags: []
+generated_at: '2025-10-27T09:30:18.785Z'

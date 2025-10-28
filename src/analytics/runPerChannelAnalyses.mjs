@@ -18,7 +18,7 @@ function ensureArchiveAttached(db) {
     const list = db.pragma('database_list', { simple: false });
     const hasArch = Array.isArray(list) && list.some(x => String(x.name).toLowerCase() === 'arch');
     if (!hasArch) {
-      const archPath = (env.ARCHIVE_DB_PATH || 'C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\db_archive.sqlite')
+      const archPath = (env.ARCHIVE_DB_PATH || 'E:\\Projects\\AtighgashtAI\\db_archive.sqlite')
         .replace(/'/g, "''");
       db.exec(`ATTACH DATABASE '${archPath}' AS arch;`);
       console.log(`[arch] attached: ${archPath}`);

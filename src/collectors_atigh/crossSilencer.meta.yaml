@@ -1,0 +1,182 @@
+version: '1.0'
+id: src/collectors/crossSilencer
+path: src/collectors/crossSilencer.js
+purpose: مدیریت و بررسی وضعیت سکوت متقاطع در سیستم به منظور بهبود کارایی و کاهش تداخلات در ارتباطات.
+stability: draft
+imports:
+  - moment-timezone
+  - sqlite
+  - sqlite3
+exports:
+  - applyCrossSilence
+  - checkCrossSilence
+  - getLastActivityTimestamp
+  - shouldSilence
+env_vars: []
+db:
+  reads: []
+  writes: []
+io:
+  http_calls: []
+  queues: []
+  filesystem: []
+  db_reads: []
+  db_writes: []
+side_effects: []
+classes: []
+functions:
+  - name: now
+    async: false
+    kind: function
+    signature:
+      params: []
+      returns:
+        type: any
+    behavior: برگشت زمان فعلی سیستم.
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: log
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: arg
+          type: any
+      returns:
+        type: any
+    behavior: ثبت اطلاعات در لاگ برای بررسی‌های بعدی.
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: warn
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: arg
+          type: any
+      returns:
+        type: any
+    behavior: ثبت هشدارها در لاگ برای شناسایی مشکلات.
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: err
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: arg
+          type: any
+      returns:
+        type: any
+    behavior: ثبت خطاها در لاگ برای تحلیل و رفع اشکال.
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: getLastActivityTimestamp
+    async: true
+    kind: function
+    signature:
+      params:
+        - name: db
+          type: any
+        - name: mobile
+          type: any
+      returns:
+        type: any
+    behavior: بازیابی آخرین زمان فعالیت از پایگاه داده یا سرویس خارجی.
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: checkCrossSilence
+    async: true
+    kind: function
+    signature:
+      params:
+        - name: db
+          type: any
+        - name: mobile
+          type: any
+      returns:
+        type: any
+    behavior: اعتبارسنجی وضعیت سکوت متقاطع و بازگرداندن نتیجهٔ منطقی.
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: applyCrossSilence
+    async: true
+    kind: function
+    signature:
+      params: []
+      returns:
+        type: any
+    behavior: اعمال وضعیت سکوت متقاطع بر روی سیستم.
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: shouldSilence
+    async: true
+    kind: function
+    signature:
+      params:
+        - name: mobile
+          type: any
+      returns:
+        type: any
+    behavior: ارزیابی شرایط سکوت متقاطع بدون انجام IO.
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+relations:
+  uses: []
+  used_by: []
+invariants: []
+tests:
+  unit: []
+  integration: []
+  contract: []
+last_verified: '2025-10-27'
+tags: []
+generated_at: '2025-10-27T13:02:51.146Z'

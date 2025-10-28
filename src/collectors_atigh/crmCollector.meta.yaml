@@ -1,0 +1,369 @@
+version: '1.0'
+id: src/collectors/crmCollector
+path: src/collectors/crmCollector.js
+purpose: جمع‌آوری و پردازش داده‌های CRM به منظور بهبود تصمیم‌گیری و تحلیل داده‌ها
+stability: draft
+imports:
+  - ../../logger.js
+  - better-sqlite3
+  - fs
+  - path
+exports:
+  - runCrmCollector
+  - summarizeCrmForDate
+env_vars: []
+db:
+  reads: []
+  writes: []
+io:
+  http_calls: []
+  queues: []
+  filesystem: []
+  db_reads: []
+  db_writes: []
+side_effects: []
+classes: []
+functions:
+  - name: log
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: arg
+          type: any
+      returns:
+        type: any
+    behavior: ثبت اطلاعات در لاگ برای پیگیری و عیب‌یابی
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: warn
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: arg
+          type: any
+      returns:
+        type: any
+    behavior: ثبت هشدارها در لاگ برای شناسایی مشکلات احتمالی
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: openDB
+    async: false
+    kind: function
+    signature:
+      params: []
+      returns:
+        type: any
+    behavior: باز کردن ارتباط با پایگاه داده برای انجام عملیات
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: tableInfo
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: db
+          type: any
+        - name: name
+          type: any
+      returns:
+        type: any
+    behavior: دریافت اطلاعات جدول مشخص شده از پایگاه داده
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: hasTable
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: db
+          type: any
+        - name: name
+          type: any
+      returns:
+        type: any
+    behavior: بررسی وجود جدول در پایگاه داده و بازگرداندن نتیجه boolean
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: hasColumn
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: db
+          type: any
+        - name: table
+          type: any
+        - name: col
+          type: any
+      returns:
+        type: any
+    behavior: بررسی وجود ستون در جدول مشخص شده و بازگرداندن نتیجه boolean
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: ensureDailySummaryColumns
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: db
+          type: any
+      returns:
+        type: any
+    behavior: اطمینان از وجود ستون‌های لازم برای خلاصه روزانه در پایگاه داده
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: toTehranDate
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: d
+          type: any
+      returns:
+        type: any
+    behavior: تبدیل و نرمال‌سازی تاریخ به فرمت تهران بدون عوارض جانبی
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: startOfDayTehran
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dStr
+          type: any
+      returns:
+        type: any
+    behavior: محاسبه شروع روز بر اساس تاریخ تهران
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: endOfDayTehran
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dStr
+          type: any
+      returns:
+        type: any
+    behavior: محاسبه پایان روز بر اساس تاریخ تهران
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: parseDateFlexible
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: v
+          type: any
+      returns:
+        type: any
+    behavior: تجزیه تاریخ به صورت انعطاف‌پذیر برای پشتیبانی از فرمت‌های مختلف
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: normalizePersonId
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: v
+          type: any
+      returns:
+        type: any
+    behavior: تبدیل و نرمال‌سازی شناسه شخص بدون عوارض جانبی
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: pickCol
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: info
+          type: any
+        - name: candidates
+          type: any
+      returns:
+        type: any
+    behavior: انتخاب یک ستون مناسب از میان گزینه‌های موجود
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: discoverContacts
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: db
+          type: any
+      returns:
+        type: any
+    behavior: کشف و استخراج اطلاعات تماس از پایگاه داده
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: discoverTransactions
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: db
+          type: any
+      returns:
+        type: any
+    behavior: کشف و استخراج تراکنش‌ها از پایگاه داده
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: discoverDeals
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: db
+          type: any
+      returns:
+        type: any
+    behavior: کشف و استخراج معاملات از پایگاه داده
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: summarizeCrmForDate
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: targetDateStr
+          type: any
+      returns:
+        type: any
+    behavior: خلاصه‌سازی داده‌های CRM برای تاریخ مشخص شده
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: runCrmCollector
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dateStr
+          type: any
+      returns:
+        type: any
+    behavior: اجرای جمع‌آوری داده‌های CRM برای تاریخ مشخص شده
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+relations:
+  uses: []
+  used_by: []
+invariants: []
+tests:
+  unit: []
+  integration: []
+  contract: []
+last_verified: '2025-10-27'
+tags: []
+generated_at: '2025-10-27T09:30:18.785Z'

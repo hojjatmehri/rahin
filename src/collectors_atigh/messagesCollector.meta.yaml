@@ -1,0 +1,357 @@
+version: '1.0'
+id: src/collectors/messagesCollector
+path: src/collectors/messagesCollector.js
+purpose: جمع‌آوری و تحلیل پیام‌ها برای تاریخ‌های مشخص و ارائه نتایج به صورت منظم و قابل فهم
+stability: draft
+imports:
+  - ../../logger.js
+  - better-sqlite3
+  - fs
+  - path
+exports:
+  - runMessagesCollector
+  - summarizeMessagesForDate
+env_vars: []
+db:
+  reads: []
+  writes: []
+io:
+  http_calls: []
+  queues: []
+  filesystem: []
+  db_reads: []
+  db_writes: []
+side_effects: []
+classes: []
+functions:
+  - name: log
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: arg
+          type: any
+      returns:
+        type: any
+    behavior: ثبت اطلاعات برای عیب‌یابی و نظارت
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: warn
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: arg
+          type: any
+      returns:
+        type: any
+    behavior: هشدار در مورد وضعیت‌های غیرعادی
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: toTehranDate
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: d
+          type: any
+      returns:
+        type: any
+    behavior: تبدیل تاریخ به فرمت تهران بدون عوارض جانبی
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: ymdTehran
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: d
+          type: any
+      returns:
+        type: any
+    behavior: تبدیل تاریخ به فرمت YYYY-MM-DD تهران
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: startOfDayTehran
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dStr
+          type: any
+      returns:
+        type: any
+    behavior: محاسبه شروع روز در زمان تهران
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: endOfDayTehran
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dStr
+          type: any
+      returns:
+        type: any
+    behavior: محاسبه پایان روز در زمان تهران
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: openDB
+    async: false
+    kind: function
+    signature:
+      params: []
+      returns:
+        type: any
+    behavior: باز کردن اتصال به پایگاه داده
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: hasTable
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: db
+          type: any
+        - name: name
+          type: any
+      returns:
+        type: any
+    behavior: بررسی وجود جدول در پایگاه داده و بازگشت boolean
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: tableInfo
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: db
+          type: any
+        - name: name
+          type: any
+      returns:
+        type: any
+    behavior: دریافت اطلاعات جدول از پایگاه داده
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: hasColumn
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: db
+          type: any
+        - name: table
+          type: any
+        - name: col
+          type: any
+      returns:
+        type: any
+    behavior: بررسی وجود ستون در جدول و بازگشت boolean
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: ensureDailySummaryColumns
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: db
+          type: any
+      returns:
+        type: any
+    behavior: اطمینان از وجود ستون‌های لازم برای خلاصه روزانه
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: normalizeChatId
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: raw
+          type: any
+      returns:
+        type: any
+    behavior: نرمال‌سازی شناسه چت بدون عوارض جانبی
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: discoverCols
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: db
+          type: any
+        - name: table
+          type: any
+      returns:
+        type: any
+    behavior: کشف ستون‌های موجود در جدول
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: parseDateFlexible
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: v
+          type: any
+      returns:
+        type: any
+    behavior: تجزیه تاریخ به صورت انعطاف‌پذیر
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: fetchDayMessages
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: db
+          type: any
+        - name: table
+          type: any
+        - name: cols
+          type: any
+        - name: targetDateStr
+          type: any
+      returns:
+        type: any
+    behavior: بازیابی پیام‌های روز از پایگاه داده یا سرویس خارجی
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: summarizeMessagesForDate
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: targetDateStr
+          type: any
+      returns:
+        type: any
+    behavior: خلاصه‌سازی پیام‌ها برای تاریخ مشخص
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: runMessagesCollector
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dateStr
+          type: any
+      returns:
+        type: any
+    behavior: اجرای جمع‌آوری پیام‌ها برای تاریخ مشخص
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+relations:
+  uses: []
+  used_by: []
+invariants: []
+tests:
+  unit: []
+  integration: []
+  contract: []
+last_verified: '2025-10-27'
+tags: []
+generated_at: '2025-10-27T09:30:18.785Z'

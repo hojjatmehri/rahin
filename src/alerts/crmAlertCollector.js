@@ -15,7 +15,7 @@ dotenv.config();
 
 const MOD = "[CrmAlertCollector]";
 const TZ = "Asia/Tehran";
-const DB_PATH = process.env.SQLITE_DB_PATH || "C:/Users/Administrator/Desktop/Projects/AtighgashtAI/db_atigh.sqlite";
+const DB_PATH = process.env.SQLITE_DB_PATH || "E:/Projects/AtighgashtAI/db_atigh.sqlite";
 const DEV_MOBILE = process.env.DEV_ALERT_MOBILE || "";
 const SEND_REAL = String(process.env.SEND_REAL_ALERTS || "0") === "1";
 const ALERT_GRACE_DAYS = Number(process.env.ALERT_GRACE_DAYS || 14);

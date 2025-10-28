@@ -1,0 +1,186 @@
+version: '1.0'
+id: src/collectors/visitors_from_archive_partitions
+path: src/collectors/visitors_from_archive_partitions.js
+purpose: جمع‌آوری و پردازش داده‌های بازدیدکنندگان از آرشیو به منظور تحلیل و بهبود تجربه کاربری
+stability: draft
+imports:
+  - ../../logger.js
+  - better-sqlite3
+exports:
+  - countDailyUniqueFromArchive
+  - writeDailyVisitorsFromArchive
+  - yesterdayTehranStr
+env_vars: []
+db:
+  reads: []
+  writes: []
+io:
+  http_calls: []
+  queues: []
+  filesystem: []
+  db_reads: []
+  db_writes: []
+side_effects: []
+classes: []
+functions:
+  - name: todayTehranStr
+    async: false
+    kind: function
+    signature:
+      params: []
+      returns:
+        type: any
+    behavior: تبدیل و نرمال‌سازی تاریخ امروز به فرمت رشته‌ای بدون عوارض جانبی
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: yesterdayTehranStr
+    async: false
+    kind: function
+    signature:
+      params: []
+      returns:
+        type: any
+    behavior: تبدیل و نرمال‌سازی تاریخ دیروز به فرمت رشته‌ای
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: weekEndSaturday
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dateStr
+          type: any
+      returns:
+        type: any
+    behavior: بررسی و تعیین اینکه آیا تاریخ ورودی به روز شنبه پایان هفته تعلق دارد یا خیر
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: tableForDate
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dateStr
+          type: any
+      returns:
+        type: any
+    behavior: ایجاد و بازگرداندن جدول مربوط به تاریخ مشخص شده
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: ensureSummaryTable
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dbMain
+          type: any
+      returns:
+        type: any
+    behavior: اطمینان از وجود جدول خلاصه در پایگاه داده اصلی
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: upsertDailyVisitors
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dbMain
+          type: any
+        - name: dateStr
+          type: any
+        - name: total
+          type: any
+      returns:
+        type: any
+    behavior: به‌روزرسانی یا درج تعداد بازدیدکنندگان روزانه در پایگاه داده
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: countDailyUniqueFromArchive
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dateStr
+          type: any
+        - name: arg
+          type: any
+      returns:
+        type: any
+    behavior: شمارش تعداد بازدیدکنندگان منحصر به فرد روزانه از آرشیو
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: writeDailyVisitorsFromArchive
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dateStr
+          type: any
+        - name: arg
+          type: any
+        - name: arg2
+          type: any
+      returns:
+        type: any
+    behavior: نوشتن داده‌های بازدیدکنندگان روزانه از آرشیو به پایگاه داده
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+relations:
+  uses: []
+  used_by: []
+invariants: []
+tests:
+  unit: []
+  integration: []
+  contract: []
+last_verified: '2025-10-27'
+tags: []
+generated_at: '2025-10-27T09:30:18.785Z'

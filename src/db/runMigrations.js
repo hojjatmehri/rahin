@@ -4,13 +4,32 @@ import path from "path";
 import Database from "better-sqlite3";
 
 // مسیر دیتابیس (طبق چیزی که گفتی)
-const dbFile = "C:/Users/Administrator/Desktop/Projects/AtighgashtAI/db_atigh.sqlite";
+const dbFile = "E:/Projects/AtighgashtAI/db_atigh.sqlite";
 
 // مسیر پوشه‌ی migrations
 const migrationsDir = path.resolve("./src/db/migrations");
 
 // اتصال به دیتابیس
-const db = new Database(dbFile);
+
+ let db;
+ 
+ try {
+   db = new Database(dbFile , {
+     fileMustExist: false,
+     timeout: 5000,
+   });
+ 
+   db.pragma("journal_mode = WAL");
+   db.pragma("foreign_keys = ON");
+   db.pragma("busy_timeout = 5000");
+   db.pragma("synchronous = NORMAL");
+   db.pragma("temp_store = MEMORY");
+ 
+   console.log("[DB] sqlite ready (WAL + timeout)");
+ } catch (err) {
+   console.error("[DB] failed:", err.message);
+   process.exit(1);
+ }
 console.log("✅ Connected to database:", dbFile);
 
 // گرفتن لیست فایل‌های migration و مرتب‌سازی

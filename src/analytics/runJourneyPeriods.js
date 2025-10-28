@@ -52,7 +52,7 @@ export function diffBlocks(curr, prev) {
 }
 
 export async function runJourneyPeriods() {
-  const db = CONFIG.db.raw || new Database(CONFIG.DB_PATH_MAIN || "C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\db_atigh.sqlite");
+  const db = CONFIG.db.raw || new Database(CONFIG.DB_PATH_MAIN || "E:\\Projects\\AtighgashtAI\\db_atigh.sqlite");
   try {
     // 1) ۷ روز اخیر
     const endIso = nowTehISO();

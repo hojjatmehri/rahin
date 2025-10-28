@@ -1,0 +1,147 @@
+version: '1.0'
+id: src/collectors/visitors_from_weekly
+path: src/collectors/visitors_from_weekly.js
+purpose: جمع‌آوری و تحلیل داده‌های بازدیدکنندگان به منظور تخمین تعداد بازدیدکنندگان روزانه و بهبود استراتژی‌های بازاریابی
+stability: draft
+imports:
+  - ../../logger.js
+  - better-sqlite3
+exports:
+  - estimateDailyVisitorsFromWeekly
+  - yesterdayTehranStr
+env_vars: []
+db:
+  reads: []
+  writes: []
+io:
+  http_calls: []
+  queues: []
+  filesystem: []
+  db_reads: []
+  db_writes: []
+side_effects: []
+classes: []
+functions:
+  - name: todayTehranStr
+    async: false
+    kind: function
+    signature:
+      params: []
+      returns:
+        type: any
+    behavior: تبدیل و نرمال‌سازی داده‌های مربوط به تاریخ امروز بدون عوارض جانبی
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: yesterdayTehranStr
+    async: false
+    kind: function
+    signature:
+      params: []
+      returns:
+        type: any
+    behavior: تبدیل و نرمال‌سازی داده‌های مربوط به تاریخ دیروز
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: weekStartMondayTehran
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dateStr
+          type: any
+      returns:
+        type: any
+    behavior: محاسبه تاریخ شروع هفته (دوشنبه) بر اساس تاریخ ورودی
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: ensureSummaryTable
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dbMain
+          type: any
+      returns:
+        type: any
+    behavior: بررسی و ایجاد جدول خلاصه در پایگاه داده در صورت نیاز
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: upsertDailyVisitors
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dbMain
+          type: any
+        - name: dateStr
+          type: any
+        - name: total
+          type: any
+      returns:
+        type: any
+    behavior: به‌روزرسانی یا درج تعداد بازدیدکنندگان روزانه در پایگاه داده
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: estimateDailyVisitorsFromWeekly
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dateStr
+          type: any
+        - name: arg
+          type: any
+        - name: arg2
+          type: any
+      returns:
+        type: any
+    behavior: تخمین تعداد بازدیدکنندگان روزانه بر اساس داده‌های هفتگی
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+relations:
+  uses: []
+  used_by: []
+invariants: []
+tests:
+  unit: []
+  integration: []
+  contract: []
+last_verified: '2025-10-27'
+tags: []
+generated_at: '2025-10-27T09:30:18.785Z'

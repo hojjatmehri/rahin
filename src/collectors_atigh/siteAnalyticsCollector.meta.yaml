@@ -1,0 +1,233 @@
+version: '1.0'
+id: src/collectors/siteAnalyticsCollector
+path: src/collectors/siteAnalyticsCollector.js
+purpose: جمع‌آوری و تجزیه و تحلیل داده‌های سایت به منظور بهبود عملکرد و تجربه کاربری
+stability: draft
+imports:
+  - ../../logger.js
+  - better-sqlite3
+exports:
+  - buildSiteAnalyticsDaily
+  - yesterdayTehranStr
+env_vars: []
+db:
+  reads: []
+  writes: []
+io:
+  http_calls: []
+  queues: []
+  filesystem: []
+  db_reads: []
+  db_writes: []
+side_effects: []
+classes: []
+functions:
+  - name: yesterdayTehranStr
+    async: false
+    kind: function
+    signature:
+      params: []
+      returns:
+        type: any
+    behavior: برگشتن به رشته تاریخ روز گذشته در تهران
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: weekEndSaturday
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dateStr
+          type: any
+      returns:
+        type: any
+    behavior: تعیین تاریخ شنبه پایان هفته بر اساس تاریخ ورودی
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: tableForDate
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dateStr
+          type: any
+      returns:
+        type: any
+    behavior: ایجاد جدول برای تاریخ مشخص شده
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: listCols
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: db
+          type: any
+        - name: t
+          type: any
+      returns:
+        type: any
+    behavior: فهرست کردن ستون‌های جدول مشخص شده
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: pickCol
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: cols
+          type: any
+        - name: hints
+          type: any
+      returns:
+        type: any
+    behavior: انتخاب یک ستون بر اساس راهنمایی‌های ورودی
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: ensureDestTables
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dbMain
+          type: any
+      returns:
+        type: any
+    behavior: اطمینان از وجود جداول مقصد در پایگاه داده
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: upsertSiteDaily
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dbMain
+          type: any
+        - name: date
+          type: any
+        - name: patch
+          type: any
+      returns:
+        type: any
+    behavior: به‌روزرسانی یا درج داده‌های روزانه سایت
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: upsertHourly
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dbMain
+          type: any
+        - name: date
+          type: any
+        - name: rows
+          type: any
+      returns:
+        type: any
+    behavior: به‌روزرسانی یا درج داده‌های ساعتی سایت
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: replaceTopPages
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dbMain
+          type: any
+        - name: date
+          type: any
+        - name: rows
+          type: any
+      returns:
+        type: any
+    behavior: جایگزینی صفحات برتر بر اساس داده‌های ورودی
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+  - name: buildSiteAnalyticsDaily
+    async: false
+    kind: function
+    signature:
+      params:
+        - name: dateStr
+          type: any
+        - name: arg
+          type: any
+        - name: arg2
+          type: any
+      returns:
+        type: any
+    behavior: ساخت خروجی متنی روزانه بر اساس تاریخ و پارامترهای ورودی
+    side_effects: []
+    throws: []
+    reads_db: []
+    writes_db: []
+    io:
+      http: []
+      queue: []
+      filesystem: []
+relations:
+  uses: []
+  used_by: []
+invariants: []
+tests:
+  unit: []
+  integration: []
+  contract: []
+last_verified: '2025-10-27'
+tags: []
+generated_at: '2025-10-27T09:30:18.785Z'

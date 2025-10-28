@@ -57,7 +57,7 @@ export function j(obj) {
 
 // اتصال آرشیو به کانکشن اصلی DB (برای جداول arch.*)
 function ensureArchiveAttached(db) {
-  const archPath = (env.ARCHIVE_DB_PATH || "C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\db_archive.sqlite")
+  const archPath = (env.ARCHIVE_DB_PATH || "E:\\Projects\\AtighgashtAI\\db_archive.sqlite")
     .replace(/'/g, "''");
 
   // better-sqlite3؟

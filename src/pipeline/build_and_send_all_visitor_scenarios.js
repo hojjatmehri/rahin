@@ -12,7 +12,7 @@ import '../../logger.js';
 import dotenv from 'dotenv';
 import path from 'path';
 dotenv.config({
-  path: path.resolve('C:/Users/Administrator/Desktop/Projects/AtighgashtAI/.env')
+  path: path.resolve('E:/Projects/AtighgashtAI/.env')
 });
 console.log('[VisitorScenario] Loaded .env from AtighgashtAI');
 
@@ -40,8 +40,8 @@ console.log('🔌 WA service wired:', !!globalThis.waService);
 
 
 // ====== ENV ======
-const MAIN_DB = process.env.MAIN_DB_PATH || "C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\db_atigh.sqlite";
-const ARCH_DB = process.env.ARCHIVE_DB_PATH || "C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\db_archive.sqlite";
+const MAIN_DB = process.env.MAIN_DB_PATH || "E:\\Projects\\AtighgashtAI\\db_atigh.sqlite";
+const ARCH_DB = process.env.ARCHIVE_DB_PATH || "E:\\Projects\\AtighgashtAI\\db_archive.sqlite";
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const WHATSAPP_OPERATOR = normalizeMsisdn(process.env.WHATSAPP_OPERATOR || "09134052885");
 const TZ = "Asia/Tehran";
@@ -500,11 +500,26 @@ function normStatus(s) {
 
 // ====== DB bootstrap ======
 console.time("⏱ DB init");
-const db = new Database(MAIN_DB);
-db.pragma("journal_mode = WAL");
-db.pragma("foreign_keys = ON");
-console.log("🗄️ main DB opened & PRAGMAs set.");
 
+ let db;
+ 
+ try {
+   db = new Database(MAIN_DB, {
+     fileMustExist: false,
+     timeout: 5000,
+   });
+ 
+   db.pragma("journal_mode = WAL");
+   db.pragma("foreign_keys = ON");
+   db.pragma("busy_timeout = 5000");
+   db.pragma("synchronous = NORMAL");
+   db.pragma("temp_store = MEMORY");
+ 
+   console.log("[DB] sqlite ready (WAL + timeout)");
+ } catch (err) {
+   console.error("[DB] failed:", err.message);
+   process.exit(1);
+ }
 try {
   db.exec(`ATTACH DATABASE '${escapeSqlitePath(ARCH_DB)}' AS arch;`);
   console.log("🧩 archive DB attached as 'arch'.");

@@ -19,9 +19,9 @@ import { collectFinance } from '../collectors/financeCollector.js';
 /* ----------------- ENV & FLAGS ----------------- */
 const TZ = process.env.TZ || 'Asia/Tehran';
 const DB_PATH = process.env.DB_PATH
-  || 'C:/Users/Administrator/Desktop/Projects/AtighgashtAI/db_atigh.sqlite';
+  || 'E:/Projects/AtighgashtAI/db_atigh.sqlite';
 const ARCHIVE_DB_PATH = process.env.ARCHIVE_DB_PATH
-  || 'C:/Users/Administrator/Desktop/Projects/AtighgashtAI/db_archive.sqlite';
+  || 'E:/Projects/AtighgashtAI/db_archive.sqlite';
 const SQL_DEBUG = String(process.env.SQL_DEBUG || '0') === '1';
 
 /* ----------------- HELPERS ----------------- */
@@ -36,17 +36,26 @@ function isDirectRun(importMetaUrl) {
 
 /** اتصال DB را باز می‌کند، آرشیو را ATTACH می‌کند و PRAGMA می‌زند. */
 function openDb(dbPath = DB_PATH, archivePath = ARCHIVE_DB_PATH) {
-  const db = new Database(dbPath);
-  log(`[db] اتصال sqlite باز شد: ${dbPath}`);
+ 
+let db;
 
-  try {
-    db.pragma('journal_mode = WAL');
-    db.pragma('foreign_keys = ON');
-    db.pragma('synchronous = NORMAL');
-    log('[db] PRAGMAها اعمال شد: WAL, foreign_keys=ON, synchronous=NORMAL');
-  } catch (e) {
-    warn('[db] PRAGMA error:', e?.message || e);
-  }
+try {
+  db = new Database(dbPath, {
+    fileMustExist: false,
+    timeout: 5000,
+  });
+
+  db.pragma("journal_mode = WAL");
+  db.pragma("foreign_keys = ON");
+  db.pragma("busy_timeout = 5000");
+  db.pragma("synchronous = NORMAL");
+  db.pragma("temp_store = MEMORY");
+
+  console.log("[DB] sqlite ready (WAL + timeout)");
+} catch (err) {
+  console.error("[DB] failed:", err.message);
+  process.exit(1);
+}
 
   // ATTACH آرشیو
   try {

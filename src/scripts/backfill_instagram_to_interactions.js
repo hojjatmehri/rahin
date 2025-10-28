@@ -13,7 +13,7 @@ function resolveDbPath() {
   if (!envPath) {
     throw new Error(
       "SQLITE_DB_PATH تعریف نشده. مثال:\n" +
-      "Windows PowerShell:\n$env:SQLITE_DB_PATH=\"C:\\Users\\Administrator\\Desktop\\Projects\\AtighgashtAI\\db_atigh.sqlite\""
+      "Windows PowerShell:\n$env:SQLITE_DB_PATH=\"E:\\Projects\\AtighgashtAI\\db_atigh.sqlite\""
     );
   }
   const p = path.isAbsolute(envPath) ? envPath : path.resolve(process.cwd(), envPath);
@@ -22,8 +22,26 @@ function resolveDbPath() {
 }
 
 const dbPath = resolveDbPath();
-const db = new Database(dbPath);
-db.pragma("journal_mode = WAL");
+
+ let db;
+ 
+ try {
+   db = new Database(dbPath, {
+     fileMustExist: false,
+     timeout: 5000,
+   });
+ 
+   db.pragma("journal_mode = WAL");
+   db.pragma("foreign_keys = ON");
+   db.pragma("busy_timeout = 5000");
+   db.pragma("synchronous = NORMAL");
+   db.pragma("temp_store = MEMORY");
+ 
+   console.log("[DB] sqlite ready (WAL + timeout)");
+ } catch (err) {
+   console.error("[DB] failed:", err.message);
+   process.exit(1);
+ }
 console.log("Using DB:", dbPath);
 
 /* ------------------- ابزار DB ------------------- */
