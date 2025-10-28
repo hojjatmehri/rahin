@@ -9,6 +9,7 @@ import '../../logger.js';
  */
 
 // --- Force-load .env from AtighgashtAI project (absolute path) ---
+
 import dotenv from 'dotenv';
 import path from 'path';
 dotenv.config({

@@ -4,6 +4,8 @@
 // Role: Nightly job for CRM alert collection and WhatsApp summary
 // Schedule: Every night at 02:00 Tehran time
 // ========================================================
+import dotenv from 'dotenv';
+dotenv.config({ path: 'E:/Projects/AtighgashtAI/.env' });
 
 import '../../logger.js';
 import 'dotenv/config';
