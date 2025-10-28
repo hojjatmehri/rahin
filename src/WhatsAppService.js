@@ -1,22 +1,38 @@
+// ============================================================
+// File: src/WhatsAppService.js
+// Purpose: Wrapper for UltraMsg WhatsApp API (Singleton instance)
+// Author: Hojjat Mehri
+// ============================================================
+
 import '../logger.js';
-// src/WhatsAppService.js
 import axios from 'axios';
 import qs from 'qs';
 import fs from 'fs';
 import path from 'path';
+import moment from 'moment-timezone';
 
+// ---------- تنظیمات عمومی ----------
+const MOD = '[WhatsAppService]';
+const TZ = 'Asia/Tehran';
+const log = (...a) => console.log(MOD, moment().tz(TZ).format('YYYY-MM-DD HH:mm:ss'), '|', ...a);
+const err = (...a) => console.error(MOD, moment().tz(TZ).format('YYYY-MM-DD HH:mm:ss'), '|', ...a);
+
+// ---------- نرمال‌سازی شماره ----------
 function normalizeRecipient(to = '') {
   const s = String(to).trim();
-  if (/@g\.us$/i.test(s)) return s;        // گروه
+  if (/@g\.us$/i.test(s)) return s; // گروه
   const digits = s.replace(/[^\d]/g, '');
   if (!digits) return s;
   if (digits.startsWith('98')) return digits;
-  if (digits.startsWith('0'))  return '98' + digits.slice(1);
-  if (digits.startsWith('9'))  return '98' + digits;
+  if (digits.startsWith('0')) return '98' + digits.slice(1);
+  if (digits.startsWith('9')) return '98' + digits;
   return digits;
 }
 
-export default class WhatsAppService {
+// ============================================================
+// کلاس اصلی
+// ============================================================
+class WhatsAppService {
   /**
    * @param {string} ultramsgInstance
    * @param {string} ultramsgToken
@@ -26,6 +42,7 @@ export default class WhatsAppService {
     if (!ultramsgInstance || !ultramsgToken) {
       throw new Error('WhatsAppService: instanceId و token الزامی‌اند');
     }
+
     this.instance = ultramsgInstance;
     this.token = ultramsgToken;
     this.baseUrl = baseUrl.replace(/\/+$/, '');
@@ -34,6 +51,8 @@ export default class WhatsAppService {
       timeout: 15000,
       validateStatus: s => s >= 200 && s < 300
     });
+
+    log(`🔌 UltraMsg Service initialized for instance: ${this.instance}`);
   }
 
   // ---------- Contacts ----------
@@ -47,7 +66,13 @@ export default class WhatsAppService {
 
   // ---------- Messages ----------
   async sendMessage(to, body) {
-    return this._sendForm('/messages/chat', { to: normalizeRecipient(to), body });
+    const dest = normalizeRecipient(to);
+    if (!body) {
+      log(`⚠️ پیام خالی برای ${dest} ارسال نشد.`);
+      return { skipped: true };
+    }
+    log(`📤 ارسال پیام به ${dest}`);
+    return this._sendForm('/messages/chat', { to: dest, body });
   }
 
   async sendImage(to, imageUrl, caption = '') {
@@ -83,21 +108,51 @@ export default class WhatsAppService {
   // ---------- Low-level helper ----------
   async _sendForm(endpoint, obj) {
     if (!obj?.to) throw new Error('destination (to) is required');
-    if ('body' in obj && !obj.body) return { skipped: true, reason: 'empty body' };
 
     const payload = qs.stringify({ token: this.token, ...obj });
     try {
       const { data } = await this.http.post(endpoint, payload, {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
       });
-      // console.log('✅', endpoint, data);
+
+      if (data?.id || data?.sent) log(`✅ ارسال موفق (${endpoint}) → message_id=${data.id || '?'} برای ${obj.to}`);
+      else log(`⚠️ پاسخ UltraMsg غیرمنتظره بود →`, data);
+
       return data;
-    } catch (err) {
-      const res = err.response;
-      const detail = res?.data || res?.statusText || err.message;
-      // console.error('❌', endpoint, detail);
-      throw new Error(`UltraMSG ${endpoint} failed: ${typeof detail === 'string' ? detail : JSON.stringify(detail)}`);
+    } catch (e) {
+      const res = e.response;
+      const detail = res?.data || res?.statusText || e.message;
+      err(`❌ خطا در ارسال (${endpoint}) → ${typeof detail === 'string' ? detail : JSON.stringify(detail)}`);
+      throw e;
     }
   }
 }
 
+// ============================================================
+// ایجاد singleton برای استفاده مستقیم
+// ============================================================
+const instanceId = process.env.ULTRAMSG_INSTANCE_ID;
+const token = process.env.ULTRAMSG_TOKEN;
+
+let instance = null;
+try {
+  if (instanceId && token) {
+    instance = new WhatsAppService(instanceId, token);
+  } else {
+    err('⚠️ مقادیر ULTRAMSG_INSTANCE_ID یا ULTRAMSG_TOKEN تنظیم نشده‌اند.');
+  }
+} catch (e) {
+  err('❌ WhatsAppService init failed:', e.message);
+}
+
+// ============================================================
+// خروجی نهایی برای استفاده مستقیم (instance یا mock)
+// ============================================================
+const WhatsAppSingleton = instance || {
+  sendMessage: async (to, msg) => {
+    log(`(MOCK) پیام به ${to}:\n${msg}`);
+    return { mocked: true };
+  }
+};
+
+export default WhatsAppSingleton;

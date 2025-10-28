@@ -1,22 +1,33 @@
-import '../../logger.js';
-// src/config/Config.js
-// پیکربندی مرکزی پروژه: env + کلاینت‌ها + db
+// ============================================================
+// File: src/config/Config.js
+// Purpose: پیکربندی مرکزی پروژه Rahin (env + clients + db)
+// Author: Hojjat Mehri
+// ============================================================
 
+import '../../logger.js';
 import env from './env.js';
 import OpenAI from 'openai';
-import WhatsAppService from '../WhatsAppService.js';
+import WhatsAppService from '../WhatsAppService.js'; // ← خروجی instance آماده است
 import { db } from '../db/db.js';
 
-// ---------- کلاینت‌ها ----------
+const MOD = '[Config]';
+const log = (...a) => console.log(MOD, ...a);
+const err = (...a) => console.error(MOD, ...a);
+
+// ============================================================
+// OpenAI Client
+// ============================================================
 export const openai = new OpenAI({ apiKey: env.OPENAI_API_KEY });
 
-export const waService = new WhatsAppService(
-  env.ULTRAMSG_INSTANCE_ID,
-  env.ULTRAMSG_TOKEN,
-  env.ULTRAMSG_BASE_URL || 'https://api.ultramsg.com'
-);
+// ============================================================
+// WhatsApp Client (Singleton)
+// ============================================================
+// چون WhatsAppService در نسخه جدید خودش instance است، نیازی به new نیست
+export const waService = WhatsAppService;
 
-// ---------- re-export متغیرهای env به صورت نام‌دار ----------
+// ============================================================
+// Named re-exports (برای سازگاری با فایل‌های قدیمی)
+// ============================================================
 export const {
   OPENAI_API_KEY,
   NOVINHUB_API_KEY,
@@ -30,7 +41,7 @@ export const {
   ULTRAMSG_BASE_URL,
   WEBHOOK_SECRET,
   WHATSAPP_GROUP_ID,
-  WHATSAPP_DEST_MOBILE,   // اگر در .env گذاشتی
+  WHATSAPP_DEST_MOBILE,
   TABLE_NAME,
   SQLITE_DB_PATH,
   GOOGLE_SHEET_ID,
@@ -42,13 +53,20 @@ export const {
   RAHIN_LOGS_DIR,
 } = env;
 
-// ---------- آبجکت مرکزی ----------
+// ============================================================
+// آبجکت مرکزی پیکربندی
+// ============================================================
 export const CONFIG = {
-  ...env,        // همه‌ی کلیدهای env
-  db,            // اتصال دیتابیس
+  ...env,        // تمام متغیرهای محیطی
+  db,            // اتصال دیتابیس مرکزی
   openai,        // کلاینت OpenAI
-  waService,     // سرویس واتساپ
+  waService,     // سرویس WhatsApp (UltraMsg)
 };
 
-export default CONFIG;
+// ============================================================
+// Health log
+// ============================================================
+log(`✅ CONFIG loaded (env=${env.NODE_ENV || 'unknown'})`);
+log(`🔌 WhatsAppService instance ready: ${env.ULTRAMSG_INSTANCE_ID || '(unset)'}`);
 
+export default CONFIG;

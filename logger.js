@@ -1,5 +1,5 @@
 // ========================================================
-// File: logger.js (نسخهٔ محلی‌شده با WhatsApp داخلی)
+// File: logger.js (نسخهٔ محلی‌شده با WhatsApp داخلی + تشخیص فایل اجرایی اصلی)
 // Author: Hojjat Mehri
 // ========================================================
 
@@ -8,32 +8,37 @@ import fs from 'fs';
 import path from 'path';
 import axios from 'axios';
 
+// ===== تعیین نام فایل اجرایی اصلی (job) =====
+let MAIN_SCRIPT = 'unknown';
+try {
+  const arg = process.argv[1] ? path.resolve(process.argv[1]) : null;
+  if (arg) {
+    MAIN_SCRIPT = path.basename(path.dirname(arg)) + '/' + path.basename(arg);
+  }
+} catch { MAIN_SCRIPT = 'unknown'; }
+
 // ===== WhatsApp Service (محلی) =====
 class WhatsAppService {
   constructor(instanceId, token) {
     this.instanceId = instanceId;
     this.token = token;
-    this.baseUrl = `https://api.ultramsg.com/${instanceId}/messages`;
     this.enabled = !!(instanceId && token);
+    this.baseUrl = `https://api.ultramsg.com/${instanceId}/messages/chat`;
   }
 
   async sendMessage(to, text) {
-    if (!this.enabled) {
-      console.log(`[logger:waService] ⚠️ sendMessage skipped (no credentials) -> ${to}: ${text.slice(0, 100)}...`);
-      return;
-    }
+    if (!this.enabled) return;
     try {
-      const payload = {
-        token: this.token,
-        to,
-        body: text,
-      };
-      const res = await axios.post(this.baseUrl, payload, {
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      });
-      console.log(`[logger:waService] ✅ sent to ${to}: ${res.status}`);
+      const params = new URLSearchParams();
+      params.append('token', this.token);
+      params.append('to', to);
+      params.append('body', text);
+      await axios.post(this.baseUrl, params);
     } catch (e) {
-      console.warn(`[logger:waService] ❌ send failed to ${to}: ${e?.message || e}`);
+      fs.appendFileSync(
+        './logs/wa_errors.log',
+        `[${new Date().toISOString()}] sendMessage failed: ${e?.message || e}\n`
+      );
     }
   }
 }
@@ -67,7 +72,9 @@ function getDateStr(d = new Date()) {
 }
 function getTimeStamp() {
   const d = new Date();
-  return `${getDateStr(d)} ${pad2(d.getHours())}:${pad2(d.getMinutes())}:${pad2(d.getSeconds())}.${pad3(d.getMilliseconds())}`;
+  return `${getDateStr(d)} ${pad2(d.getHours())}:${pad2(d.getMinutes())}:${pad2(
+    d.getSeconds()
+  )}.${pad3(d.getMilliseconds())}`;
 }
 function stringifySafe(obj) {
   try {
@@ -89,7 +96,9 @@ function getCallerInfoFallback() {
       if (!line) continue;
       if (line.includes(LOGGER_FILE_NAME)) continue;
       if (line.includes('node:internal')) continue;
-      const m = line.match(/\((.*?):(\d+):(\d+)\)/) || line.match(/at (.*?):(\d+):(\d+)/);
+      const m =
+        line.match(/\((.*?):(\d+):(\d+)\)/) ||
+        line.match(/at (.*?):(\d+):(\d+)/);
       if (m) {
         const full = path.resolve(m[1]);
         const cwd = process.cwd().replace(/\\/g, '/');
@@ -103,12 +112,8 @@ function getCallerInfoFallback() {
 }
 
 // ===== فایل لاگ روزانه =====
-const LOG_DIR = process.env.RAHIN_LOGS_DIR
-  ? path.resolve(process.env.RAHIN_LOGS_DIR)
-  : path.resolve('./logs');
-try {
-  fs.mkdirSync(LOG_DIR, { recursive: true });
-} catch {}
+const LOG_DIR = path.resolve(process.env.RAHIN_LOGS_DIR || './logs');
+try { fs.mkdirSync(LOG_DIR, { recursive: true }); } catch {}
 
 let currentDateStr = null;
 let stream = null;
@@ -135,29 +140,30 @@ console.log = (...args) => {
   const ts = getTimeStamp();
   const caller = getCallerInfoFallback();
   const msg = args.map(a => stringifySafe(a)).join(' ');
-  originalLog(...args, '|', ts, '|', caller);
-  writeLine(`[${ts}] [INFO] ${msg} | ${caller}`);
+  originalLog(...args, '|', `[${MAIN_SCRIPT}]`, '|', ts, '|', caller);
+  writeLine(`[${ts}] [INFO] [${MAIN_SCRIPT}] ${msg} | ${caller}`);
 };
 
 console.warn = (...args) => {
   const ts = getTimeStamp();
   const caller = getCallerInfoFallback();
   const msg = args.map(a => stringifySafe(a)).join(' ');
-  originalWarn(...args, '|', ts, '|', caller);
-  writeLine(`[${ts}] [WARN] ${msg} | ${caller}`);
+  originalWarn(...args, '|', `[${MAIN_SCRIPT}]`, '|', ts, '|', caller);
+  writeLine(`[${ts}] [WARN] [${MAIN_SCRIPT}] ${msg} | ${caller}`);
 };
 
 console.error = (...args) => {
   const ts = getTimeStamp();
   const caller = getCallerInfoFallback();
   const msg = args.map(a => stringifySafe(a)).join(' ');
-  originalError(...args, '|', ts, '|', caller);
-  writeLine(`[${ts}] [ERROR] ${msg} | ${caller}`);
+  originalError(...args, '|', `[${MAIN_SCRIPT}]`, '|', ts, '|', caller);
+  writeLine(`[${ts}] [ERROR] [${MAIN_SCRIPT}] ${msg} | ${caller}`);
 
-  // ارسال واتساپ (اختیاری)
   try {
-    const shortMsg = `❌ Error @ ${ts}\n${caller}\n${msg.slice(0, 1800)}`;
-    waService.sendMessage(ERROR_NOTIFICATION_PHONE, shortMsg).catch(() => {});
+    if (waService.enabled) {
+      const sms = `❌ Error @ ${ts}\nJob: ${MAIN_SCRIPT}\n${caller}\n${msg.slice(0, 1500)}`;
+      waService.sendMessage(ERROR_NOTIFICATION_PHONE, sms).catch(() => {});
+    }
   } catch {}
 };
 
@@ -168,3 +174,4 @@ process.on('uncaughtException', (err) => {
 process.on('unhandledRejection', (reason) => {
   console.error('UnhandledRejection', reason);
 });
+
