@@ -1,6 +1,6 @@
 // ========================================================
 // File: src/pipeline/daily_report_send.js
-// Purpose: Send daily summary of visitor scenarios via WhatsApp
+// Purpose: Generate & send daily summary of visitor scenarios via WhatsApp
 // Author: Hojjat Mehri
 // ========================================================
 
@@ -10,7 +10,6 @@ import Database from 'better-sqlite3';
 import moment from 'moment-timezone';
 import { waService } from '../config/Config.js';
 
-// تنظیمات عمومی
 const TZ = 'Asia/Tehran';
 const DB_PATH = process.env.MAIN_DB_PATH || 'E:/Projects/AtighgashtAI/db_atigh.sqlite';
 const MANAGER_MOBILE = process.env.WHATSAPP_OPERATOR || '989134052885';
@@ -22,30 +21,28 @@ db.pragma('foreign_keys = ON');
 
 // === ابزار کمکی
 function fmt(ts) {
-  return moment(ts).tz(TZ).format('YYYY-MM-DD HH:mm');
+  return ts ? moment(ts).tz(TZ).format('YYYY-MM-DD HH:mm') : '-';
 }
 
 // === مرحله 1: جمع‌آوری آمار Guard
 function getGuardStats() {
-  const rows = db.prepare(`
+  return db.prepare(`
     SELECT status, COUNT(*) AS cnt, MAX(last_sent_at) AS last_time
     FROM scenario_send_guard
     GROUP BY status
     ORDER BY cnt DESC
   `).all();
-  return rows;
 }
 
 // === مرحله 2: آمار کل پروفایل‌ها
 function getProfileStats() {
-  const row = db.prepare(`
+  return db.prepare(`
     SELECT
       COUNT(*) AS total_profiles,
       SUM(CASE WHEN scenario_text IS NOT NULL THEN 1 ELSE 0 END) AS with_scenario,
       SUM(CASE WHEN didar_contact_id IS NULL THEN 1 ELSE 0 END) AS no_crm
     FROM person_unified_profile
   `).get();
-  return row;
 }
 
 // === مرحله 3: ساخت متن خلاصه فارسی
@@ -55,7 +52,6 @@ function buildReportText() {
   const prof = getProfileStats();
 
   let txt = `📊 گزارش روزانه راهین (${now})\n\n`;
-
   txt += `👤 مجموع پروفایل‌ها: ${prof.total_profiles}\n`;
   txt += `🧩 دارای سناریو: ${prof.with_scenario}\n`;
   txt += `❌ بدون CRM در دیدار: ${prof.no_crm}\n\n`;
@@ -86,15 +82,11 @@ async function sendDailyReport() {
   }
 }
 
-// === مرحله 5: کران روزانه ساعت ۱۸ به‌وقت تهران
-import cron from 'node-cron';
-
-cron.schedule('0 18 * * *', () => {
-  console.log(`[DailyReport ${moment().tz(TZ).format('YYYY-MM-DD HH:mm:ss')}] 🚀 Triggering daily report...`);
-  sendDailyReport();
-}, { timezone: TZ });
-
-// اجرای فوری اگر با فلگ FORCE_RUN اجرا شود
+// === مرحله 5: اجرای مستقیم یا با فلگ FORCE_RUN
 if (process.env.FORCE_RUN === '1') {
+  sendDailyReport();
+} else {
+  // اگر توسط PM2 با cron_restart اجرا شده، فقط همین تابع اجرا شود.
+  console.log(`[DailyReport] Triggered by PM2 cron (${moment().tz(TZ).format('YYYY-MM-DD HH:mm:ss')})`);
   sendDailyReport();
 }

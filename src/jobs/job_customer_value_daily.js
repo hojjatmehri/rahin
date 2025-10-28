@@ -9,6 +9,7 @@ import Database from 'better-sqlite3';
 import moment from 'moment-timezone';
 import WhatsAppService from '../WhatsAppService.js';
 import { collectCustomerValue } from '../collectors/customerValueCollector.js';
+import { syncUnifiedProfiles } from '../../../AtighgashtAI/src/collectors/personUnifiedFromDidar.js';
 
 const MOD = '[JobCustomerValueDaily]';
 const TZ = 'Asia/Tehran';
@@ -21,7 +22,16 @@ const err = (...a) => console.error(MOD, ...a);
 
 (async () => {
   try {
-    log('🚀 Job started:', moment().tz(TZ).format('YYYY-MM-DD HH:mm:ss'));
+    const now = moment().tz(TZ).format('YYYY-MM-DD HH:mm:ss');
+    log(`🚀 Job started at ${now}`);
+
+    // --- مرحله ۰: همگام‌سازی پروفایل‌های دیدار و فرم‌افزار ---
+    try {
+      syncUnifiedProfiles();
+      log('✅ Unified profiles synced from Didar & Formafzar.');
+    } catch (e) {
+      log('⚠️ syncUnifiedProfiles failed:', e.message);
+    }
 
     // --- مرحله ۱: اجرای Collector ---
     await collectCustomerValue();
@@ -32,14 +42,14 @@ const err = (...a) => console.error(MOD, ...a);
     db.pragma('journal_mode = WAL');
     db.pragma('synchronous = NORMAL');
 
-    // --- مرحله ۳: بازسازی ویو برای جلوگیری از خطای contact_name ---
+    // --- مرحله ۳: بازسازی ویو برای اطمینان از وجود contact_name ---
     db.exec(`
       DROP VIEW IF EXISTS v_customer_value_ranked;
 
       CREATE VIEW v_customer_value_ranked AS
       SELECT
         cv.mobile,
-        COALESCE(pup.contact_name,'درج نشده') AS contact_name,
+        COALESCE(pup.contact_name, 'درج نشده') AS contact_name,
         cv.value_score,
         cv.whatsapp_score,
         cv.crm_stage_score,
@@ -56,7 +66,7 @@ const err = (...a) => console.error(MOD, ...a);
         ON pup.mobile = cv.mobile
       ORDER BY cv.value_score DESC;
     `);
-    log('✅ View v_customer_value_ranked rebuilt.');
+    log('✅ View v_customer_value_ranked rebuilt successfully.');
 
     // --- مرحله ۴: دریافت ۱۰ مشتری برتر ---
     const topCustomers = db

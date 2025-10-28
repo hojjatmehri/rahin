@@ -1,29 +1,31 @@
+// File: E:\Projects\rahin\test_create_v_customer_segments.js
 import Database from "better-sqlite3";
-const db = new Database('E:/Projects/AtighgashtAI/db_atigh.sqlite');
 
+const db = new Database("E:/Projects/AtighgashtAI/db_atigh.sqlite");
 db.exec(`
-  DROP VIEW IF EXISTS v_customer_value_ranked;
-
-  CREATE VIEW v_customer_value_ranked AS
-  SELECT
-    cv.mobile,
-    COALESCE(pup.contact_name,'درج نشده') AS contact_name,
-    cv.value_score,
-    cv.whatsapp_score,
-    cv.crm_stage_score,
-    cv.financial_score,
-    cv.total_interactions,
-    cv.total_amount,
-    cv.payments_count,
-    cv.last_payment_at,
-    cv.updated_at,
-    cv.rank_label,
-    CAST((julianday('now') - julianday(cv.last_payment_at)) AS INT) AS recency_days
-  FROM customer_value cv
-  LEFT JOIN person_unified_profile pup
-    ON pup.mobile = cv.mobile
-  ORDER BY cv.value_score DESC;
+DROP VIEW IF EXISTS v_customer_segments;
+CREATE VIEW v_customer_segments AS
+SELECT
+  rank_label,
+  COUNT(*) AS total_customers,
+  ROUND(AVG(value_score), 2) AS avg_value_score,
+  ROUND(AVG(total_amount), 0) AS avg_total_amount,
+  ROUND(AVG(payments_count), 1) AS avg_payments_count
+FROM customer_value
+WHERE value_score IS NOT NULL
+GROUP BY rank_label
+ORDER BY
+  CASE rank_label
+    WHEN 'پلاتینیوم' THEN 1
+    WHEN 'طلایی' THEN 2
+    WHEN 'نقره‌ای' THEN 3
+    WHEN 'برنزی' THEN 4
+    ELSE 5
+  END;
 `);
+console.log("✅ View v_customer_segments created successfully.");
 
-console.log('✅ View rebuilt with contact_name default.');
+// تست سریع
+const rows = db.prepare(`SELECT * FROM v_customer_segments;`).all();
+console.table(rows);
 db.close();
