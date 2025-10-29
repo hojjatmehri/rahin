@@ -279,7 +279,50 @@ module.exports = {
       autorestart: true,
       time: true,
       timezone: "Asia/Tehran",
+    },// ========================================================
+    // Validator تگ‌های یادداشت‌ها (روزانه)
+    // ========================================================
+    enabled("ENABLED_NOTE_TAG_VALIDATOR") && {
+      name: "note_tag_validator",
+      script: "E:/Projects/AtighgashtAI/jobs/job_note_tag_validator.js",
+      cron_restart: "15 9 * * *", // اجرا هر روز ساعت ۹:۱۵ صبح
+      autorestart: false,
+      time: true,
+      timezone: "Asia/Tehran",
+      out_file: "E:/Projects/AtighgashtAI/logs/note_tag_validator.log",
+      error_file: "E:/Projects/AtighgashtAI/logs/note_tag_validator.err.log",
+      merge_logs: true,
+      env: {
+        NODE_ENV: "production",
+        APP_TZ: "Asia/Tehran",
+        MAIN_DB_PATH: "E:/Projects/AtighgashtAI/db_atigh.sqlite",
+        WHATSAPP_OPERATOR: "09134052885",
+        WA_INSTANCE_ID: process.env.WA_INSTANCE_ID,
+        WA_TOKEN: process.env.WA_TOKEN,
+      },
+    },// ========================================================
+    // سینک دیدار ساعتی (هر ساعت از ۸ تا ۱۸ به وقت تهران)
+    // ========================================================
+    enabled("ENABLED_DIDAR_DAILY_SYNC") && {
+      name: "didar-daily-sync",
+      script: "src/sync/didar/job_sync_didar_daily.js",
+      cwd: "E:/Projects/AtighgashtAI",
+      // اجرای خودکار هر ساعت بین ۸ تا ۱۸
+      cron_restart: "0 8-18 * * *", 
+      autorestart: false,
+      time: true,
+      timezone: "Asia/Tehran",
+      out_file: "E:/Projects/AtighgashtAI/logs/didar-daily-sync.log",
+      error_file: "E:/Projects/AtighgashtAI/logs/didar-daily-sync.err.log",
+      merge_logs: true,
+      env: {
+        NODE_ENV: "production",
+        APP_TZ: "Asia/Tehran",
+        MAIN_DB_PATH: "E:/Projects/AtighgashtAI/db_atigh.sqlite",
+        WHATSAPP_OPERATOR: "09134052885",
+      },
     },
+    
 
   ].filter(Boolean),
 };
