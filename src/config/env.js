@@ -1,4 +1,4 @@
-import '../../logger.js';
+import '../logger.js';
 // src/config/env.js
 // بارگذاری و اعتبارسنجی متغیرهای محیطی بر اساس نیاز Rahin Ops + سرویس‌ها
 

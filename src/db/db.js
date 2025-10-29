@@ -1,57 +1,63 @@
 import '../../logger.js';
-// src/db/db.js
-// لایهٔ ساده و امن برای کار با sqlite3 (Promise-based helpers)
+// ============================================================
+// File: src/db/db.js
+// لایهٔ ایمن و پایدار برای کار با SQLite (با پشتیبانی از auto-reopen)
+// Author: Hojjat Mehri
+// ============================================================
 
 import sqlite3 from 'sqlite3';
 import path from 'path';
 import fs from 'fs/promises';
 import env from '../config/env.js';
 
-let _overrideDb = null;       // اگر ست شود، یعنی better-sqlite3 فعال است
 sqlite3.verbose();
+
+let _overrideDb = null;        // اگر ست شود یعنی از better-sqlite3 استفاده می‌شود
+let _rawDb = null;             // اتصال فعال sqlite3
+const mode = sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE;
 
 /* ----------------------- مسیر DB ----------------------- */
 function resolveDbPath() {
-  // اولویت با ENV سیستم؛ سپس env.js
   const DB_FILE =
     process.env.SQLITE_DB_PATH ||
     process.env.DB_PATH ||
     env?.SQLITE_DB_PATH ||
     './db_atigh.sqlite';
 
-  const abs = path.isAbsolute(DB_FILE) ? DB_FILE : path.resolve(process.cwd(), DB_FILE);
-  return abs;
-}
-
-export function useBetterSqlite3(dbInstance) {
-  // اگر null بدهی، برمی‌گردیم به sqlite3 قدیمی
-  _overrideDb = dbInstance || null;
+  return path.isAbsolute(DB_FILE) ? DB_FILE : path.resolve(process.cwd(), DB_FILE);
 }
 
 export const DB_PATH = resolveDbPath();
 
-/* ----------------------- اتصال (sqlite3 قدیمی) ----------------------- */
-const mode = sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE;
-const rawDb = new sqlite3.Database(DB_PATH, mode, (err) => {
-  if (err) {
-    console.error(`[db] خطا در باز کردن sqlite DB (${DB_PATH}):`, err.message);
-  } else {
-    console.log(`[db] اتصال sqlite باز شد: ${DB_PATH}`);
+/* ----------------------- تابع بازگشایی خودکار ----------------------- */
+function ensureOpenConnection() {
+  if (_overrideDb) return _overrideDb;
+
+  // اگر هنوز باز نشده یا بسته شده
+  if (!_rawDb || !_rawDb.open) {
+    try {
+      console.warn(`[db] Connection closed or missing. Reopening: ${DB_PATH}`);
+      _rawDb = new sqlite3.Database(DB_PATH, mode, (err) => {
+        if (err) console.error('[db] Failed to reopen:', err.message);
+        else console.log('[db] Reconnected to SQLite:', DB_PATH);
+      });
+      _rawDb.configure?.('busyTimeout', 5000);
+      _rawDb.serialize();
+    } catch (e) {
+      console.error('[db] Critical: reopen failed =>', e.message);
+      throw e;
+    }
   }
-});
+  return _rawDb;
+}
 
-// کاهش خطای BUSY در بار همزمان
-try { rawDb.configure?.('busyTimeout', 5000); } catch { /* ignore */ }
+/* ----------------------- پشتیبانی از better-sqlite3 ----------------------- */
+export function useBetterSqlite3(dbInstance) {
+  _overrideDb = dbInstance || null;
+  if (_overrideDb) console.log('[db] better-sqlite3 mode enabled.');
+}
 
-// serialize: اجرای دستورات به‌ترتیب
-rawDb.serialize();
-
-// ⬅️ برای سازگاری با کدهای قدیمی
-export const db = rawDb;
-
-/* ----------------------- Promise wrappers ----------------------- */
-// اگر _overrideDb ست شده باشد، از better-sqlite3 استفاده می‌کنیم؛ در غیر این صورت از rawDb (sqlite3)
-
+/* ----------------------- Promise helpers ----------------------- */
 export function run(sql, params = []) {
   if (_overrideDb) {
     return new Promise((resolve, reject) => {
@@ -62,8 +68,10 @@ export function run(sql, params = []) {
       } catch (e) { reject(e); }
     });
   }
+
+  const dbConn = ensureOpenConnection();
   return new Promise((resolve, reject) => {
-    rawDb.run(sql, params, function (err) {
+    dbConn.run(sql, params, function (err) {
       if (err) return reject(err);
       resolve({ lastID: this.lastID, changes: this.changes });
     });
@@ -75,16 +83,14 @@ export function get(sql, params = []) {
     return new Promise((resolve, reject) => {
       try {
         const stmt = _overrideDb.prepare(sql);
-        const row = stmt.get(...params);
-        resolve(row);
+        resolve(stmt.get(...params));
       } catch (e) { reject(e); }
     });
   }
+
+  const dbConn = ensureOpenConnection();
   return new Promise((resolve, reject) => {
-    rawDb.get(sql, params, (err, row) => {
-      if (err) return reject(err);
-      resolve(row);
-    });
+    dbConn.get(sql, params, (err, row) => err ? reject(err) : resolve(row));
   });
 }
 
@@ -93,16 +99,14 @@ export function all(sql, params = []) {
     return new Promise((resolve, reject) => {
       try {
         const stmt = _overrideDb.prepare(sql);
-        const rows = stmt.all(...params);
-        resolve(rows);
+        resolve(stmt.all(...params));
       } catch (e) { reject(e); }
     });
   }
+
+  const dbConn = ensureOpenConnection();
   return new Promise((resolve, reject) => {
-    rawDb.all(sql, params, (err, rows) => {
-      if (err) return reject(err);
-      resolve(rows);
-    });
+    dbConn.all(sql, params, (err, rows) => err ? reject(err) : resolve(rows));
   });
 }
 
@@ -112,15 +116,15 @@ export function exec(sql) {
       try { _overrideDb.exec(sql); resolve(); } catch (e) { reject(e); }
     });
   }
+
+  const dbConn = ensureOpenConnection();
   return new Promise((resolve, reject) => {
-    rawDb.exec(sql, (err) => {
-      if (err) return reject(err);
-      resolve();
-    });
+    dbConn.exec(sql, (err) => err ? reject(err) : resolve());
   });
 }
 
 export function each(sql, params = [], onRow) {
+  const dbConn = ensureOpenConnection();
   if (_overrideDb) {
     return new Promise((resolve, reject) => {
       try {
@@ -134,33 +138,34 @@ export function each(sql, params = [], onRow) {
       } catch (e) { reject(e); }
     });
   }
+
   return new Promise((resolve, reject) => {
-    try {
-      rawDb.each(
-        sql,
-        params,
-        (err, row) => {
-          if (err) return reject(err);
-          try { onRow(row); } catch { /* swallow */ }
-        },
-        (err, count) => {
-          if (err) return reject(err);
-          resolve(count);
-        }
-      );
-    } catch (e) { reject(e); }
+    dbConn.each(
+      sql,
+      params,
+      (err, row) => {
+        if (err) return reject(err);
+        try { onRow(row); } catch { /* swallow */ }
+      },
+      (err, count) => err ? reject(err) : resolve(count)
+    );
   });
 }
 
+/* ----------------------- بستن اتصال ----------------------- */
 export function close() {
   if (_overrideDb) {
     return new Promise((resolve, reject) => {
       try { _overrideDb.close(); resolve(); } catch (e) { reject(e); }
     });
   }
+
+  if (!_rawDb) return Promise.resolve();
   return new Promise((resolve, reject) => {
-    rawDb.close((err) => {
+    _rawDb.close((err) => {
       if (err) return reject(err);
+      console.log('[db] Connection closed.');
+      _rawDb = null;
       resolve();
     });
   });
@@ -168,12 +173,11 @@ export function close() {
 
 /* ----------------------- تراکنش ----------------------- */
 export async function withTransaction(fn) {
-  // روش سازگار با هر دو درایور
   await run('BEGIN TRANSACTION;');
   try {
-    const res = await fn();
+    const result = await fn();
     await run('COMMIT;');
-    return res;
+    return result;
   } catch (e) {
     try { await run('ROLLBACK;'); } catch { /* ignore */ }
     throw e;
@@ -223,8 +227,19 @@ export async function runSqlFile(filePath) {
   await exec(sql);
 }
 
-/* ----------------------- Init PRAGMAs on load ----------------------- */
+/* ----------------------- Init on load ----------------------- */
+ensureOpenConnection();
 ensurePragmas().catch(err => {
   console.warn('[db] warn: ensurePragmas failed', err?.message || err);
 });
 
+/* ----------------------- Global Error Guard ----------------------- */
+process.on('uncaughtException', (err) => {
+  if (err?.message?.includes('SQLITE_BUSY') || err?.message?.includes('not open')) {
+    console.warn('[db] Transient SQLite error ignored:', err.message);
+  } else {
+    console.error('[db] Uncaught exception:', err);
+  }
+});
+
+export const db = ensureOpenConnection();

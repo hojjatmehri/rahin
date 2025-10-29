@@ -34,10 +34,11 @@ export async function collectCrmAlerts() {
   try {
     // --- Step 1: واکشی داده‌ها از ویوی خلاصه ارتباط ---
     const rows = await db.all(`
-      SELECT contact_id, name, last_activity_at, in_count_30d, out_count_30d
+      SELECT contact_mobile AS contact_id, name, last_activity_at, in_count_30d, out_count_30d
       FROM v_contact_comm_summary
-      WHERE contact_id IS NOT NULL
+      WHERE contact_mobile IS NOT NULL
     `);
+    
 
     const cutoff = now.clone().subtract(ALERT_GRACE_DAYS, "days");
     const candidates = rows.filter(r => {
