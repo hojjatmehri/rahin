@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 // src/analytics/runJourneyPeriods.js
 import Database from "better-sqlite3";
 import moment from "moment-timezone";

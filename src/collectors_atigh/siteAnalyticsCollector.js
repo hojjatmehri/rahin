@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 /**
  * siteAnalyticsCollector.js
  * خروجی‌ها برای یک تاریخ (دیروز یا تاریخ ورودی):

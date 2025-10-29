@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 // src/utils/jalali.js
 import moment from "moment-timezone";
 import jalaali from "jalaali-js";

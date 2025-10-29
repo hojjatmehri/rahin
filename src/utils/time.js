@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 // src/utils/time.js
 // همهٔ زمان‌ها به وقت تهران
 

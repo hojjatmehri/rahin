@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 // src/destination/destinationModel.js
 // بازسازی و نگه‌داری دیتای مقصدها بر اساس تراکنش‌ها + کش فایل
 

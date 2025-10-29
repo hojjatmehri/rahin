@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 /**
  * transactionsCollector.js
  * خلاصه‌سازی روزانهٔ تراکنش‌ها (تعداد، جمع فروش، جمع سود، مقصد برتر)

@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 // src/utils/normalizers.js
 // نرمال‌سازی متن/داده و پس‌پردازش خروجی‌های فنی AI
 

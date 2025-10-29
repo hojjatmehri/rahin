@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 /**
  * messagesCollector.js
  * تجمیع روزانه تعاملات (WhatsApp/Instagram) → rahin_daily_summary

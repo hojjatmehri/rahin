@@ -4,7 +4,7 @@
 // Author: Hojjat Mehri
 // ============================================================
 
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 import env from './env.js';
 import OpenAI from 'openai';
 import WhatsAppService from '../WhatsAppService.js'; // ← خروجی instance آماده است

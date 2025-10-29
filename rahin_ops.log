@@ -2423,3 +2423,9 @@
 [2025-10-29 08:19:42] [INFO] خواندن لاگ‌ها {"found":1,"took":"9ms"}
 [2025-10-29 08:19:42] [INFO] باندل‌سازی خطاها {"bundles":0,"took":"0ms"}
 [2025-10-29 08:19:42] [INFO] پایان اسکن خطاها {"traceId":"scan-1761713382122","scanned":1,"bundles":0,"handled":0,"sent":0,"total":"36ms"}
+[2025-10-29T10:17:31.320Z] skipped: no new data since last snapshot
+[2025-10-29T10:24:05.904Z] skipped: no new data since last snapshot
+[2025-10-29T10:26:48.168Z] skipped: no new data since last snapshot
+[2025-10-29T10:34:41.185Z] skipped: no new data since last snapshot
+[2025-10-29T10:38:28.797Z] skipped: no new data since last snapshot
+[2025-10-29T10:47:31.220Z] skipped: no new data since last snapshot

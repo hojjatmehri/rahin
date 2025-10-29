@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 // src/ai/errorAnalyzer.js
 // اسکن لاگ‌های اخیر، تحلیل خطا با OpenAI، ثبت در DB، و ارسال خلاصه (اختیاری)
 

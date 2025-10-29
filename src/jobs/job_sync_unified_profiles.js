@@ -4,7 +4,7 @@
 // Author: Hojjat Mehri
 // ============================================================
 
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 import moment from 'moment-timezone';
 import wa from '../WhatsAppService.js'; // ← خروجی آماده
 

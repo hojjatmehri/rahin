@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 // src/collectors/whatsappCollector.js
 // گردآوری آمار واتساپ + بینش کلیک‌های واتساپ
 

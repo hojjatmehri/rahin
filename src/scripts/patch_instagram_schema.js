@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 // src/scripts/patch_instagram_schema.js
 import { all, exec, close } from '../db/db.js';
 

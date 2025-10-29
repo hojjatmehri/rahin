@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 // ============================================================
 // File: src/db/db.js
 // لایهٔ ایمن و پایدار برای کار با SQLite (با پشتیبانی از auto-reopen)
@@ -26,6 +26,7 @@ function resolveDbPath() {
 
   return path.isAbsolute(DB_FILE) ? DB_FILE : path.resolve(process.cwd(), DB_FILE);
 }
+const SILENT_RECONNECT = true;
 
 export const DB_PATH = resolveDbPath();
 
@@ -36,7 +37,9 @@ function ensureOpenConnection() {
   // اگر هنوز باز نشده یا بسته شده
   if (!_rawDb || !_rawDb.open) {
     try {
-      console.warn(`[db] Connection closed or missing. Reopening: ${DB_PATH}`);
+      if (!SILENT_RECONNECT)
+        console.warn(`[db] Connection closed or missing. Reopening: ${DB_PATH}`);
+      
       _rawDb = new sqlite3.Database(DB_PATH, mode, (err) => {
         if (err) console.error('[db] Failed to reopen:', err.message);
         else console.log('[db] Reconnected to SQLite:', DB_PATH);

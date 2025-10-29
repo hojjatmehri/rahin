@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 // src/analytics/runAllChannelsPeriods.js
 import moment from "moment-timezone";
 import { CONFIG } from "../config/Config.js";

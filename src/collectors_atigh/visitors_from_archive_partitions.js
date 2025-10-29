@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 /**
  * visitors_from_archive_partitions.js
  * آرشیو: جداول weekly با نام journey_events_wYYYY_MM_DD (پایان هفته = شنبه)

@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 // src/db/schemaGuard.js
 // ایجاد/بررسی حداقل اسکیما و ایندکس‌ها + اعمال PRAGMAهای ضروری
 

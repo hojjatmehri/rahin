@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 // src/message/messageBuilders.js
 // ساخت پیام‌های کوتاه و خوانا برای ارسال در واتساپ (فارسی)
 

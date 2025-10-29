@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 // بک‌فیل سه جدول اینستاگرام به interactions با تشخیص هوشمند ستون زمان
 import Database from "better-sqlite3";
 import fs from "fs";

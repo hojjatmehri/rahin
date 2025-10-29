@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 /**
  * wordpress_visitors.js
  * شمارش visitor_id یکتا برای یک تاریخ مشخص با منطق آرشیو:

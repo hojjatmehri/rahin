@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 /**
  * visitorsCollector.js
  * اجرای جمع‌آوری بازدیدکننده‌ها برای یک تاریخ.

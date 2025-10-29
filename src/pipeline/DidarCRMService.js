@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 import axios from 'axios';
 const DIDAR_API_KEY = process.env.DIDAR_API_KEY || "gwjwiso8f78l0ohwqx4hm65ft2f9j4zv";
 const DIDAR_BASE_URL = process.env.DIDAR_BASE_URL || 'https://app.didar.me/api' ;

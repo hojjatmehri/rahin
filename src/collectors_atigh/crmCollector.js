@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 /**
  * crmCollector.js
  * تکمیل ستون‌های CRM در rahin_daily_summary:

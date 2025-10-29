@@ -7,7 +7,8 @@
 import dotenv from 'dotenv';
 dotenv.config({ path: 'E:/Projects/AtighgashtAI/.env' });
 
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
+
 import 'dotenv/config';
 import cron from 'node-cron';
 import moment from 'moment-timezone';

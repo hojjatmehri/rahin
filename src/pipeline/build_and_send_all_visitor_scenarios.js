@@ -1,4 +1,5 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
+
 /**
  * Build + store + send scenarios for ALL rows in visitor_contacts
  * - Reads latest weekly table journey_events_w... from ARCHIVE_DB_PATH

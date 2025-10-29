@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 // src/analytics/journeyAnalytics.js
 import moment from "moment-timezone";
 import env from "../config/env.js";

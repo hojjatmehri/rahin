@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 import { CONFIG } from "../config/Config.js";
 
 export async function ensureAgencyNumbers() {

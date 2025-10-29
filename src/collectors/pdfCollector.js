@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 // src/collectors/pdfCollector.js
 // آمار ارسال PDF: وضعیت‌ها امروز/۷روز و مخاطبان برتر امروز
 

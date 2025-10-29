@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 // src/utils/files.js
 // ابزارهای فایل: خواندن امن خطوط و استخراج اسنیپت کد اطراف یک شماره خط
 

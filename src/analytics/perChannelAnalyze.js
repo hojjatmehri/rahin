@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 // ========================================================
 // File: src/analytics/perChannelAnalyze.js
 // Author: Hojjat Mehri

@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 /**
  * visitors_from_weekly.js
  * منبع: db_archive.sqlite → جدول rahin_visitors_weekly (week_start = YYYY-MM-DD)

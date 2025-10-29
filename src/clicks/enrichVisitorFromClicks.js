@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 // src/clicks/enrichVisitorFromClicks.js
 // استخراج موبایل از کلیک‌ها + همبست‌سازی واتساپ با اینباکس (±۲ دقیقه) و ذخیره در visitor_contacts
 

@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 import fs from "fs";
 import path from "path";
 import Database from "better-sqlite3";

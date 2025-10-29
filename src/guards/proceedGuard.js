@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 // src/guards/proceedGuard.js
 // گارد تصمیم برای ادامه‌ی اجرای تحلیل بر اساس تغییرات KPIها
 

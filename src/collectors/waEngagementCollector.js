@@ -4,7 +4,7 @@
 // Author: Hojjat Mehri
 // ========================================================
 
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 import Database from 'better-sqlite3';
 import moment from 'moment-timezone';
 

@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 // ========================================================
 // File: src/collectors/financeCollector.js
 // Author: Hojjat Mehri (fixed date filter for TEXT regDateGregorian)

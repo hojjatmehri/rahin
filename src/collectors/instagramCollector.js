@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 // src/collectors/instagramCollector.js
 // گردآوری آمار اینستاگرام از سه جدول: comment, reply, atigh_instagram_new
 // - ستون زمان به‌صورت هوشمند از بین چند کاندیدا انتخاب می‌شود.

@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 // src/logging/logger.js
 // لاگ با زمان تهران + نوشتن در فایل مرکزی و فایل روزانه
 

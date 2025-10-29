@@ -1,4 +1,4 @@
-// import '../../logger.js';
+// import 'file:///E:/Projects/rahin/logger.js';
 /**
  * Rahin Ops Watchdog
  * - اجرای زمان‌بندی
@@ -8,7 +8,7 @@
  * - (جدید) اجرای تحلیل چندکاناله داخل خود واچ‌داگ برای تست/ارسال
  */
 
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 import dotenv from 'dotenv';
 dotenv.config({ path: 'E:/Projects/AtighgashtAI/.env' });
 import '../../AtighgashtAI/lib/health/channelEventListener.js';

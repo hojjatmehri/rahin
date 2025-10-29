@@ -1,4 +1,4 @@
-import '../../logger.js';
+import 'file:///E:/Projects/rahin/logger.js';
 // src/destination/destinationInfer.js
 // تخمین مقصد بر اساس عنوان سرویس یا توضیح
 
