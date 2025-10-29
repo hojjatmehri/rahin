@@ -19,9 +19,9 @@ module.exports = {
       max_restarts: 10,
       time: true,
       timezone: "Asia/Tehran",
-      out_file: "E:/Projects/rahin/logs/rahin_ops_watchdog.out.log",
+      out_file: "E:/Projects/rahin/logs/rahin_ops_watchdog.log",
       error_file: "E:/Projects/rahin/logs/rahin_ops_watchdog.err.log",
-      merge_logs: false,
+      merge_logs: true,
       log_date_format: "YYYY-MM-DD HH:mm:ss",
       env: {
         NODE_ENV: "production",
@@ -41,15 +41,16 @@ module.exports = {
       exec_mode: "fork",
       time: true,
       timezone: "Asia/Tehran",
-      out_file: "E:/Projects/rahin/logs/rahin-daily-unified-profiles.out.log",
+      out_file: "E:/Projects/rahin/logs/rahin-daily-unified-profiles.log",
       error_file: "E:/Projects/rahin/logs/rahin-daily-unified-profiles.err.log",
-      merge_logs: false,
+      merge_logs: true,
       log_date_format: "YYYY-MM-DD HH:mm:ss",
       env: {
         NODE_ENV: "production",
         APP_TZ: "Asia/Tehran",
         DEV_ALERT_MOBILE: "09134052885",
         DRY_RUN: "0",
+        MAIN_DB_PATH: "E:/Projects/AtighgashtAI/db_atigh.sqlite",
         ULTRAMSG_INSTANCE_ID: process.env.ULTRAMSG_INSTANCE_ID,
         ULTRAMSG_TOKEN: process.env.ULTRAMSG_TOKEN
       }
@@ -67,9 +68,9 @@ module.exports = {
       exec_mode: "fork",
       time: true,
       timezone: "Asia/Tehran",
-      out_file: "E:/Projects/rahin/logs/rahin-daily-visitor-scenarios.out.log",
+      out_file: "E:/Projects/rahin/logs/rahin-daily-visitor-scenarios.log",
       error_file: "E:/Projects/rahin/logs/rahin-daily-visitor-scenarios.err.log",
-      merge_logs: false,
+      merge_logs: true,
       log_date_format: "YYYY-MM-DD HH:mm:ss",
       env: {
         NODE_ENV: "production",
@@ -93,15 +94,16 @@ module.exports = {
       exec_mode: "fork",
       time: true,
       timezone: "Asia/Tehran",
-      out_file: "E:/Projects/rahin/logs/rahin-daily-customer-value.out.log",
+      out_file: "E:/Projects/rahin/logs/rahin-daily-customer-value.log",
       error_file: "E:/Projects/rahin/logs/rahin-daily-customer-value.err.log",
-      merge_logs: false,
+      merge_logs: true,
       log_date_format: "YYYY-MM-DD HH:mm:ss",
       env: {
         NODE_ENV: "production",
         APP_TZ: "Asia/Tehran",
         DEV_ALERT_MOBILE: "09134052885",
         DRY_RUN: "0",
+        MAIN_DB_PATH: "E:/Projects/AtighgashtAI/db_atigh.sqlite",
         ULTRAMSG_INSTANCE_ID: process.env.ULTRAMSG_INSTANCE_ID,
         ULTRAMSG_TOKEN: process.env.ULTRAMSG_TOKEN
       }
@@ -119,9 +121,9 @@ module.exports = {
       exec_mode: "fork",
       time: true,
       timezone: "Asia/Tehran",
-      out_file: "E:/Projects/rahin/logs/rahin-daily-crm-alerts.out.log",
+      out_file: "E:/Projects/rahin/logs/rahin-daily-crm-alerts.log",
       error_file: "E:/Projects/rahin/logs/rahin-daily-crm-alerts.err.log",
-      merge_logs: false,
+      merge_logs: true,
       log_date_format: "YYYY-MM-DD HH:mm:ss",
       env: {
         NODE_ENV: "production",
@@ -144,9 +146,9 @@ module.exports = {
       exec_mode: "fork",
       time: true,
       timezone: "Asia/Tehran",
-      out_file: "E:/Projects/rahin/logs/rahin-daily-report.out.log",
+      out_file: "E:/Projects/rahin/logs/rahin-daily-report.log",
       error_file: "E:/Projects/rahin/logs/rahin-daily-report.err.log",
-      merge_logs: false,
+      merge_logs: true,
       log_date_format: "YYYY-MM-DD HH:mm:ss",
       env: {
         NODE_ENV: "production",
@@ -155,25 +157,53 @@ module.exports = {
         FORCE_RUN: "0"
       }
     },
+
+    // ========================================================
+    // ۷. محاسبه امتیاز مالی روزانه (Financial Score)
+    // ========================================================
     {
       name: "rahin-daily-financial-score",
       script: "src/jobs/job_financial_score_daily.js",
       cwd: "E:/Projects/rahin",
-      cron_restart: "0 18 * * *",
+      cron_restart: "10 18 * * *",
       autorestart: false,
       exec_mode: "fork",
       time: true,
       timezone: "Asia/Tehran",
-      out_file: "E:/Projects/rahin/logs/rahin-daily-financial-score.out.log",
+      out_file: "E:/Projects/rahin/logs/rahin-daily-financial-score.log",
       error_file: "E:/Projects/rahin/logs/rahin-daily-financial-score.err.log",
-      merge_logs: false,
+      merge_logs: true,
       log_date_format: "YYYY-MM-DD HH:mm:ss",
       env: {
         NODE_ENV: "production",
         APP_TZ: "Asia/Tehran",
-        DRY_RUN: "0"
+        DRY_RUN: "0",
+        MAIN_DB_PATH: "E:/Projects/AtighgashtAI/db_atigh.sqlite"
+      }
+    },
+
+    {
+      name: "atigh-channel-health-monitor",
+      script: "jobs/channel_health_monitor.js",
+      cwd: "E:/Projects/AtighgashtAI",
+      autorestart: true,
+      watch: false,
+      exec_mode: "fork",
+      time: true,
+      timezone: "Asia/Tehran",
+      out_file: "E:/Projects/AtighgashtAI/logs/channel-health-monitor.log",
+      error_file: "E:/Projects/AtighgashtAI/logs/channel-health-monitor.err.log",
+      merge_logs: true,
+      env: {
+        NODE_ENV: "produclearction",
+        APP_TZ: "Asia/Tehran",
+        MAIN_DB_PATH: "E:/Projects/AtighgashtAI/db_atigh.sqlite",
+        DEV_ALERT_MOBILE: "09134052885",
+        ULTRAMSG_INSTANCE_ID: process.env.ULTRAMSG_INSTANCE_ID,
+        ULTRAMSG_TOKEN: process.env.ULTRAMSG_TOKEN
       }
     }
+    
     
   ]
 };

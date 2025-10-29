@@ -7,8 +7,11 @@
  * - ذخیره در DB + ارسال خلاصه در واتساپ
  * - (جدید) اجرای تحلیل چندکاناله داخل خود واچ‌داگ برای تست/ارسال
  */
+
+import '../../logger.js';
 import dotenv from 'dotenv';
 dotenv.config({ path: 'E:/Projects/AtighgashtAI/.env' });
+import '../../AtighgashtAI/lib/health/channelEventListener.js';
 
 import path from "path";
 import { CONFIG } from "../config/Config.js";
