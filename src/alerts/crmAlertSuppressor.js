@@ -28,7 +28,6 @@ function log(...a) {
 // ۱. بررسی cross-channel silence
 // ========================================================
 export async function shouldSuppressCrossChannel(contactId) {
-  const db = await open({ filename: DB_PATH, driver: sqlite3.Database });
 
   try {
     const cutoff = Date.now() - CROSS_CHANNEL_HOURS * 3600 * 1000;
@@ -55,8 +54,6 @@ export async function shouldSuppressCrossChannel(contactId) {
   } catch (err) {
     log('❌ Error in shouldSuppressCrossChannel:', err.message);
     return { suppressed: false };
-  } finally {
-    await db.close();
   }
 }
 

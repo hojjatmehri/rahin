@@ -1,58 +1,51 @@
-// ========================================================
+// ============================================================
 // File: src/jobs/job_crm_alerts_daily.js
-// Author: Hojjat Mehri
-// Role: Nightly job for CRM alert collection and WhatsApp summary
-// Schedule: Every night at 02:00 Tehran time
-// ========================================================
-import dotenv from 'dotenv';
-dotenv.config({ path: 'E:/Projects/AtighgashtAI/.env' });
-
-import 'file:///E:/Projects/rahin/logger.js';
+// Purpose: جمع‌آوری و ارسال آلارم‌های CRM هر شب ساعت ۲:۰۰
+// Author: Hojjat Mehri (Stable v4 - Scheduler Compatible)
+// ============================================================
 
 import 'dotenv/config';
-import cron from 'node-cron';
+import 'file:///E:/Projects/rahin/logger.js';
 import moment from 'moment-timezone';
 import { collectCrmAlerts } from '../alerts/crmAlertCollector.js';
+import WhatsAppService from '../WhatsAppService.js';
 
 const TZ = 'Asia/Tehran';
 const MOD = '[JobCRMAlertsDaily]';
+const MANAGER_MOBILE = process.env.DEV_ALERT_MOBILE || '09134052885';
+const DRY_RUN = String(process.env.DRY_RUN || '0') === '1';
 
 const log = (...a) => console.log(MOD, ...a);
-const warn = (...a) => console.warn(MOD, ...a);
 const err = (...a) => console.error(MOD, ...a);
 
-// ========================================================
-// اجرای اصلی یک‌باره
-// ========================================================
-async function runJobOnce() {
-  log(`🕑 Starting CRM Alerts Daily Job — ${moment().tz(TZ).format('YYYY-MM-DD HH:mm:ss')}`);
+export async function main() {
+  const start = moment().tz(TZ).format('YYYY-MM-DD HH:mm:ss');
+  log(`🕑 CRM Alerts Daily Job started at ${start}`);
+
   try {
-    await collectCrmAlerts();
-    log(`✅ CRM Alerts job completed at ${moment().tz(TZ).format('HH:mm:ss')}`);
+    // اجرای Collector
+    const result = await collectCrmAlerts();
+    const end = moment().tz(TZ).format('YYYY-MM-DD HH:mm:ss');
+    log(`✅ CRM Alerts job completed successfully at ${end}`);
+
+    // ساخت پیام گزارش کوتاه
+    const msg =
+      `⚠️ اجرای آلارم‌های CRM تکمیل شد\n` +
+      `شروع: ${start}\nپایان: ${end}\n` +
+      (result?.createdCount
+        ? `تعداد آلارم‌های جدید: ${result.createdCount}`
+        : `بدون آلارم جدید`);
+
+    // ارسال پیام واتساپ یا چاپ
+    if (DRY_RUN) {
+      log(`${MOD} [DRY_RUN] پیام واتساپ ارسال نمی‌شود.\n` + msg);
+    } else {
+      await WhatsAppService.sendMessage(MANAGER_MOBILE, msg);
+      log(`${MOD} ✅ گزارش برای ${MANAGER_MOBILE} ارسال شد.`);
+    }
+
+    log(`${MOD} 🏁 Job finished.`);
   } catch (e) {
-    err(`❌ CRM Alerts job failed: ${e.message}`);
+    err(`${MOD} ❌ CRM Alerts job failed: ${e.message}`);
   }
-}
-
-// ========================================================
-// زمان‌بندی خودکار (هر شب ساعت ۲:۰۰ به وقت تهران)
-// ========================================================
-export function scheduleCrmAlertsJob() {
-  const scheduleExpr = '0 2 * * *'; // هر روز ساعت 02:00
-  cron.schedule(scheduleExpr, () => {
-    log(`🗓 Triggered CRM alerts job (scheduled run)`);
-    runJobOnce();
-  }, {
-    timezone: TZ
-  });
-  log(`📆 Job scheduled for ${TZ} time at 02:00 every day`);
-}
-
-// ========================================================
-// اگر مستقیم اجرا شود (مثلاً با node job_crm_alerts_daily.js)
-// ========================================================
-if (process.argv.includes('--now') || process.argv.includes('--force')) {
-  await runJobOnce();
-} else {
-  scheduleCrmAlertsJob();
 }

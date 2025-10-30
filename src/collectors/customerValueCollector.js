@@ -5,7 +5,7 @@
 // ============================================================
 
 import 'file:///E:/Projects/rahin/logger.js';
-import Database from 'better-sqlite3';
+import { db } from 'file:///E:/Projects/rahin/src/lib/db/dbSingleton.js';
 import moment from 'moment-timezone';
 
 const MOD = '[CustomerValueCollector]';
@@ -54,9 +54,6 @@ function rankLabel(score) {
 
 // ========== Main ==========
 export function collectCustomerValue() {
-  const db = new Database(dbPath);
-  db.pragma('journal_mode = WAL');
-  db.pragma('foreign_keys = ON');
 
   // جدول نهایی
   db.exec(`
@@ -204,13 +201,11 @@ export function collectCustomerValue() {
   });
 
   trx();
-  db.close();
 
   log(`✅ Updated ${updated} records (skipped ${skipped})`);
 
   // ایجاد View
-  const db2 = new Database(dbPath);
-  db2.exec(`
+  db.exec(`
     DROP VIEW IF EXISTS v_customer_value_ranked;
     CREATE VIEW v_customer_value_ranked AS
     SELECT
@@ -228,7 +223,7 @@ export function collectCustomerValue() {
     FROM customer_value
     ORDER BY value_score DESC;
   `);
-  db2.close();
+
 
   log('✅ View v_customer_value_ranked refreshed.');
 }

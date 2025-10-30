@@ -14,11 +14,7 @@ const TZ = 'Asia/Tehran';
 const DB_PATH = process.env.MAIN_DB_PATH || 'E:/Projects/AtighgashtAI/db_atigh.sqlite';
 const MANAGER_MOBILE = process.env.WHATSAPP_OPERATOR || '989134052885';
 
-// اتصال به DB
-const db = new Database(DB_PATH);
-db.pragma('journal_mode = WAL');
-db.pragma('foreign_keys = ON');
-
+import { db } from 'file:///E:/Projects/rahin/src/lib/db/dbSingleton.js';
 // === ابزار کمکی
 function fmt(ts) {
   return ts ? moment(ts).tz(TZ).format('YYYY-MM-DD HH:mm') : '-';

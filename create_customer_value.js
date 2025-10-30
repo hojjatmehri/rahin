@@ -1,6 +1,6 @@
 import Database from 'better-sqlite3';
 
-const db = new Database('E:/Projects/AtighgashtAI/db_atigh.sqlite');
+import { db } from 'file:///E:/Projects/rahin/src/lib/db/dbSingleton.js';
 db.exec(`
 CREATE VIEW IF NOT EXISTS v_customer_value_ranked AS
 SELECT
@@ -19,4 +19,4 @@ LEFT JOIN person_unified_profile p ON p.mobile = cv.mobile
 ORDER BY cv.value_score DESC;
 `);
 console.log('✅ v_customer_value_ranked view created.');
-db.close();
+

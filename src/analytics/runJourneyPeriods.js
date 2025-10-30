@@ -6,7 +6,7 @@ import { aggregateJourney } from "./journeyAnalytics.js";
 import { startOfCurrentJMonthISO, startOfPrevJMonthISO, nowTehISO, prevMonthToNowISO } from "../utils/jalali.js";
 import { nowStamp } from "../utils/time.js";
 import { CONFIG } from "../config/Config.js";
-
+import { db } from 'file:///E:/Projects/rahin/src/lib/db/dbSingleton.js';
 const TZ = "Asia/Tehran";
 
 function upsertPeriodAggregate(db, kind, startIso, endIso, payload) {
@@ -52,8 +52,7 @@ export function diffBlocks(curr, prev) {
 }
 
 export async function runJourneyPeriods() {
-  const db = CONFIG.db.raw || new Database(CONFIG.DB_PATH_MAIN || "E:\\Projects\\AtighgashtAI\\db_atigh.sqlite");
-  try {
+   try {
     // 1) ۷ روز اخیر
     const endIso = nowTehISO();
     const start7d = moment.tz(endIso, TZ).subtract(7, "days").toISOString();
@@ -77,7 +76,7 @@ export async function runJourneyPeriods() {
       cmp: { runKey: runKeyCMP, ...kcmp, range_title: "مقایسه ماه قبل تا امروز با ماه جاری تا امروز" }
     };
   } finally {
-    if (!CONFIG.db.raw) db.close();
+   
   }
 }
 

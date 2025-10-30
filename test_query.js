@@ -1,7 +1,7 @@
 // File: E:\Projects\rahin\test_create_v_customer_segments.js
 import Database from "better-sqlite3";
 
-const db = new Database("E:/Projects/AtighgashtAI/db_atigh.sqlite");
+import { db } from 'file:///E:/Projects/rahin/src/lib/db/dbSingleton.js';
 db.exec(`
 DROP VIEW IF EXISTS v_customer_segments;
 CREATE VIEW v_customer_segments AS
@@ -28,4 +28,4 @@ console.log("✅ View v_customer_segments created successfully.");
 // تست سریع
 const rows = db.prepare(`SELECT * FROM v_customer_segments;`).all();
 console.table(rows);
-db.close();
+

@@ -231,10 +231,10 @@ function fetchDayMessages(db, table, cols, targetDateStr){
   out.sort((a,b)=>a.ts-b.ts);
   return out;
 }
-
+import { db } from 'file:///E:/Projects/rahin/src/lib/db/dbSingleton.js';
 // ======================== Core Collector ========================
 export function summarizeMessagesForDate(targetDateStr){
-  const db = openDB();
+
   try{
     ensureDailySummaryColumns(db);
 
@@ -333,7 +333,7 @@ export function summarizeMessagesForDate(targetDateStr){
 
     log(`OK ${targetDateStr} → in=${messages_in} out=${messages_out} active_wa=${active_whatsapp_chats} frt=${avg_first_response_time_sec ?? "-"}`);
   } finally {
-    try{ db.close(); }catch{}
+  
   }
 }
 

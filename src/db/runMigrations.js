@@ -67,5 +67,5 @@ for (const file of migrationFiles) {
 }
 
 console.log("🎉 All migrations applied successfully!");
-db.close();
+
 

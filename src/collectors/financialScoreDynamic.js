@@ -5,12 +5,11 @@
 // ============================================================
 
 import 'file:///E:/Projects/rahin/logger.js';
-import Database from 'better-sqlite3';
+import { db } from 'file:///E:/Projects/rahin/src/lib/db/dbSingleton.js';
 import moment from 'moment-timezone';
 import WhatsAppService from '../WhatsAppService.js';
 
 const TZ = 'Asia/Tehran';
-const DB_PATH = 'E:/Projects/AtighgashtAI/db_atigh.sqlite';
 const MANAGER_MOBILE = process.env.DEV_ALERT_MOBILE || '09134052885';
 
 // Helper
@@ -23,12 +22,9 @@ function percentile(arr, p) {
   if (lower === upper) return sorted[lower];
   return sorted[lower] + (sorted[upper]-sorted[lower])*(idx-lower);
 }
-
 // =============================== MAIN ===============================
 export async function computeFinancialScoreDynamic() {
-  const db = new Database(DB_PATH);
-  db.pragma('journal_mode = WAL');
-  db.pragma('synchronous = NORMAL');
+
   const now = moment().tz(TZ).format('YYYY-MM-DD HH:mm:ss');
   console.log(`[FinancialScoreDynamic] 🚀 Started at ${now}`);
 
@@ -41,7 +37,7 @@ export async function computeFinancialScoreDynamic() {
 
   if (txns.length === 0) {
     console.warn('[FinancialScoreDynamic] ⚠️ No valid transactions found.');
-    db.close();
+
     return;
   }
 
@@ -113,12 +109,11 @@ export async function computeFinancialScoreDynamic() {
     updated++;
   }
 
-  db.close();
+
   console.log(`[FinancialScoreDynamic] ✅ Updated ${updated} records.`);
 
   // 4. خلاصه آماری و گزارش واتساپ
-  const db2 = new Database(DB_PATH);
-  const summary = db2.prepare(`
+  const summary = db.prepare(`
     SELECT
       CASE
         WHEN financial_score >= 85 THEN 'پلاتینیوم'
@@ -133,7 +128,7 @@ export async function computeFinancialScoreDynamic() {
     GROUP BY tier
     ORDER BY avg_score DESC;
   `).all();
-  db2.close();
+
 
   console.table(summary);
 

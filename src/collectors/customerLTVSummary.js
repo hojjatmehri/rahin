@@ -17,22 +17,20 @@ const DRY_RUN = String(process.env.DRY_RUN || '1') === '1';
 
 const log = (...a) => console.log(MOD, ...a);
 const err = (...a) => console.error(MOD, ...a);
-
+import { db } from 'file:///E:/Projects/rahin/src/lib/db/dbSingleton.js';
 (async () => {
   try {
     const now = moment().tz(TZ).format('YYYY-MM-DD HH:mm:ss');
     log(`🚀 Job started at ${now}`);
 
     // --- مرحله ۱: اتصال به DB ---
-    const db = new Database(DB_PATH);
-    db.pragma('journal_mode = WAL');
-    db.pragma('foreign_keys = ON');
+
 
     // --- مرحله ۲: خواندن داده‌ها از View ---
     const segments = db.prepare('SELECT * FROM v_customer_segments;').all();
     const totalRow = db.prepare('SELECT COUNT(*) AS c FROM customer_value;').get();
     const total = totalRow?.c || 0;
-    db.close();
+
 
     if (!segments.length) {
       log('⚠️ No segment data found.');

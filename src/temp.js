@@ -1,7 +1,7 @@
 import '../logger.js';
 import Database from "better-sqlite3";
 
-const db = new Database("./db_atigh.sqlite");
+import { db } from 'file:///E:/Projects/rahin/src/lib/db/dbSingleton.js';
 
 try {
   db.exec(`

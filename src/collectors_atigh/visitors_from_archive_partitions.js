@@ -112,7 +112,7 @@ export function countDailyUniqueFromArchive(dateStr, archivePath="./db_archive.s
     const total = Number(row?.c || 0);
     return { ok:true, date:dateStr, week_end, table, total };
   } finally {
-    db.close();
+
   }
 }
 

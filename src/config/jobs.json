@@ -1,0 +1,30 @@
+[
+  {
+    "name": "unified_profiles",
+    "script": "E:/Projects/rahin/src/jobs/job_sync_unified_profiles.js",
+    "cron": "55 7 * * *",
+    "enabled": true,
+    "delayAfterMin": 5
+  },
+  {
+    "name": "customer_value",
+    "script": "E:/Projects/rahin/src/jobs/job_customer_value_daily.js",
+    "cron": "0 9 * * *",
+    "enabled": true,
+    "delayAfterMin": 10
+  },
+  {
+    "name": "financial_score",
+    "script": "E:/Projects/rahin/src/jobs/job_financial_score_daily.js",
+    "cron": "10 18 * * *",
+    "enabled": true,
+    "delayAfterMin": 10,
+    "retryDelayMin": 15
+  },
+  {
+    "name": "crm_alerts",
+    "script": "E:/Projects/rahin/src/jobs/job_crm_alerts_daily.js",
+    "cron": "0 2 * * *",
+    "enabled": true
+  }
+]

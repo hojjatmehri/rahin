@@ -1,16 +1,23 @@
 // @ts-check
 // node src/analytics/runAllChannelsAndAnalyze.mjs
 
-// 1) .env را همین‌جا لود می‌کنیم تا مطمئن باشیم متغیرها حاضرند
 import 'dotenv/config.js';
-
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import Database from 'better-sqlite3';
-import { useBetterSqlite3 } from '../db/db.js';
+// @ts-ignore
+import { db } from 'file:///E:/Projects/rahin/src/lib/db/dbSingleton.js';
 import util from 'node:util';
 
-// کالکتورها (بدون تغییر فایل‌های خودشان)
+// --------------------------- اتصال اولیه مطمئن ---------------------------
+try {
+  const test = db.prepare("SELECT datetime('now','localtime') AS now").get();
+  console.log(`[DB] ✅ Shared connection verified @ ${test.now}`);
+} catch (e) {
+  console.error(`[DB] ❌ Connection failed before collectors: ${e.message}`);
+  process.exit(1);
+}
+
+// --------------------------- کالکتورها ---------------------------
 import { collectWhatsApp, whatsappClickInsightsShort } from '../collectors/whatsappCollector.js';
 import { collectPDF } from '../collectors/pdfCollector.js';
 import { collectInstagram } from '../collectors/instagramCollector.js';
@@ -18,10 +25,6 @@ import { collectFinance } from '../collectors/financeCollector.js';
 
 /* ----------------- ENV & FLAGS ----------------- */
 const TZ = process.env.TZ || 'Asia/Tehran';
-const DB_PATH = process.env.DB_PATH
-  || 'E:/Projects/AtighgashtAI/db_atigh.sqlite';
-const ARCHIVE_DB_PATH = process.env.ARCHIVE_DB_PATH
-  || 'E:/Projects/AtighgashtAI/db_archive.sqlite';
 const SQL_DEBUG = String(process.env.SQL_DEBUG || '0') === '1';
 
 /* ----------------- HELPERS ----------------- */
@@ -34,45 +37,7 @@ function isDirectRun(importMetaUrl) {
   return path.resolve(thisPath) === argv1;
 }
 
-/** اتصال DB را باز می‌کند، آرشیو را ATTACH می‌کند و PRAGMA می‌زند. */
-function openDb(dbPath = DB_PATH, archivePath = ARCHIVE_DB_PATH) {
- 
-let db;
-
-try {
-  db = new Database(dbPath, {
-    fileMustExist: false,
-    timeout: 5000,
-  });
-
-  db.pragma("journal_mode = WAL");
-  db.pragma("foreign_keys = ON");
-  db.pragma("busy_timeout = 5000");
-  db.pragma("synchronous = NORMAL");
-  db.pragma("temp_store = MEMORY");
-
-  console.log("[DB] sqlite ready (WAL + timeout)");
-} catch (err) {
-  console.error("[DB] failed:", err.message);
-  process.exit(1);
-}
-
-  // ATTACH آرشیو
-  try {
-    const archEsc = String(archivePath).replace(/'/g, "''");
-    db.exec(`ATTACH DATABASE '${archEsc}' AS arch;`);
-    log(`[db] ATTACH arch: ${archivePath}`);
-  } catch (e) {
-    warn('[db] attach arch failed:', e?.message || e);
-  }
-
-  // ⬅️ بسیار مهم: کالکتورها از همین اتصال better-sqlite3 استفاده کنند
-  useBetterSqlite3(db);
-
-  return db;
-}
-
-/* ---------------- Debug utils ---------------- */
+// ---------------- Debug utils ----------------
 export function dump(label, obj) {
   if (!SQL_DEBUG) return;
   console.log(label);
@@ -160,13 +125,7 @@ function buildCollectorsText({ wa, wai, pdf, ig, fin }) {
 }
 
 /** هستهٔ اجرا – فقط کالکتورها */
-export async function generateAllChannelsAnalysisText(externalDb = null) {
-  const mustClose = !externalDb;
-  const db = externalDb || openDb();
-
-  // اگر از بیرون DB دادی، آن را هم به آداپتور معرفی کن
-  if (externalDb) useBetterSqlite3(externalDb);
-
+export async function generateAllChannelsAnalysisText() {
   try {
     let wa = {}, wai = {}, pdf = {}, ig = {}, fin = {};
     try { wa = await collectWhatsApp(); } catch (e) { warn('[collector] WhatsApp:', e?.message || e); }
@@ -177,9 +136,7 @@ export async function generateAllChannelsAnalysisText(externalDb = null) {
 
     return buildCollectorsText({ wa, wai, pdf, ig, fin });
   } finally {
-    if (mustClose) {
-      try { db.close(); if (SQL_DEBUG) log('[db] closed'); } catch {}
-    }
+    // اتصال singleton را نمی‌بندیم
   }
 }
 
@@ -187,7 +144,7 @@ export async function generateAllChannelsAnalysisText(externalDb = null) {
 if (isDirectRun(import.meta.url)) {
   (async () => {
     if (SQL_DEBUG) log(`[env] SQL_DEBUG=1 (TZ=${TZ})`);
-    const txt = await generateAllChannelsAnalysisText(null); // خودش DB را باز می‌کند
+    const txt = await generateAllChannelsAnalysisText();
     console.log('\n================= تحلیل تولیدشده =================\n');
     console.log(txt);
     console.log('\n==================================================\n');

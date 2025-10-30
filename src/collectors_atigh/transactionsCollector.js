@@ -139,10 +139,10 @@ function discoverColumns(db){
 
   return { dateCol, sellCol, buyCol, destCol };
 }
-
+import { db } from 'file:///E:/Projects/rahin/src/lib/db/dbSingleton.js';
 // ---------- core ----------
 export function summarizeTransactionsForDate(targetDateStr){
-  const db = openDB();
+
   try{
     ensureDailySummaryColumns(db);
 
@@ -245,7 +245,7 @@ export function summarizeTransactionsForDate(targetDateStr){
 
     log(`Done ${targetDateStr} → tx=${transactions_count} sales=${sales_amount} profit=${profit_amount} top=${top_destination || '-'}`);
   } finally {
-    try { db.close(); } catch {}
+   
   }
 }
 

@@ -12,18 +12,11 @@ const MOD = '[waEngagementCollector]';
 const TZ = process.env.APP_TZ || 'Asia/Tehran';
 const DB_PATH = process.env.MAIN_DB_PATH || 'E:/Projects/AtighgashtAI/db_atigh.sqlite';
 
-// اتصال به دیتابیس
-function openDB() {
-  const db = new Database(DB_PATH);
-  db.pragma('journal_mode = WAL');
-  db.pragma('foreign_keys = ON');
-  db.pragma('synchronous = NORMAL');
-  return db;
-}
+import { db } from 'file:///E:/Projects/rahin/src/lib/db/dbSingleton.js';
 
 // شمارش پیام‌های ۳۰ روز اخیر از جداول واتساپ
 export function collectWAEngagement() {
-  const db = openDB();
+
   const cutoff = moment().tz(TZ).subtract(30, 'days').format('YYYY-MM-DD HH:mm:ss');
 
   console.log(`${MOD} 🚀 Collector started at ${moment().tz(TZ).format('YYYY-MM-DD HH:mm:ss')}`);
@@ -41,7 +34,7 @@ export function collectWAEngagement() {
 
   if (!hasInbound || !hasOutbound || !hasProfile) {
     console.warn(`${MOD} ⚠️ Required tables missing.`);
-    db.close();
+
     return;
   }
 
@@ -119,6 +112,6 @@ export function collectWAEngagement() {
   })();
 
   console.log(`${MOD} ✅ Completed. Updated ${updated} profiles with WA engagement data.`);
-  db.close();
+
   console.log(`${MOD} 🏁 Collector finished.`);
 }

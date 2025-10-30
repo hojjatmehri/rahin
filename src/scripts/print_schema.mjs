@@ -19,17 +19,7 @@ function abs(p) {
 function qident(name) {
   return `"${String(name).replaceAll('"','""')}"`;
 }
-
-/* ---------- DB helpers ---------- */
-function openDb(file) {
-  const filename = abs(file);
-  if (!fs.existsSync(filename)) {
-    throw new Error(`DB not found: ${filename}`);
-  }
-  const db = new Database(filename, { fileMustExist: true, readonly: true });
-  // فقط خواندن وضعیت پرگماها (بدون تغییر)
-  return db;
-}
+import { db } from 'file:///E:/Projects/rahin/src/lib/db/dbSingleton.js';
 
 function listTables(db) {
   const sql = `
@@ -113,9 +103,9 @@ function printTableSchema(dbLabel, table, info) {
   }
   console.log('');
 }
-
+import { db } from 'file:///E:/Projects/rahin/src/lib/db/dbSingleton.js';
 function dumpSchema(dbPath, label) {
-  const db = openDb(dbPath);
+
 
   console.log(`\n==============================`);
   console.log(`اسکیما: ${label}`);
@@ -133,7 +123,7 @@ function dumpSchema(dbPath, label) {
   const tables = listTables(db);
   if (!tables.length) {
     console.log('(هیچ جدولی یافت نشد)');
-    db.close();
+    
     return;
   }
 
@@ -141,7 +131,7 @@ function dumpSchema(dbPath, label) {
     const info = tableInfo(db, t.name);
     printTableSchema(label, t.name, info);
   }
-  db.close();
+  
 }
 
 /* ---------- run ---------- */
